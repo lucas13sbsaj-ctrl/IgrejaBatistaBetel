@@ -1,0 +1,254 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;;
+}
+
+/* Largura da barra */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Fundo da barra */
+::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+/* A parte que se move */
+::-webkit-scrollbar-thumb {
+    background: #464019;
+    border-radius: 20px;
+}
+
+/* Quando passa o mouse */
+::-webkit-scrollbar-thumb:hover {
+    background: #928640;
+}
+
+:root{
+    --cor-principal:#504d35;
+    --cor-secundaria: #585750;
+    --cor-destaque: #c9a227;
+    --branco: #ffffff;
+}
+
+/*=========ANIAMTION========*/
+@keyframes aparecer{
+
+    from{
+        transform:translateY(-100%);
+    }
+
+    to{
+        transform:translateY(0);
+    }
+
+}
+
+
+@keyframes seta {
+    0%, 100%{
+        transform: translateY(0);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translateY(10px);
+        opacity: 1;
+        
+    }
+
+}
+/*=========ANIAMTION========*/
+
+/*=========CABEÇALHO========*/
+
+header{
+    position: fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+
+    background-color: #ebc7c759;
+    backdrop-filter: blur(20px);
+    box-shadow: rgba(0, 0, 0, .1) 0px 10px 40px;
+
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: aparecer 1s ease;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    width: 60vw;
+    height: 100px;    
+}
+
+/*LOGO*/
+header .logo{
+    margin-top: 10px;
+    width: 70px;
+}
+header .logo img{
+    width: 100%;
+}
+/*LOGO*/
+header .menu{
+    display: flex;
+    align-items: center;
+}
+
+header .menu ul{
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #7c7373;
+    text-transform: uppercase;
+}
+
+header .sac{
+    display: flex;
+    align-items: center;
+}
+header .sac h5{
+    background: linear-gradient(90deg,#252318,#363223,#504d35);
+    padding: 10px 20px;
+    border-radius: 20px;
+
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+}
+/*=========CABEÇALHO========*/
+
+/*=========SECTION-BANNER1========*/
+.banner1{
+    position: relative;
+
+    background-image: url(../images/banner.png);
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner1 .principal{
+    width: 50vw;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    color: white;
+    text-align: center;
+}
+
+.banner1 span{
+    font-size: 15px;
+    text-transform: uppercase;
+    color: var(--cor-secundaria);
+
+    background: linear-gradient(90deg,#fdfdfd13,#1f1c0b13,#ffffff13);
+    border: 1px solid rgba(44, 20, 20, 0.082);
+    backdrop-filter: blur(10px);
+
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+.banner1 h1{
+    margin-top: 40px;
+
+    font-size: 60px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg,#1f0e0e,#1f1c0b,#655D21);
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+.banner1 p{
+    width: 800px;
+
+    font-weight: 300;
+    font-size: 25px;
+    color: var(--cor-secundaria);
+}
+
+.banner1 .secundaria{
+    width: 50vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.banner1 .secundaria .a1{
+    text-decoration: none;
+    color: white;
+
+    background: linear-gradient(90deg,#252318,#363223,#504d35);
+    padding: 8px 30px;
+    border-radius: 20px;
+}
+
+.banner1 .secundaria .a2{
+    text-decoration: none;
+    color: #1f1c0b;
+
+    background: linear-gradient(90deg,#5f5c5c1e,#fffefe34,#ffffff13);
+    border: 1px solid rgba(44, 20, 20, 0.295);
+    padding: 8px 30px;
+    border-radius: 20px;
+}
+
+.banner1 .secundaria h3{
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.details{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    z-index: 999;
+}
+
+.details h5{
+    color: var(--cor-secundaria);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+}
+
+.details img {
+    animation: seta 1.5s ease infinite;
+}
+/*=========SECTION-BANNER1========*/
+
+/*=========SECTION-BANNER2========*/
+.banner2{
+    height: 500px;;
+    background-color: white;
+}
