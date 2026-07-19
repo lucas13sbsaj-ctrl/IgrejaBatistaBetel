@@ -85,16 +85,33 @@ header{
 .container{
     display: flex;
     justify-content: space-between;
-    width: min(1200px,90%);
-    height: 80px;    
+    width: min(90%, 1200px);
+    height: 80px;
+    gap: 30px;    
 }
 
 /*LOGO*/
 header .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}
+
+header .logo .titulo{
+    text-transform: uppercase;
     width: 70px;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    color:#3d3b29;
+    text-align: center;
+}
+header .logo .igreja{
+    font-weight: 500;
 }
 header .logo img{
-    width: 100%;
+    width: 70px;
 }
 /*LOGO*/
 header .menu{
@@ -108,12 +125,44 @@ header .menu ul{
     gap: 30px;
     font-size: 14px;
     font-weight: 600;
-    color: #7c7373;
     text-transform: uppercase;
 }
 
+header .menu a{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color:#8a7676;
+}
+
+header .menu a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height:1px;
+    background:#5e3b3ba1;
+
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: all .4s ease;
+}
+
+header .menu a:hover{
+    color:#2e2525;
+}
+
+header .menu a:hover::after{
+    transform: scaleX(1);
+}
+
+
+
 header .sac{
     display: flex;
+    text-align: center;
     align-items: center;
 }
 header .sac h5{
@@ -188,7 +237,7 @@ header .sac h5{
     max-width:800px;
 
     font-weight: 300;
-    font-size: min(30% 25px);
+    font-size: 25px;
     color: var(--cor-secundaria);
 }
 
@@ -261,56 +310,228 @@ header .sac h5{
 /*=========RODAPÉ========*/
 footer{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: #504d35;
 }
 
 .container_footer{
     display: flex;
     justify-content: space-between; 
-    margin: 50px;
-    gap: 50px;
-
+    padding-bottom: 10px;
+    margin: 20px 50px;
+    width: 90%;
+    gap: 20px;
+    border-bottom: 1px solid rgba(202, 191, 191, 0.192);
 }
 
 .widgetF{
+    display: flex;
     flex: 1;
-    height: auto;
-    margin-top: 20px; 
+    flex-direction: column;
+    max-width: 300px ;
+    font-weight: 200;
+    font-size: 18px;
+    color: rgb(202, 191, 191);
+    text-align: left;
+    gap: 10px;
 }
 
-.widget_footer{
+/*FOOTER 1*/
+.widget_footer1{
+    display: flex;
+    flex-direction: column;
+    align-items:left;
+    color:#fffffb;
+    padding-bottom: 20px;
+}
+
+
+.widget_footer1 span{
+    font-weight: 400;
+}
+.widget_footer1 h3{
+    font-weight:500;
+    font-size: 20px;
+}
+
+/*FOOTER 1*/
+
+/*FOOTER 2*/
+.widget_footer2{
     display: flex;
     justify-content: left;
     align-items: center;
-    color: white;
+    color:#fffffb;
 }
 
-.widget_footer h3{
+.widget_footer2 h3{
+    width: 100%;
+    padding-bottom: 5px;
+
+    font-weight:500;
     font-size: 20px;
-    font-weight: 200;
+    border-bottom: 1px solid rgba(202, 191, 191, 0.411);
 }
 
-.logo_footer{
-   display: none;
+footer .links_rapidos li{
+    list-style: none;
 }
+footer .links_rapidos ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+footer .links_rapidos a{
+    text-decoration: none;
+    color: rgb(202, 191, 191);
+}
+
+/*FOOTER 2*/
+
+/*FOOTER 3*/
+.widget_footer3{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color:#fffffb;
+}
+
+.widget_footer3 h3{
+    width: 100%;
+    padding-bottom: 5px;
+    
+
+    font-weight:500;
+    font-size: 20px;
+    border-bottom: 1px solid rgba(202, 191, 191, 0.411);
+}
+
+/*FOOTER 3*/
+
+/*FOOTER 4*/
+
+.widget_footer4{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color:#fffffb;
+}
+
+.widget_footer4 h3{
+    width: 100%;
+    padding-bottom: 5px;
+    
+    font-weight:500;
+    font-size: 20px;
+    border-bottom: 1px solid rgba(202, 191, 191, 0.411);
+}
+
+footer .redesSociais{
+    display: flex;
+    gap: 30px;
+}
+
+footer .redesSociais .ytb,
+footer .redesSociais .insta{
+    display: flex;
+
+    position: relative;
+    overflow: hidden;
+
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    filter: brightness(.4);
+    transition: transform .3s ease,
+                box-shadow .3s ease,
+                filter .8s ease;
+                
+}
+
+footer .redesSociais .ytb{
+     background:
+        linear-gradient(rgba(0, 0, 0, 0.400), rgba(7, 7, 7, 0.700)),
+        url("../images/logo_youtube.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+footer .redesSociais .insta{
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.40), rgba(7, 7, 7, 0.700)),
+        url("../images/logo_insta.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+footer .redesSociais .ytb:hover,
+footer .redesSociais .insta:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.137);
+    filter: brightness(3);
+}
+
+
+
+footer .mensagem{
+    margin-top: 10px;
+    width: 100%;
+}
+
+footer .mensagem button{
+    width: 100%;
+    min-height: 30px;
+    padding: 10px;
+    background-color: rgba(134, 72, 72, 0.26) ;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(146, 97, 97, 0.507);
+}
+/*FOOTER 4*/
+.fim{
+    display: flex;
+    justify-content: space-between; 
+    margin: 20px 50px;
+    width: 90%;
+    color: rgb(202, 191, 191);
+}
+
 /*=========RODAPÉ========*/
 
 /*===========@MEDIA========*/
 
-@media (max-width:768px){
+@media (max-width: 1640px){
+    .banner1 .secundaria{
+        flex-direction: column;
+        gap: 10px;
+}
+
+@media (max-width: 1125px){
+    header .menu ul{
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+}
+
+@media (max-width:1102px){
     .container .menu{
         display: none;
     }
+    header .sac{
+    display: none;}
     
     .container_footer{
         flex-direction: column;
     }
 
-    .banner1 h1{
-        font-size: 45px;
-    }
-
+    
     .banner1 .secundaria h3{
         font-size: 15px;
     }
@@ -320,4 +541,22 @@ footer{
         gap: 10px;
     }
 
+    
+    footer .fim{
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        font-size: 10px;
+    }
 }
+
+@media (max-width:840px){
+    .banner1 p{
+        font-size: 20px;
+    }
+
+     .banner1 h1{
+        font-size: 45px;
+    }
+
+}   
