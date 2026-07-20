@@ -6,121 +6,282 @@
     <link rel="stylesheet" href="assets/css/style.css"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+    <script type="text/javascript">
+        window.onload=function(){
+            document.querySelector(".menu_mobile").addEventListener("click", function(){
+                if(document.querySelector(".menu ul").style.display =='flex'){
+                    document.querySelector(".menu ul").style.display ='none'
+                } else{
+                    document.querySelector(".menu ul").style.display ='flex'
+                }
+            });
+        };
+    </script>
+    
     <title>Igreja Batista Betel</title>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="assets/images/logo_betel.svg"/>
-                <h1 class="titulo"><span class="igreja">Igreja</span> Batista Betel</h1>
+
+<header>
+    <div class="container">
+
+        <div class="logo">
+            <img src="assets/images/logo_betel.svg">
+            <h1 class="titulo">
+                <span class="igreja">Igreja</span> Batista Betel
+            </h1>
+        </div>
+
+        <nav class="menu">
+            <div class="menu_mobile">
+                <img src="assets/images/menu_mobile.svg" alt="">
             </div>
-            <nav class="menu">
+            <ul>
+                <li><a href="#home" class="active">Início</a></li>
+                <li><a href="#">Quem Somos</a></li>
+                <li><a href="#">Pastores</a></li>
+                <li><a href="#">Nossa fé</a></li>
+                <li><a href="#">Cultos</a></li>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#">Localização</a></li>
+            </ul>
+        </nav>
+
+        <div class="sac">
+            <h5>Fale Conosco</h5>
+        </div>
+
+    </div>
+
+</header>
+
+<section id="home" class="banner1">
+
+    <div class="widget principal">
+        <span class="subtitulo-section">
+            Uma igreja vivendo o Evangelho
+        </span>
+        <h1 class="titulo-section destaque-gradient">
+            Uma família vivendo para Cristo.
+        </h1>
+        <p class="texto-section">
+            Conheça nossa igreja, participe de nossos cultos e experimente a profunda comunhão e esperança que existe em Jesus.
+        </p>
+    </div>
+
+    <div class="widget secundaria">
+        <a class="btn-primary" href="#">
+            <h3>Conheça a nossa história</h3>
+        </a>
+        <a class="btn-secondary" href="#">
+            <h3>Horários de cultos</h3>
+        </a>
+    </div>
+
+    <div class="details">
+        <h5>MAIS DETALHES</h5>
+        <img src="assets/images/seta_baixo.svg">
+    </div>
+
+</section>
+
+<section class="banner2">
+
+    <div class="box2">
+
+        <div class="widget principal">
+
+            <span class="subtitulo-section">
+                Sobre Nós
+            </span>
+
+            <h1 class="titulo-section">
+                Nossa História e Identidade
+            </h1>
+
+            <p class="texto-section">
+                A Igreja Batista Betel em Santo Antônio de Jesus é uma comunidade acolhedora, fundamentada sob os princípios inerrantes das Escrituras Sagradas. Buscamos ser mais do que uma instituição; aspiramos ser uma autêntica extensão do amor e da graça de Cristo na sociedade.
+            </p>
+
+            <a class="btn-primary" href="#">
+                <h3>Conhecer Quem Somos</h3>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="banner3">
+
+    <div class="box3">
+
+        <div class="pastor">
+
+            <div class="descricao">
+
+                <h2>Pastor Titular</h2>
+
+                <p>Pr. José Vieira</p>
+
+            </div>
+
+        </div>
+
+        <div class="widget principal">
+
+            <span class="subtitulo-section">
+                NOSSO PASTOR
+            </span>
+
+            <h1 class="titulo-section">
+                Liderança Pastoral
+            </h1>
+
+            <p class="texto-section">
+                Com mais de 20 anos dedicados ao ministério pastoral, o Pastor José Vieira tem liderado a Igreja Batista Betel com profundo zelo espiritual, fidelidade doutrinária incondicional e foco no discipulado.
+            </p>
+
+            <a class="btn-primary" href="#">
+                <h3>Conhecer Nossos Pastores</h3>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="container_footer">
+
+        <div class="widgetF">
+
+            <div class="widget_footer1">
+
+                <div class="footer_img"></div>
+
+                <h3>
+                    <span>Igreja</span> Batista Betel
+                </h3>
+
+            </div>
+
+            <p class="texto-footer">
+                Uma igreja fundamentada na Palavra de Deus, dedicada a viver e compartilhar o amor de Cristo com fé e comunhão.
+            </p>
+
+        </div>
+
+        <div class="widgetF">
+
+            <div class="widget_footer2">
+                <h3>Links Rápidos</h3>
+            </div>
+
+            <div class="links_rapidos">
+
                 <ul>
-                    <li><a href="#" class="active">Início</a></li>
+
+                    <li><a href="#home">Início</a></li>
                     <li><a href="#">Quem Somos</a></li>
                     <li><a href="#">Pastores</a></li>
-                    <li><a href="#">Nossa fé</a></li>
+                    <li><a href="#">Nossa Fé</a></li>
                     <li><a href="#">Cultos</a></li>
                     <li><a href="#">Projetos</a></li>
                     <li><a href="#">Localização</a></li>
+
                 </ul>
-            </nav>
-            <div class="sac">
-                <h5>Fale Conosco</h5>
-            </div>
-        </div>
-    </header>
 
-    <section class="banner1">
-        <div class="widget principal">
-            <span>Uma igreja vivendo o Evangelho</span>
-            <h1>Uma família vivendo para Cristo.</h1>
-            <p>Conheça nossa igreja, participe de nossos cultos e experimente a profunda comunhão e esperança que existe em Jesus.</p>
-        </div>
-        <div class="widget secundaria">
-            <a class="a1" href="#"><h3>Conheça a nossa historia</h3></a>
-            <a class="a2" href="#"><h3>Horários de cultos</h3></a>
-        </div>
-
-        <div class="details">
-            <h5>MAIS DETALHES</h5>
-            <img src="assets/images/seta_baixo.svg"/>
-        </div>
-    </section>
-
-    <section class="banner2">
-        
-    </section>
-
-    <footer>
-        <div class="container_footer">
-
-            <div class="widgetF">
-                <div class="widget_footer1">
-                        <div class="footer_img">
-                        </div>
-                    <h3><span>Igreja</span> Batista Betel</h3>
-                </div>
-                <p>Uma igreja fundamentada na Palavra de Deus, dedicada a viver e compartilhar o amor de Cristo com fé e comunhão.</p>
             </div>
 
-            <div class="widgetF">
-                <div class="widget_footer2">
-                    <h3>Links Rápidos</h3>
-                </div>
-                <div class="links_rapidos">
-                    <ul>
-                        <li><a href="#">Início</a></li>
-                        <li><a href="#">Quem Somos</a></li>
-                        <li><a href="#">Pastores</a></li>
-                        <li><a href="#">Nossa fé</a></li>
-                        <li><a href="#">Cultos</a></li>
-                        <li><a href="#">Projetos</a></li>
-                        <li><a href="#">Localização</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="widgetF">
-                <div class="widget_footer3">
-                    <h3>Contato</h3>
-                </div>          
-                <div class="rua">Rua Isaías Alves, 128 — S. A. de Jesus</div>
-                <div class="fone">(75) 3631-0000</div>
-                <div class="email">contato@igrejabetel.com.br</div>
-              </div>
-                    
-
-            <div class="widgetF">
-                <div class="widget_footer4">
-                    <h3>Siga-nos</h3>
-                </div>
-
-                <div class="redesSociais">
-                    <div class="ytb"><a></a></div>
-                    <div class="insta"><a></a></div>
-                </div>
-               
-               <div class="mensagem">
-                    <button>Enviar uma Mensagem</button>
-               </div>
-            </div>
-            
         </div>
 
-        <div class="fim">
-            <div class="direitos">© 2026 Igreja Batista Betel. Todos os direitos reservados.</div>
-            <div>Feito com amor para a Glória de Deus.</div>
+        <div class="widgetF">
+
+            <div class="widget_footer3">
+                <h3>Contato</h3>
+            </div>
+
+            <div class="info-contato">
+
+                <div class="rua">
+                    Rua Isaías Alves, 128 — S. A. de Jesus
+                </div>
+
+                <div class="fone">
+                    (75) 3631-0000
+                </div>
+
+                <div class="email">
+                    contato@igrejabetel.com.br
+                </div>
+
+            </div>
+
         </div>
-    </footer>
+
+        <div class="widgetF">
+
+            <div class="widget_footer4">
+                <h3>Siga-nos</h3>
+            </div>
+
+            <div class="redesSociais">
+
+                <div class="rede">
+                    <a href="https://www.youtube.com/@igrejabetelsajba7333" target="_blank">
+                        <img src="assets/images/logo_youtube.png" alt="Logo Youtube">
+                    </a>
+                </div>
+
+                <div class="rede">
+                    <a href="https://www.instagram.com/betelsajba/" target="_blank">
+                        <img src="assets/images/logo_insta.png" alt="Logo Instagram">
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="mensagem">
+
+                <button class="btn-secondary">
+                    Enviar uma Mensagem
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="fim">
+
+        <div class="direitos">
+            © 2026 Igreja Batista Betel. Todos os direitos reservados.
+        </div>
+
+        <div class="direitos">
+            <a href="#">
+                Desenvolvido por Lucas Ferreira.
+            </a>
+        </div>
+
+        <div class="direitos">
+            Feito com amor para a Glória de Deus
+            <img src="assets/images/coracao.svg" alt="">
+        </div>
+
+    </div>
+
+</footer>
 
 </body>
 </html>
