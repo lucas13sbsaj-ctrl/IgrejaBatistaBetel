@@ -64,6 +64,20 @@ html {
     }
 }
 
+@keyframes subirDescer {
+    0% {
+        transform: translateY(5);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(5);
+    }
+}
+
 
 /* ================= COMPONENTES GERAIS ================= */
 
@@ -140,9 +154,9 @@ html {
 
     background: linear-gradient(
         90deg,
-        #252318,
-        #363223,
-        #504d35
+        #6e6948,
+        #837a5b,
+        #85805e
     );
 }
 
@@ -195,10 +209,8 @@ header {
     justify-content: center;
     align-items: center;
 
-    background-color: #F4E5DB;
-    box-shadow:
-        0 10px 40px rgba(0, 0, 0, .1);
-    border-bottom: 1px solid rgba(80, 77, 53, 0.24);
+    background-color: #ebc7c79d;
+        backdrop-filter: blur(20px);
 
     animation: aparecer .5s ease;
 }
@@ -346,12 +358,11 @@ header {
 
     text-transform: uppercase;
 
-    background:
-    linear-gradient(
+    background: linear-gradient(
         90deg,
-        #252318,
-        #363223,
-        #504d35
+        #6e6948,
+        #837a5b,
+        #85805e
     );
 }
 
@@ -604,13 +615,17 @@ header {
 
 /* ================= FOTO DO PASTOR ================= */
 
+.box3 a{
+    text-decoration: none;
+}
+
 
 .box3 .pastor {
-    width: 1000px;
+    position: relative;
 
-    max-width: 1000px;
+    width: 400px;
 
-    height: 600px;
+    height: 500px;
 
     display: flex;
 
@@ -639,6 +654,15 @@ header {
     0px 30px 60px -30px;
 
     transition: all .5s ease;
+}
+
+.box3 .img_toque{
+    position: absolute;
+    top: 20px;
+    left: 10px;
+
+    opacity: 0.3;
+    animation: subirDescer 1.5s ease-in-out infinite;
 }
 
 
@@ -700,6 +724,84 @@ header {
     font-weight: 500;
 
     text-transform: uppercase;
+}
+
+/* ================ BANNER 4 ================ */
+.banner4{
+    padding: 50px 0px;
+    display: flex;
+    justify-content: center;
+    background: radial-gradient(
+    circle at center,
+    #3a3829 0%,
+    #3b392b 45%,
+    #313025 75%,
+    #242420 100%
+);
+}
+
+.banner4 .cruz{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.678);
+    background-color: #b4ec8f3b;
+    padding: 5px;
+    border-radius: 50%;;
+}
+
+.banner4 .cruz img{
+    width: auto;
+    height: 70%;
+    object-fit: cover;
+}
+
+.banner4 .principal{
+    display: flex;
+    align-items:center;
+    text-align: center;
+    width: 50%;
+}
+.banner4 .principal h1{
+    font-size: 70px;
+    letter-spacing:8px;
+
+    color: rgb(247, 239, 224);
+    padding-bottom: 20px;
+}
+
+.banner4 .title_bar{
+    width: 100px;
+    height: 2px;
+    background-color: rgba(245, 222, 179, 0.514);
+    border-radius: 10px;
+}
+
+.banner4 .principal .texto-section{
+    color: rgb(247, 239, 224);
+    margin-top: 20px;
+}
+.banner4 .principal .second a{
+    text-decoration: none;
+    color: rgb(188, 212, 157);
+    margin-top: 20px;
+    font-size: 15px;
+    letter-spacing:2px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.banner4 .principal .texto-section-second{
+    width: 35vw;
+    font-size: 13px;
+    color: rgba(247, 239, 224, 0.671);
+    margin-top: 20px;
+}
+
+.banner4 .btn-primary{
+    margin-top: 20px;
 }
 
 /* ================= FOOTER ================= */
@@ -974,13 +1076,18 @@ footer {
         padding: 30px;
         flex-direction: column;
         align-items: center;
-        height: auto;
-
+        height: 100vh;
         gap: 20px;
-        background-color: #ebc7c79d;
+        background-color: #f0e8df;
         backdrop-filter: blur(20px);
         box-shadow:
         0 20px 40px rgba(0,0,0,.15);
+    }
+
+    .menu a{
+
+        
+        padding: 10px;
     }
 
 
@@ -994,7 +1101,11 @@ footer {
 
    
     .sac {
+
         display: block;
+        width: 50vw;
+        padding-top: 20px;
+        border-top: 1px solid rgba(83, 58, 58, 0.349);
     }
 
 
@@ -1034,9 +1145,10 @@ footer {
 
 
     .box3 .pastor {
-        width: min(300px, 100%);
+        width:200px;
         aspect-ratio: 1 / 1;
         height: 300px;
+        margin-top: 30px;
     }
 
 
@@ -1084,11 +1196,11 @@ footer {
         justify-content: space-around;
     }
 
-    .banner1 .titulo-section {
+    .banner1 .titulo-section,
+    .banner4 .principal h1{
         font-size: 40px;
     }
-
-
+    
     .banner1 .texto-section,
     .banner2 .texto-section {
         font-size: 18px;
