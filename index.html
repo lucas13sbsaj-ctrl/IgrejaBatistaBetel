@@ -10,17 +10,39 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <script type="text/javascript">
-        window.onload=function(){
-            document.querySelector(".menu_mobile").addEventListener("click", function(){
-                if(document.querySelector(".menu ul").style.display =='flex'){
-                    document.querySelector(".menu ul").style.display ='none'
-                } else{
-                    document.querySelector(".menu ul").style.display ='flex'
-                }
-            });
-        };
-    </script>
+    <script>
+window.onload = function() {
+
+    const botaoMenu = document.querySelector(".menu_mobile");
+    const menu = document.querySelector(".menu ul");
+
+    const iconeMenu = document.querySelector(".icone-menu");
+    const iconeFechar = document.querySelector(".icone-fechar");
+
+    botaoMenu.addEventListener("click", function() {
+
+        if (menu.style.display === "flex") {
+
+            // Fecha o menu
+            menu.style.display = "none";
+
+            iconeMenu.style.display = "block";
+            iconeFechar.style.display = "none";
+
+        } else {
+
+            // Abre o menu
+            menu.style.display = "flex";
+
+            iconeMenu.style.display = "none";
+            iconeFechar.style.display = "block";
+
+        }
+
+    });
+
+};
+</script>
     
     <title>Igreja Batista Betel</title>
 </head>
@@ -39,7 +61,9 @@
 
         <nav class="menu">
             <div class="menu_mobile">
-                <img src="assets/images/menu_mobile.svg" alt="">
+                <img class="icone-menu" src="assets/images/menu_mobile.svg" alt="Abrir menu">
+
+                 <img class="icone-fechar" src="assets/images/fechar.svg" alt="Fechar menu">
             </div>
             <ul>
                 <li><a href="#home" class="active">Início</a></li>
@@ -49,14 +73,15 @@
                 <li><a href="#">Cultos</a></li>
                 <li><a href="#">Projetos</a></li>
                 <li><a href="#">Localização</a></li>
+                <div class="sac">
+                    <h5>Fale Conosco</h5>
+                </div>
             </ul>
+
+            
         </nav>
 
-        <div class="sac">
-            <h5>Fale Conosco</h5>
         </div>
-
-    </div>
 
 </header>
 
