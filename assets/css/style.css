@@ -208,11 +208,14 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    background-color: #ebc7c79d;
-        backdrop-filter: blur(20px);
-
+    background-color: #f0e8df96;
+    backdrop-filter: blur(20px);
+    transition: all .2s ease;
     animation: aparecer .5s ease;
+}
+
+header.menu-aberto {
+        background-color: #f0e8df;
 }
 
 
@@ -1059,6 +1062,8 @@ footer {
 }
 
 
+
+
 /* ================= RESPONSIVIDADE ================= */
 
 
@@ -1080,8 +1085,6 @@ footer {
         gap: 20px;
         background-color: #f0e8df;
         backdrop-filter: blur(20px);
-        box-shadow:
-        0 20px 40px rgba(0,0,0,.15);
     }
 
     .menu a{
@@ -1145,7 +1148,7 @@ footer {
 
 
     .box3 .pastor {
-        width:200px;
+        width:60vw;
         aspect-ratio: 1 / 1;
         height: 300px;
         margin-top: 30px;
@@ -1173,6 +1176,15 @@ footer {
         font-size: 20px;
     }
 
+    
+    .banner4 .principal{
+        width: 90%;
+    }
+
+    .banner4 .principal .texto-section-second{
+        width: 90%;
+    }
+
 
     .fim {
 
@@ -1193,7 +1205,7 @@ footer {
 
 
     .container{
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     .banner1 .titulo-section,
