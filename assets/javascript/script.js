@@ -1,20 +1,20 @@
 
-window.onload = function() {
+window.onload = function() { //Quando a janela do navegador terminar de carregar, execute essa função.
 
-    const botaoMenu = document.querySelector(".menu_mobile");
-    const menu = document.querySelector(".menu ul");
+    const botaoMenu = document.querySelector(".menu_mobile"); //Procure no meu HTML o primeiro elemento que tenha a classe .menu_mobile e guarde ele na const botaoMenu
+    const menuUl = document.querySelector(".menu ul");
 
     const iconeMenu = document.querySelector(".icone-menu");
     const iconeFechar = document.querySelector(".icone-fechar");
 
     const header = document.querySelector("header");
 
-    botaoMenu.addEventListener("click", function() {
+    botaoMenu.addEventListener("click", function() { //Fique observando o botaoMenu. Quando alguém clicar nele, execute essa função.
 
-        if (menu.style.display === "flex") {
+        if (menuUl.style.display === "flex") { //Se o display do menu for exatamente igual a flex...
 
             // Fecha o menu
-            menu.style.display = "none";
+            menuUl.style.display = "none";
 
             iconeMenu.style.display = "block";
             iconeFechar.style.display = "none";
@@ -25,7 +25,7 @@ window.onload = function() {
         } else {
 
             // Abre o menu
-            menu.style.display = "flex";
+            menuUl.style.display = "flex";
 
             iconeMenu.style.display = "none";
             iconeFechar.style.display = "block";

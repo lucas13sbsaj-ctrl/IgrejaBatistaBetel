@@ -16,7 +16,7 @@ html {
     --cor-secundaria: #585750;
     --cor-destaque: #c9a227;
     --branco: #ffffff;
-    --texto-claro: rgb(202, 191, 191);
+    --texto-claro: rgba(245, 241, 223, 0.65);;
 }
 
 
@@ -140,16 +140,18 @@ html {
 
 .btn-primary,
 .btn-secondary {
-    padding: 8px 20px;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
     text-decoration: none;
     border-radius: 10px;
-
     transition: all .5s ease;
+    
 }
 
 
-.btn-primary {
+.btn-primary { 
     color: white;
 
     background: linear-gradient(
@@ -161,7 +163,8 @@ html {
 }
 
 
-.btn-secondary {
+.btn-secondary,
+.btn-footer {
     color: #2b281a;
 
     border: 1px solid #3a38262c;
@@ -173,6 +176,7 @@ html {
         #94777713
     );
 }
+
 
 
 .btn-primary:hover,
@@ -189,7 +193,7 @@ html {
 
 .btn-primary h3,
 .btn-secondary h3 {
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 400;
 }
 
@@ -280,23 +284,14 @@ header.menu-aberto {
 }
 
 
-.menu ul {
-    
-
+.menu ul {   
     display: flex;
-
     align-items: center;
-
     gap: 30px;
-
     list-style: none;
-
     font-size: 14px;
-
     font-weight: 600;
-
     text-transform: uppercase;
-
     padding: 10px;
 }
 
@@ -434,7 +429,11 @@ header.menu-aberto {
 
 
 .banner1 .secundaria a {
-    width: 250px;
+    width: 20vw;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    height: 6vh;
 }
 
 
@@ -664,7 +663,7 @@ header.menu-aberto {
     top: 20px;
     left: 10px;
 
-    opacity: 0.3;
+    opacity: .3;
     animation: subirDescer 1.5s ease-in-out infinite;
 }
 
@@ -736,9 +735,9 @@ header.menu-aberto {
     justify-content: center;
     background: radial-gradient(
     circle at center,
-    #3a3829 0%,
-    #3b392b 45%,
-    #313025 75%,
+    #464333 0%,
+    #474535 45%,
+    #3b3a2d 75%,
     #242420 100%
 );
 }
@@ -772,7 +771,7 @@ header.menu-aberto {
     letter-spacing:8px;
 
     color: rgb(247, 239, 224);
-    padding-bottom: 20px;
+    padding: 20px 0px;
 }
 
 .banner4 .title_bar{
@@ -854,13 +853,11 @@ footer {
 
     flex-direction: column;
 
-    gap: 10px;
+    color: rgba(245, 241, 223, 0.65);
 
-    color: var(--texto-claro);
-
-    font-size: 18px;
-
-    font-weight: 200;
+    font-size: 12px;
+    
+    line-height: 1.6;
 }
 
 
@@ -876,14 +873,13 @@ footer {
 
     padding-bottom: 5px;
 
-    color: #fffffb;
+    color: #f3f0e2;
 
-    font-size: 20px;
+    font-size: 13px;
 
     font-weight: 500;
 
-    border-bottom:
-    1px solid rgba(202,191,191,.411);
+    border-bottom:1px solid rgba(190, 170, 100, 0.4);
 }
 
 
@@ -915,6 +911,8 @@ footer {
     text-decoration: none;
 
     transition: all .3s ease;
+
+    
 }
 
 
@@ -931,6 +929,7 @@ footer {
 
 .redesSociais {
     display: flex;
+    align-items: center;
 
     gap: 10px;
 }
@@ -938,30 +937,31 @@ footer {
 
 .redesSociais .rede a {
 
-    width: 60px;
-
-    height: 60px;
+    width: 50px;
+    height: 50px;
 
     display: flex;
-
     justify-content: center;
-
     align-items: center;
 
     border-radius: 50%;
+
+    border: 1px solid rgba(190, 170, 100, 0.3);
+
+    background: rgba(255, 255, 255, 0.03);
+
+    filter: grayscale(50%);
+
+    transition: all 0.4s ease;
 }
 
 
 .redesSociais img {
     width: 70%;
-
-    filter: grayscale(50%);
-
-    transition: all .5s ease;
 }
 
 
-.redesSociais img:hover {
+.redesSociais a:hover {
 
     filter: grayscale(0);
 
@@ -972,16 +972,24 @@ footer {
     0px 20px 30px -10px;
 }
 
+.widgetF-rede{
+    display: flex;
+    flex-direction: column;
+}
 
 
 /* BOTÃO MENSAGEM */
 
 
 .mensagem {
-
     margin-top: 10px;
+    width: 160px;
+    
+    transition: all .3s ease;
+}
 
-    width: 100%;
+.mensagem:hover {
+    transform: translateY(-4px);
 }
 
 
@@ -991,11 +999,11 @@ footer {
 
     min-height: 30px;
 
-    padding: 10px;
+    padding: 5px;
 
     color: white;
 
-    font-size: 18px;
+    font-size: 12px;
 
     border-radius: 20px;
 
@@ -1018,9 +1026,11 @@ footer {
     margin: 10px 0;
 
     display: flex;
+    flex-direction: column;
 
-    justify-content: space-between;
+    gap: 5px;
 
+    justify-content: center;
     align-items: center;
 
     color: var(--texto-claro);
@@ -1028,10 +1038,14 @@ footer {
 
 
 .direitos {
+    display: flex;
+    justify-content: center;
+
+    font-size: 10px;
+
+    gap: 3px;
 
     display: flex;
-
-    align-items: center;
 
     text-align: center;
 }
@@ -1039,7 +1053,6 @@ footer {
 
 .direitos a {
 
-    margin-left: 5px;
 
     color: var(--texto-claro);
 
@@ -1051,9 +1064,9 @@ footer {
 
 .direitos a:hover {
 
-    color: rgb(29,28,28);
+    color: rgb(255, 255, 255);
 
-    transform: translateY(-3px);
+    transform: scale(1.1);
 }
 
 
@@ -1075,21 +1088,18 @@ footer {
 
         position: absolute;
         top: 80px; /* altura do header */
-        right: 0;
+        left: 0;
 
-        width:100vw;
+        width:100%;
         padding: 30px;
         flex-direction: column;
-        align-items: center;
         height: 100vh;
         gap: 20px;
         background-color: #f0e8df;
         backdrop-filter: blur(20px);
     }
 
-    .menu a{
-
-        
+    .menu a{        
         padding: 10px;
     }
 
@@ -1127,7 +1137,7 @@ footer {
 
     .banner1 .secundaria a {
 
-        width: 250px;
+        width: 100%;
     }
 
 
@@ -1204,6 +1214,8 @@ footer {
 @media(max-width:840px) {
 
 
+   
+
     .container{
         justify-content: space-between;
     }
@@ -1251,7 +1263,7 @@ footer {
 
 
     .mensagem button {
-        width: 60%;
+        width: 100%;
 
         padding: 5px;
 
