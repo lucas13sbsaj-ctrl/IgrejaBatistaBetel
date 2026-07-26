@@ -14,7 +14,7 @@ html {
 :root {
     --cor-principal: #504d35;
     --cor-secundaria: #585750;
-    --cor-destaque: #c9a227;
+    --cor-destaque: #D4AF37
     --branco: #ffffff;
     --texto-claro: rgba(245, 241, 223, 0.65);;
 }
@@ -236,6 +236,29 @@ header.menu-aberto {
     gap: 30px;
 }
 
+.icone-login{
+    bottom: -20px;
+}
+
+.icone-login a{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.icone-login a img{
+    width: 80%;
+    transition: all .3s ease;
+}
+
+.icone-login a img:hover{
+    display: flex;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.3));
+    transform: translateY(-1.5px);
+}
 
 /* LOGO */
 
@@ -302,6 +325,8 @@ header.menu-aberto {
     height: auto;
     cursor: pointer;
     padding: auto;
+    
+    min-width: 20px ;
 }
 
 .menu_mobile img {
@@ -313,7 +338,7 @@ header.menu-aberto {
 }
 
 
-.menu a {
+.menu a{
     position: relative;
 
     display: inline-block;
@@ -325,9 +350,30 @@ header.menu-aberto {
     transition: all .4s ease;
 }
 
+.menu a::after{
+    content:"";
+
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    
+    height: 1px;
+    width: 100%;
+
+    background-color: #4d2e2e;
+
+    transform: scale(0);
+    transform-origin: left;
+    transition: all .4s ease;
+}
+
+.menu a:hover::after {
+    transform: scale(1)
+}
+
 
 .menu a:hover {
-    color: #181414;
+    color:#4d2e2e;
 }
 
 
@@ -1052,8 +1098,6 @@ footer {
 
 
 .direitos a {
-
-
     color: var(--texto-claro);
 
     text-decoration: none;
@@ -1063,10 +1107,8 @@ footer {
 
 
 .direitos a:hover {
-
     color: rgb(255, 255, 255);
-
-    transform: scale(1.1);
+    text-decoration: underline;
 }
 
 
@@ -1131,12 +1173,11 @@ footer {
 
         flex-direction: column;
 
-        gap: 10px;
+        gap: 20px;
     }
 
 
     .banner1 .secundaria a {
-
         width: 100%;
     }
 
@@ -1214,7 +1255,15 @@ footer {
 @media(max-width:840px) {
 
 
-   
+   .banner1 .principal {
+    padding: 0px;
+    margin: 0px 10px;
+   }
+
+   .banner1 .subtitulo-section {
+        width: 80%;
+        font-size: 12;
+   }
 
     .container{
         justify-content: space-between;
