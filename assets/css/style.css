@@ -236,13 +236,9 @@ header.menu-aberto {
     gap: 30px;
 }
 
-.icone-login{
-    bottom: -20px;
-}
-
 .icone-login a{
-    width: 30px;
-    height: 30px;
+    min-width: 24px;
+    min-height: 24px;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -250,7 +246,8 @@ header.menu-aberto {
 }
 
 .icone-login a img{
-    width: 80%;
+    width: 100%;
+    height: 100%;
     transition: all .3s ease;
 }
 
@@ -338,7 +335,7 @@ header.menu-aberto {
 }
 
 
-.menu a{
+.menu ul a{
     position: relative;
 
     display: inline-block;
@@ -1253,6 +1250,10 @@ footer {
 
 
 @media(max-width:840px) {
+
+    .logo .titulo {
+        display: none;
+    }
 
 
    .banner1 .principal {

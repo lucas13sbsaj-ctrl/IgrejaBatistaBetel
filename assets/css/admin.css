@@ -26,31 +26,33 @@ html {
 
 /*BODY*/
 body{
-    position: relative;
-
     background-image: url(../images/admin-images/background.png);
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    min-height: 100vh;
 
+    min-height: 100vh;
+    min-width: 100vw;
+    
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
 /*DISPLAY SECUNDARIO*/
 .info{
-    position: absolute;
-    left: 50px;
-    
     display: flex;
-    flex-direction: column;
-    width: 50%;
-    gap: 10px;
+    flex-direction: column;  
+    width: min(90%, 450px);
 }
 
+
+.info .painel{
+    display: flex;
+    flex-direction: column;
+    gap:5px
+}
 
 .info .painel h2{
     color: var(--cor-destaque);
@@ -61,50 +63,44 @@ body{
 }
 
 .info .painel p{
-    padding-left: 5px;
     color: rgb(238, 243, 224);
     font-size: 16px;
-
-    width: 48%;;
+    padding-left: 5px;
+    width: 40%;
 }
 
 .lineBar{
     width: 50%;
     height: 1px;
+    margin-top: 10px;
+    background-color: rgba(241, 241, 192, 0.158);
+}
 
-    background-color: rgba(255, 255, 0, 0.158);
+.info .passagem{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .info .passagem .citacao1{
-    position: relative;
-    padding-top: 40px;
-    padding-left: 10px;
     color: var();
     font-size: 16px;
     color: rgb(238, 243, 224);
-    width: 48%;
+    width: 250px;
     font-weight: 300;
     font-style: oblique;
 }
 
 .info .passagem .citacao2{
-    padding-left: 10px;
     color: var(--cor-destaque);
     font-family: "Cormorant Garamond", serif;
-    font-size: 20px;
-    padding-top: 6px;
-    width: 35%;
-}
-.passagem{
-    display: flex;
-    position: relative;
-    flex-direction: column;
+    font-size: 20px;   
+    padding-left: 5px;
 }
 
 .passagem span{
     color: var(--cor-destaque);
-    position: absolute;
-    top: 0px;
+    height: 40px;
     font-size: 60px;
     font-family: serif;
     font-weight: 1000;
@@ -113,18 +109,20 @@ body{
 
 /*TELA DE LOGIN*/
 
+.principal{
+    width: min(90%, 450px);
+    height: min(70%, 300px);
+}
+
 
 .login-container{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: center;    
 
-    position: relative;
-    
-
-    width: 450px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
     background-color: rgba(36, 11, 11, 0.137);
     backdrop-filter: blur(10px);
 
@@ -132,7 +130,7 @@ body{
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
 
-    padding: 20px 40px;
+    padding: 20px 10px;
 }
 
 .logo {
@@ -240,7 +238,6 @@ form{
     display: flex;
     flex-direction: column;
     width: 80%;
-
     gap: 3px;
 }
 
@@ -339,12 +336,11 @@ form button:hover{
 /*FIM*/
 
 .fim{
-    position: absolute;
-    bottom: 5px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    margin-top: 150px;
 }
 
 .fim .direitos{
@@ -368,15 +364,25 @@ form button:hover{
 /*RESPONSIVIDADE*/
 
 @media(max-width:1150px){
-   .info{
+  .info{
     display: none;
-   }
+  }
+}
 
-   .principal{
-    width: 80%;
-   }
-
-   .login-container{
+@media(max-width:450px){
+  .input-group, .lembrar{
     width: 100%;
-   }
+  }
+}
+
+@media(max-width:270px){
+  .lembrar{
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .logo .titulo{
+    display: none;
+  }
 }
