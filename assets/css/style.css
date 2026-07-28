@@ -879,9 +879,7 @@ header.menu-aberto {
     align-items: center;
     gap: 20px;
 
-    width: 80%;
-
-    
+    width:90%;
 }
 
 .banner5 .texto-section-second{
@@ -892,62 +890,121 @@ header.menu-aberto {
 /* ================= BANNER5-HORARIOS ================= */
 
 
-.banner5 .info-culto{
+.banner5 .info-culto1{
     display: flex;
     flex-direction: column;
 
     position: relative;
 
+    height: 300px;
+    width: 300px;
     margin:50px 0px;
-    padding: 25px;
-    gap: 5px;
-    border-radius: 10px;
-    flex: 1;
-
-    background-color:rgba(255, 255, 255, 0.473);
-    border: 1px solid #423c180e;
-    transition: transform .5s ease, border .5s ease, background-color .5s ease ;
-
+    background-image: url(/assets/images/logo-culto-domingo2.png);
+    
+    background-position: center;
+    background-size: cover;
+    transition: all .5s ease ;
 }
 
-.info-culto:hover{
-    transform: translateY(-1px);
-    border: 1px solid #423c1831;
-    background-color: #eceade2f;
+.banner5 .info-culto{
+    transition: all .5s ease ;   
+    border: 1px solid white;
+    filter: grayscale(70%);
+}
+.banner5 .info-culto:hover{
+    transform: translateY(-4px);
+    filter: grayscale(0%);
+}
 
+.info-culto::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:#504d3528;
+    z-index: 1;
+}
+
+.banner5 .info-culto2{
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    height: 300px;
+    width: 300px;
+    margin:50px 0px;
+    background-image: url(/assets/images/logo-culto-domingo.png);
+    
+    background-position: center;
+    background-size: cover;
+}
+.banner5 .info-culto3{
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    height: 300px;
+    width: 300px;
+    margin:50px 0px;
+    background-image: url(/assets/images/logo-culto-domingo3.png);
+   
+    background-position: center;
+    background-size: cover;
+}
+.banner5 .info-culto4{
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    height: 300px;
+    width: 300px;
+    margin:50px 0px;
+    background-image: url(/assets/images/logo-culto-domingo4.png);
+    
+    background-position: top;
+    background-size: cover;
 }
 
 .culto-dia{
-    color: black;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(252, 252, 252, 0.192);
+    backdrop-filter: blur(10px);
+    width: 30%;
+    height: 30%;
 }
-.culto-nome{
-    color: var(--cor-principal);
-    font-size: 20px;
-    font-weight: 700;
+.culto-dia h3{
+    font-size: 25px;
     text-transform: uppercase;
+    color: white;
+}
+.culto-dia time{
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: white;
 }
 
 .culto-sobre{
-    color: rgb(7, 7, 7);
-    font-size: 12px;
-    font-weight: 300;
-}
-
-.culto-horario{
     position: absolute;
-    right: 2vw;
-    top: 6vh;
+    bottom: 0;
+    background-color: rgba(252, 252, 252, 0.192);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 5px 10px;
 }
 
-.culto-horario time{
-    color: var(--cor-principal);
-    border: 1px solid #423c187c;
-    border-radius: 10%;
-    padding: 0px 5px;
+.culto-sobre h3{
+    color: var(--cor-destaque);
 }
+.culto-sobre p{
+    color:rgb(240, 243, 222);
+}
+
 
 .banner5 .btn-primary{
     width: min(40%, 250px);
@@ -1228,12 +1285,20 @@ footer {
 
 @media(max-width:1180px){
 
+    .banner5 .info-culto1,
+    .banner5 .info-culto2,
+    .banner5 .info-culto3,
+    .banner5 .info-culto4 {
+    margin:0px;}
+
+
     .banner5 .secundaria {
         flex-direction: row;
         width: 90%;
         justify-content: center;
         align-items: start;
         flex-wrap: wrap;
+        margin-top: 20px;
     }
 
     .banner5 .info-culto{
@@ -1295,7 +1360,7 @@ footer {
 
     .banner1 .secundaria {
         flex-direction: column;
-        width: 30%;
+        width: min(70%, 300px);
         gap: 20px;
     }
 
@@ -1377,6 +1442,7 @@ footer {
 
 @media(max-width:840px) {
 
+    
     .banner5 .btn-primary{
         width: 70%;
     }
