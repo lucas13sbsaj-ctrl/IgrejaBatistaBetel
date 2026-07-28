@@ -59,7 +59,7 @@ html {
     }
 
     50% {
-        transform: translateY(10px);
+        transform: translateY(2px);
         opacity: 1;
     }
 }
@@ -193,7 +193,7 @@ html {
 
 .btn-primary h3,
 .btn-secondary h3 {
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 400;
 }
 
@@ -412,12 +412,13 @@ header.menu-aberto {
 .banner1 {
     position: relative;
 
-    min-height: 100vh;
+    height: 100vh;
+    gap: 30px;
 
     display: flex;
     flex-direction: column;
 
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
     background-image: url(../images/banner.png);
@@ -458,7 +459,7 @@ header.menu-aberto {
 
 
 .banner1 .secundaria {
-    width: 50vw;
+    width: 50%;
 
     display: flex;
 
@@ -472,7 +473,7 @@ header.menu-aberto {
 
 
 .banner1 .secundaria a {
-    width: 20vw;
+    width: 15vw;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -480,20 +481,13 @@ header.menu-aberto {
 }
 
 
-.details {
-    position: absolute;
-
-    bottom: 0;
-    left: 0;
-
+.details a{
     width: 100%;
-
+    text-decoration: none;
     display: flex;
     flex-direction: column;
 
     align-items: center;
-
-    padding: 20px 0;
 }
 
 
@@ -512,6 +506,9 @@ header.menu-aberto {
     animation: seta 1.5s infinite ease;
 }
 
+.details img:hover {
+    animation: none;
+}
 
 /* ================= BANNER 2 ================= */
 
@@ -524,13 +521,15 @@ header.menu-aberto {
     padding: 50px;
 
     background-color: #ede8d054;
+
+    scroll-margin-top: 20px;
 }
 
 
 .box2 {
     width: 70%;
-
-    border-radius: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -616,7 +615,7 @@ header.menu-aberto {
 
     margin-top: 30px;
 
-    gap: 30px;
+    gap: 20px;
 
     align-items: flex-start;
 }
@@ -849,6 +848,115 @@ header.menu-aberto {
     margin-top: 20px;
 }
 
+/* ================ BANNER 5 ================ */
+.banner5{
+    width: 100%;
+    min-height: 85%;
+
+    gap: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-bottom: 20px;
+    background-color: #ede8d088;
+}
+
+.banner5 .principal{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px;
+    gap: 20px;
+    width: 80%;
+}
+
+.banner5 .secundaria{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    width: 80%;
+
+    
+}
+
+.banner5 .texto-section-second{
+    font-weight: 600;
+    color: var(--cor-secundaria);
+}
+
+/* ================= BANNER5-HORARIOS ================= */
+
+
+.banner5 .info-culto{
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    margin:50px 0px;
+    padding: 25px;
+    gap: 5px;
+    border-radius: 10px;
+    flex: 1;
+
+    background-color:rgba(255, 255, 255, 0.473);
+    border: 1px solid #423c180e;
+    transition: transform .5s ease, border .5s ease, background-color .5s ease ;
+
+}
+
+.info-culto:hover{
+    transform: translateY(-1px);
+    border: 1px solid #423c1831;
+    background-color: #eceade2f;
+
+}
+
+.culto-dia{
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.culto-nome{
+    color: var(--cor-principal);
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.culto-sobre{
+    color: rgb(7, 7, 7);
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.culto-horario{
+    position: absolute;
+    right: 2vw;
+    top: 6vh;
+}
+
+.culto-horario time{
+    color: var(--cor-principal);
+    border: 1px solid #423c187c;
+    border-radius: 10%;
+    padding: 0px 5px;
+}
+
+.banner5 .btn-primary{
+    width: min(40%, 250px);
+    text-align: center;
+    padding: 10px;
+}
+.banner5 .btn-primary h3{
+    font-size: 14px;
+}
 /* ================= FOOTER ================= */
 
 
@@ -1118,6 +1226,25 @@ footer {
 
 /* ================= RESPONSIVIDADE ================= */
 
+@media(max-width:1180px){
+
+    .banner5 .secundaria {
+        flex-direction: row;
+        width: 90%;
+        justify-content: center;
+        align-items: start;
+        flex-wrap: wrap;
+    }
+
+    .banner5 .info-culto{
+        max-width: 500px;
+        margin: 0;
+    }
+
+    .culto-horario{
+        position: static;
+    }
+}
 
 @media(max-width:1102px) {
 
@@ -1167,9 +1294,8 @@ footer {
 
 
     .banner1 .secundaria {
-
         flex-direction: column;
-
+        width: 30%;
         gap: 20px;
     }
 
@@ -1250,6 +1376,10 @@ footer {
 
 
 @media(max-width:840px) {
+
+    .banner5 .btn-primary{
+        width: 70%;
+    }
 
     .logo .titulo {
         display: none;
