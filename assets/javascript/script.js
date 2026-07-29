@@ -53,7 +53,7 @@ window.onload = function() {
         link.addEventListener("click", function() {
 
             // Fecha o menu
-            menuUl.style.display = "none";
+            menuUl.style.display = "";
 
             // Troca o ícone
             iconeMenu.style.display = "block";
