@@ -236,25 +236,10 @@ header.menu-aberto {
     gap: 30px;
 }
 
-.icone-login a{
-    min-width: 24px;
-    min-height: 24px;
+.logo a:hover{
     display: flex;
-    justify-content: center;
-    text-align: center;
-    border-radius: 50%;
-}
-
-.icone-login a img{
-    width: 100%;
-    height: 100%;
-    transition: all .3s ease;
-}
-
-.icone-login a img:hover{
-    display: flex;
-    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.3));
-    transform: translateY(-1.5px);
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.075));
+    transform: translateY(-5px);
 }
 
 /* LOGO */
@@ -273,6 +258,9 @@ header.menu-aberto {
     width: 70px;
 }
 
+.logo a {
+    transition: all .5s ease;
+}
 
 .logo .titulo {
     width: 70px;
@@ -411,14 +399,14 @@ header.menu-aberto {
 
 .banner1 {
     position: relative;
-
+    padding-top: 80px;
     height: 100vh;
     gap: 30px;
 
     display: flex;
     flex-direction: column;
 
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
     background-image: url(../images/banner.png);
@@ -477,7 +465,6 @@ header.menu-aberto {
     display: flex;
     text-align: center;
     justify-content: center;
-    height: 6vh;
 }
 
 
@@ -518,11 +505,9 @@ header.menu-aberto {
 
     justify-content: center;
 
-    padding: 50px;
-
     background-color: #ede8d054;
 
-    scroll-margin-top: 20px;
+    scroll-margin-top: 80px;
 }
 
 
@@ -534,9 +519,7 @@ header.menu-aberto {
 
 
 .banner2 .principal {
-    margin-top: 30px;
-
-    padding: 30px;
+    padding: 50px 20px;
 
     align-items: center;
 
@@ -905,12 +888,39 @@ header.menu-aberto {
     background-size: cover;
     transition: all .5s ease ;
 }
-
+/* ================= BANNER5-EFEITO DE TRANSIÇÃO ================= */
 .banner5 .info-culto{
-    transition: all .5s ease ;   
+    opacity: 0;
+    transform: translateY(50px);
+
+    transition: all .8s ease ;   
     border: 1px solid white;
     filter: grayscale(70%);
 }
+
+.info-culto.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Atraso entre os cards */
+.info-culto1 {
+    transition-delay: 0.2s;
+}
+
+.info-culto2 {
+    transition-delay: 0.4s;
+}
+
+.info-culto3 {
+    transition-delay: 0.6s;
+}
+
+.info-culto4 {
+    transition-delay: 0.8s;
+}
+
+/* ================= BANNER5-EFEITO DE TRANSIÇÃO ================= */
 .banner5 .info-culto:hover{
     transform: translateY(-4px);
     filter: grayscale(0%);
@@ -1366,7 +1376,7 @@ footer {
 
 
     .banner1 .secundaria a {
-        width: 100%;
+        width: 70%;
     }
 
 
@@ -1482,8 +1492,8 @@ footer {
         text-align: center;
     }
 
-    .banner2, .banner1, .banner3 {
-        padding: 20px 0px;
+    .banner3 .titulo-section {
+        text-align: center;
     }
 
     .banner2 .principal, .banner3 .principal {
