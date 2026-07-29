@@ -399,7 +399,6 @@ header.menu-aberto {
 
 .banner1 {
     position: relative;
-    padding-top: 80px;
     height: 100vh;
     gap: 30px;
 
@@ -413,6 +412,10 @@ header.menu-aberto {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.banner1 .subtitulo-section{
+    margin-top:80px;
 }
 
 
