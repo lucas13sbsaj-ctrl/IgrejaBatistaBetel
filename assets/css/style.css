@@ -470,6 +470,9 @@ header.menu-aberto {
     justify-content: center;
 }
 
+.details a{
+    margin-bottom: 50px;
+}
 
 .details a{
     width: 100%;
