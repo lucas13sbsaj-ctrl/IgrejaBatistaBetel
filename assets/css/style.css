@@ -160,6 +160,7 @@ html {
         #837a5b,
         #85805e
     );
+    z-index: 1;
 }
 
 
@@ -1032,6 +1033,117 @@ header.menu-aberto {
 .banner5 .btn-primary h3{
     font-size: 14px;
 }
+
+/* ================= BANNER 6 ================= */
+
+.banner6{
+    width: 100%;
+    min-height: 85%;
+
+    gap: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-bottom: 20px;
+    background-color: #ede8d088;
+
+    border-top: 1px solid rgba(82, 40, 40, 0.685);
+}
+
+.banner6 .principal{
+   
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px;
+    gap: 20px;
+    width: 80%;
+}
+
+.banner6 .secundaria{
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.98) 0%,
+        rgba(252,250,245,.95) 20%,
+        rgba(243,239,226,.90) 45%,
+        rgba(255,255,255,.96) 70%,
+        rgba(248,245,236,.92) 100%
+    );
+
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.08);
+
+    backdrop-filter: blur(10px);
+   
+    padding: 2% 10%;
+    margin: 50px 0px;
+    
+
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width:70%;
+
+    border-radius: 20px;
+
+
+    
+
+    
+    transition: all .15s ease;
+    transform-style: preserve-3d;
+    cursor: pointer;
+
+}
+
+
+
+.banner6 .texto-section-second{
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: var(--cor-secundaria);
+    background: linear-gradient(90deg, #fdfdfd13, #1f1c0b13, #ffffff13);
+    border: 1px solid rgba(44, 20, 20, .08);
+    backdrop-filter: blur(10px); 
+}
+
+.banner6 .titulo-section span{
+    font-style: oblique;
+    font-weight: 300;
+    text-shadow: 2px 8px 6px rgba(2, 2, 2, 0.075), 0px -5px 35px rgba(255,255,255,0.3), 2px 2px 2px rgba(206,89,55,0);
+    color: rgb(154, 172, 130);
+}
+
+.banner6 .secundaria .titulo-section{
+    font-weight: 600;
+    text-transform: none;
+    font-size: 30px;
+    z-index: 1;
+}
+
+.banner6 .secundaria .texto-section-second2{
+    color: rgb(154, 172, 130);
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+.banner6 .secundaria .texto-section{
+   text-align: center;
+   z-index: 1;
+}
+
 /* ================= FOOTER ================= */
 
 
