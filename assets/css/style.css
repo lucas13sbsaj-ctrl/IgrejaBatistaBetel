@@ -294,6 +294,7 @@ header.menu-aberto {
 }
 
 header .login{
+    min-width: 20px ;
     text-decoration: none;
     color: white;
     font-size: 12px;
@@ -1473,6 +1474,12 @@ footer {
         flex-direction: column;
     }
 
+
+    .logo{ /*============Corigi posição da logo*/
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    }   
 
     .banner1 .secundaria {
         flex-direction: column;
