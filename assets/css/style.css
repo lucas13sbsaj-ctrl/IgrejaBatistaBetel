@@ -240,6 +240,10 @@ header.menu-aberto {
     gap: 30px;
 }
 
+ .espaco{
+        display: none;
+    }
+
 
 /* LOGO */
 
@@ -291,23 +295,6 @@ header.menu-aberto {
 
 .logo .igreja {
     font-weight: 500;
-}
-
-header .login{
-    min-width: 20px ;
-    text-decoration: none;
-    color: white;
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-    padding: 5px 10px;
-    border-radius: 10px;
-    background: linear-gradient(90deg, rgb(110, 105, 72), rgb(131, 122, 91), rgb(133, 128, 94));
-}
-
-
-header .login:hover{
-   color: #fdfade;
 }
 
 
@@ -770,6 +757,8 @@ header .login:hover{
     #3b3a2d 75%,
     #242420 100%
 );
+
+width: 100%;
 }
 
 .banner4 .cruz{
@@ -1085,7 +1074,7 @@ header .login:hover{
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    width:70%;
+    width:60%;
 
     border-radius: 20px;
 }
@@ -1098,9 +1087,7 @@ header .login:hover{
     font-size: 15px;
     text-transform: uppercase;
     color: var(--cor-secundaria);
-    background: linear-gradient(90deg, #fdfdfd13, #1f1c0b13, #ffffff13);
     border: 1px solid rgba(44, 20, 20, .08);
-    backdrop-filter: blur(10px); 
 }
 
 .banner6 .titulo-section span{
@@ -1114,7 +1101,6 @@ header .login:hover{
     font-weight: 600;
     text-transform: none;
     font-size: 30px;
-    z-index: 1;
 }
 
 .banner6 .secundaria .texto-section-second2{
@@ -1123,12 +1109,11 @@ header .login:hover{
     letter-spacing: 1px;
     font-weight: 600;
     text-transform: uppercase;
-    z-index: 1;
 }
 
 .banner6 .secundaria .texto-section{
    text-align: center;
-   z-index: 1;
+   font-size: 20px;
 }
 
 /* ================= FOOTER ================= */
@@ -1398,6 +1383,7 @@ footer {
 
 
 
+
 /* ================= RESPONSIVIDADE ================= */
 
 @media(max-width:1180px){
@@ -1474,12 +1460,19 @@ footer {
         flex-direction: column;
     }
 
+    .espaco{
+        display: block;
+    }
+    .espaco,
+    .menu {
+        flex: 1;
+    }
 
-    .logo{ /*============Corigi posição da logo*/
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    }   
+    .menu {
+        display: flex;
+        justify-content: flex-end;
+    }
+        
 
     .banner1 .secundaria {
         flex-direction: column;
