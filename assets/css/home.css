@@ -327,7 +327,7 @@ nav ul a:hover{
 }
 
 .section_home .section_box{
-
+    margin-top: 100px;
     gap: 20px;
 }
 
@@ -634,17 +634,20 @@ nav ul a:hover{
     width: 100%;
     height: 400px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    
     flex-wrap: wrap;
     margin-top: 30px;
     gap: 10px;
 }
 
 .section_programacao .programas .info_culto{
-    flex: 1;
+    width: 400px;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     position: relative;
 
     padding: 20px;
