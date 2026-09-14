@@ -641,7 +641,6 @@ nav ul a:hover{
 
 .section_programacao .programas .info_culto{
     flex: 1;
-    background-color: #1e1e1e42;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -651,15 +650,29 @@ nav ul a:hover{
     padding: 20px;
 }
 
+.section_programacao .programas .info_culto::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #504d3533;
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+.section_programacao .programas .info_culto:hover::before{
+    background: transparent
+}
+
 .section_programacao .programas .info_culto_dia{
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 30%;
+    height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     font-size: 30px;
     font-weight: 700;
@@ -667,14 +680,39 @@ nav ul a:hover{
 
     background-color: rgba(117, 112, 112, 0.486);
     backdrop-filter: blur(5px);
+    
+}
+.section_programacao .programas .info_culto_sobre{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    padding: 10px;
+
+    color: #fdfdfd;
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
+    background-color: rgba(117, 112, 112, 0.486);
+    backdrop-filter: blur(5px);
 }
 
-.section_programacao .programas .info_culto_dia:hover{
-    display: none;
+.dia1{
+    background-image: url(/assets/images/logo-culto-domingo2.png);
 }
+.dia2{
+    background-image: url(/assets/images/logo-culto-domingo.png);
+}
+.dia3{
+    background-image: url(/assets/images/logo-culto-domingo3.png);
+}
+.dia4{
+    background-image: url(/assets/images/logo-culto-domingo4.png);
+}
+
 
 .section_programacao .section_btn{
     gap: 100px;
