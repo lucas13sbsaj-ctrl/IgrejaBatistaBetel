@@ -44,7 +44,6 @@ html {
 .section_box{
     width: 80vw;
     height: 100%;
-    margin-top: 100px;
         
     display: flex;
     flex-direction: column;
@@ -215,9 +214,9 @@ header{
     padding: 20px 50px;
 
     box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
-    width: 90%;
+    width: 97%;
     height: 90px;
-    background-color: #f0e8df71;
+    background-color: #f0e8df9d;
     backdrop-filter: blur(20px);
 
     display: flex;
@@ -357,6 +356,83 @@ nav ul a:hover{
 }
     
 /* ================= SECTION-HOME ================= */
+
+
+
+
+/* ================= SECTION-JESUS ================= */
+.section_jesus{
+    background-image: url(/assets/images/fundoPalavra.png);
+    background-position: center;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.section_jesus::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.671);
+}
+
+.section_jesus > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+.section_jesus .section_title {
+    color: rgb(255, 253, 243);
+    font-size: clamp(60px, 1vw, 45px);
+    position: relative; 
+}
+
+.section_jesus .section_title .section_indi_title{
+    color: rgb(234, 235, 225);
+    font-size: 20px;
+}
+.section_jesus .section_title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 20%; 
+    height: 2px; 
+    background-color: rgb(208, 214, 157); 
+}
+
+.section_jesus .section_box_indi{
+    margin: 30px 0px 50px 0px;
+}
+
+.section_jesus .section_title h1{
+    letter-spacing: 5px;
+}
+
+.section_jesus .section_description{
+    color: rgb(255, 253, 243);
+    font-size: 25px;
+    text-align: center;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section_jesus .section_description .referencia{
+    font-size: 20px;
+    color: rgb(208, 214, 157);
+    font-weight: 600;
+}
+
+.section_jesus .section_description .descricao{
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+/* ================= SECTION-JESUS ================= */
 
 
 
@@ -519,3 +595,90 @@ nav ul a:hover{
 }
     
 /* ================= SECTION-PASTOR ================= */
+
+
+
+
+/* ================= SECTION-PROGRAMACAO ================= */
+.section_programacao{
+    background-color: rgba(237, 232, 208, 0.33);
+}
+
+.section_programacao .section_box{
+    justify-content:flex-start;
+    gap: 40px;
+}
+
+.section_programacao .section_box_indi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+
+    gap: 50px;
+}
+
+.section_programacao .section_title{
+    color: #423c18;;
+}
+
+.section_programacao .section_description{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 100%;
+    gap: 20px;
+}
+
+.section_programacao .programas{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.section_programacao .programas .info_culto{
+    flex: 1;
+    background-color: #1e1e1e42;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+
+    padding: 20px;
+}
+
+.section_programacao .programas .info_culto_dia{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 30px;
+    font-weight: 700;
+    color: #fdfdfd;
+
+    background-color: rgba(117, 112, 112, 0.486);
+    backdrop-filter: blur(5px);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.section_programacao .programas .info_culto_dia:hover{
+    display: none;
+}
+
+.section_programacao .section_btn{
+    gap: 100px;
+    margin-top: 50px;
+}
+    
+/* ================= SECTION-PROGRAMACAO ================= */

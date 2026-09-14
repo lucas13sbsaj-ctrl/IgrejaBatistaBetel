@@ -20,6 +20,11 @@
 }
 
 @media (max-width: 510px){
+
+    .logo_nome{
+        display: none;
+    }
+
     .section_title h1,
     .section_title_home h1{
         font-size: clamp(30px, 10vw, 55px);
