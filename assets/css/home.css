@@ -206,15 +206,12 @@ html {
 
 header{
     position: fixed;
-    top: 10px;
-    left:50%;
-    transform: translateX(-50%);
+    top: 0px;
     z-index: 1000;
-    border-radius: 50px;
     padding: 20px 50px;
 
     box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
-    width: 97%;
+    width: 100%;
     height: 90px;
     background-color: #f0e8df9d;
     backdrop-filter: blur(20px);
@@ -236,7 +233,8 @@ header{
 /*-------------LOGO-*/
 .container .logo{
     display: flex;
-    
+    justify-content: center;
+    align-items: center;
     height: 90px;
 }
 .logo_img{
@@ -283,6 +281,10 @@ nav ul a{
     text-decoration: none;
     color: var(--text-secondary);
 }
+
+.menu_abrir{
+        display: none;
+    }
 
 nav ul a::after{
     content: "";
@@ -632,24 +634,21 @@ nav ul a:hover{
 
 .section_programacao .programas{
     width: 100%;
-    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
-    
     flex-wrap: wrap;
     margin-top: 30px;
     gap: 10px;
 }
 
 .section_programacao .programas .info_culto{
-    width: 400px;
-    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-
+    flex: 1 1 250px;
+    height: 300px;
     padding: 20px;
 }
 
@@ -690,8 +689,9 @@ nav ul a:hover{
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 15%;
+    height: 70px;
     padding: 10px;
+    
 
     color: #fdfdfd;
 
@@ -705,15 +705,27 @@ nav ul a:hover{
 
 .dia1{
     background-image: url(/assets/images/logo-culto-domingo2.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .dia2{
     background-image: url(/assets/images/logo-culto-domingo.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .dia3{
     background-image: url(/assets/images/logo-culto-domingo3.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .dia4{
     background-image: url(/assets/images/logo-culto-domingo4.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 
@@ -723,3 +735,86 @@ nav ul a:hover{
 }
     
 /* ================= SECTION-PROGRAMACAO ================= */
+
+
+
+/* ================= FOOTER ================= */
+footer{
+    width: 100%;
+    background-color: #504d35;
+    display: flex;
+    justify-content: center;
+}
+
+.container_footer {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0px 50px;
+    padding-bottom: 10px;
+
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.footer_box{
+    width: 90%;
+    height: 100%;
+        
+    display: flex;
+    justify-content: space-around;
+    gap: 100px;
+
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(202, 191, 191, .192);
+}
+
+.widget_footer{
+    display: flex;
+    flex-direction: column;
+
+    flex-wrap: wrap;
+    flex: 1;
+}
+.widget_footer h3{
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #f3f0e2;
+    border-bottom: 1px solid rgba(241, 200, 88, 0.4);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+.widget_footer span{
+    color: rgba(245, 241, 223, 0.65);
+    font-size: 13px;
+    line-height: 1.6;
+}
+.widget_footer ul{
+    list-style: none;
+}
+.widget_footer a{
+    color: rgba(245, 241, 223, 0.65);
+    font-size: 13px;
+    line-height: 1.6;
+    text-decoration: none;
+}
+
+.footer_fim{
+    width: 90%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    color: rgba(245, 241, 223, 0.65);
+}
+
+.footer_fim span{
+    font-size: 10px;
+    display: flex;
+    text-align: center;
+}
+/* ================= FOOTER ================= */
