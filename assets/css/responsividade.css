@@ -57,6 +57,25 @@
     .section_btn .btn{
         width: clamp(100px, 90vw, 400px);
     }
+
+    .section_mapa {
+        flex-direction: column;
+        width: 100vw;
+    }
+    .mapa{
+        width: 100%;
+    }
+    .info-mapa {
+        width: 100%;
+        border-radius: 0;
+    }
+    
+    .widget-mapa{
+        width: 100%;
+        justify-content: space-around;
+    } 
+
+    
 }
 
 @media (max-width: 510px){
@@ -123,4 +142,6 @@
     }
     .section_id .section_description {
     text-align: center;
+    }
+    
 }
