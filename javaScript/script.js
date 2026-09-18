@@ -126,18 +126,18 @@ slides.forEach(slide => observerSlides.observe(slide));
 // --- ANIMAÇÃO DA PROGRAMAÇÃO SEMANAL AO ROLAR A TELA ---
 const secaoProgramacao = document.querySelector('.section_programacao');
 
-const observerProgramacao = new IntersectionObserver((entries) => {
+const observerProgramacao = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
+        // Verifica se a seção realmente entrou na tela
         if (entry.isIntersecting) {
-            // A seção apareceu na tela: adiciona a classe que dispara a animação
             secaoProgramacao.classList.add('visivel');
             
-            // Se quiser que a animação aconteça apenas uma vez e não repita ao subir/descer, descomente a linha abaixo:
-            // observerProgramacao.unobserve(entry.target);
+            // Para de observar depois que animou (assim a animação acontece só uma vez)
+            observer.unobserve(entry.target);
         }
     });
 }, {
-    threshold: 0.2 // Dispara quando 20% da seção estiver visível na tela
+    threshold: 0.3 // Exige que pelo menos 30% da seção apareça antes de disparar
 });
 
 if (secaoProgramacao) {
