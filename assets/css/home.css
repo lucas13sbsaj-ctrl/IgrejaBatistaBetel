@@ -536,6 +536,7 @@ nav ul a:hover{
     width: 100%;
     aspect-ratio: 16 / 11;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory; 
     scroll-behavior: smooth;
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
