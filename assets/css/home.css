@@ -22,6 +22,11 @@ html {
     }
 }
 
+@keyframes tickerAnimation {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
 /* ================= COMPONENTES-GERAIS ================= */
 
 :root {
@@ -201,7 +206,41 @@ html {
 /* ================= SCROLLBAR ================= */
 
 
+/*================== AVISOS =================*/
+/* Barra de avisos forçada para testes */
+.top-ticker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 25px;
+   background-color: #504d35 !important; 
+    color: #ffffff !important;
+    overflow: hidden;
+    z-index: 99999 !important; 
+    display: flex !important;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+}
 
+.ticker-track {
+    display: flex;
+    white-space: nowrap;
+    animation: tickerAnimation 10s linear infinite;
+}
+
+.ticker-track span {
+    display: inline-block;
+    padding-right: 40px;
+}
+
+
+
+/* Empurra o resto do site para baixo para a barra não tampar o menu */
+body {
+    margin-top: 40px !important;
+}
 
 /* ================= HEADER ================= */
 
@@ -210,6 +249,7 @@ header{
     top: 0px;
     z-index: 1000;
     padding: 20px 50px;
+    margin-top: 20px !important;
 
     box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
     width: 100%;
