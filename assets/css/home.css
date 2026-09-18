@@ -29,6 +29,7 @@ html {
     --text-secondary: #59655E;   /* Texto normal */
 }
 
+
 .section{
     width: 100%;
     min-height: 100vh;
@@ -503,98 +504,137 @@ nav ul a:hover{
 
 
 /* ================= SECTION-PASTOR ================= */
+
 .section_pastor{
-    background-color:#ede8d088
+    background-color:#ede8d088;
+    
 }
+
 
 .section_pastor .section_box{
     justify-content:flex-start;
     gap: 40px;
 }
 
-.section_pastor .section_box_indi{
+.section_pastor .container-carrosel{
+    width: 100%;
     display: flex;
-    flex-direction: row;    
     justify-content: center;
-    margin-top: 10px;
-    flex-wrap: wrap;
-    gap: 50px;
+    align-items: center;
 }
 
-.section_pastor .section_title{
-    color: #423c18;;
+.section_pastor .slider-wrapper{
+    position: relative;
+    width: 100%;
+    max-width: 48rem;
+    margin: 0 auto;
+    contain: layout;
 }
 
-.section_pastor .section_description{
+.section_pastor .slider{
     display: flex;
-    flex-direction: column;
-    text-align: left;
-    width: 800px;
-    gap: 20px;
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
 }
 
-.section_pastor .section_img{
-    width: min(90%, 400px);
-    height: 500px;
-    overflow: hidden;
-    border-radius: 10px;
+.section_pastor .slider .pastor-img {
+    flex: 1 0 100%;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
 
     position: relative;
 }
 
-.section_pastor .section_img img{
+.section_pastor .slider .pastor-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform .7s ease, filter .7s ease;
-
-    filter: grayscale(60%);
-
-    border-radius: 10px;
-    border: 1px solid rgba(64, 62, 24, 0.267);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    object-position: center 20%;
 }
 
-.info_pastor{
+.pastor-info{
     position: absolute;
-    bottom: 0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-
-    border-radius: 10px;
-    width: 80%;
-    height: 90px;
-
+    bottom: 20px;
+    left: 20px;
+    right: 20px; /* Faz a caixa flutuar com margens laterais perfeitas */
+    
+    padding: 15px 20px;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 6px;
-
-    background-color: rgba(51, 22, 22, 0.432);
-    backdrop-filter: blur(10px);
+    align-items: flex-start;
+    
+    /* Vidro fosco moderno e translúcido */
+    background: rgba(20, 20, 20, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    /* Borda sutil para dar o efeito de vidro real */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    
     color: white;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.137);
-
-    cursor: default;
+    z-index: 2;
 }
 
-.info_pastor h3{
-    font-size: 25px;
+.pastor-info h3 {
+    font-size: 18px;
     font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
-.section_pastor .section_img img:hover{
-    transform: scale(1.1);
-    filter: grayscale(0%);
+.pastor-info span {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.section_pastor .slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-nav{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.slider-nav a{
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    opacity: 0.5;
+    transition: 250ms;
+}
+.slider-nav a:hover{
+    opacity: 1;
+    background-color: white;
 }
 
 .section_pastor .section_btn{
     gap: 100px;
     margin-top: 50px;
 }
+
+
+
     
 /* ================= SECTION-PASTOR ================= */
 
@@ -602,6 +642,14 @@ nav ul a:hover{
 
 
 /* ================= SECTION-PROGRAMACAO ================= */
+.section_programacao .info_culto.dia1 { transition-delay: 0.1s; }
+.section_programacao .info_culto.dia2 { transition-delay: 0.2s; }
+.section_programacao .info_culto.dia3 { transition-delay: 0.3s; }
+.section_programacao .info_culto.dia4 { transition-delay: 0.4s; }
+
+
+
+
 .section_programacao{
     background-color: rgba(237, 232, 208, 0.33);
 }
@@ -650,6 +698,15 @@ nav ul a:hover{
     flex: 1 1 250px;
     height: 300px;
     padding: 20px;
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section_programacao.visivel .info_culto {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .section_programacao .programas .info_culto::before{
@@ -741,7 +798,7 @@ nav ul a:hover{
 /* ================= SECTION-LOC ================= */
 
 .section_loc{
-    background-color: rgba(237, 232, 208, 0.33);
+    background-color: #ede8d088;
 }
 
 .section_loc .section_box{
@@ -769,80 +826,9 @@ nav ul a:hover{
     height: 100%;
     border: 0;
 }
-
-.info-mapa{
-    height: 500px;
-    max-width: 1400px;
-    padding: 10px;
-
-    border-radius: 0px 20px 20px 0px;
-    gap: 10px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-
-    background-color: #E8E2D5;
-}
-
-.widget-mapa{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.widget-mapa-logo{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color:  rgba(138, 106, 47, 0.123);;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.widget-mapa-logo img{
-    width: 60%;
-}
-
-.widget-mapa-info{
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-}
-
-.widget-mapa-info h3{
-    color: #3F3A18;
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: 700;
-    margin: 0 0 6px;
-}
-.widget-mapa-info span{
-    color: #4F4B3A;
-
-    font-size: 15px;
-}
-
-.widget-mapa-info a {
-    color: #8A6A2F;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.widget-mapa-info a:hover {
-    text-decoration: underline;
-}
-
 .section_loc .section_title{
     color: #423c18;;
 }
-
-
-
 .section_loc .section_btn{
     gap: 100px;
     margin-top: 50px;

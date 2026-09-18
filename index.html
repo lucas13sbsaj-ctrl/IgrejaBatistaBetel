@@ -29,11 +29,11 @@
                 <img class="menu_abrir" src="/assets/icones/menu_mobile.svg" alt="Menu">
                 <nav class="menu_mobile">
                     <ul>
-                        <li><a href="#" class="active">Início</a></li>
-                        <li><a href="#">Quem Somos</a></li>
-                        <li><a href="#">Pastores</a></li>
-                        <li><a href="#">Cultos</a></li>
-                        <li><a href="#">Localização</a></li>
+                        <li><a href="#home" class="active">Início</a></li>
+                        <li><a href="#id">Quem Somos</a></li>
+                        <li><a href="#pastores">Pastores</a></li>
+                        <li><a href="#culto">Cultos</a></li>
+                        <li><a href="#loc">Localização</a></li>
                         <li><a href="#">Fale Conosco</a></li>
                     </ul>
                 </nav>
@@ -41,7 +41,7 @@
         </div>
     </header>
 
-    <section class="section section_home">
+    <section class="section section_home" id="home">
         <div class="section_box">
             <div class="section_indi_title_home">
                 <span>Uma igreja vivendo o Evangelho</span>
@@ -70,7 +70,7 @@
         </div>
     </section>
 
-    <section class="section section_jesus">
+    <section class="section section_jesus" id="Jesus">
         <div class="section_box">
             
             <div class="section_title">
@@ -94,7 +94,7 @@
         </div>
     </section>
 
-    <section class="section section_id">
+    <section class="section section_id" id="id">
         <div class="section_box">
             <div class="section_title">
                 <div class="section_indi_title">
@@ -119,7 +119,7 @@
         </div>
     </section>
 
-    <section class="section section_pastor">
+    <section class="section section_pastor" id="pastores">
         <div class="section_box">
             <div class="section_title">
                 <div class="section_indi_title">
@@ -127,29 +127,51 @@
                 </div>
                 <h1>Liderança Pastoral</h1>
             </div>
-            <div class="section_box_indi">
-                <div class="section_img">
-                    <img src="/assets/images/pastor_jose_vieira.png" alt="">
-                    <div class="info_pastor">
-                        <h3>Pr. José Vieira</h3>
-                        <span>Pastor Presidente</span>
+            
+            <div class="container-carrosel">
+                <div class="slider-wrapper">
+                    <div class="slider">
+                        <div class="pastor-img">
+                            <img id="slide-1" src="/assets/images/pastor_jose_vieira.png" alt="Pastor Vieira">
+                            <div class="pastor-info">
+                                <h3>Pr. José Vieira</h3>
+                                <span>Pastor Principal</span>
+                            </div>
+                        </div>
+
+                        <div class="pastor-img">
+                            <img id="slide-2" src="/assets/images/pastor_iran.jpg" alt="Pastor Iran">
+                            <div class="pastor-info">
+                                <h3>Pr. Iran</h3>
+                                <span>Segundo Pastor</span>
+                            </div>
+                        </div>
+                        <div class="pastor-img">
+                            <img id="slide-3" src="/assets/images/pastor_samuel.png" alt="Pastor Samuel">
+                            <div class="pastor-info">
+                                <h3>Pr. Samuel</h3>
+                                <span>Terceiro Pastor</span>
+                            </div>
+                        </div>
+                        <div class="pastor-img">
+                            <img id="slide-4" src="/assets/images/pastor_jose_vieira.png" alt="Pastor Neilton">
+                            <div class="pastor-info">
+                                <h3>Pr. Neilton</h3>
+                                <span>Pastor Auxiliar</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slider-nav">
+                        <a href="#slide-1"></a>
+                        <a href="#slide-2"></a>
+                        <a href="#slide-3"></a>
+                        <a href="#slide-4"></a>
                     </div>
                 </div>
-                <div class="section_img">
-                    <img src="/assets/images/pastor_iran.jpg" alt="">
-                    <div class="info_pastor">
-                        <h3>Pr. Iran</h3>
-                        <span>Ministro do Evangelho</span>
-                    </div>
-                </div>
-                <div class="section_img">
-                    <img src="/assets/images/pastor_samuel.png" alt="">
-                    <div class="info_pastor">
-                        <h3>Pr. Samuel</h3>
-                        <span>Ministro do Evangelho</span>
-                    </div>
-                </div>
-            </div>
+            </div>            
+
+
             <div class="section_btn">
                 <div class="btn btn_primary">
                     <span>Conhecer Nossos Pastores</span>
@@ -158,7 +180,7 @@
         </div>  
     </section>
 
-    <section class="section section_programacao">
+    <section class="section section_programacao" id="culto">
         <div class="section_box">
             <div class="section_title">
                 <div class="section_indi_title">
@@ -226,7 +248,7 @@
         </div>
     </section>
 
-    <section class="section section_loc">
+    <section class="section section_loc" id="loc">
         <div class="section_box">
             <div class="section_title">
                 <div class="section_indi_title">
@@ -243,40 +265,7 @@
                         loading="lazy"
                         referrerpolicy="strict-origin-when-cross-origin">
                     </iframe>
-                </div>
-
-                <div class="info-mapa">
-                    <div class="widget-mapa">
-                        <div class="widget-mapa-logo">
-                            <img src="/assets/icones/location_on_30dp_74442E;_FILL0_wght400_GRAD0_opsz24.svg" alt="" class="img-loc">
-                        </div>
-                        <div class="widget-mapa-info">
-                            <h3>Endereço</h3>
-                            <span>Tv. Segunda Calabar, 111-187 - Calabar</span>
-                            <span>Santo Antônio de Jesus - BA</span>
-                        </div>
-                    </div>
-
-                    <div class="widget-mapa">
-                        <div class="widget-mapa-logo">
-                            <img src="/assets/icones/map_30dp_8A6A2F_FILL0_wght400_GRAD0_opsz24.svg" alt="" class="img-gps">
-                        </div>
-                        <div class="widget-mapa-info">
-                            <h3>Como Chegar</h3>
-                            <span>Consulte o <a href="https://maps.app.goo.gl/WfrmqpTsRHUJMswW9" target="_blank">Google Maps</a> para encontrar o melhor caminho até nós e venha celebrar, aprender e viver a fé conosco.</span>
-                        </div>
-                    </div>
-
-                    <div class="widget-mapa">
-                        <div class="widget-mapa-logo">
-                            <img src="/assets/icones/alarm_on_30dp_74442E;_FILL0_wght400_GRAD0_opsz24.svg" alt="" class="img-alarme">
-                        </div>
-                        <div class="widget-mapa-info">
-                            <h3>Horário dos cultos</h3>
-                            <span>Domingo -  08h e 18h</span>
-                            <span>Quinta-Feira - 19:30h</span>
-                        </div>
-                    </div>                   
+                </div>                                   
                     
                 </div>
             </div>
