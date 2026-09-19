@@ -170,3 +170,14 @@ menuLinks.forEach(link => {
         }
     });
 });
+
+// --- DUPLICAÇÃO AUTOMÁTICA DO TICKER APÓS O CARREGAMENTO COMPLETO ---
+window.addEventListener('load', () => {
+    const tickerTrack = document.getElementById('tickerTrack');
+    if (tickerTrack) {
+        // Limpa qualquer duplicação anterior para evitar duplicar em dobro
+        // e injeta o conteúdo exato novamente para fechar os 50%
+        const conteudoOriginal = tickerTrack.innerHTML;
+        tickerTrack.innerHTML = conteudoOriginal + conteudoOriginal;
+    }
+});

@@ -212,9 +212,9 @@ html {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 25px;
-   background-color: #504d35 !important; 
+    background-color: #504d35 !important; 
     color: #ffffff !important;
     overflow: hidden;
     z-index: 99999 !important; 
@@ -222,17 +222,22 @@ html {
     align-items: center;
     font-size: 14px;
     font-weight: 600;
+    display: flex;
+    justify-content: center;
 }
 
 .ticker-track {
     display: flex;
+    width: max-content;
     white-space: nowrap;
-    animation: tickerAnimation 10s linear infinite;
+    animation: tickerAnimation 25s linear infinite;
+    will-change: transform;
 }
 
 .ticker-track span {
     display: inline-block;
-    padding-right: 40px;
+    padding-right: 60px;
+    flex-shrink: 0;
 }
 
 
@@ -605,7 +610,9 @@ nav ul a:hover{
     left: 20px;
     right: 20px; /* Faz a caixa flutuar com margens laterais perfeitas */
     
-    padding: 15px 20px;
+    padding: 10px 20px;
+
+    width: 40%;
     
     display: flex;
     flex-direction: column;
@@ -634,7 +641,7 @@ nav ul a:hover{
 }
 
 .pastor-info span {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.8);
 }
@@ -704,7 +711,6 @@ nav ul a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
 
     gap: 50px;
 }
@@ -767,14 +773,14 @@ nav ul a:hover{
     position: absolute;
     top: 0;
     left: 0;
-    width: 30%;
-    height: 30%;
+    width: 25%;
+    height: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 700;
     color: #fdfdfd;
 
@@ -789,7 +795,7 @@ nav ul a:hover{
     width: 100%;
     height: 70px;
     padding: 10px;
-    
+    font-size: 15px;
 
     color: #fdfdfd;
 
@@ -840,6 +846,7 @@ nav ul a:hover{
 
 .section_loc{
     background-color: #ede8d088;
+    height: 50vh;
 }
 
 .section_loc .section_box{
