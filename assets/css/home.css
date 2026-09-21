@@ -389,7 +389,7 @@ nav ul a:hover{
 
 .section_home .section_btn{
     gap: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
 
 .details{
@@ -549,7 +549,6 @@ nav ul a:hover{
 
 .section_id .section_btn{
     gap: 100px;
-    margin-top: 50px;
 }
     
 /* ================= SECTION-ID ================= */
@@ -739,7 +738,6 @@ nav ul a:hover{
 .section_programacao .programas {
     width: 100%;
     overflow-x: auto;
-    margin: 3em auto auto;
     display: flex;
     justify-content: flex-start;
     gap: 20px;
@@ -789,7 +787,7 @@ nav ul a:hover{
 }
 
 .section_programacao .programas .info_culto {
-    flex: 0 0 90%; /* No telemóvel o card ocupa 85% da largura, mostrando um pedacinho do próximo */
+    flex: 0 0 100%; /* No telemóvel o card ocupa 85% da largura, mostrando um pedacinho do próximo */
     max-width: 20em;
     height: 25em;
     padding: 1em;
@@ -870,7 +868,6 @@ nav ul a:hover{
 
 .section_programacao .section_btn{
     gap: 100px;
-    margin-top: 50px;
 }
     
 /* ================= SECTION-PROGRAMACAO ================= */
