@@ -17,15 +17,25 @@
 
 
     <!-- Barra de Avisos / Carrossel Infinito no Topo -->
-<div class="top-ticker">
-    <div class="ticker-track" id="tickerTrack">
-        <span>📢 Campanha 7 Semanas: Vai tudo Bem! — Participe com a sua família!</span>
-        <span>🙏 Venha viver momentos de fé e comunhão conosco</span>
+    <div class="container-carrossel">
+        <div class="carrossel-track">
+            <!-- BLOCO 1 -->
+            <div class="card"><span>Campanha 7 Semanas: Vai tudo Bem! — Participe com a sua família!</span></div>
+            <div class="card"><span>Venha viver momentos de fé e comunhão conosco</span></div>
+            
+            <!-- BLOCO 2 (Cópia exata do Bloco 1) -->
+            <div class="card"><span>Campanha 7 Semanas: Vai tudo Bem! — Participe com a sua família!</span></div>
+            <div class="card"><span>Venha viver momentos de fé e comunhão conosco</span></div>
 
-        <span>📢 Campanha 7 Semanas: Vai tudo Bem! — Participe com a sua família!</span>
-        <span>🙏 Venha viver momentos de fé e comunhão conosco</span>
+            <!-- BLOCO 1 -->
+            <div class="card"><span>Campanha 7 Semanas: Vai tudo Bem! — Participe com a sua família!</span></div>
+            <div class="card"><span>Venha viver momentos de fé e comunhão conosco</span></div>
+            
+            <!-- BLOCO 2 (Cópia exata do Bloco 1) -->
+            <div class="card"><span>Campanha 7 Semanas: Vai tudo Bem! — Participe com a sua família!</span></div>
+            <div class="card"><span>Venha viver momentos de fé e comunhão conosco</span></div>
+        </div>
     </div>
-</div>
     
     <header>
         <div class="container">
@@ -158,6 +168,7 @@
                                 <span>Pastor Auxiliar</span>
                             </div>
                         </div>
+
                         <div class="pastor-img">
                             <img id="slide-3" src="/assets/images/pastor_samuel.png" alt="Pastor Samuel">
                             <div class="pastor-info">
@@ -165,6 +176,7 @@
                                 <span>Pastor Auxiliar</span>
                             </div>
                         </div>
+
                         <div class="pastor-img">
                             <img id="slide-4" src="/assets/images/pastor_jose_vieira.png" alt="Pastor Neilton">
                             <div class="pastor-info">
@@ -200,13 +212,18 @@
                 </div>
                 <h1>Nossos Cultos e Encontros</h1>
             </div>
+
             <div class="section_box_indi">
                 <div class="section_description">
                     <p>Durante a semana, temos momentos especiais de adoração, estudo da Palavra e comunhão. Será uma alegria receber você e sua família para juntos crescermos na fé e desfrutarmos da presença de Deus.</p>
                     <p>Confira abaixo nossa programação semanal e participe conosco!</p>
                 </div>
             </div>
+
             <div class="programas">
+
+                <!-- Botão Esquerda -->
+    <button class="scroll-btn scroll-left" onclick="document.querySelector('.programas').scrollBy({ left: -300, behavior: 'smooth' })">‹</button>
 
                 <div class="info_culto dia1">
                     <div class="info_culto_dia">
@@ -251,6 +268,56 @@
                         <span>Uma noite de edificação da família e oração.</span>
                     </div>
                 </div>
+
+                <div class="info_culto dia1">
+                    <div class="info_culto_dia">
+                        <h3>Dom</h3>
+                        <span>08:00h</span>
+                    </div>
+                    <div class="info_culto_sobre">
+                        <h3>Escola Bíblica</h3>
+                        <span>Aprofundamento bíblico e crescimento na fé.</span>
+                    </div>
+                </div>
+
+                <div class="info_culto dia2">
+                    <div class="info_culto_dia">
+                        <h3>Dom</h3>
+                        <span>18:00h</span>
+                    </div>
+                    <div class="info_culto_sobre">
+                        <h3>Culto de Celebração</h3>
+                        <span>Adoração e pregação expositiva da Palavra.</span>
+                    </div>
+                </div>
+
+                <div class="info_culto dia3">
+                    <div class="info_culto_dia">
+                        <h3>Terc</h3>
+                        <span>08:30h</span>
+                    </div>
+                    <div class="info_culto_sobre">
+                        <h3>Momento de Oração</h3>
+                        <span>Momento de clamor, meditação e intercessão.</span>
+                    </div>
+                </div>
+
+                <div class="info_culto dia4">
+                    <div class="info_culto_dia">
+                        <h3>Quin</h3>
+                        <span>19:30h</span>
+                    </div>
+                    <div class="info_culto_sobre">
+                        <h3>Culto da Família</h3>
+                        <span>Uma noite de edificação da família e oração.</span>
+                    </div>
+                </div>
+
+                <!-- Botão Direita -->
+    <button class="scroll-btn scroll-right" onclick="document.querySelector('.programas').scrollBy({ left: 300, behavior: 'smooth' })">›</button>
+
+                
+
             </div>
             <div class="section_btn">
                 <div class="btn btn_primary">

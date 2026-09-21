@@ -57,13 +57,16 @@
     .section_btn .btn{
         width: clamp(100px, 90vw, 400px);
     }
+    
 
     .section_mapa {
         flex-direction: column;
         width: 100vw;
+        height: 100%;
     }
     .mapa{
         width: 100%;
+        height: 100%;
     }
     .info-mapa {
         width: 100%;
@@ -145,6 +148,16 @@
     }
     .section_id .section_description {
     text-align: center;
+    }
+
+    .pastor-info{
+        padding: 5px 10px;
+        height: 40px;
+        width: auto;
+    }
+
+    .pastor-info h3, .pastor-info span{
+        font-size: 13px; 
     }
     
 }

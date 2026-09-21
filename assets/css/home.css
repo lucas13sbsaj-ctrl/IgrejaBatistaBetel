@@ -23,8 +23,12 @@ html {
 }
 
 @keyframes tickerAnimation {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% { 
+        transform: translateX(0); 
+    }
+    100% { 
+        transform: translateX(-50%); 
+    }
 }
 
 /* ================= COMPONENTES-GERAIS ================= */
@@ -208,36 +212,40 @@ html {
 
 /*================== AVISOS =================*/
 /* Barra de avisos forçada para testes */
-.top-ticker {
+.container-carrossel {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 25px;
-    background-color: #504d35 !important; 
-    color: #ffffff !important;
+    background-color: #504d35; 
+    color: #ffffff;
     overflow: hidden;
-    z-index: 99999 !important; 
-    display: flex !important;
-    align-items: center;
+    z-index: 99999; 
+    
     font-size: 14px;
     font-weight: 600;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.ticker-track {
+.carrossel-track {
     display: flex;
     width: max-content;
-    white-space: nowrap;
-    animation: tickerAnimation 25s linear infinite;
+    animation: tickerAnimation 10s linear infinite;
     will-change: transform;
 }
 
-.ticker-track span {
+.card{
+    flex: 0 0 auto;
+    display: flex;
+
+    margin: 0 40px;
+}
+
+.card span {
     display: inline-block;
-    padding-right: 60px;
-    flex-shrink: 0;
 }
 
 
@@ -612,7 +620,8 @@ nav ul a:hover{
     
     padding: 10px 20px;
 
-    width: 50%;
+    width: 5
+    0%;
     
     display: flex;
     flex-direction: column;
@@ -727,83 +736,109 @@ nav ul a:hover{
     gap: 20px;
 }
 
-.section_programacao .programas{
+.section_programacao .programas {
     width: 100%;
+    overflow-x: auto;
+    margin: 3em auto auto;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 30px;
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 0 20px 20px 20px; /* Adiciona espaçamento nas laterais para o primeiro e último card não grudarem na borda da tela */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory; /* Faz o carrossel encaixar perfeitamente ao deslizar */
 }
 
-.section_programacao .programas .info_culto{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    flex: 1 1 250px;
-    height: 300px;
-    padding: 20px;
+.programas::-webkit-scrollbar {
+    display: none; /* Oculta a barra de rolagem */
+}
 
-    opacity: 0;
-    transform: translateY(35px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+/* Estilo padrão dos botões manuais */
+.scroll-btn {
+    position: sticky; /* Fica travado na tela conforme você rola horizontalmente */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99;
+    background-color: #504d35ad;
+    color: white;
+    border: none;
+    font-size: 2.5rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: background-color 0.2s;
+    flex: 0 0 auto; /* Impede o botão de deformar */
+    padding-bottom: 10px;
+}
+
+.scroll-btn:hover {
+    background-color: #8b8b73bd;
+}
+
+/* Posicionamento inteligente para colar nas bordas visíveis */
+.scroll-left {
+    left: 0;
+}
+
+.scroll-right {
+    right: 0;
+}
+
+.section_programacao .programas .info_culto {
+    flex: 0 0 90%; /* No telemóvel o card ocupa 85% da largura, mostrando um pedacinho do próximo */
+    max-width: 20em;
+    height: 25em;
+    padding: 1em;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    scroll-snap-align: center; /* Centraliza o card ao parar o toque */
 }
 
 .section_programacao.visivel .info_culto {
-    opacity: 1;
     transform: translateY(0);
 }
 
-.section_programacao .programas .info_culto::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: #504d3533;
-    z-index: 1;
-    transition: background 0.3s ease;
-}
-
-.section_programacao .programas .info_culto:hover::before{
-    background: transparent
-}
-
-.section_programacao .programas .info_culto_dia{
+.section_programacao .programas .info_culto_dia {
     position: absolute;
     top: 0;
     left: 0;
-    width: 25%;
+    width: 35%; /* Ajustado para dar um respiro melhor no tamanho da caixinha do dia */
     height: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     color: #fdfdfd;
 
-    background-color: rgba(117, 112, 112, 0.486);
+    background-color: rgba(117, 112, 112, 0.6);
     backdrop-filter: blur(5px);
-    
+    border-bottom-right-radius: 10px; /* Estética opcional para ficar bonito no card */
 }
-.section_programacao .programas .info_culto_sobre{
+
+.section_programacao .programas .info_culto_sobre {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 70px;
-    padding: 10px;
-    font-size: 15px;
-
+    padding: 12px;
+    font-size: 14px;
     color: #fdfdfd;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    background-color: rgba(117, 112, 112, 0.486);
+    background-color: rgba(117, 112, 112, 0.6);
     backdrop-filter: blur(5px);
 }
 
