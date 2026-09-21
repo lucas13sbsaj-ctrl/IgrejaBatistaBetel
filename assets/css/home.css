@@ -779,11 +779,11 @@ nav ul a:hover{
 
 /* Posicionamento inteligente para colar nas bordas visíveis */
 .scroll-left {
-    left: 0;
+    left: -19px;
 }
 
 .scroll-right {
-    right: 0;
+    right: -19px;
 }
 
 .section_programacao .programas .info_culto {
