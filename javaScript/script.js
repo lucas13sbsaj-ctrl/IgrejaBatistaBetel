@@ -1,14 +1,41 @@
-// --- MENU MOBILE ---
+// --- MENU MOBILE COM TRANSIÇÃO SUAVE ---
 const menuBotao = document.querySelector('.menu_abrir');
-const nav = document.querySelector('nav');
+const navMobile = document.querySelector('.menu_mobile');
 
-menuBotao.onclick = function() {
-    if (nav.style.display === 'flex') {
-        nav.style.display = 'none';
-    } else {
-        nav.style.display = 'flex';
-    }
-};
+if (menuBotao && navMobile) {
+    menuBotao.onclick = function() {
+        // Adiciona a classe de animação de saída/troca
+        menuBotao.classList.add('trocando');
+
+        // Aguarda 150 milissegundos (metade da animação) para trocar a imagem no "vazio"
+        setTimeout(() => {
+            navMobile.classList.toggle('abrir');
+
+            if (navMobile.classList.contains('abrir')) {
+                menuBotao.src = 'assets/icones/fechar.svg';     // Vai para o X
+            } else {
+                menuBotao.src = 'assets/icones/menu_mobile.svg'; // Volta para os 3 traços
+            }
+
+            // Remove a classe de troca para o ícone novo aparecer suavemente
+            menuBotao.classList.remove('trocando');
+        }, 150);
+    };
+
+    // Fecha o menu automaticamente ao clicar em qualquer link da lista
+    const menuLinks = document.querySelectorAll('.menu_mobile ul li a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuBotao.classList.add('trocando');
+            
+            setTimeout(() => {
+                navMobile.classList.remove('abrir');
+                menuBotao.src = 'assets/icones/menu_mobile.svg';
+                menuBotao.classList.remove('trocando');
+            }, 150);
+        });
+    });
+}
 
 // --- CARROSSEL (CLIQUE NAS BOLINHAS) ---
 const slider = document.querySelector('.slider');

@@ -1,0 +1,125 @@
+/* ==========================================
+   ESTILOS PARA PÁGINA HISTÓRIA E PROGRAMAS
+   ========================================== */
+
+.historia-main {
+    max-width: 1100px;
+    margin: 120px auto 60px auto;
+    padding: 0 20px;
+}
+
+.section-bloco {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.section-bloco h2 {
+    color: #2c3e2b;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-left: 4px solid #2c5e3b;
+    padding-left: 12px;
+}
+
+.section-bloco p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Missão, Visão e Valores (3 colunas) */
+.mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.mvv-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 4px solid #2c5e3b;
+}
+
+.mvv-card h3 {
+    color: #2c3e2b;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.mvv-card p {
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Organograma visual simples */
+.organograma-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.org-nivel {
+    background: #2c5e3b;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    min-width: 280px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.org-seta {
+    font-size: 1.2rem;
+    color: #2c5e3b;
+    font-weight: bold;
+}
+
+/* Grades de Cards (3 e 4 colunas) */
+.grid-cards-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.grid-cards-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.mini-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #eaeaea;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mini-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.mini-card h4 {
+    color: #2c3e2b;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.mini-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}

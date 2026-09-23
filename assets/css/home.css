@@ -918,20 +918,7 @@ nav ul a:hover{
 .section_loc .section_title{
     color: #423c18;;
 }
-.info_mapa_a{
-    text-decoration: none;
-}
 
-.info_mapa{
-    display: flex ;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.info_mapa span{
-    text-align: center;
-    color: #423c18;
-}
 .section_loc .section_btn{
     gap: 100px;
     margin-top: 50px;
@@ -939,7 +926,41 @@ nav ul a:hover{
 
 /* ================= SECTION-LOC ================= */
 
+/* ==========================================
+   ESTILOS E ANIMAÇÃO DO MENU MOBILE
+   ========================================== */
+.menu_abrir {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 1001;
+}
 
+.menu_abrir {
+    cursor: pointer;
+    width: 32px; /* Ajuste o tamanho se necessário */
+    height: 32px;
+    /* Transição suave para opacidade, escala e rotação */
+    transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 1;
+    z-index: 1001;
+}
+
+/* Estado intermediário durante a troca (fica invisível e diminui levemente) */
+.menu_abrir.trocando {
+    opacity: 0;
+    transform: scale(.8);
+}
+
+/* Estado oculto padrão do menu mobile (ajuste se o seu já tiver outro padrão) */
+.menu_mobile {
+    display: none; 
+}
+
+/* Quando receber a classe .abrir, ele aparece */
+.menu_mobile.abrir {
+    display: flex;
+    flex-direction: column;
+}
 
 
 
