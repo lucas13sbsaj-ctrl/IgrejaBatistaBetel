@@ -1,0 +1,166 @@
+/* ==========================================
+   ESTILOS ESPECÍFICOS DA PÁGINA JESUS
+   ========================================== */
+
+body {
+    /* Gradiente moderno e elegante com tons suaves inspirados na paleta da igreja */
+    background: linear-gradient(135deg, #f4f6f3 0%, #e9efe8 100%);
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Garante que o footer fique embaixo se a página for curta */
+}
+
+.jesus-main {
+    max-width: 900px;
+    margin: 120px auto 60px auto; /* Afasta do header fixo e da barra de avisos */
+    padding: 0 20px;
+}
+
+.jesus-header-text {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.jesus-header-text h1 {
+    font-size: 2.2rem;
+    color: #2c3e2b;
+    margin-bottom: 15px;
+}
+
+.jesus-header-text p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Vídeo do YouTube Responsivo */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Proporção perfeita 16:9 */
+    height: 0;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 50px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Formulário do WhatsApp */
+.whatsapp-form-box {
+    /* Fundo branco translúcido (ajuste o último valor 0.85 para mais ou menos transparência se quiser) */
+    background: rgba(255, 255, 255, 0.85);
+    
+    /* Efeito de desfoque de vidro fosco (mágico!) */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Compatibilidade com Safari/iOS */
+    
+    padding: 35px;
+    border-radius: 16px;
+    
+    /* Sombra elegante e difusa */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    
+    /* Borda sutil translúcida para dar o acabamento de vidro */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-top: 5px solid #6e6948; /* Mantém o detalhe verde do WhatsApp no topo */
+    
+    margin-bottom: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito sutil ao aproximar o mouse da caixa */
+.whatsapp-form-box:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.whatsapp-form-box h3 {
+    color: #2c3e2b;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.whatsapp-form-box p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    
+    /* Inputs também com leve efeito translúcido para combinar */
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+}
+
+/* Quando o usuário clica para digitar em um campo */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #25d366;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.15);
+}
+
+.btn_primary{
+    border: none;
+
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: white;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #6e6948, #837a5b, #85805e);
+
+    cursor: pointer;
+
+    transition: 
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.btn_primary:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 20px rgba(148, 77, 77, 0.25);
+}

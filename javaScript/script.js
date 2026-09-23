@@ -144,7 +144,7 @@ if (secaoProgramacao) {
     observerProgramacao.observe(secaoProgramacao);
 }
 
-// --- MENU DE NAVEGAÇÃO SUAVE E ATIVO ---
+// --- MENU DE NAVEGAÇÃO SUAVE, ATIVO E FECHAMENTO NO MOBILE ---
 const menuLinks = document.querySelectorAll('header nav ul li a');
 
 menuLinks.forEach(link => {
@@ -157,7 +157,7 @@ menuLinks.forEach(link => {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                // Rrola suavemente até a seção
+                // Rola suavemente até a seção
                 targetSection.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
@@ -167,6 +167,11 @@ menuLinks.forEach(link => {
                 menuLinks.forEach(l => l.classList.remove('active'));
                 this.classList.add('active');
             }
+        }
+        
+        // FECHA O MENU MOBILE AUTOMATICAMENTE AO CLICAR EM QUALQUER OPÇÃO
+        if (nav.style.display === 'flex') {
+            nav.style.display = 'none';
         }
     });
 });

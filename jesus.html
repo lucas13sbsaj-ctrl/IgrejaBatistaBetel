@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conheça a Jesus - Igreja Batista Betel</title>
+    
+    <!-- Scripts e Estilos Globais -->
+    <script src="javascript/script.js" defer></script>
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/responsividade.css">
+    
+    <!-- Estilo Específico da Página Jesus -->
+    <link rel="stylesheet" href="assets/css/jesus.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Barra de Avisos / Carrossel Infinito no Topo -->
+    <div class="container-carrossel">
+        <div class="carrossel-track" id="tickerTrack">
+            <div class="card"><span>Campanha 7 Semanas: Vai tudo Bem! — Participe com a sua família!</span></div>
+            <div class="card"><span>Venha viver momentos de fé e comunhão conosco</span></div>
+        </div>
+    </div>
+    
+    <!-- Header Padrão -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo_img">
+                    <img src="assets/images/logo_betel.svg" alt="Logo Betel">
+                </div>
+                <span class="logo_nome">
+                    Igreja <h3>Batista Betel</h3>
+                </span>
+            </div>
+            <div class="menu">
+                <img class="menu_abrir" src="assets/icones/menu_mobile.svg" alt="Menu">
+                <nav class="menu_mobile">
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="index.html#id">Quem Somos</a></li>
+                        <li><a href="index.html#pastores">Pastores</a></li>
+                        <li><a href="index.html#culto">Cultos</a></li>
+                        <li><a href="index.html#loc">Localização</a></li>
+                        <li><a href="jesus.html" class="active">Conheça a Jesus</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal da Página Jesus -->
+    <main class="jesus-main">
+        
+        <div class="jesus-header-text">
+            <h1>A Mensagem Mais Importante da sua Vida</h1>
+            <p>Deus te ama profundamente e tem um plano maravilhoso para a sua história. A Bíblia nos ensina que todos nós nos afastamos de Deus por causa do pecado, mas Jesus Cristo veio ao mundo para nos resgatar, morrendo em nossos lugares e ressuscitando para nos dar vida eterna e um recomeço absoluto.</p>
+        </div>
+
+        <!-- Vídeo do YouTube (Substitua o link 'src' depois pelo oficial) -->
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/5mwhUZfCTLE" title="QUEM É JESUS? - Hernandes Dias Lopes" allowfullscreen></iframe>
+        </div>
+        
+
+        <!-- Formulário integrado ao WhatsApp -->
+        <div class="whatsapp-form-box">
+            <h3>Quer aceitar a Jesus ou precisa de Oração?</h3>
+            <p>Preencha os campos abaixo e envie diretamente para o WhatsApp da nossa liderança. Teremos o maior prazer em conversar com você!</p>
+            
+            <form id="whatsappForm">
+                <div class="form-group">
+                    <label for="nome">Seu Nome:</label>
+                    <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Seu Pedido de Oração / Mensagem:</label>
+                    <textarea id="mensagem" rows="4" placeholder="Escreva aqui se deseja aceitar a Jesus, se batizar ou se precisa de uma oração..." required></textarea>
+                </div>
+
+                <button type="submit" class=" btn_primary">
+                    Enviar Mensagem pelo WhatsApp
+                </button>
+            </form>
+        </div>
+
+    </main>
+
+    <!-- Footer Padrão -->
+    <footer>
+        <div class="container_footer">
+            <div class="footer_box">
+
+                <div class="widget_footer">
+                    <h3>Igreja Batista Betel</h3>
+                    <span>Uma igreja fundamentada na Palavra de Deus, dedicada a viver e compartilhar o amor de Cristo com fé e comunhão.</span>
+                </div>
+
+                <div class="widget_footer">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="index.html#id">Quem Somos</a></li>
+                        <li><a href="index.html#pastores">Pastores</a></li>
+                        <li><a href="index.html#culto">Cultos</a></li>
+                        <li><a href="index.html#loc">Localização</a></li>
+                        <li><a href="jesus.html">Conheça a Jesus</a></li>
+                    </ul>
+                </div>
+
+                <div class="widget_footer">
+                    <h3>Contato</h3>
+                    <span>Rua Isaías Alves, 128 — S. A. de Jesus</span>
+                    <span>(75) 3631-1234</span>
+                    <span>contato@igrejabatistabetel.org.br</span>
+                </div>
+
+                <div class="widget_footer">
+                    <h3>Siga-nos</h3>
+                    <span>Acompanhe nossas redes sociais e fique por dentro de tudo o que acontece na nossa igreja.</span>
+                    <div class="social_icons">
+                        <a href="#"><img src="assets/icones/instagram.svg" alt="Instagram"></a>
+                        <a href="#"><img src="assets/icones/youtube.svg" alt="YouTube"></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer_fim">
+                <span>© 2026 Igreja Batista Betel. Todos os direitos reservados.</span>
+                <span>Feito com amor para a Glória de Deus.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para disparar o WhatsApp formatado -->
+    <script>
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const mensagemUsuario = document.getElementById('mensagem').value;
+
+            // Substitua o número abaixo pelo WhatsApp da Igreja (código do país + DDD + número)
+            const seuNumeroWhatsApp = "5575999206686"; 
+
+            const textoFormatado = `Olá! Meu nome é *${nome}*.\n\n${mensagemUsuario}`;
+            const urlWhatsApp = `https://wa.me/${seuNumeroWhatsApp}?text=${encodeURIComponent(textoFormatado)}`;
+
+            window.open(urlWhatsApp, '_blank');
+        });
+    </script>
+</body>
+</html>
