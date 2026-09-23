@@ -127,6 +127,8 @@ body {
     transition: all 0.3s ease;
     font-family: 'Open Sans', sans-serif;
     color: #333;
+
+    resize: none;
 }
 
 /* Quando o usuário clica para digitar em um campo */
