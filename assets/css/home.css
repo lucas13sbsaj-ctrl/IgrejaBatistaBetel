@@ -952,9 +952,7 @@ nav ul a:hover{
 }
 
 /* Estado oculto padrão do menu mobile (ajuste se o seu já tiver outro padrão) */
-.menu_mobile {
-    display: none; 
-}
+
 
 /* Quando receber a classe .abrir, ele aparece */
 .menu_mobile.abrir {
