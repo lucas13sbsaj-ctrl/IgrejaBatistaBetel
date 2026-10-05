@@ -1,30 +1,29 @@
-// --- MENU MOBILE COM TRANSIÇÃO SUAVE ---
+// --- MENU MOBILE COM TRANSIÇÃO SUAVE E FECHAMENTO AO CLICAR FORA ---
 const menuBotao = document.querySelector('.menu_abrir');
 const navMobile = document.querySelector('.menu_mobile');
 
 if (menuBotao && navMobile) {
-    menuBotao.onclick = function() {
-        // Adiciona a classe de animação de saída/troca
+    // Abrir/Fechar ao clicar no botão do menu
+    menuBotao.onclick = function(e) {
+        e.stopPropagation(); // Impede que o clique suba para o documento
         menuBotao.classList.add('trocando');
 
-        // Aguarda 150 milissegundos (metade da animação) para trocar a imagem no "vazio"
         setTimeout(() => {
             navMobile.classList.toggle('abrir');
 
             if (navMobile.classList.contains('abrir')) {
-                menuBotao.src = 'assets/icones/fechar.svg';     // Vai para o X
+                menuBotao.src = 'assets/icones/fechar.svg';
             } else {
-                menuBotao.src = 'assets/icones/menu_mobile.svg'; // Volta para os 3 traços
+                menuBotao.src = 'assets/icones/menu_mobile.svg';
             }
 
-            // Remove a classe de troca para o ícone novo aparecer suavemente
             menuBotao.classList.remove('trocando');
         }, 150);
     };
 
     // Fecha o menu automaticamente ao clicar em qualquer link da lista
-    const menuLinks = document.querySelectorAll('.menu_mobile ul li a');
-    menuLinks.forEach(link => {
+    const menuLinksMobile = document.querySelectorAll('.menu_mobile ul li a');
+    menuLinksMobile.forEach(link => {
         link.addEventListener('click', function() {
             menuBotao.classList.add('trocando');
             
@@ -35,181 +34,140 @@ if (menuBotao && navMobile) {
             }, 150);
         });
     });
+
+    // FECHA O MENU AO CLICAR FORA DELA
+    document.addEventListener('click', function(event) {
+        const isClickInsideMenu = navMobile.contains(event.target);
+        const isClickOnButton = menuBotao.contains(event.target);
+
+        // Se o menu estiver aberto e o clique foi fora do menu e fora do botão
+        if (navMobile.classList.contains('abrir') && !isClickInsideMenu && !isClickOnButton) {
+            menuBotao.classList.add('trocando');
+            
+            setTimeout(() => {
+                navMobile.classList.remove('abrir');
+                menuBotao.src = 'assets/icones/menu_mobile.svg';
+                menuBotao.classList.remove('trocando');
+            }, 150);
+        }
+    });
 }
+
 
 // --- CARROSSEL (CLIQUE NAS BOLINHAS) ---
 const slider = document.querySelector('.slider');
-const slides = slider.querySelectorAll('img');
-const navLinks = document.querySelectorAll('.slider-nav a');
-const totalSlides = slides.length;
-let currentIndex = 0;
-let intervaloCarrossel = null;
+if (slider) {
+    const slides = slider.querySelectorAll('img');
+    const navLinks = document.querySelectorAll('.slider-nav a');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+    let intervaloCarrossel = null;
 
-// Função para atualizar qual bolinha está acesa
-function atualizarBolinha(index) {
-    navLinks.forEach((link, i) => {
-        if (i === index) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-}
-
-// Inicia com a primeira bolinha acesa
-atualizarBolinha(0);
-
-function proximoSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides; // Avança e volta para o 0 quando chega no final
-    
-    slides[currentIndex].scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'start'
-    });
-    
-    atualizarBolinha(currentIndex);
-}
-
-// Funções para controlar o autoplay condicional
-function iniciarAutoplay() {
-    if (!intervaloCarrossel) {
-        intervaloCarrossel = setInterval(proximoSlide, 3000);
+    function atualizarBolinha(index) {
+        navLinks.forEach((link, i) => {
+            if (i === index) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
     }
-}
 
-function pausarAutoplay() {
-    clearInterval(intervaloCarrossel);
-    intervaloCarrossel = null;
-}
-
-// Pausa o autoplay quando o mouse estiver em cima do carrossel
-const wrapper = document.querySelector('.slider-wrapper');
-
-wrapper.addEventListener('mouseenter', pausarAutoplay);
-wrapper.addEventListener('mouseleave', () => {
-    // Só reinicia se a seção dos pastores estiver visível na tela
-    if (document.querySelector('.section_pastor').classList.contains('visivel')) {
-        iniciarAutoplay();
+    if (navLinks.length > 0) {
+        atualizarBolinha(0);
     }
-});
 
-// Faz as bolinhas funcionarem ao clicar manualmente
-navLinks.forEach((link, index) => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault(); // Evita que a página dê o pulo vertical
-        currentIndex = index;
-        
+    function proximoSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
         slides[currentIndex].scrollIntoView({
             behavior: 'smooth',
-            block: 'nearest',   // Evita scroll vertical desnecessário
-            inline: 'start'     // Alinha horizontalmente
+            block: 'nearest',
+            inline: 'start'
         });
-        
         atualizarBolinha(currentIndex);
-    });
-});
+    }
 
-// --- CARROSSEL AUTOMÁTICO INTELIGENTE (APENAS NA SEÇÃO DOS PASTORES) ---
-const secaoPastor = document.querySelector('.section_pastor');
-
-const observerSecao = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // A seção apareceu na tela: liga o carrossel automático
-            secaoPastor.classList.add('visivel');
-            iniciarAutoplay();
-        } else {
-            // A seção saiu da tela: desliga o carrossel para economizar
-            secaoPastor.classList.remove('visivel');
-            pausarAutoplay();
+    function iniciarAutoplay() {
+        if (!intervaloCarrossel) {
+            intervaloCarrossel = setInterval(proximoSlide, 3000);
         }
-    });
-}, {
-    threshold: 0.3 // Dispara quando pelo menos 30% da seção estiver visível
-});
+    }
 
-observerSecao.observe(secaoPastor);
+    function pausarAutoplay() {
+        clearInterval(intervaloCarrossel);
+        intervaloCarrossel = null;
+    }
 
-// Sincroniza as bolinhas caso o usuário arraste manualmente com o dedo (mobile)
-const observerSlides = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const index = Array.from(slides).indexOf(entry.target);
-            if (index !== -1) {
-                currentIndex = index;
-                atualizarBolinha(currentIndex);
+    const wrapper = document.querySelector('.slider-wrapper');
+    if (wrapper) {
+        wrapper.addEventListener('mouseenter', pausarAutoplay);
+        wrapper.addEventListener('mouseleave', () => {
+            const secaoPastor = document.querySelector('.section_pastor');
+            if (secaoPastor && secaoPastor.classList.contains('visivel')) {
+                iniciarAutoplay();
             }
-        }
-    });
-}, {
-    root: slider,
-    threshold: 0.5
-});
+        });
+    }
 
-slides.forEach(slide => observerSlides.observe(slide));
+    navLinks.forEach((link, index) => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            currentIndex = index;
+            slides[currentIndex].scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'start'
+            });
+            atualizarBolinha(currentIndex);
+        });
+    });
+
+    const secaoPastor = document.querySelector('.section_pastor');
+    if (secaoPastor) {
+        const observerSecao = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    secaoPastor.classList.add('visivel');
+                    iniciarAutoplay();
+                } else {
+                    secaoPastor.classList.remove('visivel');
+                    pausarAutoplay();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observerSecao.observe(secaoPastor);
+    }
+
+    const observerSlides = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const index = Array.from(slides).indexOf(entry.target);
+                if (index !== -1) {
+                    currentIndex = index;
+                    atualizarBolinha(currentIndex);
+                }
+            }
+        });
+    }, { root: slider, threshold: 0.5 });
+
+    slides.forEach(slide => observerSlides.observe(slide));
+}
 
 
 // --- ANIMAÇÃO DA PROGRAMAÇÃO SEMANAL AO ROLAR A TELA ---
 const secaoProgramacao = document.querySelector('.section_programacao');
-
-const observerProgramacao = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        // Verifica se a seção realmente entrou na tela
-        if (entry.isIntersecting) {
-            secaoProgramacao.classList.add('visivel');
-            
-            // Para de observar depois que animou (assim a animação acontece só uma vez)
-            observer.unobserve(entry.target);
-        }
-    });
-}, {
-    threshold: 0.3 // Exige que pelo menos 30% da seção apareça antes de disparar
-});
-
 if (secaoProgramacao) {
+    const observerProgramacao = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                secaoProgramacao.classList.add('visivel');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
     observerProgramacao.observe(secaoProgramacao);
 }
 
-// --- MENU DE NAVEGAÇÃO SUAVE, ATIVO E FECHAMENTO NO MOBILE ---
-const menuLinks = document.querySelectorAll('header nav ul li a');
 
-menuLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        // Verifica se o link é uma âncora interna (começa com #)
-        const targetId = this.getAttribute('href');
-        
-        if (targetId && targetId.startsWith('#')) {
-            e.preventDefault();
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                // Rola suavemente até a seção
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                
-                // Remove a classe 'active' de todos e coloca apenas no clicado
-                menuLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-            }
-        }
-        
-        // FECHA O MENU MOBILE AUTOMATICAMENTE AO CLICAR EM QUALQUER OPÇÃO
-        if (nav.style.display === 'flex') {
-            nav.style.display = 'none';
-        }
-    });
-});
-
-// --- DUPLICAÇÃO AUTOMÁTICA DO TICKER APÓS O CARREGAMENTO COMPLETO ---
-window.addEventListener('load', () => {
-    const tickerTrack = document.getElementById('tickerTrack');
-    if (tickerTrack) {
-        // Limpa qualquer duplicação anterior para evitar duplicar em dobro
-        // e injeta o conteúdo exato novamente para fechar os 50%
-        const conteudoOriginal = tickerTrack.innerHTML;
-        tickerTrack.innerHTML = conteudoOriginal + conteudoOriginal;
-    }
-});
