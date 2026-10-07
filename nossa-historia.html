@@ -131,30 +131,26 @@
                     </div>
                 </div>
 
-                <!-- As 4 Colunas (Pilares) -->
+                                <!-- As 4 Colunas (Pilares) -->
                 <div class="ibb_colunas_grid">
-                    <div class="ibb_coluna_card">
+                    <div class="ibb_coluna_card" style="cursor: pointer;">
                         <span class="coluna_passo">01</span>
                         <h4>Ganhar</h4>
-                        <p>Casas de Paz</p>
                     </div>
 
-                    <div class="ibb_coluna_card">
+                    <div class="ibb_coluna_card" style="cursor: pointer;">
                         <span class="coluna_passo">02</span>
                         <h4>Consolidar</h4>
-                        <p>Encontro com Deus & Discipulado</p>
                     </div>
 
-                    <div class="ibb_coluna_card">
+                    <div class="ibb_coluna_card" style="cursor: pointer;">
                         <span class="coluna_passo">03</span>
                         <h4>Treinar</h4>
-                        <p>TLB / EBD</p>
                     </div>
 
-                    <div class="ibb_coluna_card">
+                    <div class="ibb_coluna_card" style="cursor: pointer;">
                         <span class="coluna_passo">04</span>
                         <h4>Enviar</h4>
-                        <p>Novos Líderes</p>
                     </div>
                 </div>
 
@@ -330,5 +326,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal Dinâmico para Detalhes dos Pilares -->
+    <div id="modalDetalhes" class="modal_overlay">
+    <div class="modal_conteudo">
+        <button class="modal_fechar">&times;</button>
+        <h3 id="modalTitulo">Título da Etapa</h3>
+        <p id="modalTexto">Descrição detalhada do pilar escolhido...</p>
+    </div>
+</div>
 </body>
 </html>

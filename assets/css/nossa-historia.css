@@ -149,7 +149,8 @@ body{
 }
 
 .ibb_coluna_card {
-    background: #ffffff;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(247, 244, 234, 0.85) 100%);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(85, 46, 46, 0.1);
     border-radius: 12px;
     padding: 25px 15px;
@@ -178,6 +179,78 @@ body{
     box-shadow: 0 12px 30px rgba(85, 46, 46, 0.1);
 }
 
+/* ================= MODAL DE DETALHES DOS PILARES ================= */
+
+/* Fundo escuro e borrado (Overlay) */
+.modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Classe ativada via JavaScript para exibir o modal */
+.modal_overlay.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* O Card Maior Centralizado */
+.modal_conteudo {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 247, 240, 0.95) 100%);
+    border: 1px solid rgba(85, 46, 46, 0.2);
+    width: 90%;
+    max-width: 600px;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal_overlay.ativo .modal_conteudo {
+    transform: translateY(0);
+}
+
+/* Botão de Fechar (X) */
+.modal_fechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: var(--text-primary);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal_conteudo h3 {
+    font-size: 26px;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.modal_conteudo p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
+}
+
 .coluna_passo {
     font-size: 12px;
     font-weight: 700;
@@ -193,7 +266,8 @@ body{
 }
 
 .ibb_coluna_card h4 {
-    font-size: 18px;
+    font-size: 20px;
+    text-transform: uppercase;
     color: var(--text-primary);
     font-weight: 600;
 }

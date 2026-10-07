@@ -171,3 +171,48 @@ if (secaoProgramacao) {
 }
 
 
+// --- MODAL DE DETALHES DOS PILARES (ESTRUTURA) ---
+const cardsColuna = document.querySelectorAll('.ibb_coluna_card');
+const modalOverlay = document.getElementById('modalDetalhes');
+const modalTitulo = document.getElementById('modalTitulo');
+const modalTexto = document.getElementById('modalTexto');
+const modalFechar = document.querySelector('.modal_fechar');
+
+// Textos específicos para cada etapa
+const detalhesPilares = {
+    "Ganhar": "O pilar do 'Ganhar' consiste em alcançar vidas através das Casas de Paz, evangelismo intencional e ações de amor ao próximo, levando a mensagem de Cristo aos lares de Santo Antônio de Jesus.",
+    "Consolidar": "A 'Consolidação' foca no acolhimento do novo crente, garantindo que ele seja integrado à família da fé por meio do Encontro com Deus e do acompanhamento no discipulado inicial.",
+    "Treinar": "No 'Treinar', preparamos os membros através do TLB (Treinamento de Líderes Batista) e da EBD (Escola Bíblica Dominical), fundamentando cada pessoa na Palavra de Deus.",
+    "Enviar": "O 'Enviar' comissiona novos líderes para frutificarem, multiplicando células, assumindo frentes ministeriais e abençoando gerações na sociedade."
+};
+
+if (modalOverlay && cardsColuna.length > 0) {
+    cardsColuna.forEach(card => {
+        card.style.cursor = 'pointer'; // Mostra que o card é clicável
+        
+        card.addEventListener('click', () => {
+            const tituloH4 = card.querySelector('h4').textContent.trim();
+            
+            // Define o conteúdo com base no título do card
+            modalTitulo.textContent = tituloH4;
+            modalTexto.textContent = detalhesPilares[tituloH4] || "Informações detalhadas sobre esta etapa estrutural da igreja.";
+            
+            // Abre o modal
+            modalOverlay.classList.add('ativo');
+        });
+    });
+
+    // Fechar ao clicar no X
+    if (modalFechar) {
+        modalFechar.addEventListener('click', () => {
+            modalOverlay.classList.remove('ativo');
+        });
+    }
+
+    // Fechar ao clicar fora do card (no fundo borrado)
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            modalOverlay.classList.remove('ativo');
+        }
+    });
+}
