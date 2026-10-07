@@ -7,9 +7,10 @@
         padding: 10px 0px;
         gap: 20px;
     }
+} /* <--- Chave que faltava fechar aqui */
 
 @media (max-width: 1380px){
-    nav{;
+    .menu_mobile { /* <--- Alterado de 'nav' para '.menu_mobile' */
         position: absolute;
         top: 89px;
         right: 0;
@@ -21,18 +22,22 @@
         justify-content: center;
     }
 
+    /* Adicione esta regra para o JavaScript conseguir abrir o menu */
+    .menu_mobile.abrir {
+        display: flex; 
+    }
 
-    nav ul{
+    .menu_mobile ul { /* <--- Alterado de 'nav ul' para ser mais específico */
         flex-direction: column;
         align-items: left;
         margin-left: 30px;
-        justify-content:flex-start;
+        justify-content: flex-start;
         margin-top: 50px;
         gap: 50px;
         height: 100%;
     }
 
-    nav ul li{
+    .menu_mobile ul li { /* <--- Alterado de 'nav ul li' */
         font-size: 15px;
         display: flex;
         letter-spacing: 2px;
@@ -58,7 +63,6 @@
         width: clamp(100px, 90vw, 400px);
     }
     
-
     .section_mapa {
         flex-direction: column;
         width: 100vw;
@@ -77,38 +81,40 @@
         width: 100%;
         gap: 50px;
     } 
-
-    
 }
 
 @media (max-width: 510px){
-
     .section{
-    min-height: 50vh;
+        min-height: 50vh;
+    }
 
     header{
         height: 80px;
     }
 
-    nav {
-    top: 79px;
-}
+    .menu_mobile { /* <--- Alterado de 'nav' para '.menu_mobile' */
+        top: 79px;
+    }
 
-    nav ul{
+    .menu_mobile ul { /* <--- Alterado de 'nav ul' */
         margin-top: 50px;
         gap: 20px;
     }
 
-    nav ul li{
+    .menu_mobile ul li { /* <--- Alterado de 'nav ul li' */
         font-size: 17px;
         letter-spacing: 0px;
     }
 
     .logo_nome{
-        display: none;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .logo_nome h3{
+        font-size: 20px;
     }
     .logo_img {
-    width: 70px;
+        width: 70px;
     }
 
     .section_title h1,
@@ -147,7 +153,7 @@
         gap: 0;
     }
     .section_id .section_description {
-    text-align: center;
+        text-align: center;
     }
 
     .pastor-info{
@@ -159,5 +165,4 @@
     .pastor-info h3, .pastor-info span{
         font-size: 13px; 
     }
-    
 }
