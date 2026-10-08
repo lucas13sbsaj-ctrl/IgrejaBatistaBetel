@@ -165,4 +165,12 @@
     .pastor-info h3, .pastor-info span{
         font-size: 13px; 
     }
+
+     .section_jesus {
+        background-attachment: scroll;
+    }
+
+    .section_home {
+        background-attachment: scroll;
+    }
 }
