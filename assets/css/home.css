@@ -257,26 +257,37 @@ html {
 
 /* Empurra o resto do site para baixo para a barra não tampar o menu */
 body {
-    margin-top: 40px !important;
+    margin-top: 0px !important;
 }
 
 /* ================= HEADER ================= */
 
 header{
     position: fixed;
-    top: 0px;
+    top: 0;
     z-index: 1000;
     padding: 20px 50px;
     margin-top: 20px !important;
-
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    
     width: 100%;
     height: 90px;
-    background-color: #f0e8df9d;
-    backdrop-filter: blur(20px);
+
+    background-color: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
 
     display: flex;
     justify-content: center;
+
+    transition: background-color 0.3s ease,
+                backdrop-filter 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+header.scrolled {
+    background-color: #f0e8df9d;
+    backdrop-filter: blur(20px);
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
 
 .container{
@@ -385,7 +396,7 @@ nav ul a:hover{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-
+    background-attachment: fixed;
     justify-content: flex-end;
 
     gap: 10px;
@@ -431,10 +442,11 @@ nav ul a:hover{
 
 /* ================= SECTION-JESUS ================= */
 .section_jesus{
-    background-image: url(/assets/images/fundoPalavra.png);
+    background-image: url("/assets/images/fundoPalavra.png");
     background-position: center;
-    background-size: cover; 
+    background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     position: relative;
 }
 
@@ -508,6 +520,10 @@ nav ul a:hover{
 /* ================= SECTION-ID ================= */
 .section_id{
     background-color: rgba(237, 232, 208, 0.33);
+}
+
+.section_id .section_btn{
+    margin-top: 40px;
 }
 
 .section_id .section_box{
