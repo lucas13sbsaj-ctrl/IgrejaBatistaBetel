@@ -10,6 +10,21 @@ html {
     
 }
 
+@keyframes flutuar {
+  0% {
+    transform: translateY(0); /* Posição inicial */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra mais próxima e escura */
+  }
+  50% {
+    transform: translateY(-10px); /* Sube 10px */
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15); /* Sombra mais afastada e suave */
+  }
+  100% {
+    transform: translateY(0); /* Volta à posição inicial */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
 @keyframes seta {
     0%, 100% {
         transform: translateY(0);
@@ -215,70 +230,31 @@ html {
 /* ================= SCROLLBAR ================= */
 
 
-/*================== AVISOS =================*/
-/* Barra de avisos forçada para testes */
-.container-carrossel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 25px;
-    background-color: #504d35; 
-    color: #ffffff;
-    overflow: hidden;
-    z-index: 99999; 
-    
-    font-size: 14px;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.carrossel-track {
-    display: flex;
-    width: max-content;
-    animation: tickerAnimation 10s linear infinite;
-    will-change: transform;
-}
-
-.card{
-    flex: 0 0 auto;
-    display: flex;
-
-    margin: 0 40px;
-}
-
-.card span {
-    display: inline-block;
-}
-
-
-
-/* Empurra o resto do site para baixo para a barra não tampar o menu */
-body {
-    margin-top: 0px !important;
-}
 
 /* ================= HEADER ================= */
 
+    
 header{
     position: fixed;
     top: 0;
     z-index: 1000;
     padding: 20px 50px;
-    margin-top: 20px !important;
 
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
     width: 100%;
     height: 90px;
-    background-color: #f0e8df9d;
-    backdrop-filter: blur(20px);
+    background-color:transparent;
 
     display: flex;
     justify-content: center;
+
+    transition: all .5s ease;
 }
 
+header.scrolled {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #f0e8df9d;
+    backdrop-filter: blur(20px);
+}
 
 .container{
     width: 80vw;
@@ -1048,3 +1024,201 @@ footer{
     text-align: center;
 }
 /* ================= FOOTER ================= */
+
+/* Botão Flutuante no canto inferior */
+.btn-flutuante {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #5c1d24c0; /* Tom vinho/marrom escuro alinhado com o tema */
+  backdrop-filter: blur(5px); /* Efeito de vidro fosco */
+  color: #FFFFFF; /* Faz o sino ficar branco */
+  border: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: flutuar 3s ease-in-out infinite; /* Nome, duração, suavidade, loop infinito */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-flutuante:hover {
+  animation-play-state: paused; /* Pausa a flutuação ao encostar o rato */
+  background-color: #4a171d; /* Apenas escurece levemente o tom */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* Sombra um pouco mais corpórea, sem saltar na tela */
+  transform: translateY(-6px); /* Mantém a posição onde estava, sem dar "pulos" */
+}
+
+.svg-icone {
+  width: 28px;
+  height: 28px;
+}
+
+/* Esconder o modal por defeito */
+.hidden {
+  display: none !important;
+}
+
+/* --- Overlay (Fundo Falso) --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 15, 18, 0.55);
+  backdrop-filter: blur(6px); /* Efeito de vidro desfocado */
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+/* Estado Visível */
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Container do Modal --- */
+.modal-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  transform: translateY(12px) scale(0.97);
+  transition: transform 0.25s ease;
+}
+
+.modal-overlay.active .modal-container {
+  transform: translateY(0) scale(1);
+}
+
+/* --- Cabeçalho --- */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c2c2c;
+  margin: 0;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  color: #888;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+  transition: color 0.15s ease;
+}
+
+.modal-close:hover {
+  color: #111;
+}
+
+/* --- Corpo --- */
+.modal-body {
+  padding: 20px 24px;
+  max-height: 60vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Cards de Aviso dentro do Modal */
+.aviso-card {
+  background: #fdfdfd;
+  border: 1px solid #ebebeb;
+  border-left: 4px solid #5C1D24; /* Cor temática institucional */
+  padding: 14px 16px;
+  border-radius: 6px;
+}
+
+.aviso-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #5C1D24;
+  background: rgba(92, 29, 36, 0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.aviso-tag.tag-secundaria {
+  color: #4b5563;
+  background: #f3f4f6;
+}
+
+.aviso-titulo {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.aviso-texto {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+  line-height: 1.45;
+}
+
+.aviso-data {
+  font-size: 0.78rem;
+  color: #888;
+  font-weight: 500;
+}
+
+/* --- Rodapé --- */
+.modal-footer {
+  padding: 14px 24px;
+  background: #fafafa;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-secundario {
+  background: #5C1D24;
+  color: #ffffff;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-secundario:hover {
+  background: #4a171d;
+}

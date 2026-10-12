@@ -166,5 +166,8 @@
         font-size: 13px; 
     }
 
+    .section_home, .section_jesus{
+        background-attachment: scroll;
+    }
     
 }

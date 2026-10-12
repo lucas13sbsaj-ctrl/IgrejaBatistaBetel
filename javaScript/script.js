@@ -53,7 +53,15 @@ if (menuBotao && navMobile) {
     });
 }
 
-
+// --- MUDANÇA DE COR DO HEADER AO ROLAR A TELA ---
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('header');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
 
 
 // --- CARROSSEL (CLIQUE NAS BOLINHAS) ---
@@ -218,3 +226,53 @@ if (modalOverlay && cardsColuna.length > 0) {
         }
     });
 }
+
+// --- Modal de avisos (exemplo de uso) ---
+document.addEventListener('DOMContentLoaded', () => {
+  // Tenta encontrar pelo ID 'btn-avisos' ou pela classe '.btn-flutuante'
+  const btnAvisos = document.getElementById('btn-avisos') || document.querySelector('.btn-flutuante');
+  const modal = document.getElementById('modal-avisos');
+  const btnFechar = document.getElementById('btn-fechar-modal');
+  const btnEntendi = document.getElementById('btn-entendi');
+
+  if (!btnAvisos) {
+    console.error("Botão flutuante de avisos não foi encontrado na página!");
+    return;
+  }
+
+  if (!modal) {
+    console.error("Modal de avisos não foi encontrado na página!");
+    return;
+  }
+
+  function abrirModal(e) {
+    e.preventDefault(); // Previne comportamento padrão caso seja um link <a>
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; 
+  }
+
+  function fecharModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = ''; 
+  }
+
+  // Eventos de clique
+  btnAvisos.addEventListener('click', abrirModal);
+  if (btnFechar) btnFechar.addEventListener('click', fecharModal);
+  if (btnEntendi) btnEntendi.addEventListener('click', fecharModal);
+
+  // Fechar ao clicar fora do container
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) fecharModal();
+  });
+
+  // Fechar com a tecla ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      fecharModal();
+    }
+  });
+});
+
