@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escala Mídia — Beta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #6366f1;
+      --brand-hover: #4f46e5;
+      --brand-soft: #eeeffe;
+      --bg-app: #0f172a;
+      --surface: #1e293b;
+      --surface-card: #0f172a;
+      --surface-hover: #334155;
+      --border: #334155;
+      --border-light: #475569;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-slide: #38bdf8;
+      --accent-live: #f43f5e;
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-app);
+      color: var(--text-main);
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .app-window {
+      width: 100%;
+      max-width: 920px;
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Header */
+    .app-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--brand), #a855f7);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
+    }
+
+    h1 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+    }
+
+    .badge-beta {
+      background: rgba(99, 102, 241, 0.15);
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Sections / Steps */
+    .step-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 24px;
+      transition: border-color 0.2s;
+    }
+
+    .step-card:focus-within {
+      border-color: var(--brand);
+    }
+
+    .step-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .form-row { grid-template-columns: 1fr; }
+      .app-window { padding: 20px; }
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input[type="month"], input[type="text"] {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    input[type="month"]:focus, input[type="text"]:focus {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    }
+
+    .btn-input-wrapper {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: #ffffff;
+      border: none;
+      padding: 0 20px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Checkbox Pills */
+    .pills-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .pill-item input {
+      display: none;
+    }
+
+    .pill-item span {
+      display: inline-block;
+      padding: 8px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s;
+    }
+
+    .pill-item input:checked + span {
+      background: var(--brand-soft);
+      border-color: var(--brand);
+      color: var(--brand);
+    }
+
+    /* Voluntários Cards Grid */
+    .voluntarios-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .vol-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 12px 18px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+
+    .vol-card:hover {
+      border-color: var(--brand);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    .vol-badge {
+      background: rgba(255, 255, 255, 0.08);
+      color: #a5b4fc;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+
+    .empty-state {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Actions */
+    .action-row {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      border: none;
+      padding: 16px 36px;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+      transition: all 0.2s;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Modais */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 1000;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-box.sm { max-width: 360px; }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .modal-head h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .grid-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      margin-top: 16px;
+    }
+
+    .day-col-head {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .day-cell {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      min-height: 52px;
+      padding: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: not-allowed;
+      opacity: 0.25;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.15s;
+    }
+
+    .day-cell.active-event {
+      opacity: 1;
+      cursor: pointer;
+      border-color: var(--border-light);
+    }
+
+    .day-cell.active-event:hover {
+      border-color: var(--brand);
+      background: rgba(99, 102, 241, 0.1);
+    }
+
+    .day-cell.selected {
+      background: var(--brand-soft) !important;
+      border-color: var(--brand) !important;
+      color: var(--brand);
+    }
+
+    .shift-tag {
+      font-size: 0.6rem;
+      font-weight: 700;
+      background: var(--brand);
+      color: #ffffff;
+      padding: 2px 4px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    /* Results Table */
+    .results-area {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .results-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      background: var(--surface-card);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .results-table th, .results-table td {
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 0.88rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .results-table th {
+      background: rgba(255, 255, 255, 0.02);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .role-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .role-slide { background: rgba(56, 189, 248, 0.15); color: var(--accent-slide); }
+    .role-live { background: rgba(244, 63, 94, 0.15); color: var(--accent-live); }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 16px;
+    }
+
+    /* ============================================== */
+    /*   Regras de Impressão (Apenas a Escala)       */
+    /* ============================================== */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+      }
+
+      .app-window {
+        background: #ffffff !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+
+      .app-header,
+      .step-card,
+      .action-row,
+      .btn-secondary,
+      .modal-backdrop {
+        display: none !important;
+      }
+
+      .results-area {
+        display: block !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: none !important;
+      }
+
+      .results-table {
+        width: 100% !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #000000 !important;
+        background: #ffffff !important;
+      }
+
+      .results-table th, 
+      .results-table td {
+        border-bottom: 1px solid #cbd5e1 !important;
+        color: #000000 !important;
+        padding: 10px 12px !important;
+      }
+
+      .results-table th {
+        background: #f1f5f9 !important;
+      }
+
+      .role-badge {
+        border: 1px solid #cbd5e1;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-window">
+  <!-- Header com Badge Beta -->
+  <header class="app-header">
+    <div class="logo-area">
+      <h1>Escala Mídia Betel</h1>
+    </div>
+    <span class="badge-beta">Beta v2.0</span>
+  </header>
+
+  <!-- Step 1: Configurações -->
+  <section class="step-card">
+    <div class="step-title">01. Configuração do Mês e Eventos</div>
+    <p class="step-desc">Selecione o período e os dias fixos ou especiais em que haverá equipe de mídia escalada.</p>
+    
+    <div class="form-row">
+      <div class="field-group">
+        <label for="mesAno">Mês de Referência</label>
+        <input type="month" id="mesAno" value="2026-11">
+      </div>
+      <div class="field-group">
+        <label for="inputVoluntarios">Cadastrar Voluntários</label>
+        <div class="btn-input-wrapper">
+          <input type="text" id="inputVoluntarios" placeholder="Ex: Lucas, Gabriel, Bia, Ricardo...">
+          <button type="button" class="btn-primary" id="btnAdicionar">Adicionar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group" style="margin-top: 20px;">
+      <label>Dias com programação ativa:</label>
+      <div class="pills-group">
+        <label class="pill-item"><input type="checkbox" name="diasEvento" value="0" checked><span>Dom</span></label>
+        <label class="pill-item"><input type="checkbox" name="diasEvento" value="1"><span>Seg</span></label>
+        <label class="pill-item"><input type="checkbox" name="diasEvento" value="2"><span>Ter</span></label>
+        <label class="pill-item"><input type="checkbox" name="diasEvento" value="3"><span>Qua</span></label>
+        <label class="pill-item"><input type="checkbox" name="diasEvento" value="4" checked><span>Qui</span></label>
+        <label class="pill-item"><input type="checkbox" name="diasEvento" value="5"><span>Sex</span></label>
+        <label class="pill-item"><input type="checkbox" name="diasEvento" value="6"><span>Sáb</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 2: Voluntários -->
+  <section class="step-card">
+    <div class="step-title">02. Disponibilidade da Equipe</div>
+    <p class="step-desc">Toque no voluntário cadastrado para definir em quais dias ele poderá servir.</p>
+    <div id="lista-voluntarios-cards" class="voluntarios-grid">
+      <p class="empty-state">Nenhum integrante adicionado ainda.</p>
+    </div>
+  </section>
+
+  <!-- Botão Gerar -->
+  <div class="action-row">
+    <button type="button" class="btn-submit" id="btnGerarEscala">✨ Processar Escala</button>
+  </div>
+
+  <!-- Resultado -->
+  <div class="results-area" id="resultado" style="display: none;">
+    <div class="step-title">🚀 Escala Gerada</div>
+    <div id="tabela-wrapper"></div>
+    <button type="button" class="btn-secondary" id="btnImprimir">🖨️ Imprimir / Salvar PDF</button>
+  </div>
+</div>
+
+<!-- Modal Calendário -->
+<div id="modal-calendario" class="modal-backdrop">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="modal-titulo-voluntario">Disponibilidade</h3>
+      <button type="button" class="close-btn" id="fecharModalTopo">&times;</button>
+    </div>
+    <p class="step-desc">Marque as datas em que a pessoa tem disponibilidade.</p>
+    
+    <div class="grid-days">
+      <div class="day-col-head">Dom</div>
+      <div class="day-col-head">Seg</div>
+      <div class="day-col-head">Ter</div>
+      <div class="day-col-head">Qua</div>
+      <div class="day-col-head">Qui</div>
+      <div class="day-col-head">Sex</div>
+      <div class="day-col-head">Sáb</div>
+    </div>
+    <div id="grid-calendario-modal" class="grid-days"></div>
+
+    <div style="text-align: right; margin-top: 24px;">
+      <button type="button" class="btn-primary" id="concluirModal">Concluir</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Turno Domingo -->
+<div id="modal-turno" class="modal-backdrop" style="z-index: 1100;">
+  <div class="modal-box sm">
+    <div class="modal-head">
+      <h3>Turnos de Domingo</h3>
+    </div>
+    <p class="step-desc">Escolha os horários disponíveis:</p>
+    <div style="display: flex; flex-direction: column; gap: 12px; margin: 20px 0;">
+      <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+        <input type="checkbox" id="chk-manha" style="width: 18px; height: 18px; accent-color: var(--brand);"> Manhã
+      </label>
+      <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+        <input type="checkbox" id="chk-noite" style="width: 18px; height: 18px; accent-color: var(--brand);"> Noite
+      </label>
+    </div>
+    <div style="display: flex; justify-content: flex-end; gap: 10px;">
+      <button type="button" class="btn-secondary" id="cancelarTurno">Cancelar</button>
+      <button type="button" class="btn-primary" id="salvarTurno">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let voluntarios = {};
+  let voluntarioAtual = null;
+  let diaSelecionadoTemp = null;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('btnAdicionar').addEventListener('click', adicionarVoluntarios);
+    document.getElementById('btnGerarEscala').addEventListener('click', gerarEscalaFinal);
+    document.getElementById('btnImprimir').addEventListener('click', () => window.print());
+    document.getElementById('fecharModalTopo').addEventListener('click', fecharModal);
+    document.getElementById('concluirModal').addEventListener('click', fecharModal);
+    document.getElementById('salvarTurno').addEventListener('click', salvarTurnoDomingo);
+    document.getElementById('cancelarTurno').addEventListener('click', fecharModalTurno);
+  });
+
+  function adicionarVoluntarios() {
+    const input = document.getElementById('inputVoluntarios');
+    const valor = input.value.trim();
+    if (!valor) return;
+
+    const nomes = valor.split(',').map(n => n.trim()).filter(n => n.length > 0);
+    nomes.forEach(nome => {
+      if (!voluntarios[nome]) voluntarios[nome] = {};
+    });
+
+    input.value = '';
+    renderizarListaVoluntarios();
+  }
+
+  function renderizarListaVoluntarios() {
+    const container = document.getElementById('lista-voluntarios-cards');
+    const nomes = Object.keys(voluntarios);
+
+    if (nomes.length === 0) {
+      container.innerHTML = `<p class="empty-state">Nenhum integrante adicionado ainda.</p>`;
+      return;
+    }
+
+    container.innerHTML = '';
+    nomes.forEach(nome => {
+      let qtdDias = Object.keys(voluntarios[nome]).length;
+      let card = document.createElement('div');
+      card.className = 'vol-card';
+      card.innerHTML = `<span>👤 ${nome}</span> <span class="vol-badge">${qtdDias} d</span>`;
+      card.onclick = () => abrirModalCalendario(nome);
+      container.appendChild(card);
+    });
+  }
+
+  function abrirModalCalendario(nome) {
+    voluntarioAtual = nome;
+    document.getElementById('modal-titulo-voluntario').innerText = `Agenda — ${nome}`;
+    document.getElementById('modal-calendario').classList.add('active');
+    renderizarCalendarioModal();
+  }
+
+  function fecharModal() {
+    document.getElementById('modal-calendario').classList.remove('active');
+    renderizarListaVoluntarios();
+  }
+
+  function renderizarCalendarioModal() {
+    const mesAnoInput = document.getElementById('mesAno').value;
+    const [ano, mes] = mesAnoInput.split('-').map(Number);
+    
+    const checkboxesDias = document.querySelectorAll('input[name="diasEvento"]:checked');
+    const diasPermitidosEvento = Array.from(checkboxesDias).map(cb => parseInt(cb.value));
+
+    const primeiroDiaMes = new Date(ano, mes - 1, 1).getDay();
+    const ultimoDiaMes = new Date(ano, mes, 0).getDate();
+
+    const grid = document.getElementById('grid-calendario-modal');
+    grid.innerHTML = '';
+
+    for (let i = 0; i < primeiroDiaMes; i++) {
+      let vazio = document.createElement('div');
+      vazio.className = 'day-cell';
+      vazio.style.visibility = 'hidden';
+      grid.appendChild(vazio);
+    }
+
+    for (let dia = 1; dia <= ultimoDiaMes; dia++) {
+      let dataObj = new Date(ano, mes - 1, dia);
+      let diaSemana = dataObj.getDay();
+      let chaveData = `${ano}-${String(mes).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
+
+      let celula = document.createElement('div');
+      let ehDiaDeEvento = diasPermitidosEvento.includes(diaSemana);
+
+      celula.className = `day-cell ${ehDiaDeEvento ? 'active-event' : ''}`;
+
+      let diasDisponiveisVol = voluntarios[voluntarioAtual] || {};
+      let turnosDoDia = diasDisponiveisVol[chaveData];
+
+      if (turnosDoDia && turnosDoDia.length > 0) {
+        celula.classList.add('selected');
+      }
+
+      let textoTurno = '';
+      if (turnosDoDia) {
+        if (turnosDoDia.length === 2) textoTurno = '<span class="shift-tag">M / N</span>';
+        else if (turnosDoDia.includes('manha')) textoTurno = '<span class="shift-tag">M</span>';
+        else if (turnosDoDia.includes('noite')) textoTurno = '<span class="shift-tag">N</span>';
+        else textoTurno = '<span class="shift-tag">OK</span>';
+      }
+
+      celula.innerHTML = `<span>${dia}</span> ${textoTurno}`;
+      
+      if (ehDiaDeEvento) {
+        celula.onclick = () => {
+          diaSelecionadoTemp = chaveData;
+          if (diaSemana === 0) {
+            abrirModalTurno(chaveData);
+          } else {
+            if (diasDisponiveisVol[chaveData]) {
+              delete voluntarios[voluntarioAtual][chaveData];
+            } else {
+              voluntarios[voluntarioAtual][chaveData] = ['unico'];
+            }
+            renderizarCalendarioModal();
+          }
+        };
+      }
+
+      grid.appendChild(celula);
+    }
+  }
+
+  function abrirModalTurno(chaveData) {
+    document.getElementById('modal-turno').classList.add('active');
+    let turnosAtuais = (voluntarios[voluntarioAtual] && voluntarios[voluntarioAtual][chaveData]) || [];
+    
+    document.getElementById('chk-manha').checked = turnosAtuais.includes('manha');
+    document.getElementById('chk-noite').checked = turnosAtuais.includes('noite');
+  }
+
+  function fecharModalTurno() {
+    document.getElementById('modal-turno').classList.remove('active');
+  }
+
+  function salvarTurnoDomingo() {
+    let manha = document.getElementById('chk-manha').checked;
+    let noite = document.getElementById('chk-noite').checked;
+
+    let turnos = [];
+    if (manha) turnos.push('manha');
+    if (noite) turnos.push('noite');
+
+    if (turnos.length > 0) {
+      voluntarios[voluntarioAtual][diaSelecionadoTemp] = turnos;
+    } else {
+      delete voluntarios[voluntarioAtual][diaSelecionadoTemp];
+    }
+
+    fecharModalTurno();
+    renderizarCalendarioModal();
+  }
+
+  function gerarEscalaFinal() {
+    const mesAnoInput = document.getElementById('mesAno').value;
+    const [ano, mes] = mesAnoInput.split('-').map(Number);
+    const ultimoDiaMes = new Date(ano, mes, 0).getDate();
+
+    let listaVoluntariosNomes = Object.keys(voluntarios);
+    if (listaVoluntariosNomes.length === 0) {
+      alert("Cadastre ao menos um voluntário.");
+      return;
+    }
+
+    const checkboxesDias = document.querySelectorAll('input[name="diasEvento"]:checked');
+    const diasPermitidosEvento = Array.from(checkboxesDias).map(cb => parseInt(cb.value));
+
+    let cultosMapeados = [];
+
+    for (let dia = 1; dia <= ultimoDiaMes; dia++) {
+      let chaveData = `${ano}-${String(mes).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
+      let dataObj = new Date(ano, mes - 1, dia);
+      let diaSemana = dataObj.getDay();
+
+      if (!diasPermitidosEvento.includes(diaSemana)) continue;
+
+      if (diaSemana === 0) {
+        let temManha = listaVoluntariosNomes.some(v => voluntarios[v][chaveData] && voluntarios[v][chaveData].includes('manha'));
+        let temNoite = listaVoluntariosNomes.some(v => voluntarios[v][chaveData] && voluntarios[v][chaveData].includes('noite'));
+
+        if (temManha) cultosMapeados.push({ chave: chaveData, label: `${String(dia).padStart(2, '0')}/${String(mes).padStart(2, '0')} - Dom (Manhã)`, turno: 'manha' });
+        if (temNoite) cultosMapeados.push({ chave: chaveData, label: `${String(dia).padStart(2, '0')}/${String(mes).padStart(2, '0')} - Dom (Noite)`, turno: 'noite' });
+      } else {
+        let temAlguem = listaVoluntariosNomes.some(v => voluntarios[v][chaveData]);
+        if (temAlguem) {
+          let nomeDia = dataObj.toLocaleDateString('pt-BR', { weekday: 'short' });
+          cultosMapeados.push({ chave: chaveData, label: `${String(dia).padStart(2, '0')}/${String(mes).padStart(2, '0')} - ${nomeDia}`, turno: 'unico' });
+        }
+      }
+    }
+
+    if (cultosMapeados.length === 0) {
+      alert("Defina a disponibilidade dos integrantes no calendário antes de gerar.");
+      return;
+    }
+
+    let html = `<table class="results-table">
+                  <thead>
+                    <tr>
+                      <th>Data / Programação</th>
+                      <th>🎛️ Slide</th>
+                      <th>🎥 Live</th>
+                    </tr>
+                  </thead>
+                  <tbody>`;
+
+    cultosMapeados.forEach(culto => {
+      let disponiveis = listaVoluntariosNomes.filter(v => {
+        let disp = voluntarios[v][culto.chave];
+        if (!disp) return false;
+        if (culto.turno === 'unico') return true;
+        return disp.includes(culto.turno);
+      });
+
+      let slide = "⚠️ Sem voluntário";
+      let live = "⚠️ Sem voluntário";
+
+      if (disponiveis.length > 0) {
+        let indexSlide = Math.floor(Math.random() * disponiveis.length);
+        slide = disponiveis[indexSlide];
+
+        // Garante que a mesma pessoa NÃO fique nas duas funções no mesmo dia/turno
+        let disponiveisParaLive = disponiveis.filter(v => v !== slide);
+
+        if (disponiveisParaLive.length > 0) {
+          let indexLive = Math.floor(Math.random() * disponiveisParaLive.length);
+          live = disponiveisParaLive[indexLive];
+        } else {
+          live = "⚠️ Falta +1 voluntário";
+        }
+      }
+
+      html += `<tr>
+                <td><strong>${culto.label}</strong></td>
+                <td><span class="role-badge role-slide">${slide}</span></td>
+                <td><span class="role-badge role-live">${live}</span></td>
+              </tr>`;
+    });
+
+    html += `</tbody></table>`;
+
+    document.getElementById('tabela-wrapper').innerHTML = html;
+    document.getElementById('resultado').style.display = 'block';
+  }
+</script>
+</body>
+</html>

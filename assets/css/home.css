@@ -1222,3 +1222,8 @@ footer{
 .btn-secundario:hover {
   background: #4a171d;
 }
+
+.btn_escala{
+    text-decoration: none;
+    color: inherit;
+}
