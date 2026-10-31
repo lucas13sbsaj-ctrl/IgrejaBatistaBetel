@@ -1,0 +1,241 @@
+/* --- Subtítulo da seção --- */
+.section_subtitle {
+    font-size: 0.95rem;
+    color: #59655E;
+    margin-top: 5px;
+}
+
+.logo_link {
+    text-decoration: none;
+}
+
+/* --- Grid dos Cards Menores --- */
+.pastores_grid_mini {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 35px 0;
+    width: 100%;
+}
+
+/* Card Individual (Pequeno) com o estilo do site */
+.pastor_card_mini {
+    background-color: #ede8d088;
+    border: 1px solid rgba(90, 81, 30, 0.062);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.pastor_card_mini:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(66, 60, 24, 0.12);
+}
+
+.pastor_card_mini_img {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.pastor_card_mini_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.4s ease;
+}
+
+.pastor_card_mini:hover .pastor_card_mini_img img {
+    transform: scale(1.06);
+}
+
+.pastor_card_mini_info {
+    padding: 5px;
+    text-align: center;
+}
+
+.pastor_card_mini_info h3 {
+    font-size: 1.5rem;
+    color: #423c18;
+    margin: 0 0 4px 0;
+    font-weight: 700;
+}
+
+.pastor_card_mini_info span {
+    font-size: 0.85rem;
+    color: #59655E;
+}
+
+/* --- Pop-up / Modal --- */
+.modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(66, 60, 24, 0.45);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal_overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal_content {
+    background: #fdfbf7;
+    border: 1px solid rgba(66, 60, 24, 0.2);
+    border-radius: 16px;
+    max-width: 750px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(66, 60, 24, 0.2);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal_overlay.active .modal_content {
+    transform: scale(1);
+}
+
+.modal_close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #423c18;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal_close:hover {
+    color: #59655E;
+}
+
+/* Layout do conteúdo dentro do Modal */
+.modal_pastor_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.modal_pastor_img {
+    width: 100%;
+    max-height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.modal_pastor_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.modal_pastor_details {
+    color: #59655E;
+}
+
+.modal_tag {
+    display: inline-block;
+    background: #ede8d088;
+    color: #423c18;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    border: 1px solid rgba(66, 60, 24, 0.1);
+}
+
+.modal_pastor_details h2 {
+    font-size: 1.8rem;
+    color: #423c18;
+    margin-bottom: 15px;
+}
+
+.modal_pastor_details h3 {
+    font-size: 1.1rem;
+    color: #423c18;
+    margin: 15px 0 6px 0;
+}
+
+.modal_pastor_details p {
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.modal_pastor_details ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.modal_pastor_details ul li {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1165px) {
+    .section {
+        margin-top:80px;
+    }
+}
+
+/* Ajuste Responsivo para telas maiores */
+@media (min-width: 640px) {
+    .modal_pastor_wrapper {
+        flex-direction: row;
+    }
+    .modal_pastor_img {
+        width: 40%;
+        max-height: 100%;
+    }
+    .modal_pastor_details {
+        width: 60%;
+    }
+}
+@media(max-width: 480px) {
+    .modal_close {
+        top: -5px;
+    }
+}
+
+body{
+    background-color: #ede8d088;
+}
+
+.modal_content {
+    /* Mantém a rolagem funcional por toque ou mouse */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Deixa o scroll "solto" e suave no iOS/Android */
+
+    /* Esconde a barra de rolagem no Firefox */
+    scrollbar-width: none; 
+
+    /* Esconde a barra de rolagem no Internet Explorer e Edge antigo */
+    -ms-overflow-style: none; 
+}
+
+/* Esconde a barra de rolagem no Chrome, Safari e Opera */
+.modal_content::-webkit-scrollbar {
+    display: none;
+}
