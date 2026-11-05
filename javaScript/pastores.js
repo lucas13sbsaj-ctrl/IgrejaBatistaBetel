@@ -1,35 +1,23 @@
-function openModal(templateId) {
-    const modalContainer = document.getElementById('modal-container');
-    const modalBody = document.getElementById('modal-body');
-    const template = document.getElementById(templateId);
+// --- CONTROLE DE EXPANSÃO E RETRAÇÃO DOS PASTORES NO MOBILE ---
+document.addEventListener("DOMContentLoaded", function() {
+    const pastorCards = document.querySelectorAll('.pastor_cascata_card');
 
-    if (template && modalBody) {
-        // Limpa o conteúdo anterior e clona o novo template
-        modalBody.innerHTML = '';
-        modalBody.appendChild(template.content.cloneNode(true));
-        
-        // Exibe o modal
-        modalContainer.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Evita a rolagem da página ao fundo
-    }
-}
+    if (pastorCards.length > 0) {
+        pastorCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Funciona perfeitamente em telas de celular e tablet ( <= 900px )
+                if (window.innerWidth <= 900) {
+                    const jaEstaAtivo = this.classList.contains('ativo-mobile');
 
-function closeModal(event) {
-    const modalContainer = document.getElementById('modal-container');
-    if (event.target === modalContainer) {
-        closeModalDirect();
-    }
-}
+                    // Fecha todos os cards abertos
+                    pastorCards.forEach(c => c.classList.remove('ativo-mobile'));
 
-function closeModalDirect() {
-    const modalContainer = document.getElementById('modal-container');
-    modalContainer.classList.remove('active');
-    document.body.style.overflow = 'auto'; // Restaura a rolagem da página
-}
-
-// Suporte para fechar apertando a tecla ESC
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeModalDirect();
+                    // Se não estava ativo, abre. Se já estava, continua fechado (fazendo o efeito de fechar ao re-clicar)
+                    if (!jaEstaAtivo) {
+                        this.classList.add('ativo-mobile');
+                    }
+                }
+            });
+        });
     }
 });

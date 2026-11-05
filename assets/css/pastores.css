@@ -1,241 +1,190 @@
-/* --- Subtítulo da seção --- */
+/* ================= SEÇÃO DE PASTORES EM CASCATA (LIMPO E DIRETO) ================= */
+
+body {
+    /* Fundo profissional com gradiente rico em camadas (tom linho/creme refinado) */
+    background-color: #f7f4ea;
+    background-image: 
+        radial-gradient(at 10% 20%, rgba(122, 58, 58, 0.04) 0px, transparent 50%),
+        radial-gradient(at 90% 80%, rgba(110, 105, 72, 0.06) 0px, transparent 50%),
+        linear-gradient(135deg, #f9f6ee 0%, #eee8d5 100%);
+    background-attachment: fixed; /* Mantém o fundo estático e elegante enquanto rola a página */
+    color: var(--text-primary);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.section {
+    padding-top: 140px;
+    padding-bottom: 60px;
+}
+
 .section_subtitle {
-    font-size: 0.95rem;
+    font-size: 0.70rem;
     color: #59655E;
-    margin-top: 5px;
+    margin-top: 8px;
+    text-align: center;
 }
 
 .logo_link {
     text-decoration: none;
 }
 
-/* --- Grid dos Cards Menores --- */
-.pastores_grid_mini {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin: 35px 0;
-    width: 100%;
-}
-
-/* Card Individual (Pequeno) com o estilo do site */
-.pastor_card_mini {
-    background-color: #ede8d088;
-    border: 1px solid rgba(90, 81, 30, 0.062);
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+/* Container dos pastores */
+.pastores_cascata_container {
     display: flex;
     flex-direction: column;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-
-.pastor_card_mini:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(66, 60, 24, 0.12);
-}
-
-.pastor_card_mini_img {
+    gap: 60px;
     width: 100%;
-    height: 240px;
-    overflow: hidden;
+    max-width: 1000px;
+    margin: 40px auto 0 auto;
 }
 
-.pastor_card_mini_img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    transition: transform 0.4s ease;
-}
-
-.pastor_card_mini:hover .pastor_card_mini_img img {
-    transform: scale(1.06);
-}
-
-.pastor_card_mini_info {
-    padding: 5px;
-    text-align: center;
-}
-
-.pastor_card_mini_info h3 {
-    font-size: 1.5rem;
-    color: #423c18;
-    margin: 0 0 4px 0;
-    font-weight: 700;
-}
-
-.pastor_card_mini_info span {
-    font-size: 0.85rem;
-    color: #59655E;
-}
-
-/* --- Pop-up / Modal --- */
-.modal_overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(66, 60, 24, 0.45);
-    backdrop-filter: blur(4px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 9999;
-    padding: 20px;
-}
-
-.modal_overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal_content {
-    background: #fdfbf7;
-    border: 1px solid rgba(66, 60, 24, 0.2);
-    border-radius: 16px;
-    max-width: 750px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
+/* Card Individual: Removemos qualquer fundo ou sombra externa desnecessária */
+.pastor_cascata_card {
     position: relative;
-    padding: 30px;
-    box-shadow: 0 15px 35px rgba(66, 60, 24, 0.2);
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
-}
-
-.modal_overlay.active .modal_content {
-    transform: scale(1);
-}
-
-.modal_close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: #423c18;
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.modal_close:hover {
-    color: #59655E;
-}
-
-/* Layout do conteúdo dentro do Modal */
-.modal_pastor_wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.modal_pastor_img {
     width: 100%;
-    max-height: 350px;
-    border-radius: 12px;
-    overflow: hidden;
+    min-height: 420px;
+    cursor: pointer;
 }
 
-.modal_pastor_img img {
+/* Imagem de Fundo (Base à direita) */
+.cascata_img_wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.cascata_img_wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: top center;
+    transition: transform 0.5s ease;
 }
 
-.modal_pastor_details {
-    color: #59655E;
+.pastor_cascata_card:hover .cascata_img_wrapper img {
+    transform: scale(1.03);
 }
 
-.modal_tag {
+/* Box Branco Sobreposto (À esquerda) */
+.cascata_box_info {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    width: 460px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    border-left: 5px solid var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cascata_badge {
     display: inline-block;
-    background: #ede8d088;
-    color: #423c18;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-primary);
+    background: rgba(85, 46, 46, 0.08);
     padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-    border: 1px solid rgba(66, 60, 24, 0.1);
+    border-radius: 6px;
+    width: max-content;
 }
 
-.modal_pastor_details h2 {
-    font-size: 1.8rem;
-    color: #423c18;
-    margin-bottom: 15px;
+.cascata_box_info h3 {
+    font-size: 1.6rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin: 0;
 }
 
-.modal_pastor_details h3 {
-    font-size: 1.1rem;
-    color: #423c18;
-    margin: 15px 0 6px 0;
+/* Biografia (Inicialmente recolhida) */
+.cascata_biografia {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.modal_pastor_details p {
-    line-height: 1.6;
-    font-size: 0.95rem;
-}
-
-.modal_pastor_details ul {
-    list-style: disc;
-    padding-left: 20px;
-}
-
-.modal_pastor_details ul li {
-    margin-bottom: 6px;
+.cascata_biografia p {
     font-size: 0.9rem;
+    color: #59655E;
+    line-height: 1.5;
+    margin: 0;
 }
 
-@media (max-width: 1165px) {
-    .section {
-        margin-top:80px;
+.cascata_biografia ul {
+    list-style: disc;
+    padding-left: 18px;
+    margin: 5px 0 0 0;
+}
+
+.cascata_biografia ul li {
+    font-size: 0.85rem;
+    color: #59655E;
+    margin-bottom: 4px;
+}
+
+/* DESKTOP: Expande ao passar o mouse */
+@media (min-width: 901px) {
+    .pastor_cascata_card:hover .cascata_biografia {
+        max-height: 300px;
+        opacity: 1;
     }
 }
 
-/* Ajuste Responsivo para telas maiores */
-@media (min-width: 640px) {
-    .modal_pastor_wrapper {
-        flex-direction: row;
+/* MOBILE E TABLET: Empilhado e controlado por toque via JS */
+@media (max-width: 900px) {
+    .pastores_cascata_container {
+        gap: 30px;
     }
-    .modal_pastor_img {
-        width: 40%;
-        max-height: 100%;
+
+    .pastor_cascata_card {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
     }
-    .modal_pastor_details {
-        width: 60%;
+
+    .cascata_img_wrapper {
+        position: relative;
+        width: 100%;
+        height: 280px;
+        border-radius: 16px;
     }
-}
-@media(max-width: 480px) {
-    .modal_close {
-        top: -5px;
+
+    .cascata_box_info {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 92%;
+        margin: -35px auto 0 auto;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
-}
 
-body{
-    background-color: #ede8d088;
-}
+    /* QUANDO TOCA NO MOBILE: Expande suavemente */
+    .pastor_cascata_card.ativo-mobile .cascata_biografia {
+        max-height: 350px;
+        opacity: 1;
+    }
 
-.modal_content {
-    /* Mantém a rolagem funcional por toque ou mouse */
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch; /* Deixa o scroll "solto" e suave no iOS/Android */
-
-    /* Esconde a barra de rolagem no Firefox */
-    scrollbar-width: none; 
-
-    /* Esconde a barra de rolagem no Internet Explorer e Edge antigo */
-    -ms-overflow-style: none; 
-}
-
-/* Esconde a barra de rolagem no Chrome, Safari e Opera */
-.modal_content::-webkit-scrollbar {
-    display: none;
+    
+.section_title {
+    font-size: 20px;
 }
