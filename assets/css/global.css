@@ -1,0 +1,1232 @@
+
+/* =========================================================
+   IGREJA BATISTA BETEL
+   GLOBAL.CSS — ESTILOS COMPARTILHADOS
+========================================================= */
+
+
+/* =========================================================
+   01. VARIÁVEIS GLOBAIS
+========================================================= */
+
+:root {
+    /* Cores principais */
+    --color-primary: #504d35;
+    --color-primary-light: #837a5b;
+    --color-primary-dark: #383624;
+
+    /* Cores secundárias */
+    --color-secondary: #552e2e;
+    --color-accent: #d4af37;
+
+    /* Fundos */
+    --bg-primary: #ffffff;
+    --bg-secondary: #ede8d088;
+    --bg-tertiary: rgba(237, 232, 208, 0.33);
+
+    /* Textos */
+    --text-primary: #552e2e;
+    --text-secondary: #59655e;
+    --text-heading: #423c18;
+    --text-light: #f3f0e2;
+
+    /* Tipografia */
+    --font-primary: "Open Sans", sans-serif;
+
+    --font-xs: 0.75rem;
+    --font-sm: 0.875rem;
+    --font-md: 1rem;
+    --font-lg: 1.25rem;
+    --font-xl: 1.5rem;
+
+    /* Layout */
+    --container-width: 1200px;
+    --container-padding: 24px;
+    --header-height: 90px;
+
+    /* Bordas */
+    --radius-sm: 5px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-full: 999px;
+
+    /* Sombras */
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.18);
+
+    /* Transições */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+
+/* =========================================================
+   02. RESET CSS
+========================================================= */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    font-family: var(--font-primary);
+    font-size: var(--font-md);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    background-color: var(--bg-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+body.menu-open,
+body.modal-open {
+    overflow: hidden;
+}
+
+img,
+svg,
+video {
+    max-width: 100%;
+}
+
+img {
+    display: block;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   BOTÃO FLUTUANTE — COMPARTILHADO EM TODAS AS PÁGINAS
+   Mantém a animação original da Home.
+========================================================= */
+
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+    }
+}
+
+#btn-avisos,
+.btn-flutuante {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: rgba(92, 29, 36, 0.85);
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    animation: flutuar 3s ease-in-out infinite;
+    transition: background-color var(--transition-normal);
+}
+
+#btn-avisos:hover,
+.btn-flutuante:hover {
+    animation-play-state: paused;
+    background-color: #4a171d;
+}
+
+#btn-avisos .svg-icone,
+.btn-flutuante .svg-icone {
+    display: block;
+    width: 28px;
+    height: 28px;
+}
+
+#btn-avisos .aviso-notificacao,
+.btn-flutuante .aviso-notificacao {
+    position: absolute;
+    top: 8px;
+    right: 9px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid rgba(92, 29, 36, 0.85);
+    border-radius: 50%;
+    background-color: var(--color-accent);
+}
+
+@media (max-width: 600px) {
+    #btn-avisos,
+    .btn-flutuante {
+        right: 18px;
+        bottom: 18px;
+        width: 52px;
+        height: 52px;
+    }
+}
+
+/* =========================================================
+   03. CONTAINERS
+========================================================= */
+
+.container {
+    width: min(
+        calc(100% - var(--container-padding) * 2),
+        var(--container-width)
+    );
+    margin-inline: auto;
+}
+
+.section {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 90px 0;
+}
+
+.section_box {
+    width: min(
+        calc(100% - var(--container-padding) * 2),
+        var(--container-width)
+    );
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 40px;
+    margin-inline: auto;
+}
+
+.section_box_indi {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================================================
+   04. TÍTULOS E TEXTOS COMPARTILHADOS
+========================================================= */
+
+.section_title {
+    width: 100%;
+    text-align: center;
+    color: var(--text-heading);
+    text-transform: uppercase;
+}
+
+.section_title h1,
+.section_title h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.section_indi_title {
+    margin-bottom: 10px;
+    color: #74442e;
+    font-size: clamp(0.85rem, 1.5vw, 1.15rem);
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.section_description {
+    width: 100%;
+    max-width: 800px;
+
+    font-size: clamp(1rem, 1.6vw, 1.4rem);
+    font-weight: 300;
+    line-height: 1.8;
+
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.section_description p + p {
+    margin-top: 18px;
+}
+
+
+/* =========================================================
+   05. BOTÕES GLOBAIS
+========================================================= */
+
+.section_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+    gap: 20px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 50px;
+    min-width: 200px;
+    max-width: 100%;
+
+    padding: 12px 24px;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+
+    transition:
+        transform var(--transition-normal),
+        background-color var(--transition-normal),
+        box-shadow var(--transition-normal);
+}
+
+.btn_primary {
+    color: #ffffff;
+    background: linear-gradient(
+        90deg,
+        #6e6948,
+        #837a5b,
+        #85805e
+    );
+}
+
+.btn_primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(80, 77, 53, 0.25);
+}
+
+.btn_secondary {
+    color: #2b281a;
+    border-color: rgba(58, 56, 38, 0.18);
+
+    background: linear-gradient(
+        90deg,
+        #5f5c5c1e,
+        #eba5a518,
+        #94777713
+    );
+}
+
+.btn_secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(73, 30, 30, 0.15);
+}
+
+
+/* =========================================================
+   06. HEADER
+========================================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    width: 100%;
+    height: var(--header-height);
+
+    display: flex;
+    align-items: center;
+
+    background-color: transparent;
+
+    transition:
+        background-color var(--transition-slow),
+        box-shadow var(--transition-slow),
+        backdrop-filter var(--transition-slow);
+}
+
+header.scrolled,
+header.menu-active {
+    background-color: rgba(240, 232, 223, 0.61);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100%;
+}
+
+
+/* =========================================================
+   07. LOGO
+========================================================= */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+.logo_img {
+    width: 70px;
+    height: 70px;
+}
+
+.logo_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo_nome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    line-height: 1.25;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+.logo_nome span {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.logo_nome strong {
+    font-size: clamp(1.1rem, 1.7vw, 1.5rem);
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   08. MENU DESKTOP
+========================================================= */
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu_mobile ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(15px, 2vw, 30px);
+}
+
+.menu_mobile li {
+    display: flex;
+}
+
+.menu_mobile a {
+    position: relative;
+
+    display: inline-block;
+    padding: 8px 0;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    color: var(--text-secondary);
+
+    transition: color var(--transition-normal);
+}
+
+.menu_mobile a::after {
+    content: "";
+
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    border-radius: 10px;
+    background-color: var(--color-primary);
+
+    transform: scaleX(0);
+    transform-origin: center;
+
+    transition: transform var(--transition-normal);
+}
+
+.menu_mobile a:hover,
+.menu_mobile a.active {
+    color: var(--color-primary-dark);
+}
+
+.menu_mobile a:hover::after,
+.menu_mobile a.active::after {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   09. MENU MOBILE
+========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    background: transparent;
+
+    color: var(--color-primary);
+    font-size: 1.5rem;
+
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.menu-toggle i {
+    transition:
+        opacity var(--transition-fast),
+        transform var(--transition-normal);
+}
+
+.menu-toggle:hover i {
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   10. FOOTER
+========================================================= */
+
+footer {
+    width: 100%;
+    background-color: var(--color-primary);
+    color: var(--text-light);
+}
+
+.container_footer {
+    width: min(
+        calc(100% - var(--container-padding) * 2),
+        1300px
+    );
+
+    margin-inline: auto;
+    padding: 50px 0 20px;
+}
+
+.footer_box {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1.3fr 1.2fr;
+    gap: 45px;
+
+    padding-bottom: 35px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.widget_footer {
+    min-width: 0;
+}
+
+.widget_footer h3 {
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    color: #f3f0e2;
+    border-bottom: 1px solid rgba(241, 200, 88, 0.35);
+}
+
+.widget_footer p,
+.widget_footer li,
+.widget_footer a {
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: rgba(245, 241, 223, 0.75);
+}
+
+.widget_footer a {
+    transition: color var(--transition-normal);
+}
+
+.widget_footer a:hover {
+    color: #ffffff;
+}
+
+.widget_footer address {
+    font-style: normal;
+}
+
+.widget_footer address p {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    overflow-wrap: anywhere;
+}
+
+.widget_footer address i {
+    margin-top: 6px;
+    color: var(--color-accent);
+}
+
+
+/* =========================================================
+   11. REDES SOCIAIS
+========================================================= */
+
+.social_icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.social_icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+
+    color: #ffffff;
+    font-size: 1.25rem;
+
+    transition:
+        background-color var(--transition-normal),
+        transform var(--transition-normal),
+        border-color var(--transition-normal);
+}
+
+.social_icons a i {
+    font-size: 19px;
+    line-height: 1;
+}
+
+.social_icons a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   12. FOOTER INFERIOR
+========================================================= */
+
+.footer_fim {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding-top: 20px;
+
+    text-align: center;
+    color: rgba(245, 241, 223, 0.65);
+}
+
+.footer_fim span,
+.footer_fim a {
+    font-size: 0.72rem;
+}
+
+.btn_escala {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-normal);
+}
+
+.btn_escala:hover {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   13. SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #464019;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #928640;
+}
+
+
+/* =========================================================
+   14. RESPONSIVIDADE - TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    :root {
+        --container-padding: 30px;
+    }
+
+    .footer_box {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px;
+    }
+
+    .menu_mobile ul {
+        gap: 15px;
+    }
+
+    .menu_mobile a {
+        font-size: 0.82rem;
+    }
+}
+
+
+/* =========================================================
+   15. RESPONSIVIDADE - MENU MOBILE
+========================================================= */
+
+@media (max-width: 840px) {
+
+    :root {
+        --header-height: 75px;
+        --container-padding: 22px;
+    }
+
+    .logo_img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .logo_nome span {
+        font-size: 0.75rem;
+    }
+
+    .logo_nome strong {
+        font-size: 1.15rem;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .menu_mobile {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+
+        display: block;
+        padding: 20px var(--container-padding) 30px;
+
+        background: rgba(240, 232, 223, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        transform: translateY(-15px);
+
+        transition:
+            opacity var(--transition-normal),
+            visibility var(--transition-normal),
+            transform var(--transition-normal);
+    }
+
+    .menu_mobile.abrir {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .menu_mobile ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .menu_mobile li {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .menu_mobile a {
+        width: 100%;
+        padding: 14px 10px;
+        text-align: center;
+        font-size: 0.95rem;
+    }
+
+    .menu_mobile a::after {
+        bottom: 6px;
+        left: 50%;
+        width: 45px;
+        transform: translateX(-50%) scaleX(0);
+    }
+
+    .menu_mobile a:hover::after,
+    .menu_mobile a.active::after {
+        transform: translateX(-50%) scaleX(1);
+    }
+
+    .section {
+        min-height: auto;
+        padding: 85px 0;
+    }
+
+    .section_box {
+        gap: 30px;
+    }
+
+    .section_description {
+        font-size: 1.05rem;
+    }
+}
+
+
+/* =========================================================
+   16. RESPONSIVIDADE - CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    :root {
+        --container-padding: 18px;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .section_title h1,
+    .section_title h2 {
+        font-size: clamp(1.6rem, 7vw, 2rem);
+    }
+
+    .section_indi_title {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .section_description {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    .section_btn {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .section_btn .btn {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .footer_box {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .container_footer {
+        padding-top: 40px;
+    }
+
+    .widget_footer h3 {
+        font-size: 0.95rem;
+    }
+
+    .widget_footer p,
+    .widget_footer li,
+    .widget_footer a {
+        font-size: 0.85rem;
+    }
+
+    .footer_fim {
+        padding-top: 25px;
+    }
+}
+
+
+/* =========================================================
+   17. TELAS MUITO PEQUENAS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    :root {
+        --container-padding: 14px;
+    }
+
+    .logo_img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .logo_nome strong {
+        font-size: 1rem;
+    }
+
+    .logo_nome span {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* =========================================================
+   18. ACESSIBILIDADE - REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+
+/* ==========================================
+   MODAL DE AVISOS — COMPONENTE GLOBAL
+========================================== */
+
+#modal-avisos {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(20, 25, 20, 0.65);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+#modal-avisos.ativo {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Compatibilidade com o estado inicial e a Home antiga. */
+#modal-avisos[hidden],
+#modal-avisos.hidden {
+    display: none !important;
+}
+
+#modal-avisos .modal-container {
+    width: min(100%, 520px);
+    max-height: min(90vh, 700px);
+
+    overflow-y: auto;
+
+    background: #ffffff;
+    border-radius: 14px;
+
+    box-shadow: 0 20px 65px rgba(0, 0, 0, 0.22);
+}
+
+/* CABEÇALHO */
+
+#modal-avisos .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 25px 28px;
+
+    border-bottom: 1px solid #e8ebe6;
+}
+
+#modal-avisos .modal-title {
+    margin: 0;
+
+    color: #34372e;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+#modal-avisos .modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 35px;
+    height: 35px;
+
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+
+    background: #f1f2ef;
+    color: #504d35;
+
+    font-size: 17px;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+#modal-avisos .modal-close:hover {
+    background: #e4e7df;
+}
+
+/* CONTEÚDO */
+
+#modal-avisos .modal-body {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+
+    padding: 25px 28px;
+}
+
+/* CARDS */
+
+#modal-avisos .aviso-card {
+    padding: 22px;
+
+    border: 1px solid #e6e9e2;
+    border-radius: 10px;
+
+    background: #fafbf9;
+}
+
+#modal-avisos .aviso-tag {
+    display: inline-block;
+
+    margin-bottom: 12px;
+    padding: 5px 10px;
+
+    border-radius: 5px;
+
+    background: #e8e9de;
+    color: #504d35;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+#modal-avisos .tag-secundaria {
+    background: #edf0eb;
+    color: #59655e;
+}
+
+#modal-avisos .aviso-titulo {
+    margin: 0 0 10px;
+
+    color: #34372e;
+    font-size: 1.08rem;
+    font-weight: 700;
+}
+
+#modal-avisos .aviso-texto {
+    margin: 0 0 15px;
+
+    color: #59655e;
+    font-size: 0.9rem;
+    line-height: 1.75;
+}
+
+#modal-avisos .aviso-data {
+    display: block;
+
+    color: #777e71;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* RODAPÉ */
+
+#modal-avisos .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 18px 28px 25px;
+
+    border-top: 1px solid #e8ebe6;
+}
+
+#modal-avisos .btn-secundario {
+    min-height: 42px;
+
+    padding: 10px 24px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #504d35;
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+#modal-avisos .btn-secundario:hover {
+    background: #3e4332;
+}
+
+/* BLOQUEAR ROLAGEM COM MODAL ABERTO */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+
+    #modal-avisos {
+        padding: 15px;
+    }
+
+    #modal-avisos .modal-header {
+        padding: 20px;
+    }
+
+    #modal-avisos .modal-title {
+        font-size: 1.15rem;
+    }
+
+    #modal-avisos .modal-body {
+        padding: 20px;
+    }
+
+    #modal-avisos .aviso-card {
+        padding: 18px;
+    }
+
+    #modal-avisos .modal-footer {
+        padding: 18px 20px;
+    }
+}
+
+/* =========================================================
+   ACESSIBILIDADE DO BOTÃO DE AVISOS
+========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    #btn-avisos,
+    .btn-flutuante {
+        animation: none !important;
+    }
+}

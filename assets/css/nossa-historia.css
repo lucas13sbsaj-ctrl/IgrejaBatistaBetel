@@ -1,377 +1,419 @@
-.section {
-    padding-top: 90px;
-    min-height: 50vh;
+
+/* ==========================================================
+   IGREJA BATISTA BETEL
+   NOSSA-HISTORIA.CSS
+
+   Estilos exclusivos da página Nossa História.
+   Componentes compartilhados pertencem ao global.css.
+========================================================== */
+
+
+/* ==========================================================
+   01. ESTRUTURA DA PÁGINA
+========================================================== */
+
+.historia-main {
+    background-color: var(--bg-primary);
+}
+
+.historia-main .section {
+    min-height: auto;
+    padding: 85px 0;
+}
+
+.historia-main .section_box {
+    gap: 40px;
+}
+
+.historia-main .section_title {
+    max-width: 1000px;
+    margin-inline: auto;
+}
+
+.historia-main .section_title h1,
+.historia-main .section_title h2 {
+    text-wrap: balance;
 }
 
 .logo_link {
     text-decoration: none;
     color: inherit;
-    cursor: pointer;
 }
 
-body{   
-    background-color: #ede8d088;
+
+/* ==========================================================
+   02. NOSSA HISTÓRIA
+========================================================== */
+
+.section_historia {
+    padding-top: calc(var(--header-height) + 80px) !important;
+    background-color: var(--bg-tertiary);
 }
 
-.section_historia .section_box{
-    gap: 40px;
-}
-.section_historia .section_box_indi{
+.section_historia .section_box_indi {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }
 
-.section_historia .section_description{
-    max-width: 100%;
-    text-align: justify;
-
+.section_historia .section_description {
+    max-width: 920px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+
+    font-size: clamp(1rem, 1.5vw, 1.12rem);
+    line-height: 1.9;
+    font-weight: 400;
+    text-align: justify;
 }
 
-/* ================= CARDS DE MISSÃO, VISÃO E VALORES ================= */
+.section_historia .section_description p {
+    margin: 0;
+}
+
+.section_historia .section_description strong {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   03. MISSÃO, VISÃO E VALORES
+========================================================== */
 
 .mvv_grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
+    width: 100%;
     max-width: 1100px;
-    margin: 30px auto 0 auto;
-    flex-wrap: wrap;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+    margin: 20px auto 0;
 }
 
 .mvv_card {
-    /* Fundo gradiente sofisticado e translúcido */
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(247, 244, 234, 0.85) 100%);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-   
-    flex: 1 1 320px;
-    max-width: 550px;
-    padding: 40px 30px;
-    border-radius: 16px;
-    
-    /* Borda sutil e destaque no topo */
-    border: 1px solid rgba(85, 46, 46, 0.12);
-    border-top: 4px solid var(--text-primary);
-    
-    box-shadow: 0 12px 35px rgba(85, 46, 46, 0.06);
-    
+    position: relative;
+
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    position: relative;
-    overflow: hidden;
+    align-items: flex-start;
+
+    gap: 18px;
+    min-width: 0;
+    padding: 35px 30px;
+
+    background-color: #ffffff;
+
+    border: 1px solid rgba(80, 77, 53, 0.13);
+    border-top: 3px solid var(--color-primary);
+    border-radius: var(--radius-md);
+
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.035);
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal),
+        border-color var(--transition-normal);
 }
 
 .mvv_card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 45px rgba(85, 46, 46, 0.12);
-    border-color: rgba(85, 46, 46, 0.25);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 247, 240, 0.95) 100%);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-sm);
+    border-color: rgba(80, 77, 53, 0.25);
+}
+
+.mvv_numero {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--color-primary-light);
 }
 
 .mvv_card h3 {
-    font-size: 30px;
-    color: var(--text-primary);
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
     font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-heading);
 }
 
 .mvv_card p {
-    font-size: 15px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.85;
     color: var(--text-secondary);
-    line-height: 1.7;
-    font-weight: 300;
-    text-align: left;
 }
 
-/* Responsividade: Só empilha em telas menores que 992px (celulares e tablets em pé) */
-@media (max-width: 992px) {
-    .mvv_grid {
-        grid-template-columns: 1fr !important;
-        max-width: 500px;
-    }
-}
 
-/* ================= SEÇÃO VISÃO DA IBB (ESTRUTURA) ================= */
+/* ==========================================================
+   04. VISÃO DA IBB
+========================================================== */
 
 .section_visao_ibb {
-    
-    padding-top: 20px;
+    background-color: var(--bg-tertiary);
 }
 
 .ibb_estrutura_container {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
     width: 100%;
     max-width: 1000px;
-    margin: 20px auto 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+    margin: 15px auto 0;
 }
 
-/* Telhado */
+
+/* ==========================================================
+   05. JESUS — TOPO DA ESTRUTURA
+========================================================== */
+
 .ibb_telhado {
-    background: linear-gradient(90deg, #6e6948, #837a5b, #85805e);
+    position: relative;
+
+    width: 100%;
+    padding: 55px 25px 30px;
+
     color: #ffffff;
     text-align: center;
-    padding: 30px 20px;
-    border-radius: 16px 16px 8px 8px;
-    box-shadow: 0 10px 30px rgba(85, 46, 46, 0.15);
-    position: relative;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 100%, 0 100%, 0 25%);
-    padding-top: 50px; /* Espaço para compensar o formato de triângulo */
+
+    background-color: var(--color-primary);
+
+    clip-path: polygon(
+        50% 0%,
+        100% 26%,
+        100% 100%,
+        0 100%,
+        0 26%
+    );
 }
 
 .ibb_telhado_conteudo h3 {
-    font-size: 32px;
+    margin-bottom: 8px;
+
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
     font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
+    line-height: 1.3;
 }
 
 .ibb_telhado_conteudo span {
-    font-size: 15px;
-    font-style: italic;
+    font-size: clamp(0.85rem, 1.4vw, 1rem);
+    font-weight: 400;
+    line-height: 1.6;
     opacity: 0.9;
-    font-weight: 300;
 }
 
-/* Grid das 4 Colunas */
+
+/* ==========================================================
+   06. QUATRO PILARES
+========================================================== */
+
 .ibb_colunas_grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
 }
 
 .ibb_coluna_card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(247, 244, 234, 0.85) 100%);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(85, 46, 46, 0.1);
-    border-radius: 12px;
-    padding: 25px 15px;
-    text-align: center;
+    position: relative;
+
+    width: 100%;
+    min-height: 190px;
+
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    box-shadow: 0 8px 25px rgba(85, 46, 46, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+    padding: 25px 15px;
+
+    background-color: #ffffff;
+
+    border: 1px solid rgba(80, 77, 53, 0.15);
+    border-radius: var(--radius-md);
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.035);
+
+    color: var(--text-primary);
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal),
+        border-color var(--transition-normal);
 }
 
 .ibb_coluna_card::before {
-    content: '';
+    content: "";
+
     position: absolute;
     top: 0;
     left: 0;
+
     width: 100%;
-    height: 4px;
-    background-color: var(--text-primary);
+    height: 3px;
+
+    background-color: var(--color-primary);
 }
 
 .ibb_coluna_card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(85, 46, 46, 0.1);
-}
-
-/* ================= MODAL DE DETALHES DOS PILARES ================= */
-
-/* Fundo escuro e borrado (Overlay) */
-.modal_overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-/* Classe ativada via JavaScript para exibir o modal */
-.modal_overlay.ativo {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* O Card Maior Centralizado */
-.modal_conteudo {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 247, 240, 0.95) 100%);
-    border: 1px solid rgba(85, 46, 46, 0.2);
-    width: 90%;
-    max-width: 600px;
-    padding: 40px 30px;
-    border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    position: relative;
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
-}
-
-.modal_overlay.ativo .modal_conteudo {
-    transform: translateY(0);
-}
-
-/* Botão de Fechar (X) */
-.modal_fechar {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 32px;
-    color: var(--text-primary);
-    cursor: pointer;
-    line-height: 1;
-}
-
-.modal_conteudo h3 {
-    font-size: 26px;
-    color: var(--text-primary);
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-.modal_conteudo p {
-    font-size: 16px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    font-weight: 300;
+    box-shadow: var(--shadow-sm);
+    border-color: rgba(80, 77, 53, 0.3);
 }
 
 .coluna_passo {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--text-primary);
-    background: rgba(85, 46, 46, 0.08);
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 5px auto;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background-color: var(--bg-secondary);
+    color: var(--color-primary);
+
+    font-size: 0.8rem;
+    font-weight: 700;
 }
 
 .ibb_coluna_card h4 {
-    font-size: 20px;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    font-weight: 700;
     text-transform: uppercase;
-    color: var(--text-primary);
-    font-weight: 600;
+    letter-spacing: 0.3px;
+
+    color: var(--text-heading);
 }
 
-.ibb_coluna_card p {
-    font-size: 14px;
+.coluna_detalhes {
+    font-size: 0.78rem;
+    font-weight: 500;
     color: var(--text-secondary);
-    line-height: 1.5;
-    font-weight: 300;
+
+    opacity: 0.8;
 }
 
-/* Bases de Sustentação */
+.ibb_coluna_card:hover .coluna_detalhes {
+    color: var(--color-primary);
+    opacity: 1;
+}
+
+
+/* ==========================================================
+   07. BASES DE SUSTENTAÇÃO
+========================================================== */
+
 .ibb_bases_grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
 }
 
 .ibb_base_item {
-    background: linear-gradient(135deg, rgba(85, 46, 46, 0.06) 0%, rgba(85, 46, 46, 0.12) 100%);
-    border: 1px solid rgba(85, 46, 46, 0.15);
-    border-radius: 10px;
-    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 80px;
+    padding: 18px 15px;
+
+    background-color: var(--bg-tertiary);
+
+    border: 1px solid rgba(80, 77, 53, 0.15);
+    border-radius: var(--radius-sm);
+
     text-align: center;
-    color: var(--text-primary);
+    color: var(--color-primary);
+
+    font-size: 0.95rem;
     font-weight: 600;
-    font-size: 15px;
-    box-shadow: 0 4px 15px rgba(85, 46, 46, 0.04);
-    transition: background 0.3s ease;
+    line-height: 1.5;
 }
 
-.ibb_base_item:hover {
-    background: linear-gradient(135deg, rgba(85, 46, 46, 0.1) 0%, rgba(85, 46, 46, 0.18) 100%);
-}
 
-/* Responsividade para telas menores */
-@media (max-width: 992px) {
-    .ibb_colunas_grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .ibb_bases_grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-    .ibb_colunas_grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ================= SEÇÃO ORGANIZAÇÃO (REDES, MINISTÉRIOS E DEPARTAMENTOS) ================= */
+/* ==========================================================
+   08. ORGANIZAÇÃO MINISTERIAL
+========================================================== */
 
 .section_organizacao {
-    padding-top: 20px;
+    background-color: var(--bg-tertiary);
 }
 
 .org_container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
     width: 100%;
     max-width: 1200px;
-    margin: 30px auto 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+    margin: 15px auto 0;
+
+    align-items: stretch;
 }
 
 .org_card_categoria {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 244, 234, 0.9) 100%);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 16px;
-    border: 1px solid rgba(85, 46, 46, 0.12);
-    box-shadow: 0 12px 35px rgba(85, 46, 46, 0.05);
-    overflow: hidden;
+    min-width: 0;
+
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    overflow: hidden;
+
+    background-color: #ffffff;
+
+    border: 1px solid rgba(80, 77, 53, 0.12);
+    border-radius: var(--radius-md);
+
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.035);
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal);
 }
 
 .org_card_categoria:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 18px 40px rgba(85, 46, 46, 0.1);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-sm);
 }
 
 .org_header_categoria {
-    background: linear-gradient(90deg, #6e6948, #837a5b, #85805e);
-    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 75px;
     padding: 20px;
+
+    background-color: var(--color-primary);
+    color: #ffffff;
+
     text-align: center;
 }
 
 .org_header_categoria h3 {
-    font-size: 20px;
+    font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
 .org_lista_itens {
-    padding: 25px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+
     flex: 1;
+    gap: 22px;
+
+    padding: 30px 25px;
 }
 
 .org_item {
@@ -381,43 +423,335 @@ body{
 }
 
 .org_ponto {
-    width: 8px;
-    height: 8px;
-    background-color: var(--text-primary);
-    border-radius: 50%;
-    margin-top: 6px;
     flex-shrink: 0;
+
+    width: 7px;
+    height: 7px;
+
+    margin-top: 9px;
+    border-radius: 50%;
+
+    background-color: var(--color-primary);
 }
 
 .org_info {
+    min-width: 0;
+
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 5px;
 }
 
 .org_info strong {
-    font-size: 15px;
-    color: var(--text-primary);
+    font-size: 0.92rem;
     font-weight: 600;
+    line-height: 1.5;
+
+    color: var(--text-heading);
 }
 
 .org_info span {
-    font-size: 13px;
+    font-size: 0.83rem;
+    font-weight: 400;
+    line-height: 1.65;
+
     color: var(--text-secondary);
-    font-weight: 300;
-    line-height: 1.4;
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 1024px) {
-    .org_container {
-        grid-template-columns: repeat(2, 1fr);
+
+/* ==========================================================
+   09. MODAL EXCLUSIVO DOS PILARES
+========================================================== */
+
+.modal_overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background-color: rgba(20, 25, 20, 0.65);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.modal_overlay.ativo {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.modal_conteudo {
+    position: relative;
+
+    width: min(100%, 560px);
+    max-height: 85vh;
+    overflow-y: auto;
+
+    padding: 40px 35px;
+
+    background-color: #ffffff;
+
+    border: 1px solid rgba(80, 77, 53, 0.15);
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-lg);
+
+    transform: translateY(15px);
+
+    transition: transform var(--transition-normal);
+}
+
+.modal_overlay.ativo .modal_conteudo {
+    transform: translateY(0);
+}
+
+.modal_fechar {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #f1f2ef;
+    color: var(--color-primary);
+
+    font-size: 1.5rem;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.modal_fechar:hover {
+    background-color: #e4e7df;
+}
+
+.modal_conteudo h3 {
+    padding-right: 35px;
+    margin-bottom: 18px;
+
+    font-size: clamp(1.35rem, 2.5vw, 1.7rem);
+    font-weight: 700;
+    line-height: 1.3;
+
+    color: var(--text-heading);
+}
+
+.modal_conteudo p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.85;
+
+    color: var(--text-secondary);
+}
+
+
+/* ==========================================================
+   10. RESPONSIVIDADE — TABLET
+========================================================== */
+
+@media (max-width: 1100px) {
+
+    .mvv_grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .org_container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
 }
 
-@media (max-width: 768px) {
+
+/* ==========================================================
+   11. RESPONSIVIDADE — TABLET PEQUENO
+========================================================== */
+
+@media (max-width: 840px) {
+
+    .historia-main .section {
+        padding: 75px 0;
+    }
+
+    .section_historia {
+        padding-top: calc(var(--header-height) + 65px) !important;
+    }
+
+    .ibb_colunas_grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ibb_coluna_card {
+        min-height: 165px;
+    }
+
+    .ibb_bases_grid {
+        grid-template-columns: 1fr;
+    }
+
     .org_container {
         grid-template-columns: 1fr;
-        max-width: 500px;
+        max-width: 650px;
     }
+
+}
+
+
+/* ==========================================================
+   12. RESPONSIVIDADE — CELULAR
+========================================================== */
+
+@media (max-width: 600px) {
+
+    .historia-main .section {
+        padding: 65px 0;
+    }
+
+    .section_historia {
+        padding-top: calc(var(--header-height) + 55px) !important;
+    }
+
+    .historia-main .section_box {
+        gap: 30px;
+    }
+
+    .section_historia .section_description {
+        text-align: left;
+        font-size: 0.98rem;
+        line-height: 1.8;
+    }
+
+    .mvv_grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 10px;
+    }
+
+    .mvv_card {
+        padding: 28px 24px;
+        gap: 14px;
+    }
+
+    .ibb_estrutura_container {
+        gap: 15px;
+    }
+
+    .ibb_telhado {
+        padding: 45px 15px 22px;
+    }
+
+    .ibb_telhado_conteudo h3 {
+        font-size: 1.6rem;
+    }
+
+    .ibb_telhado_conteudo span {
+        font-size: 0.8rem;
+    }
+
+    .ibb_colunas_grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .ibb_coluna_card {
+        min-height: 145px;
+        padding: 20px 10px;
+        gap: 10px;
+    }
+
+    .coluna_passo {
+        width: 32px;
+        height: 32px;
+        font-size: 0.7rem;
+    }
+
+    .ibb_coluna_card h4 {
+        font-size: 0.9rem;
+    }
+
+    .coluna_detalhes {
+        font-size: 0.72rem;
+    }
+
+    .ibb_base_item {
+        min-height: 65px;
+        padding: 15px;
+        font-size: 0.85rem;
+    }
+
+    .org_container {
+        gap: 18px;
+    }
+
+    .org_lista_itens {
+        padding: 25px 22px;
+        gap: 20px;
+    }
+
+    .modal_conteudo {
+        padding: 35px 25px;
+    }
+
+    .modal_conteudo p {
+        font-size: 0.95rem;
+    }
+
+}
+
+
+/* ==========================================================
+   13. TELAS MUITO PEQUENAS
+========================================================== */
+
+@media (max-width: 360px) {
+
+    .ibb_colunas_grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ibb_coluna_card {
+        min-height: 115px;
+    }
+
+    .ibb_telhado {
+        padding-top: 42px;
+    }
+
+}
+
+
+/* ==========================================================
+   14. ACESSIBILIDADE
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .mvv_card,
+    .ibb_coluna_card,
+    .org_card_categoria,
+    .modal_conteudo,
+    .modal_overlay {
+        transition: none;
+    }
+
 }

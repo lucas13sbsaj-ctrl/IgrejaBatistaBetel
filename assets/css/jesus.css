@@ -1,172 +1,1109 @@
-/* ==========================================
-   ESTILOS ESPECÍFICOS DA PÁGINA JESUS
-   ========================================== */
 
-body {
-    /* Gradiente moderno e elegante com tons suaves inspirados na paleta da igreja */
-    background: linear-gradient(135deg, #f4f6f3 0%, #e9efe8 100%);
-    color: #333333;
-    font-family: 'Open Sans', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Garante que o footer fique embaixo se a página for curta */
-}
+/* ==========================================================
+   IGREJA BATISTA BETEL
+   PÁGINA: CONHEÇA JESUS
+   ARQUIVO: jesus.css
 
-.logo_link{
-    text-decoration: none;
-}
+   Estilos exclusivos da página Jesus.
+
+   Componentes compartilhados permanecem no global.css:
+   - Header e navegação
+   - Footer
+   - Botões globais
+   - Modal de avisos
+   - Botão flutuante
+   - Tipografia e títulos gerais
+========================================================== */
+
+
+/* ==========================================================
+   01. VARIÁVEIS EXCLUSIVAS DA PÁGINA
+========================================================== */
 
 .jesus-main {
-    max-width: 900px;
-    margin: 120px auto 60px auto; /* Afasta do header fixo e da barra de avisos */
-    padding: 0 20px;
+    --jesus-primary: var(--color-primary, #504d35);
+    --jesus-primary-dark: #3e4332;
+
+    --jesus-text: var(--text-heading, #34372e);
+    --jesus-text-secondary: var(--text-secondary, #59655e);
+
+    --jesus-background: #ffffff;
+    --jesus-background-soft: #eeeadb83;
+
+    --jesus-border: #e5e8e2;
+    --jesus-accent: #a99a66;
+
+    width: 100%;
+    min-width: 0;
+
+    background-color: var(--jesus-background);
 }
 
-.jesus-header-text {
-    text-align: center;
-    margin-bottom: 40px;
+
+/* ==========================================================
+   02. CONTAINER E ESTRUTURA
+========================================================== */
+
+.jesus-container {
+    width: min(100% - 48px, 1150px);
+    margin-inline: auto;
 }
 
-.jesus-header-text h1 {
-    font-size: 2.2rem;
-    color: #2c3e2b;
-    margin-bottom: 15px;
+.jesus-main *,
+.jesus-main *::before,
+.jesus-main *::after {
+    box-sizing: border-box;
 }
 
-.jesus-header-text p {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.6;
-}
-
-/* Vídeo do YouTube Responsivo */
-.video-container {
+.jesus-main section {
     position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Proporção perfeita 16:9 */
-    height: 0;
-    background: #000;
-    border-radius: 8px;
+}
+
+.jesus-main .section {
+    min-height: auto;
+    height: auto;
+}
+
+.jesus-main .section_title {
+    max-width: 850px;
+}
+
+.jesus-main .section_title h1,
+.jesus-main .section_title h2 {
+    color: var(--jesus-text);
+}
+
+.jesus-main p {
+    overflow-wrap: break-word;
+}
+
+
+/* ==========================================================
+   03. HERO — APRESENTAÇÃO
+========================================================== */
+
+.jesus-hero {
+    display: flex;
+    align-items: center;
+
+    min-height: 660px;
+
+    padding:
+        calc(var(--header-height, 90px) + 100px)
+        0
+        115px;
+
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-bottom: 50px;
+
+    background-color: var(--jesus-background-soft);
 }
 
-.video-container iframe {
+/*
+   Detalhe decorativo discreto.
+   Não utilizamos gradientes amarelados
+   nem grandes ícones no fundo.
+*/
+
+.jesus-hero::before {
+    content: "";
+
     position: absolute;
-    top: 0;
-    left: 0;
+
+    top: 50%;
+    right: -190px;
+
+    width: 470px;
+    height: 470px;
+
+    transform: translateY(-50%);
+
+    border: 1px solid rgba(80, 77, 53, 0.09);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.jesus-hero::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    right: -120px;
+
+    width: 330px;
+    height: 330px;
+
+    transform: translateY(-50%);
+
+    border: 1px solid rgba(80, 77, 53, 0.07);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.jesus-hero .jesus-container {
+    position: relative;
+    z-index: 1;
+}
+
+.jesus-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 880px;
+    margin-inline: auto;
+
+    text-align: center;
+}
+
+.jesus-hero .section_title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     width: 100%;
-    height: 100%;
-    border: 0;
-}
+    max-width: 850px;
 
-/* Formulário do WhatsApp */
-.whatsapp-form-box {
-    /* Fundo branco translúcido (ajuste o último valor 0.85 para mais ou menos transparência se quiser) */
-    background: rgba(255, 255, 255, 0.85);
-    
-    /* Efeito de desfoque de vidro fosco (mágico!) */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px); /* Compatibilidade com Safari/iOS */
-    
-    padding: 35px;
-    border-radius: 16px;
-    
-    /* Sombra elegante e difusa */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    
-    /* Borda sutil translúcida para dar o acabamento de vidro */
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-top: 5px solid #6e6948; /* Mantém o detalhe verde do WhatsApp no topo */
-    
-    margin-bottom: 40px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Efeito sutil ao aproximar o mouse da caixa */
-.whatsapp-form-box:hover {
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-}
-
-.whatsapp-form-box h3 {
-    color: #2c3e2b;
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.whatsapp-form-box p {
-    font-size: 0.95rem;
-    color: #555;
     margin-bottom: 25px;
-    line-height: 1.5;
+
+    text-align: center;
 }
 
-.form-group {
-    margin-bottom: 20px;
+.jesus-hero .section_title h1 {
+    max-width: 820px;
+    margin-inline: auto;
+
+    line-height: 1.2;
+    text-wrap: balance;
 }
 
-.form-group label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #333;
-    font-size: 0.95rem;
+.jesus-hero .section_indi_title {
+    justify-content: center;
 }
 
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 14px;
-    
-    /* Inputs também com leve efeito translúcido para combinar */
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #dcdcdc;
-    border-radius: 8px;
-    
-    font-size: 1rem;
-    outline: none;
-    transition: all 0.3s ease;
-    font-family: 'Open Sans', sans-serif;
-    color: #333;
+.jesus-hero-description {
+    max-width: 710px;
 
-    resize: none;
+    margin: 0 auto 35px;
+
+    color: var(--jesus-text-secondary);
+
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.9;
 }
 
-/* Quando o usuário clica para digitar em um campo */
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #25d366;
-    background: #ffffff;
-    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.15);
-}
-
-.btn_primary{
-    border: none;
-
-    width: 100%;
-    height: 50px;
-
+.jesus-hero-actions {
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    color: white;
-    border-radius: 5px;
-    background: linear-gradient(90deg, #6e6948, #837a5b, #85805e);
+    flex-wrap: wrap;
 
-    cursor: pointer;
-
-    transition: 
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    gap: 15px;
 }
 
-.btn_primary:hover {
-    transform: translateY(-3px);
+/*
+   Apenas a disposição dos botões.
+   Aparência principal herdada do global.css.
+*/
+
+.jesus-hero-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 50px;
+
+    text-align: center;
+    text-decoration: none;
+}
+
+.jesus-hero-actions .btn_secondary {
+    border: 1px solid var(--jesus-primary);
+
+    background-color: transparent;
+    color: var(--jesus-primary);
+}
+
+.jesus-hero-actions .btn_secondary:hover {
+    background-color: var(--jesus-primary);
+    color: #ffffff;
+}
+
+
+/* ==========================================================
+   04. MENSAGEM DO EVANGELHO
+========================================================== */
+
+.jesus-evangelho {
+    padding: 110px 0 120px;
+
+    background-color: var(--jesus-background);
+}
+
+.jesus-evangelho > .jesus-container > .section_title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 auto 55px;
+
+    text-align: center;
+}
+
+.jesus-evangelho .section_title h2 {
+    max-width: 750px;
+    text-wrap: balance;
+}
+
+.jesus-section-description {
+    max-width: 690px;
+
+    margin: 20px auto 0;
+
+    color: var(--jesus-text-secondary);
+
+    font-size: 1rem;
+    line-height: 1.85;
+    text-align: center;
+}
+
+
+/* ==========================================================
+   05. GRID DOS CARDS
+========================================================== */
+
+.evangelho-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    align-items: stretch;
+
+    gap: 20px;
+}
+
+.evangelho-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-width: 0;
+    min-height: 335px;
+
+    padding: 32px 25px 27px;
+
+    background-color: #ffffff;
+
+    border: 1px solid var(--jesus-border);
+    border-radius: 12px;
 
     box-shadow:
-        0 10px 20px rgba(148, 77, 77, 0.25);
+        0 5px 20px rgba(30, 40, 30, 0.025);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.evangelho-card:hover {
+    border-color: #cbd0c2;
+
+    box-shadow:
+        0 8px 26px rgba(30, 40, 30, 0.05);
+}
+
+
+/* ==========================================================
+   06. CONTEÚDO DOS CARDS
+========================================================== */
+
+.evangelho-numero {
+    display: inline-block;
+
+    margin-bottom: 30px;
+
+    color: #858b73;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.evangelho-card h3 {
+    margin: 0 0 17px;
+
+    color: var(--jesus-text);
+
+    font-size: 1.13rem;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.evangelho-card p {
+    flex: 1;
+
+    margin: 0 0 25px;
+
+    color: var(--jesus-text-secondary);
+
+    font-size: 0.91rem;
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+.evangelho-versiculo {
+    display: block;
+
+    width: 100%;
+
+    padding-top: 17px;
+
+    border-top: 1px solid #eceee9;
+
+    color: var(--jesus-primary);
+
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+
+/* ==========================================================
+   07. VERSÍCULO EM DESTAQUE
+========================================================== */
+
+.jesus-verse {
+    display: flex;
+    align-items: center;
+
+    min-height: 330px;
+
+    padding: 85px 0;
+
+    overflow: hidden;
+
+    background-color: var(--jesus-primary-dark);
+}
+
+.jesus-verse-content {
+    position: relative;
+    z-index: 1;
+
+    max-width: 900px;
+    margin-inline: auto;
+
+    text-align: center;
+}
+
+.jesus-verse-label {
+    display: block;
+
+    margin-bottom: 27px;
+
+    color: #ded5b3;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.jesus-verse blockquote {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.jesus-verse blockquote p {
+    max-width: 820px;
+
+    margin: 0 auto 25px;
+
+    color: #ffffff;
+
+    font-size: clamp(1.45rem, 2.8vw, 2.15rem);
+    font-weight: 500;
+    line-height: 1.65;
+
+    text-wrap: balance;
+}
+
+.jesus-verse cite {
+    display: inline-block;
+
+    color: #ded5b3;
+
+    font-size: 0.95rem;
+    font-style: normal;
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   08. SEÇÃO DE VÍDEO
+========================================================== */
+
+.jesus-video-section {
+    padding: 115px 0;
+
+    background-color: var(--jesus-background-soft);
+}
+
+.jesus-video-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.85fr)
+        minmax(0, 1.15fr);
+
+    align-items: center;
+
+    gap: clamp(40px, 6vw, 90px);
+}
+
+.jesus-video-content {
+    min-width: 0;
+}
+
+.jesus-video-content .section_title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-bottom: 28px;
+
+    text-align: left;
+}
+
+.jesus-video-content .section_title h2 {
+    text-align: left;
+}
+
+.jesus-video-content p {
+    max-width: 450px;
+
+    margin-bottom: 20px;
+
+    color: var(--jesus-text-secondary);
+
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.jesus-video-content p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================================
+   09. PLAYER DE VÍDEO
+========================================================== */
+
+.jesus-video-wrapper {
+    width: 100%;
+    min-width: 0;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background-color: #222222;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.jesus-video-wrapper iframe {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+}
+
+
+/* ==========================================================
+   10. SEÇÃO DE CONTATO E ORAÇÃO
+========================================================== */
+
+.jesus-contato {
+    padding: 115px 0 125px;
+
+    background-color: #ffffff;
+}
+
+.jesus-contato > .jesus-container > .section_title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 auto 65px;
+
+    text-align: center;
+}
+
+.jesus-contato .section_title h2 {
+    text-wrap: balance;
+}
+
+.jesus-contato-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    align-items: start;
+
+    gap: clamp(45px, 7vw, 105px);
+}
+
+
+/* ==========================================================
+   11. TEXTO DO CONTATO
+========================================================== */
+
+.jesus-contato-texto {
+    max-width: 510px;
+
+    padding-top: 20px;
+}
+
+.jesus-contato-texto h3 {
+    margin: 0 0 25px;
+
+    color: var(--jesus-text);
+
+    font-size: clamp(1.35rem, 2vw, 1.8rem);
+    font-weight: 700;
+    line-height: 1.5;
+
+    text-wrap: balance;
+}
+
+.jesus-contato-texto p {
+    margin-bottom: 22px;
+
+    color: var(--jesus-text-secondary);
+
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.jesus-contato-texto .jesus-contato-destaque {
+    margin-top: 30px;
+
+    color: var(--jesus-primary);
+
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   12. FORMULÁRIO
+========================================================== */
+
+.jesus-formulario {
+    width: 100%;
+    min-width: 0;
+
+    padding: 38px;
+
+    border: 1px solid var(--jesus-border);
+    border-radius: 12px;
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 8px 30px rgba(30, 40, 30, 0.035);
+}
+
+.jesus-formulario form {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.jesus-formulario .form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 23px;
+}
+
+.jesus-formulario label {
+    color: var(--jesus-text);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.jesus-formulario input,
+.jesus-formulario select,
+.jesus-formulario textarea {
+    display: block;
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #dfe3dd;
+    border-radius: 7px;
+
+    outline: none;
+
+    background-color: #ffffff;
+
+    color: var(--jesus-text);
+
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 400;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.jesus-formulario input,
+.jesus-formulario select {
+    min-height: 50px;
+}
+
+.jesus-formulario textarea {
+    min-height: 140px;
+
+    resize: vertical;
+}
+
+.jesus-formulario input::placeholder,
+.jesus-formulario textarea::placeholder {
+    color: #999f98;
+}
+
+.jesus-formulario input:focus,
+.jesus-formulario select:focus,
+.jesus-formulario textarea:focus {
+    border-color: var(--jesus-primary);
+
+    box-shadow:
+        0 0 0 3px rgba(80, 77, 53, 0.09);
+}
+
+.jesus-formulario select {
+    cursor: pointer;
+}
+
+.jesus-formulario .form-group:focus-within label {
+    color: var(--jesus-primary);
+}
+
+
+/* ==========================================================
+   13. INFORMAÇÕES E BOTÃO DO FORMULÁRIO
+========================================================== */
+
+.jesus-form-info {
+    margin: 0 0 22px;
+
+    color: #788078;
+
+    font-size: 0.8rem;
+    line-height: 1.7;
+}
+
+.jesus-form-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    width: 100%;
+    min-height: 53px;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+.jesus-form-btn i {
+    font-size: 1.15rem;
+}
+
+.jesus-form-feedback {
+    margin-top: 14px;
+
+    color: #a12e2e;
+
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.jesus-form-feedback:empty {
+    display: none;
+}
+
+
+/* ==========================================================
+   14. RESPONSIVIDADE — NOTEBOOK E TABLET
+========================================================== */
+
+@media (max-width: 1100px) {
+
+    .jesus-hero {
+        min-height: 600px;
+
+        padding:
+            calc(var(--header-height, 90px) + 85px)
+            0
+            95px;
+    }
+
+    .jesus-evangelho {
+        padding: 95px 0;
+    }
+
+    .evangelho-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .evangelho-card {
+        min-height: 290px;
+    }
+
+    .jesus-video-section,
+    .jesus-contato {
+        padding: 95px 0;
+    }
+
+    .jesus-video-layout {
+        gap: 40px;
+    }
+
+    .jesus-contato-layout {
+        gap: 45px;
+    }
+
+    .jesus-formulario {
+        padding: 30px;
+    }
+
+}
+
+
+/* ==========================================================
+   15. RESPONSIVIDADE — TABLET
+========================================================== */
+
+@media (max-width: 840px) {
+
+    .jesus-hero {
+        min-height: 560px;
+
+        padding:
+            calc(var(--header-height, 90px) + 70px)
+            0
+            85px;
+    }
+
+    .jesus-hero::before,
+    .jesus-hero::after {
+        display: none;
+    }
+
+    .jesus-hero-description {
+        font-size: 1rem;
+    }
+
+    .jesus-evangelho {
+        padding: 80px 0;
+    }
+
+    .jesus-evangelho > .jesus-container > .section_title {
+        margin-bottom: 40px;
+    }
+
+    .jesus-verse {
+        min-height: 280px;
+        padding: 75px 0;
+    }
+
+    .jesus-video-section {
+        padding: 85px 0;
+    }
+
+    .jesus-video-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .jesus-video-content {
+        max-width: 700px;
+    }
+
+    .jesus-video-content p {
+        max-width: 700px;
+    }
+
+    .jesus-video-wrapper {
+        max-width: 850px;
+        margin-inline: auto;
+    }
+
+    .jesus-contato {
+        padding: 85px 0;
+    }
+
+    .jesus-contato > .jesus-container > .section_title {
+        margin-bottom: 45px;
+    }
+
+    .jesus-contato-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .jesus-contato-texto {
+        max-width: 700px;
+        padding-top: 0;
+    }
+
+    .jesus-formulario {
+        max-width: 700px;
+        margin-inline: auto;
+    }
+
+}
+
+
+/* ==========================================================
+   16. RESPONSIVIDADE — MOBILE
+========================================================== */
+
+@media (max-width: 600px) {
+
+    .jesus-container {
+        width: min(100% - 36px, 1150px);
+    }
+
+    /* HERO */
+
+    .jesus-hero {
+        min-height: auto;
+
+        padding:
+            calc(var(--header-height, 90px) + 50px)
+            0
+            75px;
+    }
+
+    .jesus-hero .section_title {
+        margin-bottom: 22px;
+    }
+
+    .jesus-hero-description {
+        margin-bottom: 28px;
+
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
+    .jesus-hero-actions {
+        width: 100%;
+        gap: 12px;
+    }
+
+    .jesus-hero-actions .btn {
+        width: 100%;
+        max-width: 330px;
+    }
+
+    /* EVANGELHO */
+
+    .jesus-evangelho {
+        padding: 70px 0 80px;
+    }
+
+    .jesus-evangelho > .jesus-container > .section_title {
+        margin-bottom: 32px;
+    }
+
+    .jesus-section-description {
+        margin-top: 18px;
+
+        font-size: 0.94rem;
+        line-height: 1.8;
+    }
+
+    .evangelho-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .evangelho-card {
+        min-height: auto;
+        padding: 27px 23px;
+    }
+
+    .evangelho-numero {
+        margin-bottom: 22px;
+    }
+
+    .evangelho-card h3 {
+        margin-bottom: 13px;
+    }
+
+    .evangelho-card p {
+        margin-bottom: 22px;
+        font-size: 0.92rem;
+    }
+
+    /* VERSÍCULO */
+
+    .jesus-verse {
+        min-height: 260px;
+        padding: 70px 0;
+    }
+
+    .jesus-verse-label {
+        margin-bottom: 20px;
+        font-size: 0.75rem;
+    }
+
+    .jesus-verse blockquote p {
+        margin-bottom: 22px;
+
+        font-size: 1.35rem;
+        line-height: 1.7;
+    }
+
+    /* VÍDEO */
+
+    .jesus-video-section {
+        padding: 75px 0;
+    }
+
+    .jesus-video-layout {
+        gap: 28px;
+    }
+
+    .jesus-video-content .section_title {
+        margin-bottom: 22px;
+    }
+
+    .jesus-video-content p {
+        font-size: 0.95rem;
+        line-height: 1.85;
+    }
+
+    .jesus-video-wrapper {
+        border-radius: 8px;
+    }
+
+    /* CONTATO */
+
+    .jesus-contato {
+        padding: 75px 0 85px;
+    }
+
+    .jesus-contato > .jesus-container > .section_title {
+        margin-bottom: 35px;
+    }
+
+    .jesus-contato-layout {
+        gap: 28px;
+    }
+
+    .jesus-contato-texto h3 {
+        margin-bottom: 20px;
+        font-size: 1.35rem;
+    }
+
+    .jesus-contato-texto p {
+        margin-bottom: 18px;
+        font-size: 0.95rem;
+        line-height: 1.85;
+    }
+
+    .jesus-contato-texto .jesus-contato-destaque {
+        margin-top: 25px;
+    }
+
+    /* FORMULÁRIO */
+
+    .jesus-formulario {
+        padding: 26px 20px;
+        border-radius: 10px;
+    }
+
+    .jesus-formulario .form-group {
+        margin-bottom: 20px;
+    }
+
+    .jesus-formulario input,
+    .jesus-formulario select,
+    .jesus-formulario textarea {
+        font-size: 16px;
+    }
+
+    .jesus-form-info {
+        font-size: 0.78rem;
+    }
+
+}
+
+
+/* ==========================================================
+   17. MOBILE PEQUENO
+========================================================== */
+
+@media (max-width: 380px) {
+
+    .jesus-container {
+        width: min(100% - 28px, 1150px);
+    }
+
+    .jesus-hero {
+        padding-bottom: 65px;
+    }
+
+    .evangelho-card {
+        padding: 24px 20px;
+    }
+
+    .jesus-formulario {
+        padding: 22px 16px;
+    }
+
+    .jesus-verse blockquote p {
+        font-size: 1.2rem;
+    }
+
+}
+
+
+/* ==========================================================
+   18. ACESSIBILIDADE
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .jesus-main *,
+    .jesus-main *::before,
+    .jesus-main *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
 }

@@ -1,1258 +1,1999 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Open Sans", sans-serif;
-}
 
-html {
-    scroll-behavior: smooth;
-    
-}
+/* =========================================================
+   IGREJA BATISTA BETEL
+   HOME.CSS — ESTILOS EXCLUSIVOS DA PÁGINA INICIAL
+========================================================= */
 
-@keyframes flutuar {
-  0% {
-    transform: translateY(0); /* Posição inicial */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra mais próxima e escura */
-  }
-  50% {
-    transform: translateY(-10px); /* Sube 10px */
-    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15); /* Sombra mais afastada e suave */
-  }
-  100% {
-    transform: translateY(0); /* Volta à posição inicial */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  }
-}
+
+/* =========================================================
+   01. ANIMAÇÕES
+========================================================= */
 
 @keyframes seta {
     0%, 100% {
         transform: translateY(0);
-        opacity: .3;
+        opacity: 0.4;
     }
 
     50% {
-        transform: translateY(2px);
+        transform: translateY(6px);
         opacity: 1;
     }
 }
 
-@keyframes tickerAnimation {
-    0% { 
-        transform: translateX(0); 
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
     }
-    100% { 
-        transform: translateX(-50%); 
+
+    50% {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
     }
 }
 
-/* ================= COMPONENTES-GERAIS ================= */
 
-:root {
-    --text-primary: #552e2e;     /* Título */
-    --text-secondary: #59655E;   /* Texto normal */
-}
+/* =========================================================
+   02. SECTION HOME — BANNER PRINCIPAL
+========================================================= */
 
-
-.section{
-    width: 100%;
-    min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    padding: 20px 0px;
-}
-
-.section_box{
-    width: 80vw;
-    height: 100%;
-        
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.section_title .section_indi_title{
-    text-transform: uppercase;
-    font-size: 20px;
-    color: #74442e;;
-    padding: 10px 20px;
-    font-weight: 400;
-
-    cursor: default;
-
-    text-align: center;
-}
-
-.section_indi_title_home{
-    text-transform: uppercase;
-    font-size: 20px;
-    color: var(--text-secondary);
-    padding: 10px 20px;
-
-    background: linear-gradient(90deg, #fdfdfd13, #1f1c0b13, #ffffff13);
-    border: 1px solid rgba(44, 20, 20, .08);
-    border-radius: 5px;
-    backdrop-filter: blur(10px);
-
-    cursor: default;
-
-    text-align: center;
-}
-
-.section_title{
-    color: #423c18;;
-
-    font-size: clamp(30px, 1vw, 45px);
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-
-    cursor: default;
-}
-
-.section_title_home{
-    background: linear-gradient(90deg, #1f0e0e, #1f1c0b, #655D21);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    font-size: clamp(30px, 5vw, 45px);
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-
-    cursor: default;
-}
-
-.section_description{
-    font-weight: 300;
-    color: var(--text-secondary);
-    font-size: 25px;
-    max-width: 800px;
-    text-align: center;
-
-    cursor: default;
-}
-
-.section_btn{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.section_btn .btn_primary{
-    width: 15vw;
-    height: 50px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    color: white;
-    border-radius: 5px;
-    background: linear-gradient(90deg, #6e6948, #837a5b, #85805e);
-
-    cursor: pointer;
-
-    transition: 
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.btn_primary:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 10px 20px rgba(148, 77, 77, 0.25);
-}
-
-.section_btn .btn_secondary{
-    width: 15vw;
-    height: 50px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    color: #2b281a;
-    border-radius: 5px;
-    border: 1px solid #3a38262c;
-    background: linear-gradient(90deg, #5f5c5c1e, #eba5a518, #94777713);
-
-    cursor: pointer;
-
-    transition: 
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.btn_secondary:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 10px 20px rgba(73, 30, 30, 0.25);
-}
-
-.section_btn a{
-    text-decoration: none;
-    color: inherit;
-}
-
-/* ================= COMPONENTES-GERAIS ================= */
-
-
-
-
-/* ================= SCROLLBAR ================= */
-
-::-webkit-scrollbar {
-    width: 7px;
-}
-
-::-webkit-scrollbar-track {
-    background: #1e1e1e;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #464019;
-    border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #928640;
-}
-
-/* ================= SCROLLBAR ================= */
-
-
-
-/* ================= HEADER ================= */
-
-    
-header{
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    padding: 20px 50px;
-
-    width: 100%;
-    height: 90px;
-    background-color:transparent;
-
-    display: flex;
-    justify-content: center;
-
-    transition: all .5s ease;
-}
-
-header.scrolled {
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    background-color: #f0e8df9d;
-    backdrop-filter: blur(20px);
-}
-
-.container{
-    width: 80vw;
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    cursor: default;
-}
-
-/*-------------LOGO-*/
-.container .logo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90px;
-}
-.logo_img{
-    width: 80px;
-}
-.logo_img img{
-    width: 100%;
-}
-
-.logo_nome{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    line-height: 25px;
-    text-transform: uppercase;
-    font-size: 15px;
-    color: #552e2e;
-}
-.logo_nome h3{
-    font-size: 25px;
-    font-weight: 700;
-}
-/*-------------LOGO-*/
-
-/*-------------MENU-*/
-nav ul{
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    width: 50vw;
-
-    font-size: 15px;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-nav ul li{
-    list-style: none;
-    display: flex;
-    margin-right: 20px;
-}
-nav ul a{
+.section_home {
     position: relative;
-    text-decoration: none;
-    color: var(--text-secondary);
-}
 
-.menu_abrir{
-        display: none;
-    }
+    min-height: 100vh;
+    min-height: 100svh;
 
-nav ul a::after{
-    content: "";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 
-    position: absolute;
-    bottom:-5px;
-    left: 0;
+    gap: 35px;
+    padding: calc(var(--header-height) + 50px) 0 35px;
 
-    width: 100%;
-    height: 1px;
-    background-color: #1e1e1e;
-
-    transform-origin: center;
-
-    transform: scaleX(0);
-    transition: all .3s ease;
-}
-
-nav ul a:hover::after{
-    transform: scaleX(1);
-}
-
-nav ul a:hover{
-   color: rgb(49, 16, 16);
-}
-/*-------------MENU-*/
-
-/* ================= HEADER ================= */
-
-
-
-/* ================= SECTION-HOME ================= */
-.section {
-  scroll-margin-top: 80px;
-}
-
-.section_home{
-    background-image: url(/assets/images/banner.png);
+    background-image: url("/assets/images/banner.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    justify-content: flex-end;
-
-    gap: 10px;
 }
 
-.section_home .section_box{
-    margin-top: 100px;
-    gap: 20px;
-}
+.section_home .section_box {
+    flex: 1;
 
-.section_home .section_btn{
-    gap: 100px;
-    margin-bottom: 70px;
-}
-
-.details_a{
-    text-decoration: none;
-}
-
-.details{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    
+    justify-content: center;
 
-    color: rgb(56, 52, 53);
-    font-size: 15px;
+    gap: 25px;
+    text-align: center;
+}
+
+/* Subtítulo do banner */
+
+.section_indi_title_home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 20px;
+
+    border: 1px solid rgba(44, 20, 20, 0.08);
+    border-radius: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #fdfdfd13,
+        #1f1c0b13,
+        #ffffff13
+    );
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    color: var(--text-secondary);
+    font-size: clamp(0.8rem, 1.6vw, 1.15rem);
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Título principal */
+
+.section_title_home {
+    width: 100%;
+    max-width: 900px;
+
+    background: linear-gradient(
+        90deg,
+        #1f0e0e,
+        #1f1c0b,
+        #655d21
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.section_title_home h1 {
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+}
+
+/* Descrição */
+
+.section_home .section_description {
+    max-width: 750px;
+
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+/* Botões */
+
+.section_home .section_btn {
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Indicador de rolagem */
+
+.details_a {
+    display: inline-flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    color: #383435;
+    font-size: 0.8rem;
+    font-weight: 500;
     letter-spacing: 3px;
     text-transform: uppercase;
-
-    cursor: pointer;
 }
 
-.details img{
-    animation: seta 1.5s infinite ease;
+.details i {
+    font-size: 1.2rem;
+    animation: seta 1.5s ease-in-out infinite;
 }
-    
-/* ================= SECTION-HOME ================= */
 
 
+/* =========================================================
+   03. SECTION JESUS CRISTO
+========================================================= */
 
+.section_jesus {
+    position: relative;
+    isolation: isolate;
 
-/* ================= SECTION-JESUS ================= */
-.section_jesus{
+    min-height: 100vh;
+    min-height: 100svh;
+
     background-image: url("/assets/images/fundoPalavra.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    position: relative;
 }
+
+/* Escurecimento da imagem */
 
 .section_jesus::before {
     content: "";
+
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.671);
+    z-index: -1;
+
+    background: rgba(0, 0, 0, 0.67);
 }
 
-.section_jesus > * {
-    position: relative;
-    z-index: 1;
+.section_jesus .section_box {
+    gap: 35px;
 }
 
+/* Título */
 
 .section_jesus .section_title {
-    color: rgb(255, 253, 243);
-    font-size: clamp(60px, 1vw, 45px);
-    position: relative; 
+    position: relative;
+    color: #fffdf3;
 }
 
-.section_jesus .section_title .section_indi_title{
-    color: rgb(234, 235, 225);
-    font-size: 20px;
-}
-.section_jesus .section_title::after {
-    content: "";
-    position: absolute;
-    bottom: -10px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 20%; 
-    height: 2px; 
-    background-color: rgb(208, 214, 157); 
-}
-
-.section_jesus .section_box_indi{
-    margin: 30px 0px 50px 0px;
-}
-
-.section_jesus .section_title h1{
+.section_jesus .section_title h2 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
     letter-spacing: 5px;
 }
 
-.section_jesus .section_description{
-    color: rgb(255, 253, 243);
-    font-size: 25px;
-    text-align: center;
-    max-width: 1000px;
-    display: flex;
-    flex-direction: column;
+.section_jesus .section_indi_title {
+    color: #eaebe1;
 }
 
-.section_jesus .section_description .referencia{
-    font-size: 20px;
-    color: rgb(208, 214, 157);
+/* Linha decorativa */
+
+.section_jesus .section_title::after {
+    content: "";
+
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+
+    width: 100px;
+    height: 2px;
+
+    background-color: #d0d69d;
+    transform: translateX(-50%);
+}
+
+/* Texto bíblico */
+
+.section_jesus .section_description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 1000px;
+
+    color: #fffdf3;
+    text-align: center;
+}
+
+.section_jesus .passagem {
+    font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+.section_jesus .referencia {
+    margin-top: 15px;
+
+    color: #d0d69d;
+    font-size: 1.1rem;
     font-weight: 600;
 }
 
-.section_jesus .section_description .descricao{
-    margin-top: 30px;
-    font-size: 20px;
-    font-weight: 200;
+.section_jesus .descricao {
+    margin-top: 25px;
+
+    font-size: clamp(1rem, 1.7vw, 1.25rem);
+    font-weight: 300;
+    line-height: 1.8;
 }
 
-/* ================= SECTION-JESUS ================= */
-
-
-
-/* ================= SECTION-ID ================= */
-.section_id{
-    background-color: rgba(237, 232, 208, 0.33);
+.section_jesus .section_btn {
+    margin-top: 15px;
 }
 
-.section_id .section_btn{
-    margin-top: 40px;
+
+/* =========================================================
+   04. SECTION NOSSA HISTÓRIA
+========================================================= */
+
+.section_id {
+    background-color: var(--bg-tertiary);
 }
 
-.section_id .section_box{
-    justify-content:flex-start;
-    gap: 40px;
+.section_id .section_box {
+    gap: 45px;
 }
 
-.section_id .section_box_indi{
-    display: flex;
-    justify-content: center;
+.section_id .section_box_indi {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: center;
-    margin-top: 10px;
 
-    gap: 50px;
+    gap: clamp(30px, 5vw, 70px);
 }
 
-.section_id .section_title{
-    color: #423c18;;
-}
+.section_id .section_description {
+    max-width: none;
 
-.section_id .section_description{
     display: flex;
     flex-direction: column;
-    text-align: left;
-    flex: 1;
     gap: 20px;
+
+    text-align: left;
 }
 
-.section_id .section_img{
-    width: min(90%, 400px);
-    height: 300px;
-    flex: 1;
-    border-radius: 10px;}
+.section_id .section_description p {
+    margin: 0;
+}
 
-.section_id .section_img img{
+.section_id .section_img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    min-width: 0;
+}
 
-    border-radius: 10px;
-    border: 1px solid rgba(64, 62, 24, 0.267);
-    
+.section_id .section_btn {
+    margin-top: 10px;
 }
 
 
+/* =========================================================
+   05. CARROSSÉIS — ESTILOS COMPARTILHADOS NA HOME
+========================================================= */
 
-.section_id .section_btn{
-    gap: 100px;
-}
-    
-/* ================= SECTION-ID ================= */
-
-
-
-/* ================= SECTION-PASTOR ================= */
-
-.section_pastor{
-    background-color:#ede8d088;
-    
-}
-
-
-.section_pastor .section_box{
-    justify-content:flex-start;
-    gap: 40px;
-}
-
-.section_pastor .container-carrosel{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.section_pastor .slider-wrapper{
+.carousel {
     position: relative;
+
     width: 100%;
-    max-width: 48rem;
-    margin: 0 auto;
-    contain: layout;
+    min-width: 0;
+    margin-inline: auto;
 }
 
-.section_pastor .slider{
-    display: flex;
+/* Área visual das fotografias */
+
+.carousel-viewport {
+    position: relative;
+
     width: 100%;
-    aspect-ratio: 16 / 11;
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.16);
+}
+
+/* Trilho horizontal */
+
+.carousel-track {
+    display: flex;
+
+    width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-snap-type: x mandatory; 
+
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
-    border-radius: 0.5rem;
+    overscroll-behavior-x: contain;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-.section_pastor .slider .pastor-img {
-    flex: 1 0 100%;
-    width: 100%;
-    height: 100%;
-    scroll-snap-align: start;
-
-    position: relative;
-}
-
-.section_pastor .slider .pastor-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 20%;
-}
-
-.pastor-info{
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px; /* Faz a caixa flutuar com margens laterais perfeitas */
-    
-    padding: 10px 20px;
-
-    width: 5
-    0%;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    
-    /* Vidro fosco moderno e translúcido */
-    background: rgba(20, 20, 20, 0.55);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    
-    /* Borda sutil para dar o efeito de vidro real */
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
-    
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    
-    color: white;
-    z-index: 2;
-}
-
-.pastor-info h3 {
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-.pastor-info span {
-    font-size: 15px;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.section_pastor .slider::-webkit-scrollbar {
+.carousel-track::-webkit-scrollbar {
     display: none;
 }
 
-.slider-nav{
-    display: flex;
-    justify-content: center;
-    gap: 30px;
+/* Slides */
 
-    position: absolute;
-    bottom: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-}
-
-.slider-nav a{
-    width: 0.8rem;
-    height: 0.8rem;
-    border-radius: 50%;
-    background-color: rgb(0, 0, 0);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    opacity: 0.5;
-    transition: 250ms;
-}
-.slider-nav a:hover{
-    opacity: 1;
-    background-color: white;
-}
-
-.section_pastor .section_btn{
-    gap: 100px;
-    margin-top: 50px;
-}
-
-
-
-    
-/* ================= SECTION-PASTOR ================= */
-
-
-
-
-/* ================= SECTION-PROGRAMACAO ================= */
-.section_programacao .info_culto.dia1 { transition-delay: 0.1s; }
-.section_programacao .info_culto.dia2 { transition-delay: 0.2s; }
-.section_programacao .info_culto.dia3 { transition-delay: 0.3s; }
-.section_programacao .info_culto.dia4 { transition-delay: 0.4s; }
-
-
-
-
-.section_programacao{
-    background-color: rgba(237, 232, 208, 0.33);
-}
-
-.section_programacao .section_box{
-    justify-content:flex-start;
-    gap: 40px;
-}
-
-.section_programacao .section_box_indi{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    gap: 50px;
-}
-
-.section_programacao .section_title{
-    color: #423c18;;
-}
-
-.section_programacao .section_description{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    max-width: 100%;
-    gap: 20px;
-}
-
-.section_programacao .programas {
-    width: 100%;
-    overflow-x: auto;
-    display: flex;
-    justify-content: flex-start;
-    gap: 20px;
-    padding: 0 20px 20px 20px; /* Adiciona espaçamento nas laterais para o primeiro e último card não grudarem na borda da tela */
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory; /* Faz o carrossel encaixar perfeitamente ao deslizar */
-}
-
-.programas::-webkit-scrollbar {
-    display: none; /* Oculta a barra de rolagem */
-}
-
-/* Estilo padrão dos botões manuais */
-.scroll-btn {
-    position: sticky; /* Fica travado na tela conforme você rola horizontalmente */
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 99;
-    background-color: #504d35ad;
-    color: white;
-    border: none;
-    font-size: 2.5rem;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: background-color 0.2s;
-    flex: 0 0 auto; /* Impede o botão de deformar */
-    padding-bottom: 10px;
-}
-
-.scroll-btn:hover {
-    background-color: #8b8b73bd;
-}
-
-/* Posicionamento inteligente para colar nas bordas visíveis */
-.scroll-left {
-    left: -19px;
-}
-
-.scroll-right {
-    right: -19px;
-}
-
-.section_programacao .programas .info_culto {
-    flex: 0 0 100%; /* No telemóvel o card ocupa 85% da largura, mostrando um pedacinho do próximo */
-    max-width: 20em;
-    height: 25em;
-    padding: 1em;
-    border-radius: 10px;
+.carousel-slide {
     position: relative;
+
+    flex: 0 0 100%;
+    min-width: 0;
+
+    aspect-ratio: 16 / 10;
+
+    scroll-snap-align: start;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    scroll-snap-align: center; /* Centraliza o card ao parar o toque */
 }
 
-.section_programacao.visivel .info_culto {
-    transform: translateY(0);
-}
+.carousel-slide img {
+    display: block;
 
-.section_programacao .programas .info_culto_dia {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 35%; /* Ajustado para dar um respiro melhor no tamanho da caixinha do dia */
-    height: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    font-size: 18px;
-    font-weight: 700;
-    color: #fdfdfd;
-
-    background-color: rgba(117, 112, 112, 0.6);
-    backdrop-filter: blur(5px);
-    border-bottom-right-radius: 10px; /* Estética opcional para ficar bonito no card */
-}
-
-.section_programacao .programas .info_culto_sobre {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    padding: 12px;
-    font-size: 14px;
-    height: 80px;
-    color: #fdfdfd;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+/* =========================================================
+   06. SETAS DOS CARROSSÉIS
+========================================================= */
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
 
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
 
-    background-color: rgba(117, 112, 112, 0.6);
-    backdrop-filter: blur(5px);
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+
+    background: rgba(30, 30, 25, 0.55);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    color: #ffffff;
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        opacity 0.3s ease;
 }
 
-.dia1{
-    background-image: url(/assets/images/logo-culto-domingo2.png);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+.carousel-prev {
+    left: 16px;
 }
-.dia2{
-    background-image: url(/assets/images/logo-culto-domingo.png);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+
+.carousel-next {
+    right: 16px;
 }
-.dia3{
-    background-image: url(/assets/images/logo-culto-domingo3.png);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+
+.carousel-arrow:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-50%) scale(1.08);
 }
-.dia4{
-    background-image: url(/assets/images/logo-culto-domingo4.png);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+
+.carousel-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-arrow:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
 }
 
 
-.section_programacao .section_btn{
-    gap: 100px;
+/* =========================================================
+   07. INDICADORES DOS CARROSSÉIS
+========================================================= */
+
+.carousel-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+    min-height: 40px;
+
+    padding: 18px 0 0;
 }
-    
-/* ================= SECTION-PROGRAMACAO ================= */
 
+/* Criados pelo JavaScript */
 
+.carousel-dot {
+    display: block;
 
-/* ================= SECTION-LOC ================= */
+    width: 9px;
+    height: 9px;
 
-.section_loc{
-    background-color: #ede8d088;
-    height: 50vh;
+    padding: 0;
+    border: 0;
+    border-radius: 20px;
+
+    background-color: #a9a696;
+    opacity: 0.65;
+
+    cursor: pointer;
+
+    transition:
+        width 0.3s ease,
+        background-color 0.3s ease,
+        opacity 0.3s ease,
+        transform 0.3s ease;
 }
 
-.section_loc .section_box{
-    justify-content:flex-start;
+.carousel-dot:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+.carousel-dot[aria-current="true"] {
+    width: 28px;
+    background-color: var(--color-primary);
+    opacity: 1;
+    transform: none;
+}
+
+
+/* =========================================================
+   08. CARROSSEL DA NOSSA HISTÓRIA
+========================================================= */
+
+.carousel-historia {
+    max-width: 520px;
+}
+
+.carousel-historia .carousel-slide {
+    aspect-ratio: 4 / 3;
+}
+
+.carousel-historia .carousel-slide img {
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   09. SECTION LIDERANÇA PASTORAL
+========================================================= */
+
+.section_pastor {
+    background-color: var(--bg-secondary);
+}
+
+.section_pastor .section_box {
     gap: 40px;
 }
 
-.section_mapa{
-    width: 100%;
+.container-carrosel {
     display: flex;
     justify-content: center;
-    align-items: center;
-}
 
-.mapa{
-    width: 80%;
-    max-width: 1400px;
-    height: 500px;
-
-    overflow: hidden;
-}
-
-.mapa iframe {
     width: 100%;
-    height: 100%;
-    border: 0;
-}
-.section_loc .section_title{
-    color: #423c18;;
+    min-width: 0;
 }
 
-.section_loc .section_btn{
-    gap: 100px;
-    margin-top: 50px;
+.carousel-pastores {
+    max-width: 768px;
 }
 
-/* ================= SECTION-LOC ================= */
-
-/* ==========================================
-   ESTILOS E ANIMAÇÃO DO MENU MOBILE
-   ========================================== */
-.menu_abrir {
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    z-index: 1001;
+.carousel-pastores .carousel-slide {
+    aspect-ratio: 16 / 11;
 }
 
-.menu_abrir {
-    cursor: pointer;
-    width: 32px; /* Ajuste o tamanho se necessário */
-    height: 32px;
-    /* Transição suave para opacidade, escala e rotação */
-    transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
-    opacity: 1;
-    z-index: 1001;
+.carousel-pastores .carousel-slide img {
+    object-position: center 20%;
 }
 
-/* Estado intermediário durante a troca (fica invisível e diminui levemente) */
-.menu_abrir.trocando {
-    opacity: 0;
-    transform: scale(.8);
-}
+/* Caixa de identificação do pastor */
 
-/* Estado oculto padrão do menu mobile (ajuste se o seu já tiver outro padrão) */
+.pastor-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2;
 
-
-/* Quando receber a classe .abrir, ele aparece */
-.menu_mobile.abrir {
     display: flex;
     flex-direction: column;
-}
-
-
-
-/* ================= FOOTER ================= */
-footer{
-    width: 100%;
-    background-color: #504d35;
-    display: flex;
+    align-items: flex-start;
     justify-content: center;
+
+    width: min(70%, 320px);
+    padding: 15px 20px;
+
+    color: #ffffff;
+
+    background: rgba(20, 20, 20, 0.58);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-.container_footer {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin: 0px 50px;
-    padding-bottom: 10px;
-
-    align-items: center;
-    justify-content: center;
-    
+.pastor-info h3 {
+    font-size: clamp(1rem, 1.7vw, 1.2rem);
+    font-weight: 700;
+    letter-spacing: 0.3px;
 }
 
-.footer_box{
-    width: 90%;
-    height: 100%;
-        
-    display: flex;
-    justify-content: space-around;
-    gap: 100px;
-
-    padding: 10px 20px;
-    border-bottom: 1px solid rgba(202, 191, 191, .192);
+.pastor-info span {
+    font-size: clamp(0.8rem, 1.3vw, 0.95rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.85);
 }
 
-.widget_footer{
-    display: flex;
-    flex-direction: column;
-
-    flex-wrap: wrap;
-    flex: 1;
-}
-.widget_footer h3{
-    font-size: 13px;
-    letter-spacing: 1px;
-    font-weight: 500;
-    color: #f3f0e2;
-    border-bottom: 1px solid rgba(241, 200, 88, 0.4);
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-}
-.widget_footer span{
-    color: rgba(245, 241, 223, 0.65);
-    font-size: 13px;
-    line-height: 1.6;
-}
-.widget_footer ul{
-    list-style: none;
-}
-.widget_footer a{
-    color: rgba(245, 241, 223, 0.65);
-    font-size: 13px;
-    line-height: 1.6;
-    text-decoration: none;
-}
-
-
-.social_icons{
-    display: flex;
-    gap: 10px;
+.section_pastor .section_btn {
     margin-top: 10px;
 }
 
-.social_icons a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    display: flex;
-    text-decoration: none;
-    filter: grayscale(60%);
-    transition: all .3s ease;
+
+/* =========================================================
+   10. SECTION PROGRAMAÇÃO SEMANAL
+========================================================= */
+
+
+/* ==========================================================
+   PROGRAMAÇÃO SEMANAL
+========================================================== */
+
+.programacao-section {
+    background-color: #f8f6f0;
+    padding: 100px 0;
+    overflow: hidden;
 }
 
-.social_icons a img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;   
-}
-.social_icons a:hover{
-    filter: grayscale(0%);
-    transform: scale(1.05);
+.programacao-section .section_box {
+    width: min(92%, 1250px);
+    margin: 0 auto;
 }
 
-.footer_fim{
-    width: 90%;
-    margin: 10px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    justify-content: center;
-    align-items: center;
-    color: rgba(245, 241, 223, 0.65);
-}
 
-.footer_fim span{
-    font-size: 10px;
-    display: flex;
+/* CABEÇALHO */
+
+.programacao-cabecalho {
+    max-width: 850px;
+    margin: 0 auto 55px;
     text-align: center;
 }
-/* ================= FOOTER ================= */
 
-/* Botão Flutuante no canto inferior */
+.programacao-etiqueta {
+    display: block;
+    margin-bottom: 16px;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+
+    color: #7a7055;
+}
+
+.programacao-cabecalho h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: #504d35;
+}
+
+.programacao-cabecalho p {
+    max-width: 660px;
+    margin: 22px auto 0;
+
+    font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+    line-height: 1.9;
+
+    color: #59655e;
+}
+
+
+/* CARROSSEL */
+
+.programacao-carrossel {
+    position: relative;
+    width: 100%;
+}
+
+.programacao-lista {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 48px) / 3);
+
+    gap: 24px;
+    overflow-x: auto;
+
+    padding: 8px 4px 25px;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.programacao-lista::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* CARD */
+
+.programacao-card {
+    min-width: 0;
+    overflow: hidden;
+
+    background-color: #ffffff;
+
+    border: 1px solid rgba(80, 77, 53, 0.1);
+    border-radius: 14px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.045);
+
+    scroll-snap-align: start;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.programacao-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.09);
+}
+
+
+/* IMAGEM */
+
+.programacao-imagem {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    background-color: #e5e1d5;
+}
+
+.programacao-imagem img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.programacao-card:hover .programacao-imagem img {
+    transform: scale(1.04);
+}
+
+
+/* DIA */
+
+.programacao-dia {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+
+    padding: 9px 14px;
+
+    background-color: rgba(255, 255, 255, 0.94);
+
+    border-radius: 6px;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    color: #504d35;
+}
+
+
+/* CONTEÚDO */
+
+.programacao-conteudo {
+    min-height: 205px;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.programacao-horario {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 13px;
+
+    font-size: 0.83rem;
+    font-weight: 600;
+
+    color: #77725e;
+}
+
+.programacao-horario i {
+    font-size: 0.85rem;
+}
+
+.programacao-conteudo h3 {
+    margin-bottom: 12px;
+
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.4;
+
+    color: #504d35;
+}
+
+.programacao-conteudo p {
+    font-size: 0.91rem;
+    line-height: 1.75;
+
+    color: #59655e;
+}
+
+
+/* SETAS */
+
+.programacao-seta {
+    position: absolute;
+    top: 43%;
+    z-index: 5;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(80, 77, 53, 0.12);
+    border-radius: 50%;
+
+    background-color: #ffffff;
+    color: #504d35;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.programacao-seta:hover {
+    background-color: #504d35;
+    color: #ffffff;
+}
+
+.programacao-anterior {
+    left: -22px;
+}
+
+.programacao-proxima {
+    right: -22px;
+}
+
+
+/* INDICADOR DECORATIVO */
+
+.programacao-indicador {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 15px;
+}
+
+.programacao-linha {
+    width: 55px;
+    height: 3px;
+
+    border-radius: 10px;
+    background-color: #a49a78;
+}
+
+
+/* ==========================================================
+   RESPONSIVIDADE
+========================================================== */
+
+@media (max-width: 1000px) {
+
+    .programacao-lista {
+        grid-auto-columns: calc((100% - 20px) / 2);
+        gap: 20px;
+    }
+
+    .programacao-imagem {
+        height: 240px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .programacao-section {
+        padding: 75px 0;
+    }
+
+    .programacao-cabecalho {
+        margin-bottom: 35px;
+    }
+
+    .programacao-cabecalho h2 {
+        font-size: 1.85rem;
+    }
+
+    .programacao-cabecalho p {
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+
+    .programacao-lista {
+        grid-auto-columns: 88%;
+        gap: 15px;
+        padding-bottom: 20px;
+    }
+
+    .programacao-imagem {
+        height: 240px;
+    }
+
+    .programacao-conteudo {
+        min-height: 190px;
+        padding: 22px;
+    }
+
+    .programacao-seta {
+        display: none;
+    }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .programacao-lista {
+        scroll-behavior: auto;
+    }
+
+    .programacao-card,
+    .programacao-imagem img {
+        transition: none;
+    }
+
+}
+
+
+
+/* =========================================================
+   11. SETAS DA PROGRAMAÇÃO
+========================================================= */
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+
+    color: #ffffff;
+    font-size: 1rem;
+
+    background-color: rgba(80, 77, 53, 0.85);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    transform: translateY(-50%);
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.scroll-left {
+    left: -18px;
+}
+
+.scroll-right {
+    right: -18px;
+}
+
+.scroll-btn:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.scroll-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+
+
+/* =========================================================
+   SECTION LOCALIZAÇÃO — NOVO DESIGN
+========================================================= */
+
+.section_loc {
+    min-height: auto;
+    padding: 110px 0;
+    background: linear-gradient(
+        135deg,
+        #f8f6ee 0%,
+        #eeeadb 100%
+    );
+}
+
+.section_loc .section_box {
+    gap: 24px;
+}
+
+.loc-intro {
+    max-width: 650px;
+    text-align: center;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+/* Layout principal */
+
+.loc-container {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    width: 100%;
+    min-height: 490px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 20px 60px rgba(44, 40, 20, 0.1);
+}
+
+/* Card de informações */
+
+.loc-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(28px, 4vw, 55px);
+}
+
+.loc-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 14px;
+    border-radius: 30px;
+    background: #f0eee3;
+    color: var(--color-primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.loc-info h3 {
+    margin-top: 22px;
+    max-width: 380px;
+    color: var(--text-heading);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.loc-descricao {
+    margin-top: 14px;
+    max-width: 430px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* Informações com ícones */
+
+.loc-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    margin: 30px 0;
+}
+
+.loc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.loc-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: #f1efe5;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+}
+
+.loc-item h4 {
+    margin-bottom: 4px;
+    color: var(--text-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.loc-item p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Botão de rota */
+
+.loc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 50px;
+    padding: 13px 22px;
+    border-radius: 8px;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.loc-btn:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(80, 77, 53, 0.2);
+}
+
+/* Mapa */
+
+.loc-mapa {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 490px;
+    background: #e6e4d9;
+}
+
+.loc-mapa iframe {
+    display: block;
+    flex: 1;
+    width: 100%;
+    min-height: 430px;
+    border: 0;
+}
+
+.loc-mapa-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 60px;
+    padding: 12px;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.loc-mapa-footer i {
+    font-size: 1rem;
+    color: #e5d59b;
+}
+
+/* =========================================================
+   RESPONSIVIDADE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .section_loc {
+        padding: 85px 0;
+    }
+
+    .loc-container {
+        grid-template-columns: 1fr;
+    }
+
+    .loc-info {
+        padding: 35px;
+    }
+
+    .loc-info h3 {
+        max-width: 100%;
+    }
+
+    .loc-mapa {
+        min-height: 380px;
+    }
+
+    .loc-mapa iframe {
+        min-height: 350px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVIDADE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .section_loc {
+        padding: 70px 0;
+    }
+
+    .section_loc .section_box {
+        gap: 18px;
+    }
+
+    .loc-intro {
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+    }
+
+    .loc-container {
+        border-radius: 14px;
+    }
+
+    .loc-info {
+        padding: 28px 22px;
+    }
+
+    .loc-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .loc-descricao {
+        font-size: 0.9rem;
+    }
+
+    .loc-detalhes {
+        gap: 22px;
+        margin: 25px 0;
+    }
+
+    .loc-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+    }
+
+    .loc-item h4 {
+        font-size: 0.9rem;
+    }
+
+    .loc-item p {
+        font-size: 0.85rem;
+    }
+
+    .loc-btn {
+        width: 100%;
+    }
+
+    .loc-mapa {
+        min-height: 330px;
+    }
+
+    .loc-mapa iframe {
+        min-height: 300px;
+    }
+
+    .loc-mapa-footer {
+        min-height: 54px;
+        font-size: 0.78rem;
+    }
+}
+
+
+
+/* =========================================================
+   13. BOTÃO FLUTUANTE DE AVISOS
+========================================================= */
+
 .btn-flutuante {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background-color: #5c1d24c0; /* Tom vinho/marrom escuro alinhado com o tema */
-  backdrop-filter: blur(5px); /* Efeito de vidro fosco */
-  color: #FFFFFF; /* Faz o sino ficar branco */
-  border: none;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  animation: flutuar 3s ease-in-out infinite; /* Nome, duração, suavidade, loop infinito */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 56px;
+    height: 56px;
+
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+
+    color: #ffffff;
+    font-size: 1.4rem;
+
+    background-color: rgba(92, 29, 36, 0.85);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    cursor: pointer;
+
+    animation: flutuar 3s ease-in-out infinite;
+
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .btn-flutuante:hover {
-  animation-play-state: paused; /* Pausa a flutuação ao encostar o rato */
-  background-color: #4a171d; /* Apenas escurece levemente o tom */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* Sombra um pouco mais corpórea, sem saltar na tela */
-  transform: translateY(-6px); /* Mantém a posição onde estava, sem dar "pulos" */
+    animation-play-state: paused;
+    background-color: #4a171d;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
-.svg-icone {
-  width: 28px;
-  height: 28px;
+/* Indicador vermelho de notificações */
+
+.aviso-notificacao {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+
+    width: 11px;
+    height: 11px;
+
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+
+    background-color: #e53935;
 }
 
-/* Esconder o modal por defeito */
-.hidden {
-  display: none !important;
-}
 
-/* --- Overlay (Fundo Falso) --- */
+/* =========================================================
+   14. MODAL DE AVISOS — OVERLAY
+========================================================= */
+
 .modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(15, 15, 18, 0.55);
-  backdrop-filter: blur(6px); /* Efeito de vidro desfocado */
-  -webkit-backdrop-filter: blur(6px);
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.25s ease, visibility 0.25s ease;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    padding: 20px;
+
+    background-color: rgba(15, 15, 18, 0.6);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
 }
 
-/* Estado Visível */
 .modal-overlay.active {
-  opacity: 1;
-  visibility: visible;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
-/* --- Container do Modal --- */
+
+/* =========================================================
+   15. MODAL — CONTAINER
+========================================================= */
+
 .modal-container {
-  background: #ffffff;
-  width: 100%;
-  max-width: 480px;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
-  overflow: hidden;
-  transform: translateY(12px) scale(0.97);
-  transition: transform 0.25s ease;
+    width: 100%;
+    max-width: 480px;
+    max-height: calc(100dvh - 40px);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background-color: #ffffff;
+    border-radius: 14px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+
+    transform: translateY(15px) scale(0.97);
+
+    transition: transform 0.25s ease;
 }
 
 .modal-overlay.active .modal-container {
-  transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1);
 }
 
-/* --- Cabeçalho --- */
+
+/* =========================================================
+   16. MODAL — CABEÇALHO
+========================================================= */
+
 .modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 24px;
-  border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 20px 24px;
+
+    border-bottom: 1px solid #eeeeee;
 }
 
 .modal-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #2c2c2c;
-  margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #2c2c2c;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.modal-title i {
+    color: #5c1d24;
 }
 
 .modal-close {
-  background: transparent;
-  border: none;
-  font-size: 1.6rem;
-  color: #888;
-  cursor: pointer;
-  line-height: 1;
-  padding: 0 4px;
-  transition: color 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+    color: #777777;
+    font-size: 1.2rem;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
 .modal-close:hover {
-  color: #111;
+    background-color: #f4f4f4;
+    color: #111111;
 }
 
-/* --- Corpo --- */
+
+/* =========================================================
+   17. MODAL — CORPO
+========================================================= */
+
 .modal-body {
-  padding: 20px 24px;
-  max-height: 60vh;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 20px 24px;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
 }
 
-/* Cards de Aviso dentro do Modal */
 .aviso-card {
-  background: #fdfdfd;
-  border: 1px solid #ebebeb;
-  border-left: 4px solid #5C1D24; /* Cor temática institucional */
-  padding: 14px 16px;
-  border-radius: 6px;
+    padding: 15px 16px;
+
+    background-color: #fdfdfd;
+
+    border: 1px solid #ebebeb;
+    border-left: 4px solid #5c1d24;
+    border-radius: 8px;
 }
 
 .aviso-tag {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #5C1D24;
-  background: rgba(92, 29, 36, 0.08);
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin-bottom: 6px;
+    display: inline-block;
+
+    margin-bottom: 8px;
+    padding: 3px 9px;
+
+    border-radius: 4px;
+
+    background-color: rgba(92, 29, 36, 0.08);
+    color: #5c1d24;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .aviso-tag.tag-secundaria {
-  color: #4b5563;
-  background: #f3f4f6;
+    color: #4b5563;
+    background-color: #f3f4f6;
 }
 
 .aviso-titulo {
-  margin: 0 0 6px 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1f2937;
+    margin-bottom: 7px;
+
+    color: #1f2937;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
 }
 
 .aviso-texto {
-  margin: 0 0 8px 0;
-  font-size: 0.9rem;
-  color: #4b5563;
-  line-height: 1.45;
+    margin-bottom: 10px;
+
+    color: #4b5563;
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
 
 .aviso-data {
-  font-size: 0.78rem;
-  color: #888;
-  font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #777777;
+    font-size: 0.78rem;
+    font-weight: 500;
 }
 
-/* --- Rodapé --- */
+.aviso-data i {
+    color: #5c1d24;
+}
+
+
+/* =========================================================
+   18. MODAL — RODAPÉ
+========================================================= */
+
 .modal-footer {
-  padding: 14px 24px;
-  background: #fafafa;
-  border-top: 1px solid #f0f0f0;
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 15px 24px;
+
+    background-color: #fafafa;
+    border-top: 1px solid #eeeeee;
 }
 
 .btn-secundario {
-  background: #5C1D24;
-  color: #ffffff;
-  border: none;
-  padding: 9px 18px;
-  border-radius: 6px;
-  font-size: 0.88rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+    padding: 10px 22px;
+
+    border: none;
+    border-radius: 6px;
+
+    background-color: #5c1d24;
+    color: #ffffff;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .btn-secundario:hover {
-  background: #4a171d;
+    background-color: #4a171d;
+    transform: translateY(-2px);
 }
 
-.btn_escala{
-    text-decoration: none;
-    color: inherit;
+
+/* =========================================================
+   19. RESPONSIVIDADE — NOTEBOOK / TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .section_home {
+        background-attachment: scroll;
+    }
+
+    .section_jesus {
+        background-attachment: scroll;
+    }
+
+    .section_id .section_box_indi {
+        gap: 35px;
+    }
+
+    .section_id .section_description {
+        font-size: 1.05rem;
+    }
+
+    .info_culto {
+        flex-basis: 280px;
+        height: 370px;
+    }
+}
+
+
+/* =========================================================
+   20. RESPONSIVIDADE — TABLET
+========================================================= */
+
+@media (max-width: 840px) {
+
+    /* Home */
+
+    .section_home {
+        min-height: 100svh;
+        padding-top: calc(var(--header-height) + 35px);
+        padding-bottom: 25px;
+    }
+
+    .section_home .section_box {
+        gap: 25px;
+    }
+
+    .section_title_home h1 {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+
+    .section_home .section_description {
+        font-size: 1.1rem;
+    }
+
+    /* Jesus */
+
+    .section_jesus {
+        min-height: 85svh;
+    }
+
+    .section_jesus .section_title h2 {
+        font-size: clamp(2.4rem, 7vw, 3.5rem);
+    }
+
+    /* Nossa História */
+
+    .section_id .section_box_indi {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .section_id .section_description {
+        max-width: 750px;
+        text-align: center;
+    }
+
+    .section_id .section_img {
+        max-width: 600px;
+        margin-inline: auto;
+    }
+
+    /* Pastores */
+
+    .carousel-pastores {
+        max-width: 650px;
+    }
+
+    /* Programação */
+
+    .info_culto {
+        flex-basis: 270px;
+        height: 360px;
+    }
+
+    .scroll-left {
+        left: -12px;
+    }
+
+    .scroll-right {
+        right: -12px;
+    }
+
+    /* Mapa */
+
+    .mapa {
+        height: 420px;
+    }
+}
+
+
+/* =========================================================
+   21. RESPONSIVIDADE — CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /* Home */
+
+    .section_home {
+        gap: 20px;
+        padding-bottom: 25px;
+        background-position: center;
+    }
+
+    .section_home .section_box {
+        gap: 22px;
+    }
+
+    .section_indi_title_home {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+    }
+
+    .section_title_home h1 {
+        font-size: clamp(1.9rem, 8vw, 2.6rem);
+        line-height: 1.25;
+    }
+
+    .section_home .section_description {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .section_home .section_btn {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 10px;
+    }
+
+    .details {
+        gap: 8px;
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+    }
+
+    /* Jesus */
+
+    .section_jesus {
+        min-height: auto;
+    }
+
+    .section_jesus .section_box {
+        gap: 30px;
+    }
+
+    .section_jesus .section_title h2 {
+        font-size: clamp(2.1rem, 9vw, 3rem);
+        letter-spacing: 2px;
+    }
+
+    .section_jesus .passagem {
+        font-size: 1.1rem;
+    }
+
+    .section_jesus .referencia {
+        font-size: 1rem;
+    }
+
+    .section_jesus .descricao {
+        font-size: 1rem;
+    }
+
+    /* Nossa História */
+
+    .section_id .section_box {
+        gap: 30px;
+    }
+
+    .section_id .section_description {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .carousel-historia .carousel-slide {
+        aspect-ratio: 4 / 3;
+    }
+
+    /* Carrosséis */
+
+    .carousel-viewport {
+        border-radius: 10px;
+    }
+
+    .carousel-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+    }
+
+    .carousel-prev {
+        left: 10px;
+    }
+
+    .carousel-next {
+        right: 10px;
+    }
+
+    .carousel-dots {
+        gap: 8px;
+        padding-top: 15px;
+    }
+
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .carousel-dot[aria-current="true"] {
+        width: 24px;
+    }
+
+    /* Pastores */
+
+    .carousel-pastores .carousel-slide {
+        aspect-ratio: 4 / 5;
+    }
+
+    .pastor-info {
+        bottom: 12px;
+        left: 12px;
+
+        width: min(78%, 280px);
+        padding: 12px 15px;
+
+        border-radius: 9px;
+    }
+
+    .pastor-info h3 {
+        font-size: 1rem;
+    }
+
+    .pastor-info span {
+        font-size: 0.8rem;
+    }
+
+    /* Programação */
+
+    .section_programacao .section_box {
+        gap: 30px;
+    }
+
+    .programas {
+        gap: 15px;
+        padding: 10px 4px 20px;
+    }
+
+    .info_culto {
+        flex-basis: min(78vw, 290px);
+        height: 370px;
+    }
+
+    .info_culto_dia {
+        min-height: 85px;
+    }
+
+    .info_culto_sobre {
+        min-height: 90px;
+    }
+
+    .scroll-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+    }
+
+    .scroll-left {
+        left: -8px;
+    }
+
+    .scroll-right {
+        right: -8px;
+    }
+
+    /* Localização */
+
+    .section_loc .section_box {
+        gap: 30px;
+    }
+
+    .mapa {
+        height: 330px;
+        border-radius: 10px;
+    }
+
+    /* Botão flutuante */
+
+    .btn-flutuante {
+        right: 18px;
+        bottom: 18px;
+
+        width: 50px;
+        height: 50px;
+
+        font-size: 1.25rem;
+    }
+
+    /* Modal */
+
+    .modal-overlay {
+        padding: 15px;
+    }
+
+    .modal-header {
+        padding: 16px 18px;
+    }
+
+    .modal-title {
+        font-size: 1rem;
+    }
+
+    .modal-body {
+        padding: 16px 18px;
+    }
+
+    .modal-footer {
+        padding: 14px 18px;
+    }
+}
+
+
+/* =========================================================
+   22. TELAS MUITO PEQUENAS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .section_title_home h1 {
+        font-size: 1.8rem;
+    }
+
+    .section_indi_title_home {
+        font-size: 0.68rem;
+    }
+
+    .carousel-arrow {
+        width: 32px;
+        height: 32px;
+    }
+
+    .pastor-info {
+        width: 82%;
+        padding: 10px 12px;
+    }
+
+    .info_culto {
+        flex-basis: 82vw;
+        height: 340px;
+    }
+
+    .mapa {
+        height: 280px;
+    }
+}
+
+
+/* =========================================================
+   23. ACESSIBILIDADE — MOVIMENTO REDUZIDO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .carousel-track,
+    .programas {
+        scroll-behavior: auto;
+    }
+
+    .btn-flutuante,
+    .details i {
+        animation: none;
+    }
+
+    .info_culto:hover {
+        transform: none;
+    }
 }

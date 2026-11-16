@@ -1,23 +1,98 @@
-// --- CONTROLE DE EXPANSÃO E RETRAÇÃO DOS PASTORES NO MOBILE ---
-document.addEventListener("DOMContentLoaded", function() {
-    const pastorCards = document.querySelectorAll('.pastor_cascata_card');
 
-    if (pastorCards.length > 0) {
-        pastorCards.forEach(card => {
-            card.addEventListener('click', function(e) {
-                // Funciona perfeitamente em telas de celular e tablet ( <= 900px )
-                if (window.innerWidth <= 900) {
-                    const jaEstaAtivo = this.classList.contains('ativo-mobile');
+/* ==========================================================
+   IGREJA BATISTA BETEL
+   PASTORES.JS
 
-                    // Fecha todos os cards abertos
-                    pastorCards.forEach(c => c.classList.remove('ativo-mobile'));
+   Funcionalidade exclusiva:
+   - Expandir e recolher biografias dos pastores
+========================================================== */
 
-                    // Se não estava ativo, abre. Se já estava, continua fechado (fazendo o efeito de fechar ao re-clicar)
-                    if (!jaEstaAtivo) {
-                        this.classList.add('ativo-mobile');
-                    }
-                }
-            });
-        });
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+    const cards = document.querySelectorAll(
+        ".pastor_cascata_card"
+    );
+
+    if (!cards.length) return;
+
+
+    /* ======================================================
+       01. ALTERAR ESTADO DO CARD
+    ====================================================== */
+
+    function definirEstado(card, expandido) {
+
+        const botao = card.querySelector(
+            ".cascata_toggle"
+        );
+
+        const biografia = card.querySelector(
+            ".cascata_biografia"
+        );
+
+        if (!botao || !biografia) return;
+
+        card.classList.toggle("ativo", expandido);
+
+        botao.setAttribute(
+            "aria-expanded",
+            String(expandido)
+        );
+
+        biografia.setAttribute(
+            "aria-hidden",
+            String(!expandido)
+        );
+
+        biografia.inert = !expandido;
+
+        const texto = botao.querySelector("span");
+
+        if (texto) {
+            texto.textContent = expandido
+                ? "Recolher trajetória"
+                : "Conhecer trajetória";
+        }
+
     }
+
+
+    /* ======================================================
+       02. CONFIGURAÇÃO DOS CARDS
+    ====================================================== */
+
+    cards.forEach(card => {
+
+        const botao = card.querySelector(
+            ".cascata_toggle"
+        );
+
+        if (!botao) return;
+
+        definirEstado(card, false);
+
+        botao.addEventListener("click", () => {
+
+            const estaAberto = card.classList.contains(
+                "ativo"
+            );
+
+            // Fecha as outras biografias.
+            cards.forEach(outroCard => {
+
+                if (outroCard !== card) {
+                    definirEstado(outroCard, false);
+                }
+
+            });
+
+            // Alterna o card selecionado.
+            definirEstado(card, !estaAberto);
+
+        });
+
+    });
+
 });
