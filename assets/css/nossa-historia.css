@@ -1,757 +1,1052 @@
 
 /* ==========================================================
-   IGREJA BATISTA BETEL
-   NOSSA-HISTORIA.CSS
-
-   Estilos exclusivos da página Nossa História.
-   Componentes compartilhados pertencem ao global.css.
+   IGREJA BATISTA BETEL — NOSSA HISTÓRIA
+   Identidade visual institucional
 ========================================================== */
 
-
-/* ==========================================================
-   01. ESTRUTURA DA PÁGINA
-========================================================== */
+/* 01. BASE */
 
 .historia-main {
-    background-color: var(--bg-primary);
+    --historia-verde: #504d35;
+    --historia-verde-escuro: #34392e;
+    --historia-dourado: #b7a47b;
+    --historia-creme: #f7f5ef;
+    --historia-texto: #686d63;
+
+    background: #fff;
+    font-family: "DM Sans", sans-serif;
 }
 
-.historia-main .section {
-    min-height: auto;
-    padding: 85px 0;
+.historia-main *,
+.historia-main *::before,
+.historia-main *::after {
+    box-sizing: border-box;
 }
 
-.historia-main .section_box {
-    gap: 40px;
+.historia-main section {
+    scroll-margin-top: var(--header-height, 90px);
 }
 
-.historia-main .section_title {
-    max-width: 1000px;
-    margin-inline: auto;
+.historia-etiqueta {
+    display: block;
+    margin-bottom: 20px;
+    color: #8d805f;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
 }
 
-.historia-main .section_title h1,
-.historia-main .section_title h2 {
+.historia-etiqueta-clara {
+    color: #dfd0a9;
+}
+
+.historia-linha {
+    width: 65px;
+    height: 3px;
+    margin: 28px 0;
+    background: var(--historia-dourado);
+}
+
+.historia-cabecalho {
+    max-width: 730px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.historia-cabecalho h2 {
+    color: var(--historia-verde-escuro);
+    font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.16;
+    letter-spacing: -.05em;
     text-wrap: balance;
 }
 
-.logo_link {
-    text-decoration: none;
-    color: inherit;
+.historia-cabecalho p {
+    max-width: 590px;
+    margin: 22px auto 0;
+    color: #6c7067;
+    font-size: 1rem;
+    line-height: 1.85;
 }
 
 
-/* ==========================================================
-   02. NOSSA HISTÓRIA
-========================================================== */
+/* 02. HERO */
 
-.section_historia {
-    padding-top: calc(var(--header-height) + 80px) !important;
-    background-color: var(--bg-tertiary);
-}
-
-.section_historia .section_box_indi {
-    width: 100%;
+.historia-hero {
+    position: relative;
+    isolation: isolate;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    min-height: 660px;
+    padding: calc(var(--header-height, 90px) + 110px) 0 110px;
+    overflow: hidden;
+    background: #252c25;
+    color: #fff;
 }
 
-.section_historia .section_description {
-    max-width: 920px;
+.historia-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(17,24,19,.90) 0%,
+            rgba(17,24,19,.73) 45%,
+            rgba(17,24,19,.28) 100%
+        ),
+        url("../images/centroIGRJ.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.historia-hero-container {
+    position: relative;
+    z-index: 1;
+}
+
+.historia-hero h1 {
+    max-width: 850px;
+    color: #fff;
+    font-size: clamp(3rem, 5.6vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -.055em;
+    text-wrap: balance;
+}
+
+.historia-hero h1 span {
+    display: block;
+    color: #dfd0a9;
+}
+
+.historia-hero p {
+    max-width: 590px;
+    margin-top: 28px;
+    color: rgba(255,255,255,.84);
+    font-size: 1.05rem;
+    line-height: 1.85;
+}
+
+.historia-hero-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 36px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,.65);
+    color: #fff;
+    font-size: .85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.historia-hero-link i {
+    transition: transform .3s ease;
+}
+
+.historia-hero-link:hover {
+    color: #dfd0a9;
+}
+
+.historia-hero-link:hover i {
+    transform: translateY(4px);
+}
+
+
+/* 03. IDENTIDADE */
+
+.historia-identidade {
+    padding: 125px 0;
+    background: #fff;
+}
+
+.identidade-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(45px, 7vw, 110px);
+}
+
+.identidade-imagem {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.identidade-imagem img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 4.5;
+    object-fit: cover;
+    transition: transform .6s ease;
+}
+
+.identidade-imagem:hover img {
+    transform: scale(1.035);
+}
+
+.identidade-imagem-legenda {
+    position: absolute;
+    inset: auto 0 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-
-    font-size: clamp(1rem, 1.5vw, 1.12rem);
-    line-height: 1.9;
-    font-weight: 400;
-    text-align: justify;
+    gap: 6px;
+    padding: 35px 28px 26px;
+    background: linear-gradient(transparent, rgba(0,0,0,.78));
+    color: #fff;
 }
 
-.section_historia .section_description p {
-    margin: 0;
-}
-
-.section_historia .section_description strong {
-    color: var(--color-primary);
+.identidade-imagem-legenda span {
+    font-size: .68rem;
     font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.identidade-imagem-legenda strong {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.identidade-conteudo h2 {
+    max-width: 570px;
+    color: var(--historia-verde-escuro);
+    font-size: clamp(2.1rem, 3.7vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -.045em;
+}
+
+.identidade-conteudo h2 span {
+    color: #777a5f;
+}
+
+.identidade-conteudo p {
+    margin-bottom: 18px;
+    color: var(--historia-texto);
+    font-size: .98rem;
+    line-height: 1.95;
 }
 
 
-/* ==========================================================
-   03. MISSÃO, VISÃO E VALORES
-========================================================== */
+/* 04. NOSSA ESSÊNCIA */
 
-.mvv_grid {
-    width: 100%;
-    max-width: 1100px;
-
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 24px;
-    margin: 20px auto 0;
+.historia-mvv {
+    padding: 120px 0;
+    background: var(--historia-creme);
 }
 
-.mvv_card {
-    position: relative;
-
+.mvv-item {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
-    gap: 18px;
     min-width: 0;
-    padding: 35px 30px;
+    padding: 40px 35px;
 
-    background-color: #ffffff;
-
-    border: 1px solid rgba(80, 77, 53, 0.13);
-    border-top: 3px solid var(--color-primary);
-    border-radius: var(--radius-md);
-
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.035);
+    background: #fff;
+    border: 1px solid rgba(80,77,53,.11);
+    border-top: 3px solid var(--historia-dourado);
 
     transition:
-        transform var(--transition-normal),
-        box-shadow var(--transition-normal),
-        border-color var(--transition-normal);
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
-.mvv_card:hover {
+.mvv-item:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-sm);
-    border-color: rgba(80, 77, 53, 0.25);
+    box-shadow: 0 16px 35px rgba(45,49,36,.07);
 }
 
-.mvv_numero {
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--color-primary-light);
+.mvv-numero {
+    color: #938767;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: 1.7px;
 }
 
-.mvv_card h3 {
-    font-size: clamp(1.3rem, 2vw, 1.7rem);
-    font-weight: 700;
-    line-height: 1.3;
-    color: var(--text-heading);
-}
-
-.mvv_card p {
-    font-size: 0.95rem;
-    font-weight: 400;
-    line-height: 1.85;
-    color: var(--text-secondary);
-}
-
-
-/* ==========================================================
-   04. VISÃO DA IBB
-========================================================== */
-
-.section_visao_ibb {
-    background-color: var(--bg-tertiary);
-}
-
-.ibb_estrutura_container {
-    width: 100%;
-    max-width: 1000px;
-
+.mvv-icone {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    margin: 30px 0 24px;
+    background: #f2f0e8;
+    color: var(--historia-verde);
+    font-size: 1.35rem;
+}
 
-    gap: 24px;
-    margin: 15px auto 0;
+.mvv-item h3 {
+    color: var(--historia-verde-escuro);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -.025em;
+}
+
+.mvv-item p {
+    margin-top: 16px;
+    color: #70746b;
+    font-size: .92rem;
+    line-height: 1.9;
 }
 
 
-/* ==========================================================
-   05. JESUS — TOPO DA ESTRUTURA
-========================================================== */
+/* 05. JESUS E OS QUATRO PILARES */
 
-.ibb_telhado {
-    position: relative;
-
-    width: 100%;
-    padding: 55px 25px 30px;
-
-    color: #ffffff;
-    text-align: center;
-
-    background-color: var(--color-primary);
-
-    clip-path: polygon(
-        50% 0%,
-        100% 26%,
-        100% 100%,
-        0 100%,
-        0 26%
-    );
+.historia-visao {
+    padding: 125px 0;
+    background: #fff;
 }
 
-.ibb_telhado_conteudo h3 {
-    margin-bottom: 8px;
-
-    font-size: clamp(1.7rem, 3vw, 2.2rem);
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-.ibb_telhado_conteudo span {
-    font-size: clamp(0.85rem, 1.4vw, 1rem);
-    font-weight: 400;
-    line-height: 1.6;
-    opacity: 0.9;
-}
-
-
-/* ==========================================================
-   06. QUATRO PILARES
-========================================================== */
-
-.ibb_colunas_grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
-}
-
-.ibb_coluna_card {
-    position: relative;
-
-    width: 100%;
-    min-height: 190px;
-
+.visao-jesus {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-
-    gap: 14px;
-    padding: 25px 15px;
-
-    background-color: #ffffff;
-
-    border: 1px solid rgba(80, 77, 53, 0.15);
-    border-radius: var(--radius-md);
-
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.035);
-
-    color: var(--text-primary);
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 48px 35px;
+    background: var(--historia-verde);
+    color: #fff;
     text-align: center;
+}
 
+.visao-jesus-simbolo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 22px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 50%;
+    color: #e0d2ad;
+    font-size: 1.4rem;
+}
+
+.visao-jesus-etiqueta {
+    color: #e0d2ad;
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.visao-jesus h3 {
+    margin-top: 10px;
+    color: #fff;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -.04em;
+}
+
+.visao-jesus p {
+    max-width: 440px;
+    margin-top: 12px;
+    color: rgba(255,255,255,.8);
+    font-size: .9rem;
+    line-height: 1.8;
+}
+
+.visao-conector {
+    width: 1px;
+    height: 45px;
+    margin: 0 auto;
+    background: #c8c1ac;
+}
+
+.pilar-slide {
+    display: flex;
+    flex-direction: column;
+}
+
+.pilar-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 300px;
+    height: 100%;
+    padding: 30px 25px;
+
+    background: #f9f8f4;
+    border: 1px solid #e6e4dc;
+    border-top: 3px solid var(--historia-dourado);
+    border-radius: 0;
+
+    color: var(--historia-verde-escuro);
+    text-align: left;
+    font-family: inherit;
     cursor: pointer;
 
     transition:
-        transform var(--transition-normal),
-        box-shadow var(--transition-normal),
-        border-color var(--transition-normal);
+        transform .3s ease,
+        background-color .3s ease,
+        box-shadow .3s ease;
 }
 
-.ibb_coluna_card::before {
-    content: "";
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 3px;
-
-    background-color: var(--color-primary);
-}
-
-.ibb_coluna_card:hover {
+.pilar-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-sm);
-    border-color: rgba(80, 77, 53, 0.3);
+    background: #fff;
+    box-shadow: 0 15px 35px rgba(45,49,36,.08);
 }
 
-.coluna_passo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 38px;
-    height: 38px;
-
-    border-radius: 50%;
-
-    background-color: var(--bg-secondary);
-    color: var(--color-primary);
-
-    font-size: 0.8rem;
-    font-weight: 700;
+.pilar-numero {
+    color: #928566;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
 }
 
-.ibb_coluna_card h4 {
-    font-size: clamp(1rem, 1.6vw, 1.25rem);
-    font-weight: 700;
+.pilar-icone {
+    margin-top: 28px;
+    margin-bottom: 20px;
+    color: #6f735b;
+    font-size: 1.5rem;
+}
+
+.pilar-card h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
-
-    color: var(--text-heading);
 }
 
-.coluna_detalhes {
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-
-    opacity: 0.8;
+.pilar-card p {
+    margin-top: 12px;
+    color: #70746b;
+    font-size: .86rem;
+    line-height: 1.75;
 }
 
-.ibb_coluna_card:hover .coluna_detalhes {
-    color: var(--color-primary);
-    opacity: 1;
+.pilar-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 28px;
+    color: var(--historia-verde);
+    font-size: .75rem;
+    font-weight: 800;
 }
 
-
-/* ==========================================================
-   07. BASES DE SUSTENTAÇÃO
-========================================================== */
-
-.ibb_bases_grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
+.pilar-link i {
+    font-size: .7rem;
 }
 
-.ibb_base_item {
+.pilares-orientacao {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    min-height: 80px;
-    padding: 18px 15px;
-
-    background-color: var(--bg-tertiary);
-
-    border: 1px solid rgba(80, 77, 53, 0.15);
-    border-radius: var(--radius-sm);
-
+    gap: 9px;
+    margin-top: 28px;
+    color: #84877d;
+    font-size: .8rem;
     text-align: center;
-    color: var(--color-primary);
-
-    font-size: 0.95rem;
-    font-weight: 600;
-    line-height: 1.5;
 }
 
 
-/* ==========================================================
-   08. ORGANIZAÇÃO MINISTERIAL
-========================================================== */
+/* 06. NOSSA CAMINHADA */
 
-.section_organizacao {
-    background-color: var(--bg-tertiary);
+.historia-caminhada {
+    padding: 120px 0;
+    background: var(--historia-creme);
 }
 
-.org_container {
-    width: 100%;
-    max-width: 1200px;
+.caminhada-grid {
+    border-top: 1px solid #d9d7ce;
+}
 
+.caminhada-item {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 24px;
-    margin: 15px auto 0;
-
-    align-items: stretch;
+    grid-template-columns: 80px minmax(0, 1fr) 65px;
+    align-items: center;
+    gap: 35px;
+    padding: 35px 15px;
+    border-bottom: 1px solid #d9d7ce;
+    transition: background-color .3s ease;
 }
 
-.org_card_categoria {
-    min-width: 0;
+.caminhada-item:hover {
+    background: rgba(255,255,255,.55);
+}
 
+.caminhada-numero {
+    color: #a69a7b;
+    font-size: .9rem;
+    font-weight: 800;
+}
+
+.caminhada-conteudo h3 {
+    color: var(--historia-verde-escuro);
+    font-size: clamp(1.25rem, 2.3vw, 1.75rem);
+    font-weight: 800;
+    letter-spacing: -.035em;
+}
+
+.caminhada-conteudo p {
+    max-width: 650px;
+    margin-top: 9px;
+    color: #70746b;
+    font-size: .92rem;
+    line-height: 1.8;
+}
+
+.caminhada-item > i {
+    color: #8a8c76;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+
+/* 07. CORPO MINISTERIAL */
+
+.historia-organizacao {
+    padding: 125px 0;
+    background: #fff;
+}
+
+.organizacao-bloco + .organizacao-bloco {
+    margin-top: 75px;
+}
+
+.organizacao-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #d9d7ce;
+}
+
+.organizacao-topo span {
+    color: #938767;
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.organizacao-topo h3 {
+    margin-top: 10px;
+    color: var(--historia-verde-escuro);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -.045em;
+}
+
+.organizacao-topo > i {
+    color: #a3a48e;
+    font-size: 1.7rem;
+}
+
+.organizacao-item {
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    padding: 28px 25px;
 
-    overflow: hidden;
-
-    background-color: #ffffff;
-
-    border: 1px solid rgba(80, 77, 53, 0.12);
-    border-radius: var(--radius-md);
-
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.035);
+    background: #f9f8f4;
+    border: 1px solid #eceae2;
+    border-left: 3px solid transparent;
 
     transition:
-        transform var(--transition-normal),
-        box-shadow var(--transition-normal);
+        border-color .3s ease,
+        background-color .3s ease,
+        transform .3s ease;
 }
 
-.org_card_categoria:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-sm);
+.organizacao-item:hover {
+    background: #fff;
+    border-left-color: var(--historia-dourado);
+    transform: translateY(-3px);
 }
 
-.org_header_categoria {
+.organizacao-item h4 {
+    color: var(--historia-verde-escuro);
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.organizacao-item p {
+    margin-top: 11px;
+    color: #777b71;
+    font-size: .85rem;
+    line-height: 1.75;
+}
+
+
+/* 08. CONVITE FINAL */
+
+.historia-convite {
+    padding: 115px 0;
+    background: var(--historia-verde);
+    color: #fff;
+}
+
+.historia-convite-conteudo {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-
-    min-height: 75px;
-    padding: 20px;
-
-    background-color: var(--color-primary);
-    color: #ffffff;
-
     text-align: center;
 }
 
-.org_header_categoria h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+.historia-convite h2 {
+    max-width: 760px;
+    color: #fff;
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -.05em;
 }
 
-.org_lista_itens {
-    display: flex;
-    flex-direction: column;
-
-    flex: 1;
-    gap: 22px;
-
-    padding: 30px 25px;
+.historia-convite p {
+    max-width: 560px;
+    margin: 24px 0 34px;
+    color: rgba(255,255,255,.83);
+    font-size: 1rem;
+    line-height: 1.85;
 }
 
-.org_item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+.historia-btn-claro {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 16px 28px;
+    background: #f7f5ef;
+    color: #504d35;
+    font-weight: 800;
+    font-size: .9rem;
+    text-decoration: none;
+    transition:
+        transform .3s ease,
+        background-color .3s ease;
 }
 
-.org_ponto {
-    flex-shrink: 0;
-
-    width: 7px;
-    height: 7px;
-
-    margin-top: 9px;
-    border-radius: 50%;
-
-    background-color: var(--color-primary);
+.historia-btn-claro:hover {
+    transform: translateY(-3px);
+    background: #fff;
 }
 
-.org_info {
+
+/* 09. CARROSSÉIS NATIVOS */
+
+.historia-carousel {
+    width: 100%;
     min-width: 0;
+}
 
+.historia-carousel > .swiper {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    padding: 8px 2px 22px;
+}
+
+.historia-carousel .swiper-wrapper {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    align-items: stretch;
+    width: 100%;
+    height: auto;
+    gap: 0;
 }
 
-.org_info strong {
-    font-size: 0.92rem;
-    font-weight: 600;
-    line-height: 1.5;
-
-    color: var(--text-heading);
+.historia-carousel .swiper-slide {
+    flex-shrink: 0;
+    min-width: 0;
+    height: auto;
+    box-sizing: border-box;
 }
 
-.org_info span {
-    font-size: 0.83rem;
-    font-weight: 400;
-    line-height: 1.65;
+.historia-carousel .swiper-slide h3,
+.historia-carousel .swiper-slide h4,
+.historia-carousel .swiper-slide p {
+    overflow-wrap: break-word;
+}
 
-    color: var(--text-secondary);
+.historia-carousel .mvv-item,
+.historia-carousel .organizacao-item {
+    height: auto;
+}
+
+/* Paginação */
+
+.historia-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    min-height: 22px;
+    margin-top: 12px;
+}
+
+.historia-bullet {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #c7c9bf;
+    opacity: 1;
+    cursor: pointer;
+    transition:
+        width .3s ease,
+        background-color .3s ease;
+}
+
+.historia-bullet-active {
+    width: 25px;
+    border-radius: 20px;
+    background: var(--historia-verde);
+}
+
+.historia-pagination.swiper-pagination-lock {
+    display: none;
+}
+
+.historia-bullet:focus-visible,
+.pilar-card:focus-visible {
+    outline: 2px solid var(--historia-verde);
+    outline-offset: 3px;
 }
 
 
-/* ==========================================================
-   09. MODAL EXCLUSIVO DOS PILARES
-========================================================== */
+/* 10. MODAL DOS PILARES */
 
-.modal_overlay {
+body.pilar-modal-aberto {
+    overflow: hidden;
+}
+
+.pilar-modal {
     position: fixed;
     inset: 0;
-    z-index: 9999;
-
+    z-index: 2100;
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 20px;
-
-    background-color: rgba(20, 25, 20, 0.65);
+    background: rgba(17,24,19,.76);
 
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 
     transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease;
+        opacity .3s ease,
+        visibility .3s ease;
 }
 
-.modal_overlay.ativo {
+.pilar-modal.ativo {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
 
-.modal_conteudo {
+.pilar-modal-conteudo {
     position: relative;
-
     width: min(100%, 560px);
-    max-height: 85vh;
+    max-height: 85dvh;
     overflow-y: auto;
-
-    padding: 40px 35px;
-
-    background-color: #ffffff;
-
-    border: 1px solid rgba(80, 77, 53, 0.15);
-    border-radius: var(--radius-lg);
-
-    box-shadow: var(--shadow-lg);
-
-    transform: translateY(15px);
-
-    transition: transform var(--transition-normal);
+    padding: 48px 42px;
+    background: #fff;
+    border-top: 4px solid var(--historia-dourado);
+    box-shadow: 0 25px 70px rgba(0,0,0,.2);
+    transform: translateY(20px);
+    transition: transform .3s ease;
 }
 
-.modal_overlay.ativo .modal_conteudo {
+.pilar-modal.ativo .pilar-modal-conteudo {
     transform: translateY(0);
 }
 
-.modal_fechar {
+.pilar-modal-fechar {
     position: absolute;
-    top: 15px;
+    top: 18px;
     right: 18px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 38px;
     height: 38px;
-
-    padding: 0;
-
     border: none;
     border-radius: 50%;
-
-    background-color: #f1f2ef;
-    color: var(--color-primary);
-
-    font-size: 1.5rem;
-    line-height: 1;
-
+    background: #f1f0eb;
+    color: var(--historia-verde);
     cursor: pointer;
 }
 
-.modal_fechar:hover {
-    background-color: #e4e7df;
+.pilar-modal-conteudo h2 {
+    padding-right: 20px;
+    color: var(--historia-verde-escuro);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 800;
+    letter-spacing: -.04em;
 }
 
-.modal_conteudo h3 {
-    padding-right: 35px;
-    margin-bottom: 18px;
-
-    font-size: clamp(1.35rem, 2.5vw, 1.7rem);
-    font-weight: 700;
-    line-height: 1.3;
-
-    color: var(--text-heading);
-}
-
-.modal_conteudo p {
+.pilar-modal-conteudo p {
+    margin-top: 22px;
+    color: var(--historia-texto);
     font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.85;
-
-    color: var(--text-secondary);
+    line-height: 1.9;
 }
 
 
 /* ==========================================================
-   10. RESPONSIVIDADE — TABLET
+   11. RESPONSIVIDADE — SEMPRE NO FINAL
 ========================================================== */
 
 @media (max-width: 1100px) {
 
-    .mvv_grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .identidade-grid {
+        gap: 50px;
     }
 
-    .org_container {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .mvv-item {
+        padding: 35px 28px;
+    }
+
+    .pilar-card {
+        min-height: 275px;
     }
 
 }
 
-
-/* ==========================================================
-   11. RESPONSIVIDADE — TABLET PEQUENO
-========================================================== */
 
 @media (max-width: 840px) {
 
-    .historia-main .section {
-        padding: 75px 0;
+    .historia-hero {
+        min-height: 560px;
+        padding: calc(var(--header-height, 90px) + 90px) 0 90px;
     }
 
-    .section_historia {
-        padding-top: calc(var(--header-height) + 65px) !important;
+    .historia-identidade,
+    .historia-mvv,
+    .historia-visao,
+    .historia-caminhada,
+    .historia-organizacao {
+        padding: 95px 0;
     }
 
-    .ibb_colunas_grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .identidade-grid {
+        gap: 40px;
     }
 
-    .ibb_coluna_card {
-        min-height: 165px;
-    }
-
-    .ibb_bases_grid {
-        grid-template-columns: 1fr;
-    }
-
-    .org_container {
-        grid-template-columns: 1fr;
-        max-width: 650px;
-    }
-
-}
-
-
-/* ==========================================================
-   12. RESPONSIVIDADE — CELULAR
-========================================================== */
-
-@media (max-width: 600px) {
-
-    .historia-main .section {
-        padding: 65px 0;
-    }
-
-    .section_historia {
-        padding-top: calc(var(--header-height) + 55px) !important;
-    }
-
-    .historia-main .section_box {
-        gap: 30px;
-    }
-
-    .section_historia .section_description {
-        text-align: left;
-        font-size: 0.98rem;
-        line-height: 1.8;
-    }
-
-    .mvv_grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin-top: 10px;
-    }
-
-    .mvv_card {
-        padding: 28px 24px;
-        gap: 14px;
-    }
-
-    .ibb_estrutura_container {
-        gap: 15px;
-    }
-
-    .ibb_telhado {
-        padding: 45px 15px 22px;
-    }
-
-    .ibb_telhado_conteudo h3 {
-        font-size: 1.6rem;
-    }
-
-    .ibb_telhado_conteudo span {
-        font-size: 0.8rem;
-    }
-
-    .ibb_colunas_grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-    }
-
-    .ibb_coluna_card {
-        min-height: 145px;
-        padding: 20px 10px;
-        gap: 10px;
-    }
-
-    .coluna_passo {
-        width: 32px;
-        height: 32px;
-        font-size: 0.7rem;
-    }
-
-    .ibb_coluna_card h4 {
-        font-size: 0.9rem;
-    }
-
-    .coluna_detalhes {
-        font-size: 0.72rem;
-    }
-
-    .ibb_base_item {
-        min-height: 65px;
-        padding: 15px;
-        font-size: 0.85rem;
-    }
-
-    .org_container {
-        gap: 18px;
-    }
-
-    .org_lista_itens {
-        padding: 25px 22px;
+    .caminhada-item {
+        grid-template-columns: 50px minmax(0,1fr) 45px;
         gap: 20px;
     }
 
-    .modal_conteudo {
-        padding: 35px 25px;
-    }
-
-    .modal_conteudo p {
-        font-size: 0.95rem;
-    }
-
 }
 
 
-/* ==========================================================
-   13. TELAS MUITO PEQUENAS
-========================================================== */
+@media (max-width: 750px) {
 
-@media (max-width: 360px) {
-
-    .ibb_colunas_grid {
+    .identidade-grid {
         grid-template-columns: 1fr;
+        gap: 45px;
     }
 
-    .ibb_coluna_card {
-        min-height: 115px;
+    .identidade-imagem img {
+        aspect-ratio: 4 / 3;
     }
 
-    .ibb_telhado {
-        padding-top: 42px;
+    .organizacao-bloco + .organizacao-bloco {
+        margin-top: 55px;
     }
 
 }
 
 
-/* ==========================================================
-   14. ACESSIBILIDADE
-========================================================== */
+@media (max-width: 650px) {
+
+    .historia-etiqueta {
+        font-size: .65rem;
+        letter-spacing: 1.8px;
+    }
+
+    .historia-cabecalho {
+        margin-bottom: 42px;
+    }
+
+    .historia-cabecalho h2 {
+        font-size: clamp(2rem, 8vw, 2.8rem);
+    }
+
+    .historia-cabecalho p {
+        font-size: .94rem;
+        line-height: 1.8;
+    }
+
+    /* Hero */
+
+    .historia-hero {
+        min-height: 580px;
+        padding: calc(var(--header-height, 90px) + 75px) 0 90px;
+    }
+
+    .historia-hero-bg {
+        background-image:
+            linear-gradient(
+                180deg,
+                rgba(17,24,19,.68),
+                rgba(17,24,19,.9)
+            ),
+            url("../images/centroIGRJ.jpg");
+    }
+
+    .historia-hero h1 {
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
+    }
+
+    .historia-hero p {
+        font-size: .94rem;
+    }
+
+    /* Identidade */
+
+    .historia-identidade {
+        padding: 75px 0;
+    }
+
+    .identidade-conteudo h2 {
+        font-size: 2.1rem;
+    }
+
+    .identidade-conteudo p {
+        font-size: .94rem;
+        line-height: 1.85;
+    }
+
+    /* Seções */
+
+    .historia-mvv,
+    .historia-visao,
+    .historia-caminhada,
+    .historia-organizacao {
+        padding: 80px 0;
+    }
+
+    /* Carrosséis */
+
+    .historia-carousel > .swiper {
+        padding: 8px 2px 18px;
+    }
+
+    .mvv-item {
+        min-height: 340px;
+        padding: 32px 28px;
+    }
+
+    .pilar-card {
+        min-height: 265px;
+        padding: 28px 24px;
+    }
+
+    .organizacao-item {
+        min-height: 155px;
+        padding: 28px 24px;
+    }
+
+    .historia-pagination {
+        margin-top: 14px;
+    }
+
+    /* Jesus */
+
+    .visao-jesus {
+        padding: 38px 22px;
+    }
+
+    .visao-jesus h3 {
+        font-size: 2rem;
+    }
+
+    .visao-conector {
+        height: 30px;
+    }
+
+    /* Caminhada */
+
+    .caminhada-item {
+        grid-template-columns: 35px minmax(0,1fr);
+        gap: 15px;
+        padding: 28px 5px;
+    }
+
+    .caminhada-item > i {
+        display: none;
+    }
+
+    .caminhada-conteudo h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Organização */
+
+    .organizacao-topo h3 {
+        font-size: 1.8rem;
+    }
+
+    .organizacao-topo > i {
+        font-size: 1.3rem;
+    }
+
+    /* Convite */
+
+    .historia-convite {
+        padding: 85px 0;
+    }
+
+    .historia-convite h2 {
+        font-size: clamp(2.1rem, 8vw, 3rem);
+    }
+
+    /* Modal */
+
+    .pilar-modal-conteudo {
+        padding: 40px 25px;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .historia-hero h1 {
+        font-size: 2.35rem;
+    }
+
+    .mvv-item {
+        padding: 28px 24px;
+    }
+
+    .pilar-card {
+        padding: 25px 22px;
+    }
+
+    .organizacao-item {
+        padding: 25px 22px;
+    }
+
+}
+
 
 @media (prefers-reduced-motion: reduce) {
 
-    .mvv_card,
-    .ibb_coluna_card,
-    .org_card_categoria,
-    .modal_conteudo,
-    .modal_overlay {
-        transition: none;
+    .historia-main *,
+    .historia-main *::before,
+    .historia-main *::after,
+    .pilar-modal,
+    .pilar-modal-conteudo {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
     }
 
 }

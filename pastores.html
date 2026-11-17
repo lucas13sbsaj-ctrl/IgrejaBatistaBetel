@@ -1,482 +1,771 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Conheça Nossos Pastores | Igreja Batista Betel</title>
-    <meta name="description" content="Conheça os pastores e a liderança pastoral da Igreja Batista Betel em Santo Antônio de Jesus, Bahia.">
+    <title>Nossos Pastores | Igreja Batista Betel</title>
 
-    <!-- Fontes -->
+    <meta
+        name="description"
+        content="Conheça a liderança pastoral da Igreja Batista Betel em Santo Antônio de Jesus, Bahia."
+    >
+
+    <meta name="theme-color" content="#504d35">
+
+    <!-- FONTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-    <!-- CSS compartilhado -->
+    <!-- ÍCONES -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- ESTILOS -->
     <link rel="stylesheet" href="assets/css/global.css">
-
-    <!-- CSS exclusivo -->
     <link rel="stylesheet" href="assets/css/pastores.css">
 
-    <!-- Scripts -->
+    <!-- SCRIPTS -->
     <script src="javaScript/global.js" defer></script>
     <script src="javaScript/pastores.js" defer></script>
 </head>
 
 <body>
 
-    <!-- HEADER GLOBAL -->
-    <header id="header">
-        <div class="container">
+    <!-- ======================================================
+         HEADER GLOBAL
+    ====================================================== -->
 
-            <a href="index.html" class="logo" aria-label="Igreja Batista Betel - Página inicial">
-                <div class="logo_img">
-                    <img src="assets/images/logo_betel.svg" alt="Logo da Igreja Batista Betel">
-                </div>
+    <header id="header" class="site-header">
 
-                <div class="logo_nome">
+        <div class="container header-container">
+
+            <a
+                href="index.html"
+                class="logo"
+                aria-label="Igreja Batista Betel - Página inicial"
+            >
+
+                <img
+                    src="assets/images/logo_betel.svg"
+                    alt=""
+                    class="logo-img"
+                >
+
+                <div class="logo-texto">
                     <span>Igreja</span>
                     <strong>Batista Betel</strong>
                 </div>
+
             </a>
 
-            <div class="menu">
-                <button
-                    id="menu-toggle"
-                    class="menu-toggle"
-                    type="button"
-                    aria-label="Abrir menu"
-                    aria-expanded="false"
-                    aria-controls="menu-principal"
-                >
-                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
-                </button>
+            <nav
+                id="menu-principal"
+                class="menu-principal"
+                aria-label="Navegação principal"
+            >
 
-                <nav id="menu-principal" class="menu_mobile" aria-label="Navegação principal">
-                    <ul>
-                        <li><a href="index.html">Início</a></li>
-                        <li><a href="nossa-historia.html">Quem Somos</a></li>
-                        <li><a href="pastores.html" class="active" aria-current="page">Pastores</a></li>
-                        <li><a href="index.html#culto">Cultos</a></li>
-                        <li><a href="index.html#loc">Localização</a></li>
-                        <li><a href="jesus.html">Fale conosco</a></li>
-                    </ul>
-                </nav>
-            </div>
+                <ul class="menu-lista">
+
+                    <li>
+                        <a href="index.html">Início</a>
+                    </li>
+
+                    <li>
+                        <a href="nossa-historia.html">Quem Somos</a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="pastores.html"
+                            class="active"
+                            aria-current="page"
+                        >
+                            Pastores
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#culto">Cultos</a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#loc">Localização</a>
+                    </li>
+
+                    <li>
+                        <a href="jesus.html">Fale conosco</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <button
+                id="menu-toggle"
+                class="menu-toggle"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="menu-principal"
+            >
+
+                <span class="menu-icon" aria-hidden="true">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                </span>
+
+            </button>
 
         </div>
+
     </header>
 
 
+    <!-- ======================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
     <main class="pastores-main">
 
-        <section class="section section_pastor_pagina" id="pastores">
-            <div class="section_box">
+        <section
+            id="pastores"
+            class="pastores-section"
+            aria-labelledby="pastores-titulo"
+        >
 
-                <div class="section_title">
-                    <div class="section_indi_title">
-                        <span>Nossa Liderança</span>
-                    </div>
+            <div class="container">
 
-                    <h1>Conheça Nossos Pastores</h1>
+                <!-- TÍTULO -->
 
-                    <p class="section_subtitle">
-                        Conheça aqueles que servem à nossa comunidade por meio
-                        do cuidado pastoral, ensino da Palavra e discipulado.
+                <div class="pastores-heading scroll-reveal">
+
+                    <span class="section-etiqueta">
+                        Nossa Liderança
+                    </span>
+
+                    <h1 id="pastores-titulo">
+                        Conheça Nossos Pastores
+                    </h1>
+
+                    <p>
+                        Conheça aqueles que servem à nossa comunidade
+                        por meio do cuidado pastoral, do ensino
+                        da Palavra e do discipulado.
                     </p>
+
                 </div>
 
 
-                <div class="pastores_cascata_container">
+                <!-- CARDS -->
 
-                    <!-- PASTORES PRESIDENTES -->
-                    <article class="pastor_cascata_card">
+                <div class="pastores-lista">
 
-                        <div class="cascata_img_wrapper">
+
+                    <!-- 01 — JOSÉ VIEIRA E IRACI -->
+
+                    <article
+                        class="pastor-card scroll-reveal"
+                        aria-labelledby="pastor-jose"
+                    >
+
+                        <div class="pastor-imagem">
+
                             <img
                                 src="assets/images/pastor_jose_vieira.png"
-                                alt="Pr. José Vieira e Iraci"
+                                alt="Pastor José Vieira e Iraci"
                                 loading="eager"
+                                fetchpriority="high"
+                                decoding="async"
                             >
+
                         </div>
 
-                        <div class="cascata_box_info">
-                            <span class="cascata_badge">Pastores Presidentes</span>
+                        <div class="pastor-info">
 
-                            <h2>José Vieira e Iraci</h2>
+                            <span class="pastor-categoria">
+                                Pastores Presidentes
+                            </span>
+
+                            <h2 id="pastor-jose">
+                                José Vieira e Iraci
+                            </h2>
+
+                            <span class="pastor-divisor"></span>
+
+                            <p class="pastor-descricao">
+                                Conheça a caminhada ministerial
+                                e o serviço pastoral de José Vieira
+                                e Iraci na Igreja Batista Betel.
+                            </p>
 
                             <button
-                                class="cascata_toggle"
                                 type="button"
+                                class="pastor-toggle"
                                 aria-expanded="false"
                                 aria-controls="biografia-jose"
                             >
+
                                 <span>Conhecer trajetória</span>
-                                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+
+                                <i
+                                    class="fa-solid fa-chevron-down"
+                                    aria-hidden="true"
+                                ></i>
+
                             </button>
 
                             <div
-                                class="cascata_biografia"
                                 id="biografia-jose"
+                                class="pastor-biografia"
                                 aria-hidden="true"
                                 inert
                             >
-                                <div class="cascata_biografia_interna">
+
+                                <div class="pastor-biografia-conteudo">
+
+                                    <!-- TEXTO PROVISÓRIO -->
                                     <p>
-                                        Com mais de 20 anos dedicados ao ministério pastoral,
-                                        o Pr. José Vieira lidera a Igreja Betel com foco no
-                                        ensino expositivo da Palavra, discipulado e
-                                        fortalecimento das famílias em Santo Antônio de Jesus.
+                                        Este espaço será dedicado à
+                                        trajetória ministerial do Pastor
+                                        José Vieira e Iraci, incluindo
+                                        sua história, formação e serviço
+                                        à comunidade cristã.
                                     </p>
 
-                                    <ul>
-                                        <li>Bacharel em Teologia pelo Seminário Teológico</li>
-                                        <li>Pós-graduado em Aconselhamento Pastoral</li>
-                                        <li>Especialização em Liderança Cristã</li>
-                                    </ul>
                                 </div>
+
                             </div>
+
                         </div>
 
                     </article>
 
 
-                    <!-- PASTORES AUXILIARES: IRAN E ROSA -->
-                    <article class="pastor_cascata_card">
+                    <!-- 02 — IRAN E ROSA -->
 
-                        <div class="cascata_img_wrapper">
+                    <article
+                        class="pastor-card scroll-reveal"
+                        aria-labelledby="pastor-iran"
+                    >
+
+                        <div class="pastor-imagem">
+
                             <img
                                 src="assets/images/pastor_iran.png"
-                                alt="Pr. Iran e Rosa"
+                                alt="Pastor Iran e Rosa"
                                 loading="lazy"
+                                decoding="async"
                             >
+
                         </div>
 
-                        <div class="cascata_box_info">
-                            <span class="cascata_badge">Pastores Auxiliares</span>
+                        <div class="pastor-info">
 
-                            <h2>Iran e Rosa</h2>
+                            <span class="pastor-categoria">
+                                Pastores Auxiliares
+                            </span>
+
+                            <h2 id="pastor-iran">
+                                Iran e Rosa
+                            </h2>
+
+                            <span class="pastor-divisor"></span>
+
+                            <p class="pastor-descricao">
+                                Conheça a caminhada de fé e o
+                                serviço ministerial de Iran e Rosa.
+                            </p>
 
                             <button
-                                class="cascata_toggle"
                                 type="button"
+                                class="pastor-toggle"
                                 aria-expanded="false"
                                 aria-controls="biografia-iran"
                             >
+
                                 <span>Conhecer trajetória</span>
-                                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+
+                                <i
+                                    class="fa-solid fa-chevron-down"
+                                    aria-hidden="true"
+                                ></i>
+
                             </button>
 
                             <div
-                                class="cascata_biografia"
                                 id="biografia-iran"
+                                class="pastor-biografia"
                                 aria-hidden="true"
                                 inert
                             >
-                                <div class="cascata_biografia_interna">
+
+                                <div class="pastor-biografia-conteudo">
+
+                                    <!-- TEXTO PROVISÓRIO -->
                                     <p>
-                                        O Pr. Iran atua diretamente no acompanhamento
-                                        ministerial e na organização dos eventos e células
-                                        da igreja. Tem grande paixão pela evangelização
-                                        e por cultivar um ambiente acolhedor.
+                                        Espaço reservado para apresentar
+                                        a história e a trajetória
+                                        ministerial de Iran e Rosa.
                                     </p>
 
-                                    <ul>
-                                        <li>Bacharel em Teologia</li>
-                                        <li>Curso de Extensão em Evangelismo e Missões</li>
-                                        <li>Capacitação em Gestão de Ministérios</li>
-                                    </ul>
                                 </div>
+
                             </div>
+
                         </div>
 
                     </article>
 
 
-                    <!-- PASTORES AUXILIARES: SAMUEL E PATRÍCIA -->
-                    <article class="pastor_cascata_card">
+                    <!-- 03 — SAMUEL E PATRÍCIA -->
 
-                        <div class="cascata_img_wrapper">
+                    <article
+                        class="pastor-card scroll-reveal"
+                        aria-labelledby="pastor-samuel"
+                    >
+
+                        <div class="pastor-imagem">
+
                             <img
                                 src="assets/images/pastor_samuel.png"
-                                alt="Pr. Samuel e Patrícia"
+                                alt="Pastor Samuel e Patrícia"
                                 loading="lazy"
+                                decoding="async"
                             >
+
                         </div>
 
-                        <div class="cascata_box_info">
-                            <span class="cascata_badge">Pastores Auxiliares</span>
+                        <div class="pastor-info">
 
-                            <h2>Samuel e Patrícia</h2>
+                            <span class="pastor-categoria">
+                                Pastores Auxiliares
+                            </span>
+
+                            <h2 id="pastor-samuel">
+                                Samuel e Patrícia
+                            </h2>
+
+                            <span class="pastor-divisor"></span>
+
+                            <p class="pastor-descricao">
+                                Conheça a trajetória de Samuel
+                                e Patrícia e sua caminhada
+                                na comunidade cristã.
+                            </p>
 
                             <button
-                                class="cascata_toggle"
                                 type="button"
+                                class="pastor-toggle"
                                 aria-expanded="false"
                                 aria-controls="biografia-samuel"
                             >
+
                                 <span>Conhecer trajetória</span>
-                                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+
+                                <i
+                                    class="fa-solid fa-chevron-down"
+                                    aria-hidden="true"
+                                ></i>
+
                             </button>
 
                             <div
-                                class="cascata_biografia"
                                 id="biografia-samuel"
+                                class="pastor-biografia"
                                 aria-hidden="true"
                                 inert
                             >
-                                <div class="cascata_biografia_interna">
+
+                                <div class="pastor-biografia-conteudo">
+
+                                    <!-- TEXTO PROVISÓRIO -->
                                     <p>
-                                        Focado no desenvolvimento de jovens e apoio
-                                        à equipe de louvor e ensino, o Pr. Samuel
-                                        dedica-se ao fortalecimento teológico
-                                        da nova geração de membros.
+                                        Espaço reservado para a
+                                        biografia ministerial de
+                                        Samuel e Patrícia.
                                     </p>
 
-                                    <ul>
-                                        <li>Graduação em Teologia Ministerial</li>
-                                        <li>Especialização em Ministério com Juventude</li>
-                                        <li>Treinamento em Pregação Expositiva</li>
-                                    </ul>
                                 </div>
+
                             </div>
+
                         </div>
 
                     </article>
 
 
-                    <!-- PASTORES AUXILIARES: NEILTON E PENHA -->
-                    <article class="pastor_cascata_card">
+                    <!-- 04 — NEILTON E PENHA -->
 
-                        <div class="cascata_img_wrapper">
-                            <!-- ATENÇÃO: substituir pela foto correta do casal -->
+                    <article
+                        class="pastor-card scroll-reveal"
+                        aria-labelledby="pastor-neilton"
+                    >
+
+                        <div class="pastor-imagem">
+
+                            <!-- SUBSTITUIR PELA FOTO CORRETA -->
                             <img
                                 src="assets/images/pastor_jose_vieira.png"
-                                alt="Foto provisória: substituir por Neilton e Penha"
+                                alt="Fotografia provisória da liderança"
                                 loading="lazy"
+                                decoding="async"
                             >
+
                         </div>
 
-                        <div class="cascata_box_info">
-                            <span class="cascata_badge">Pastores Auxiliares</span>
+                        <div class="pastor-info">
 
-                            <h2>Neilton e Penha</h2>
+                            <span class="pastor-categoria">
+                                Pastores Auxiliares
+                            </span>
+
+                            <h2 id="pastor-neilton">
+                                Neilton e Penha
+                            </h2>
+
+                            <span class="pastor-divisor"></span>
+
+                            <p class="pastor-descricao">
+                                Conheça a história ministerial
+                                de Neilton e Penha.
+                            </p>
 
                             <button
-                                class="cascata_toggle"
                                 type="button"
+                                class="pastor-toggle"
                                 aria-expanded="false"
                                 aria-controls="biografia-neilton"
                             >
+
                                 <span>Conhecer trajetória</span>
-                                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+
+                                <i
+                                    class="fa-solid fa-chevron-down"
+                                    aria-hidden="true"
+                                ></i>
+
                             </button>
 
                             <div
-                                class="cascata_biografia"
                                 id="biografia-neilton"
+                                class="pastor-biografia"
                                 aria-hidden="true"
                                 inert
                             >
-                                <div class="cascata_biografia_interna">
+
+                                <div class="pastor-biografia-conteudo">
+
+                                    <!-- TEXTO PROVISÓRIO -->
                                     <p>
-                                        O Pr. Neilton é responsável pelas frentes
-                                        de cuidado com casais e visitação pastoral,
-                                        trazendo uma longa vivência de apoio emocional
-                                        e espiritual às famílias da comunidade.
+                                        Espaço reservado para apresentar
+                                        a trajetória e o serviço
+                                        ministerial de Neilton e Penha.
                                     </p>
 
-                                    <ul>
-                                        <li>Bacharel em Teologia Pastoral</li>
-                                        <li>Capacitação em Aconselhamento Familiar</li>
-                                    </ul>
                                 </div>
+
                             </div>
+
                         </div>
 
                     </article>
 
-                    <!-- PASTORES AUXILIARES: ALAN E DAMARES -->
-                    <article class="pastor_cascata_card">
 
-                        <div class="cascata_img_wrapper">
-                            <!-- ATENÇÃO: substituir pela foto correta do casal -->
+                    <!-- 05 — ALAN E DAMARES -->
+
+                    <article
+                        class="pastor-card scroll-reveal"
+                        aria-labelledby="pastor-alan"
+                    >
+
+                        <div class="pastor-imagem">
+
                             <img
                                 src="assets/images/pastor_alan.png"
-                                alt="Foto pr. Alan e Damares"
+                                alt="Pastor Alan e Damares"
                                 loading="lazy"
+                                decoding="async"
                             >
+
                         </div>
 
-                        <div class="cascata_box_info">
-                            <span class="cascata_badge">Pastores Auxiliares</span>
+                        <div class="pastor-info">
 
-                            <h2>Alan e Damares</h2>
+                            <span class="pastor-categoria">
+                                Pastores Auxiliares
+                            </span>
+
+                            <h2 id="pastor-alan">
+                                Alan e Damares
+                            </h2>
+
+                            <span class="pastor-divisor"></span>
+
+                            <p class="pastor-descricao">
+                                Conheça a caminhada de fé
+                                e a trajetória ministerial
+                                de Alan e Damares.
+                            </p>
 
                             <button
-                                class="cascata_toggle"
                                 type="button"
+                                class="pastor-toggle"
                                 aria-expanded="false"
-                                aria-controls="biografia-neilton"
+                                aria-controls="biografia-alan"
                             >
+
                                 <span>Conhecer trajetória</span>
-                                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+
+                                <i
+                                    class="fa-solid fa-chevron-down"
+                                    aria-hidden="true"
+                                ></i>
+
                             </button>
 
                             <div
-                                class="cascata_biografia"
-                                id="biografia-neilton"
+                                id="biografia-alan"
+                                class="pastor-biografia"
                                 aria-hidden="true"
                                 inert
                             >
-                                <div class="cascata_biografia_interna">
+
+                                <div class="pastor-biografia-conteudo">
+
+                                    <!-- TEXTO PROVISÓRIO -->
                                     <p>
-                                        O Pr. Neilton é responsável pelas frentes
-                                        de cuidado com casais e visitação pastoral,
-                                        trazendo uma longa vivência de apoio emocional
-                                        e espiritual às famílias da comunidade.
+                                        Espaço reservado para apresentar
+                                        a trajetória ministerial
+                                        de Alan e Damares.
                                     </p>
 
-                                    <ul>
-                                        <li>Bacharel em Teologia Pastoral</li>
-                                        <li>Capacitação em Aconselhamento Familiar</li>
-                                    </ul>
                                 </div>
+
                             </div>
+
                         </div>
 
                     </article>
 
-                    <!-- PASTORES AUXILIARES: Nei E Marina -->
-                    <article class="pastor_cascata_card">
 
-                        <div class="cascata_img_wrapper">
-                            <!-- ATENÇÃO: substituir pela foto correta do casal -->
+                    <!-- 06 — NEI E MARINA -->
+
+                    <article
+                        class="pastor-card scroll-reveal"
+                        aria-labelledby="pastor-nei"
+                    >
+
+                        <div class="pastor-imagem">
+
                             <img
                                 src="assets/images/pastor_nei.png"
-                                alt="Foto pr. Nei e Marina"
+                                alt="Pastor Nei e Marina"
                                 loading="lazy"
+                                decoding="async"
                             >
+
                         </div>
 
-                        <div class="cascata_box_info">
-                            <span class="cascata_badge">Pastores Auxiliares</span>
+                        <div class="pastor-info">
 
-                            <h2>Nei e Marina</h2>
+                            <span class="pastor-categoria">
+                                Pastores Auxiliares
+                            </span>
+
+                            <h2 id="pastor-nei">
+                                Nei e Marina
+                            </h2>
+
+                            <span class="pastor-divisor"></span>
+
+                            <p class="pastor-descricao">
+                                Conheça a história e o
+                                serviço ministerial de Nei e Marina.
+                            </p>
 
                             <button
-                                class="cascata_toggle"
                                 type="button"
+                                class="pastor-toggle"
                                 aria-expanded="false"
-                                aria-controls="biografia-neilton"
+                                aria-controls="biografia-nei"
                             >
+
                                 <span>Conhecer trajetória</span>
-                                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+
+                                <i
+                                    class="fa-solid fa-chevron-down"
+                                    aria-hidden="true"
+                                ></i>
+
                             </button>
 
                             <div
-                                class="cascata_biografia"
-                                id="biografia-neilton"
+                                id="biografia-nei"
+                                class="pastor-biografia"
                                 aria-hidden="true"
                                 inert
                             >
-                                <div class="cascata_biografia_interna">
+
+                                <div class="pastor-biografia-conteudo">
+
+                                    <!-- TEXTO PROVISÓRIO -->
                                     <p>
-                                        O Pr. Neilton é responsável pelas frentes
-                                        de cuidado com casais e visitação pastoral,
-                                        trazendo uma longa vivência de apoio emocional
-                                        e espiritual às famílias da comunidade.
+                                        Espaço reservado para apresentar
+                                        a trajetória ministerial
+                                        de Nei e Marina.
                                     </p>
 
-                                    <ul>
-                                        <li>Bacharel em Teologia Pastoral</li>
-                                        <li>Capacitação em Aconselhamento Familiar</li>
-                                    </ul>
                                 </div>
+
                             </div>
+
                         </div>
 
                     </article>
 
-                     <!-- PASTORES AUXILIARES: DANIEL E ANE -->
-                    <article class="pastor_cascata_card">
 
-                        <div class="cascata_img_wrapper">
-                            <!-- ATENÇÃO: substituir pela foto correta do casal -->
+                    <!-- 07 — DANIEL E ANE -->
+
+                    <article
+                        class="pastor-card scroll-reveal"
+                        aria-labelledby="pastor-daniel"
+                    >
+
+                        <div class="pastor-imagem">
+
                             <img
                                 src="assets/images/pastor_daniel.png"
-                                alt="Foto pr. DANIEL E ANE"
+                                alt="Pastor Daniel e Ane"
                                 loading="lazy"
+                                decoding="async"
                             >
+
                         </div>
 
-                        <div class="cascata_box_info">
-                            <span class="cascata_badge">Pastores Auxiliares</span>
+                        <div class="pastor-info">
 
-                            <h2>Daniel e Ane</h2>
+                            <span class="pastor-categoria">
+                                Pastores Auxiliares
+                            </span>
+
+                            <h2 id="pastor-daniel">
+                                Daniel e Ane
+                            </h2>
+
+                            <span class="pastor-divisor"></span>
+
+                            <p class="pastor-descricao">
+                                Conheça a trajetória de Daniel
+                                e Ane e sua caminhada ministerial.
+                            </p>
 
                             <button
-                                class="cascata_toggle"
                                 type="button"
+                                class="pastor-toggle"
                                 aria-expanded="false"
-                                aria-controls="biografia-neilton"
+                                aria-controls="biografia-daniel"
                             >
+
                                 <span>Conhecer trajetória</span>
-                                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+
+                                <i
+                                    class="fa-solid fa-chevron-down"
+                                    aria-hidden="true"
+                                ></i>
+
                             </button>
 
                             <div
-                                class="cascata_biografia"
-                                id="biografia-neilton"
+                                id="biografia-daniel"
+                                class="pastor-biografia"
                                 aria-hidden="true"
                                 inert
                             >
-                                <div class="cascata_biografia_interna">
+
+                                <div class="pastor-biografia-conteudo">
+
+                                    <!-- TEXTO PROVISÓRIO -->
                                     <p>
-                                        O Pr. Neilton é responsável pelas frentes
-                                        de cuidado com casais e visitação pastoral,
-                                        trazendo uma longa vivência de apoio emocional
-                                        e espiritual às famílias da comunidade.
+                                        Espaço reservado para apresentar
+                                        a trajetória ministerial
+                                        de Daniel e Ane.
                                     </p>
 
-                                    <ul>
-                                        <li>Bacharel em Teologia Pastoral</li>
-                                        <li>Capacitação em Aconselhamento Familiar</li>
-                                    </ul>
                                 </div>
+
                             </div>
+
                         </div>
 
                     </article>
 
                 </div>
+
             </div>
+
         </section>
 
     </main>
 
 
-    <!-- FOOTER GLOBAL -->
-    <footer>
-        <div class="container_footer">
+    <!-- ======================================================
+         FOOTER GLOBAL
+    ====================================================== -->
 
-            <div class="footer_box">
+    <footer class="site-footer">
 
-                <div class="widget_footer">
-                    <h3>Igreja Batista Betel</h3>
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <!-- IDENTIDADE -->
+
+                <div class="footer-coluna">
+
+                    <a
+                        href="index.html"
+                        class="footer-logo"
+                        aria-label="Igreja Batista Betel - Início"
+                    >
+
+                        <img
+                            src="assets/images/logo_betel.svg"
+                            alt=""
+                        >
+
+                        <span>
+                            <small>IGREJA</small>
+                            <strong>BATISTA BETEL</strong>
+                        </span>
+
+                    </a>
+
                     <p>
                         Uma igreja fundamentada na Palavra de Deus,
-                        dedicada a viver e compartilhar o amor de
-                        Cristo com fé e comunhão.
+                        dedicada a viver e compartilhar o amor
+                        de Cristo com fé e comunhão.
                     </p>
+
                 </div>
 
-                <div class="widget_footer">
+
+                <!-- LINKS -->
+
+                <div class="footer-coluna">
+
                     <h3>Links Rápidos</h3>
+
                     <ul>
                         <li><a href="index.html">Início</a></li>
                         <li><a href="nossa-historia.html">Quem Somos</a></li>
@@ -484,34 +773,47 @@
                         <li><a href="index.html#culto">Cultos</a></li>
                         <li><a href="index.html#loc">Localização</a></li>
                     </ul>
+
                 </div>
 
-                <div class="widget_footer">
+
+                <!-- CONTATO -->
+
+                <div class="footer-coluna">
+
                     <h3>Contato</h3>
-                    <address>
-                        <p>
-                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                            <span>Rua Isaías Alves, 128 — Santo Antônio de Jesus, BA</span>
-                        </p>
-                        <p>
-                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                            <span>(75) 3631-1234</span>
-                        </p>
-                        <p>
-                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                            <span>contato@igrejabatistabetel.org.br</span>
-                        </p>
-                    </address>
-                </div>
 
-                <div class="widget_footer">
-                    <h3>Siga-nos</h3>
                     <p>
-                        Acompanhe nossas redes sociais e fique por
-                        dentro de tudo o que acontece na nossa igreja.
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        Rua Isaías Alves, 128 — Santo Antônio de Jesus, BA
                     </p>
 
-                    <div class="social_icons">
+                    <p>
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        (75) 3631-1234
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                        contato@igrejabatistabetel.org.br
+                    </p>
+
+                </div>
+
+
+                <!-- REDES SOCIAIS -->
+
+                <div class="footer-coluna">
+
+                    <h3>Siga-nos</h3>
+
+                    <p>
+                        Acompanhe nossas redes sociais e fique
+                        por dentro de tudo o que acontece na igreja.
+                    </p>
+
+                    <div class="footer-redes">
+
                         <a
                             href="https://www.instagram.com/betelsajba/"
                             target="_blank"
@@ -529,21 +831,38 @@
                         >
                             <i class="fa-brands fa-youtube" aria-hidden="true"></i>
                         </a>
+
                     </div>
+
                 </div>
 
             </div>
 
-            <div class="footer_fim">
-                <span>© 2026 Igreja Batista Betel. Todos os direitos reservados.</span>
-                <span>Feito com amor para a Glória de Deus.</span>
+
+            <!-- FAIXA INFERIOR -->
+
+            <div class="footer-inferior">
+
+                <span>
+                    © <span id="ano-atual">2026</span>
+                    Igreja Batista Betel. Todos os direitos reservados.
+                </span>
+
+                <span>
+                    Feito com amor para a Glória de Deus.
+                </span>
+
             </div>
 
         </div>
+
     </footer>
 
 
-    <!-- BOTÃO GLOBAL DE AVISOS -->
+    <!-- ======================================================
+         BOTÃO FLUTUANTE DE AVISOS
+    ====================================================== -->
+
     <button
         id="btn-avisos"
         class="btn-flutuante"
@@ -552,37 +871,18 @@
         aria-controls="modal-avisos"
         aria-expanded="false"
     >
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            class="svg-icone"
-            width="26"
-            height="26"
-            aria-hidden="true"
-        >
-            <path
-                d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22ZM18 16V11C18 7.93 16.37 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5C11.17 2.5 10.5 3.17 10.5 4V4.68C7.63 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16Z"
-                fill="currentColor"
-            />
-            <circle
-                cx="18"
-                cy="5"
-                r="4.2"
-                fill="#E53935"
-                stroke="#FFFFFF"
-                stroke-width="1.5"
-            />
-            <path
-                d="M18 3.3V5.3M18 6.5V6.8"
-                stroke="#FFFFFF"
-                stroke-width="1.2"
-                stroke-linecap="round"
-            />
-        </svg>
+
+        <i class="fa-solid fa-bell" aria-hidden="true"></i>
+
+        <span class="aviso-notificacao" aria-hidden="true"></span>
+
     </button>
 
 
-    <!-- MODAL GLOBAL DE AVISOS -->
+    <!-- ======================================================
+         MODAL DE AVISOS
+    ====================================================== -->
+
     <div
         id="modal-avisos"
         class="modal-overlay"
@@ -593,12 +893,14 @@
         tabindex="-1"
         inert
     >
+
         <div class="modal-container">
 
             <div class="modal-header">
-                <h3 id="modal-titulo" class="modal-title">
+
+                <h2 id="modal-titulo">
                     Avisos &amp; Informes
-                </h3>
+                </h2>
 
                 <button
                     id="btn-fechar-modal"
@@ -608,42 +910,53 @@
                 >
                     &times;
                 </button>
+
             </div>
 
             <div class="modal-body">
 
                 <article class="aviso-card">
-                    <span class="aviso-tag">Destaque</span>
-                    <h4 class="aviso-titulo">Culto Especial de Jovens</h4>
-                    <p class="aviso-texto">
-                        Neste sábado, às 19h30. Contamos com a sua presença!
+
+                    <span class="aviso-tag">DESTAQUE</span>
+
+                    <h3>Culto Especial de Jovens</h3>
+
+                    <p>
+                        Neste sábado, às 19h30.
+                        Contamos com a sua presença!
                     </p>
-                    <span class="aviso-data">Sábado • 19:30</span>
+
                 </article>
 
                 <article class="aviso-card">
-                    <span class="aviso-tag tag-secundaria">Inscrições</span>
-                    <h4 class="aviso-titulo">Culto de Celebração</h4>
-                    <p class="aviso-texto">
-                        Neste domingo, às 18h. Venha cultuar conosco
-                        e traga a sua família!
+
+                    <span class="aviso-tag">PROGRAMAÇÃO</span>
+
+                    <h3>Culto de Celebração</h3>
+
+                    <p>
+                        Neste domingo, às 18h.
+                        Venha cultuar conosco e traga sua família!
                     </p>
-                    <span class="aviso-data">Domingo • 18:00</span>
+
                 </article>
 
             </div>
 
             <div class="modal-footer">
+
                 <button
                     id="btn-entendi"
-                    class="btn-secundario"
+                    class="btn btn-modal"
                     type="button"
                 >
                     Entendido
                 </button>
+
             </div>
 
         </div>
+
     </div>
 
 </body>

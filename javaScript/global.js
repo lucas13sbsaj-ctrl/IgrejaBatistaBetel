@@ -8,17 +8,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     "use strict";
 
-    /* 01. HEADER */
+
+    /* ======================================================
+       01. HEADER
+    ====================================================== */
 
     const header = document.querySelector("#header");
 
     function atualizarHeader() {
+
         if (!header) return;
 
         header.classList.toggle(
             "scrolled",
             window.scrollY > 30
         );
+
     }
 
     atualizarHeader();
@@ -30,70 +35,138 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-    /* 02. MENU MOBILE */
+    /* ======================================================
+       02. MENU MOBILE
+    ====================================================== */
 
     const menuToggle = document.querySelector("#menu-toggle");
     const menu = document.querySelector("#menu-principal");
 
     if (menuToggle && menu) {
 
-        function fecharMenu() {
-            menu.classList.remove("abrir");
-            document.body.classList.remove("menu-open");
+        let menuAberto = false;
 
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.setAttribute("aria-label", "Abrir menu");
+        function atualizarMenu(aberto) {
 
-            menuToggle.innerHTML =
-                '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+            menuAberto = aberto;
+
+            menu.classList.toggle("abrir", aberto);
+
+            // Controla a animação hambúrguer -> X
+            menuToggle.classList.toggle("ativo", aberto);
+
+            document.body.classList.toggle(
+                "menu-open",
+                aberto
+            );
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(aberto)
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                aberto ? "Fechar menu" : "Abrir menu"
+            );
+
         }
 
         function abrirMenu() {
-            menu.classList.add("abrir");
-            document.body.classList.add("menu-open");
-
-            menuToggle.setAttribute("aria-expanded", "true");
-            menuToggle.setAttribute("aria-label", "Fechar menu");
-
-            menuToggle.innerHTML =
-                '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
+            atualizarMenu(true);
         }
 
-        menuToggle.addEventListener("click", () => {
-            if (menu.classList.contains("abrir")) {
+        function fecharMenu() {
+
+            if (!menuAberto) return;
+
+            atualizarMenu(false);
+
+        }
+
+        menuToggle.addEventListener("click", evento => {
+
+            evento.preventDefault();
+            evento.stopPropagation();
+
+            if (menuAberto) {
                 fecharMenu();
             } else {
                 abrirMenu();
             }
+
         });
+
+
+        // Fecha ao clicar em um link
 
         menu.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", fecharMenu);
+
+            link.addEventListener("click", () => {
+                fecharMenu();
+            });
+
         });
+
+
+        // Fecha ao clicar fora do menu
 
         document.addEventListener("click", evento => {
-            if (
-                !menu.contains(evento.target) &&
-                !menuToggle.contains(evento.target)
-            ) {
+
+            if (!menuAberto) return;
+
+            const clicouNoMenu = menu.contains(evento.target);
+
+            const clicouNoBotao = menuToggle.contains(
+                evento.target
+            );
+
+            if (!clicouNoMenu && !clicouNoBotao) {
                 fecharMenu();
             }
+
         });
 
+
+        // Fecha com a tecla Escape
+
+        document.addEventListener("keydown", evento => {
+
+            if (evento.key !== "Escape" || !menuAberto) {
+                return;
+            }
+
+            fecharMenu();
+            menuToggle.focus();
+
+        });
+
+
+        // Fecha ao retornar para desktop
+
         window.addEventListener("resize", () => {
+
             if (window.innerWidth > 840) {
                 fecharMenu();
             }
+
         });
+
     }
 
 
-    /* 03. MODAL DE AVISOS */
+    /* ======================================================
+       03. MODAL DE AVISOS
+    ====================================================== */
 
     const btnAvisos = document.querySelector("#btn-avisos");
+
     const modal = document.querySelector("#modal-avisos");
 
-    const btnFechar = document.querySelector("#btn-fechar-modal");
+    const btnFechar = document.querySelector(
+        "#btn-fechar-modal"
+    );
+
     const btnEntendi = document.querySelector("#btn-entendi");
 
     if (btnAvisos && modal) {
@@ -101,24 +174,38 @@ document.addEventListener("DOMContentLoaded", () => {
         let focoAnterior = null;
 
         modal.classList.remove("ativo");
+
         modal.setAttribute("aria-hidden", "true");
+
         modal.inert = true;
 
+
         function abrirModal() {
+
             focoAnterior = document.activeElement;
 
             modal.inert = false;
+
             modal.classList.add("ativo");
 
             modal.setAttribute("aria-hidden", "false");
-            btnAvisos.setAttribute("aria-expanded", "true");
+
+            btnAvisos.setAttribute(
+                "aria-expanded",
+                "true"
+            );
 
             document.body.classList.add("modal-open");
 
-            (btnFechar || modal).focus();
+            const primeiroFoco = btnFechar || modal;
+
+            primeiroFoco.focus();
+
         }
 
+
         function fecharModal() {
+
             const destinoFoco = focoAnterior || btnAvisos;
 
             if (typeof destinoFoco.focus === "function") {
@@ -126,32 +213,52 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             modal.classList.remove("ativo");
+
             modal.setAttribute("aria-hidden", "true");
+
             modal.inert = true;
 
-            btnAvisos.setAttribute("aria-expanded", "false");
+            btnAvisos.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
             document.body.classList.remove("modal-open");
+
         }
+
 
         btnAvisos.addEventListener("click", abrirModal);
 
         btnFechar?.addEventListener("click", fecharModal);
+
         btnEntendi?.addEventListener("click", fecharModal);
 
+
+        // Fecha clicando fora do conteúdo
+
         modal.addEventListener("click", evento => {
+
             if (evento.target === modal) {
                 fecharModal();
             }
+
         });
+
+
+        // Acessibilidade do modal
 
         document.addEventListener("keydown", evento => {
 
-            if (!modal.classList.contains("ativo")) return;
+            if (!modal.classList.contains("ativo")) {
+                return;
+            }
 
             if (evento.key === "Escape") {
+
                 fecharModal();
                 return;
+
             }
 
             if (evento.key !== "Tab") return;
@@ -167,9 +274,11 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (!elementos.length) {
+
                 evento.preventDefault();
                 modal.focus();
                 return;
+
             }
 
             const primeiro = elementos[0];
@@ -179,20 +288,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 evento.shiftKey &&
                 document.activeElement === primeiro
             ) {
+
                 evento.preventDefault();
                 ultimo.focus();
+
             } else if (
                 !evento.shiftKey &&
                 document.activeElement === ultimo
             ) {
+
                 evento.preventDefault();
                 primeiro.focus();
+
             }
+
         });
+
     }
 
 
-    /* 04. ANO AUTOMÁTICO DO RODAPÉ */
+    /* ======================================================
+       04. ANO AUTOMÁTICO DO RODAPÉ
+    ====================================================== */
 
     const anoAtual = document.querySelector("#ano-atual");
 
@@ -200,80 +317,308 @@ document.addEventListener("DOMContentLoaded", () => {
         anoAtual.textContent = new Date().getFullYear();
     }
 
-    // ==========================================
-// CARROSSEL — NOSSOS PASTORES
-// ==========================================
 
-if (document.querySelector(".pastores-swiper") && typeof Swiper !== "undefined") {
+    /* ======================================================
+       05. CARROSSEL — NOSSOS PASTORES
+    ====================================================== */
 
-    const carrosselPastores = new Swiper(".pastores-swiper", {
+    const pastoresSwiper = document.querySelector(
+        ".pastores-swiper"
+    );
 
-        slidesPerView: 1.15,
-        spaceBetween: 16,
+    if (
+        pastoresSwiper &&
+        typeof Swiper !== "undefined"
+    ) {
 
-        speed: 650,
+        const secaoPastores = pastoresSwiper.closest(
+            ".pastores-carrossel"
+        );
 
-        loop: true,
+        const contadorAtual = secaoPastores?.querySelector(
+            ".pastores-atual"
+        );
 
-        grabCursor: true,
+        const contadorTotal = secaoPastores?.querySelector(
+            ".pastores-total"
+        );
 
-        navigation: {
-            nextEl: ".pastores-next",
-            prevEl: ".pastores-prev"
-        },
+        const barraProgresso = secaoPastores?.querySelector(
+            ".pastores-progresso-barra"
+        );
 
-        breakpoints: {
+        const totalSlides = pastoresSwiper.querySelectorAll(
+            ".swiper-slide"
+        ).length;
 
-            650: {
-                slidesPerView: 2,
-                spaceBetween: 22
-            },
 
-            1000: {
-                slidesPerView: 3,
-                spaceBetween: 28
+        // Formata 1 como 01, 2 como 02...
+
+        function formatarNumero(numero) {
+            return String(numero).padStart(2, "0");
+        }
+
+
+        // Atualiza o contador e a barra
+
+        function atualizarProgresso(swiper) {
+
+            if (!totalSlides) return;
+
+            const indiceAtual = Math.min(
+                swiper.activeIndex,
+                totalSlides - 1
+            );
+
+            const atual = indiceAtual + 1;
+
+            if (contadorAtual) {
+
+                contadorAtual.textContent =
+                    formatarNumero(atual);
+
+            }
+
+            if (contadorTotal) {
+
+                contadorTotal.textContent =
+                    formatarNumero(totalSlides);
+
+            }
+
+            if (barraProgresso) {
+
+                // Progresso real do deslocamento
+                // 0 = início / 1 = final
+
+                const progresso = Number.isFinite(
+                    swiper.progress
+                )
+                    ? Math.max(
+                        0,
+                        Math.min(1, swiper.progress)
+                    )
+                    : 0;
+
+                barraProgresso.style.transform =
+                    `scaleX(${progresso})`;
+
             }
 
         }
 
-    });
 
-}
+        // Inicializa o carrossel
 
-});
+        try {
+
+            new Swiper(pastoresSwiper, {
+
+                slidesPerView: 1.15,
+
+                spaceBetween: 16,
+
+                speed: 650,
+
+                // Não retorna ao primeiro slide
+                loop: false,
+
+                grabCursor: true,
+
+                simulateTouch: true,
+
+                watchOverflow: true,
+
+                // Navegação pelas setas
+
+                navigation: {
+
+                    nextEl: secaoPastores?.querySelector(
+                        ".pastores-next"
+                    ),
+
+                    prevEl: secaoPastores?.querySelector(
+                        ".pastores-prev"
+                    )
+
+                },
 
 
-// ==========================================
-// EFEITO POP-OUT — PASTORES
-// ==========================================
+                // Responsividade
 
-const elementosPopOut = document.querySelectorAll(".pop-out");
+                breakpoints: {
 
-if ("IntersectionObserver" in window) {
+                    650: {
 
-    const popOutObserver = new IntersectionObserver((entries, observer) => {
+                        slidesPerView: 2,
 
-        entries.forEach((entry) => {
+                        spaceBetween: 22
 
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visivel");
-                observer.unobserve(entry.target);
+                    },
+
+                    1000: {
+
+                        slidesPerView: 3,
+
+                        spaceBetween: 28
+
+                    }
+
+                },
+
+
+                // Eventos
+
+                on: {
+
+                    init(swiper) {
+
+                        atualizarProgresso(swiper);
+
+                    },
+
+                    slideChange(swiper) {
+
+                        atualizarProgresso(swiper);
+
+                    },
+
+                    progress(swiper) {
+
+                        atualizarProgresso(swiper);
+
+                    },
+
+                    resize(swiper) {
+
+                        atualizarProgresso(swiper);
+
+                    }
+
+                }
+
+            });
+
+        } catch (erro) {
+
+            console.error(
+                "Erro no carrossel dos pastores:",
+                erro
+            );
+
+        }
+
+    }
+
+
+    /* ======================================================
+       06. SCROLL REVEAL GLOBAL
+    ====================================================== */
+
+    const revealElements = document.querySelectorAll(
+        ".scroll-reveal"
+    );
+
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (
+        revealElements.length > 0 &&
+        "IntersectionObserver" in window &&
+        !prefersReducedMotion
+    ) {
+
+        document.documentElement.classList.add(
+            "reveal-ready"
+        );
+
+        const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "reveal-visible"
+                        );
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -40px 0px"
             }
+        );
+
+        revealElements.forEach(elemento => {
+
+            revealObserver.observe(elemento);
 
         });
 
-    }, {
-        threshold: 0.12
-    });
+    }
 
-    elementosPopOut.forEach((elemento) => {
-        popOutObserver.observe(elemento);
-    });
 
-} else {
+    /* ======================================================
+       07. EFEITO POP-OUT
+    ====================================================== */
 
-    elementosPopOut.forEach((elemento) => {
-        elemento.classList.add("visivel");
-    });
+    const elementosPopOut = document.querySelectorAll(
+        ".pop-out"
+    );
 
-}
+    if (
+        "IntersectionObserver" in window &&
+        !prefersReducedMotion
+    ) {
+
+        const popOutObserver = new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "visivel"
+                        );
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+        elementosPopOut.forEach(elemento => {
+
+            popOutObserver.observe(elemento);
+
+        });
+
+    } else {
+
+        // Fallback para navegadores sem suporte
+        // e usuários com movimento reduzido
+
+        elementosPopOut.forEach(elemento => {
+
+            elemento.classList.add("visivel");
+
+        });
+
+    }
+
+});

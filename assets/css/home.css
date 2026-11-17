@@ -4,40 +4,126 @@
    HOME.CSS — PÁGINA INICIAL
 ========================================================== */
 
-/* 01. HERO */
-
 
 /* ==========================================================
-   HERO — IGREJA BATISTA BETEL
-   DESIGN INSTITUCIONAL
+   01. HERO
 ========================================================== */
 
+/* ==========================================================
+   HERO — PINTURA CINEMATOGRÁFICA
+========================================================== */
 
-/* 01. ESTRUTURA PRINCIPAL */
+.hero-paint {
+    --paint-color: #e8d8ae;
+    --paint-duration: 2.4s;
+    --paint-delay: 0.6s;
+
+    position: relative;
+    display: inline-block;
+
+    color: rgba(255, 255, 255, 0.38);
+}
+
+/* Camada dourada que será revelada */
+
+.hero-paint::before {
+    content: attr(data-text);
+
+    position: absolute;
+    inset: 0;
+
+    color: var(--paint-color);
+    white-space: nowrap;
+
+    clip-path: inset(0 100% 0 0);
+
+    animation:
+        heroPaintReveal var(--paint-duration)
+        cubic-bezier(0.65, 0, 0.25, 1)
+        var(--paint-delay)
+        forwards;
+}
+
+/* Camada de brilho que percorre o texto */
+
+.hero-paint::after {
+    content: attr(data-text);
+
+    position: absolute;
+    inset: 0;
+
+    color: transparent;
+    white-space: nowrap;
+
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.15) 35%,
+        rgba(255, 249, 220, 1) 50%,
+        rgba(255, 255, 255, 0.15) 65%,
+        transparent 100%
+    );
+
+    background-size: 250% 100%;
+    background-position: 100% 0;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    opacity: 0;
+
+    animation:
+        heroPaintLight var(--paint-duration)
+        ease-in-out
+        var(--paint-delay)
+        forwards;
+}
+
+/* Revelação progressiva da cor */
+
+@keyframes heroPaintReveal {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Reflexo luminoso */
+
+@keyframes heroPaintLight {
+    0% {
+        opacity: 0;
+        background-position: 100% 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        background-position: 0% 0;
+    }
+}
 
 .hero {
     position: relative;
     isolation: isolate;
-
-    width: 100%;
-    min-height: 100vh;
-    min-height: 100svh;
-
     display: flex;
     align-items: center;
-
-    padding:
-        calc(var(--header-height) + 70px)
-        0
-        100px;
-
+    width: 100%;
+    min-height: 1000px;
+    padding: calc(var(--header-height) + 70px) 0 100px;
     overflow: hidden;
-
     background-color: #222820;
 }
-
-
-/* 02. IMAGEM DE FUNDO */
 
 .hero-background {
     position: absolute;
@@ -55,164 +141,105 @@
         url("../images/banner.png");
 
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
 }
-
-
-/* 03. CONTAINER CENTRALIZADO */
 
 .hero-container {
     position: relative;
     z-index: 1;
 
-    width: min(
-        calc(100% - 48px),
-        1240px
-    );
-
-    margin-left: auto;
-    margin-right: auto;
-
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    width: min(calc(100% - 48px), 1240px);
+    margin-inline: auto;
 }
-
-
-/* 04. CONTEÚDO */
 
 .hero-conteudo {
     width: 100%;
     max-width: 720px;
-
     margin: 0;
     padding: 0;
-
     text-align: left;
     color: #ffffff;
 }
 
-
-/* 05. ETIQUETA SUPERIOR */
-
 .hero-etiqueta {
     display: inline-block;
-
     margin-bottom: 25px;
 
     color: #e4d7b3;
-
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 2.5px;
     line-height: 1.5;
 }
 
-
-/* 06. TÍTULO PRINCIPAL */
-
 .hero-conteudo h1 {
     max-width: 720px;
-
     margin: 0;
 
-    font-size: clamp(
-        3rem,
-        5.2vw,
-        5.2rem
-    );
-
+    color: #ffffff;
+    font-size: clamp(3rem, 5.2vw, 5.2rem);
     font-weight: 800;
     line-height: 1.12;
     letter-spacing: -0.055em;
-
-    color: #ffffff;
-
     text-wrap: balance;
 }
 
 .hero-conteudo h1 span {
     display: block;
-
-    color: #e4d7b3;
+    color: transparent;
 }
 
-
-/* 07. SUBTÍTULO */
-
-.hero-subtitulo {
+.hero-subtitulo,
+.hero-destaque {
     margin-top: 26px;
 
-    font-size: clamp(
-        1.1rem,
-        1.8vw,
-        1.45rem
-    );
-
+    color: #f2eee4;
+    font-size: clamp(1.1rem, 1.8vw, 1.45rem);
     font-weight: 600;
     line-height: 1.5;
-
-    color: #f2eee4;
 }
-
-
-/* 08. DESCRIÇÃO */
 
 .hero-descricao {
     max-width: 530px;
-
     margin-top: 17px;
 
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.98rem;
     font-weight: 400;
     line-height: 1.85;
-
-    color: rgba(
-        255,
-        255,
-        255,
-        0.8
-    );
 }
-
-
-/* 09. BOTÕES */
 
 .hero-acoes {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-
     gap: 15px;
     margin-top: 35px;
 }
 
 .hero-acoes .btn {
-    min-height: 52px;
-
-    padding: 14px 24px;
-
-    font-size: 0.85rem;
-    font-weight: 700;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     gap: 13px;
+
+    min-height: 52px;
+    padding: 14px 24px;
+    font-size: 0.85rem;
+    font-weight: 700;
 }
 
 .hero-acoes .btn i {
     font-size: 0.85rem;
 }
 
-
-/* 10. INDICADOR DE ROLAGEM */
-
 .hero-scroll {
     position: absolute;
-
     bottom: 28px;
     left: 50%;
     z-index: 2;
@@ -222,11 +249,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     gap: 10px;
 
     color: rgba(255, 255, 255, 0.85);
-
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 2px;
@@ -236,7 +261,6 @@
 
 .hero-scroll i {
     font-size: 1rem;
-
     animation: hero-seta 2s ease-in-out infinite;
 }
 
@@ -252,176 +276,8 @@
 
 
 /* ==========================================================
-   TABLET — ATÉ 900PX
+   02. INSTITUCIONAL — QUEM SOMOS
 ========================================================== */
-
-@media (max-width: 900px) {
-
-    .hero {
-        padding:
-            calc(var(--header-height) + 65px)
-            0
-            100px;
-    }
-
-    .hero-container {
-        width: calc(100% - 48px);
-    }
-
-    .hero-conteudo {
-        max-width: 650px;
-    }
-
-    .hero-conteudo h1 {
-        font-size: clamp(
-            2.8rem,
-            6.5vw,
-            4.5rem
-        );
-    }
-
-    .hero-background {
-        background-position: 60% center;
-    }
-
-}
-
-
-/* ==========================================================
-   MOBILE — ATÉ 650PX
-========================================================== */
-
-@media (max-width: 650px) {
-
-    .hero {
-        min-height: 100svh;
-
-        padding:
-            calc(var(--header-height) + 55px)
-            0
-            85px;
-
-        align-items: center;
-    }
-
-    .hero-background {
-        background-image:
-            linear-gradient(
-                180deg,
-                rgba(15, 21, 17, 0.48) 0%,
-                rgba(15, 21, 17, 0.68) 45%,
-                rgba(15, 21, 17, 0.9) 100%
-            ),
-            url("../images/banner.png");
-
-        background-position: 58% center;
-    }
-
-    .hero-container {
-        width: calc(100% - 40px);
-
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-conteudo {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .hero-etiqueta {
-        margin-bottom: 22px;
-
-        font-size: 0.64rem;
-        letter-spacing: 1.8px;
-    }
-
-    .hero-conteudo h1 {
-        max-width: 100%;
-
-        font-size: clamp(
-            2.55rem,
-            10vw,
-            3.8rem
-        );
-
-        line-height: 1.12;
-        letter-spacing: -0.045em;
-    }
-
-    .hero-subtitulo {
-        margin-top: 24px;
-
-        font-size: 1.05rem;
-        line-height: 1.5;
-    }
-
-    .hero-descricao {
-        max-width: 100%;
-
-        margin-top: 15px;
-
-        font-size: 0.9rem;
-        line-height: 1.75;
-    }
-
-    .hero-acoes {
-        flex-direction: column;
-        align-items: stretch;
-
-        gap: 12px;
-        margin-top: 30px;
-    }
-
-    .hero-acoes .btn {
-        width: 100%;
-        min-height: 52px;
-    }
-
-    .hero-scroll {
-        bottom: 18px;
-        font-size: 0.6rem;
-    }
-
-}
-
-
-/* ==========================================================
-   TELAS PEQUENAS — ATÉ 380PX
-========================================================== */
-
-@media (max-width: 380px) {
-
-    .hero-conteudo h1 {
-        font-size: 2.35rem;
-    }
-
-    .hero-etiqueta {
-        font-size: 0.6rem;
-        letter-spacing: 1.2px;
-    }
-
-    .hero-descricao {
-        font-size: 0.85rem;
-    }
-
-}
-
-
-/* ==========================================================
-   ACESSIBILIDADE
-========================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .hero-scroll i {
-        animation: none;
-    }
-
-}
-
-
-/* 02. INSTITUCIONAL */
 
 .institucional-section {
     padding: 120px 0;
@@ -448,19 +304,16 @@
 
 .institucional-imagem-legenda {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset: auto 0 0;
 
     display: flex;
     flex-direction: column;
     gap: 5px;
-
     padding: 28px;
 
     background: linear-gradient(
         transparent,
-        rgba(0,0,0,0.75)
+        rgba(0, 0, 0, 0.75)
     );
 
     color: #ffffff;
@@ -524,10 +377,14 @@
     transform: translateX(5px);
 }
 
-/* 03. JESUS */
+
+/* ==========================================================
+   03. JESUS CRISTO
+========================================================== */
 
 .mensagem-section {
     padding: 130px 0;
+
     background-image:
         linear-gradient(
             rgba(22, 22, 22, 0.699),
@@ -539,10 +396,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     color: #ffffff;
-    
 }
-
-
 
 .mensagem-conteudo {
     display: flex;
@@ -565,7 +419,7 @@
     max-width: 800px;
     margin-top: 30px;
 
-    color: rgba(255,255,255,0.88);
+    color: rgba(255, 255, 255, 0.88);
     font-size: clamp(1.15rem, 2.3vw, 1.65rem);
     font-weight: 400;
     line-height: 1.8;
@@ -581,54 +435,93 @@
 }
 
 
-/* ==================================================
+
+/* ==========================================================
    04. NOSSOS PASTORES — CARROSSEL
-================================================== */
+   IGREJA BATISTA BETEL
+========================================================== */
+
+
+/* ==========================================================
+   01. ESTRUTURA DA SEÇÃO
+========================================================== */
 
 .pastores-section {
-    padding: 120px 0;
-    background: #f8f7f3;
+    padding: 105px 0 110px;
+    background: var(--bg-secondary);
 }
 
-/* CABEÇALHO */
+
+/* ==========================================================
+   02. CABEÇALHO
+========================================================== */
 
 .pastores-header {
     max-width: 650px;
-    margin: 0 auto 60px;
-    text-align: center;
+    margin: 0 auto 55px;
 }
 
-.pastores-etiqueta {
-    display: block;
+.pastores-header .section-etiqueta {
     margin-bottom: 18px;
-
-    color: #948563;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 2.5px;
 }
 
 .pastores-header h2 {
-    color: #34392e;
+    color: var(--text-primary);
 
     font-size: clamp(2.1rem, 4vw, 3.5rem);
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.2;
     letter-spacing: -0.045em;
 }
 
 .pastores-header p {
     max-width: 550px;
-    margin: 22px auto 0;
+    margin: 16px 0 0;
 
-    color: #73776e;
+    color: var(--text-secondary);
+
     font-size: 1rem;
     line-height: 1.8;
 }
 
-/* CARROSSEL */
+
+/* ==========================================================
+   03. LINK INSTITUCIONAL
+========================================================== */
+
+.pastores-header .link-institucional {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-top: 25px;
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid var(--color-primary);
+
+    color: var(--color-primary-dark);
+
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    transition:
+        gap var(--transition),
+        color var(--transition);
+}
+
+.pastores-header .link-institucional:hover {
+    gap: 21px;
+    color: var(--color-primary);
+}
+
+
+/* ==========================================================
+   04. ESTRUTURA DO CARROSSEL
+========================================================== */
 
 .pastores-carrossel {
+    position: relative;
+
     width: 100%;
     min-width: 0;
 }
@@ -643,27 +536,34 @@
     min-width: 0;
 }
 
-/* CARD */
 
-.pastor-card {
+/* ==========================================================
+   05. CARDS DOS PASTORES
+========================================================== */
+
+.pastores-swiper .pastor-card {
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
+    height: 100%;
+
     text-align: center;
 }
 
-/* IMAGEM */
-
-.pastor-imagem {
+.pastores-swiper .pastor-imagem {
     position: relative;
+
     width: 100%;
     aspect-ratio: 4 / 5;
 
     overflow: hidden;
-    border-radius: 8px;
 
+    border-radius: 7px;
     background: #e9e7df;
 }
 
-.pastor-imagem img {
+.pastores-swiper .pastor-imagem img {
     display: block;
 
     width: 100%;
@@ -672,89 +572,197 @@
     object-fit: cover;
     object-position: center;
 
-    transition: transform 0.6s ease;
+    transition:
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.pastor-card:hover .pastor-imagem img {
+.pastores-swiper .pastor-card:hover .pastor-imagem img {
     transform: scale(1.045);
 }
 
-/* INFORMAÇÕES */
 
-.pastor-info {
-    padding: 20px 8px 0;
+/* ==========================================================
+   06. INFORMAÇÕES DOS PASTORES
+========================================================== */
+
+.pastores-swiper .pastor-info {
+    padding: 18px 8px 0;
 }
 
-.pastor-info h3 {
-    color: #34392e;
+.pastores-swiper .pastor-info h3 {
+    color: var(--text-primary);
+
     font-size: 1.05rem;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.4;
 }
 
-.pastor-info span {
+.pastores-swiper .pastor-info span {
     display: block;
-    margin-top: 7px;
 
-    color: #92948b;
+    margin-top: 5px;
+
+    color: var(--text-secondary);
+
     font-size: 0.8rem;
+    font-weight: 400;
 }
 
-/* NAVEGAÇÃO */
 
-.pastores-navegacao {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 12px;
-    margin-top: 38px;
-}
+/* ==========================================================
+   07. SETAS — DESKTOP
+========================================================== */
 
 .pastores-prev,
 .pastores-next {
+    position: absolute;
+    top: 42%;
+    z-index: 10;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
 
-    border: 1px solid rgba(80, 77, 53, 0.25);
+    padding: 0;
+
+    border: 1px solid rgba(80, 77, 53, 0.12);
     border-radius: 50%;
 
-    background: transparent;
-    color: #504d35;
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--color-primary-dark);
 
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     cursor: pointer;
 
+    box-shadow:
+        0 5px 22px rgba(0, 0, 0, 0.10);
+
+    opacity: 0;
+
+    transform: translateY(-50%);
+
     transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease;
+        opacity var(--transition),
+        background-color var(--transition),
+        color var(--transition),
+        box-shadow var(--transition);
+}
+
+.pastores-prev {
+    left: 12px;
+}
+
+.pastores-next {
+    right: 12px;
+}
+
+.pastores-carrossel:hover .pastores-prev,
+.pastores-carrossel:hover .pastores-next,
+.pastores-prev:focus-visible,
+.pastores-next:focus-visible {
+    opacity: 1;
 }
 
 .pastores-prev:hover,
 .pastores-next:hover {
-    background: #504d35;
+    background: var(--color-primary);
     color: #ffffff;
-    border-color: #504d35;
-    transform: translateY(-2px);
 }
 
 .pastores-prev:focus-visible,
 .pastores-next:focus-visible {
-    outline: 2px solid #948563;
-    outline-offset: 4px;
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
 }
 
-/* POP-OUT */
+
+/* ==========================================================
+   08. INDICADOR DE PROGRESSO
+========================================================== */
+
+.pastores-controles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    margin-top: 32px;
+}
+
+.pastores-progresso {
+    position: relative;
+
+    flex: 1;
+    height: 3px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: rgba(80, 77, 53, 0.15);
+}
+
+.pastores-progresso-barra {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: var(--color-primary);
+
+    transform: scaleX(0.142857);
+    transform-origin: left;
+
+    transition:
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* ==========================================================
+   09. CONTADOR
+========================================================== */
+
+.pastores-contador {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 7px;
+
+    min-width: 70px;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    font-variant-numeric: tabular-nums;
+}
+
+.pastores-atual {
+    color: var(--color-primary);
+}
+
+.pastores-separador,
+.pastores-total {
+    color: var(--text-secondary);
+}
+
+
+/* ==========================================================
+   10. ANIMAÇÃO POP-OUT
+========================================================== */
 
 .pop-out {
     opacity: 0;
-    transform: translateY(30px) scale(0.96);
+
+    transform:
+        translateY(30px)
+        scale(0.96);
 
     transition:
         opacity 0.8s ease,
@@ -766,155 +774,111 @@
     transform: translateY(0) scale(1);
 }
 
-/* TABLET */
 
-@media (max-width: 950px) {
+/* ==========================================================
+   11. RESPONSIVIDADE — TABLET
+========================================================== */
+
+@media (max-width: 840px) {
 
     .pastores-section {
-        padding: 100px 0;
+        padding: 80px 0 85px;
+    }
+
+    .pastores-header {
+        margin-bottom: 38px;
+    }
+
+    .pastores-prev,
+    .pastores-next {
+        display: none;
     }
 
 }
 
-/* MOBILE */
 
-@media (max-width: 650px) {
+/* ==========================================================
+   12. RESPONSIVIDADE — MOBILE
+========================================================== */
+
+@media (max-width: 600px) {
 
     .pastores-section {
-        padding: 85px 0;
+        padding: 65px 0 75px;
     }
 
     .pastores-header {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 
     .pastores-header h2 {
-        font-size: 2.2rem;
+        font-size: clamp(1.8rem, 7vw, 2.3rem);
+        letter-spacing: -0.035em;
     }
 
     .pastores-header p {
-        font-size: 0.95rem;
+        margin-top: 14px;
+
+        font-size: 0.92rem;
         line-height: 1.75;
     }
 
-    .pastor-imagem {
+    .pastores-header .link-institucional {
+        margin-top: 20px;
+        font-size: 0.83rem;
+    }
+
+    .pastores-swiper .pastor-imagem {
         aspect-ratio: 4 / 5;
         border-radius: 6px;
     }
 
-    .pastor-info {
-        padding: 16px 5px 0;
+    .pastores-swiper .pastor-info {
+        padding-top: 15px;
     }
 
-    .pastor-info h3 {
-        font-size: 1rem;
+    .pastores-swiper .pastor-info h3 {
+        font-size: 0.95rem;
     }
 
-    .pastores-navegacao {
-        margin-top: 28px;
+    .pastores-controles {
+        gap: 16px;
+        margin-top: 27px;
     }
 
-    .pastores-prev,
-    .pastores-next {
-        width: 42px;
-        height: 42px;
+    .pastores-contador {
+        min-width: 60px;
+        font-size: 0.75rem;
     }
 
 }
 
-/* ACESSIBILIDADE */
+
+/* ==========================================================
+   13. ACESSIBILIDADE
+========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
+    .pastores-swiper .pastor-imagem img,
+    .pastores-prev,
+    .pastores-next,
+    .pastores-progresso-barra,
+    .pop-out {
+        transition: none;
+    }
 
     .pop-out {
         opacity: 1;
         transform: none;
-        transition: none;
-    }
-
-    .pastor-imagem img {
-        transition: none;
-    }
-
-    .pastores-prev,
-    .pastores-next {
-        transition: none;
     }
 
 }
 
-/* BOTÃO — CONHEÇA NOSSOS PASTORES */
 
-.pastores-mais {
-    display: flex;
-    justify-content: center;
-    margin-top: 35px;
-}
-
-.pastores-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-
-    padding: 15px 28px;
-
-    background: #504d35;
-    color: #ffffff;
-
-    border: 1px solid #504d35;
-    border-radius: 5px;
-
-    font-size: 0.88rem;
-    font-weight: 600;
-    text-decoration: none;
-
-    transition: all 0.3s ease;
-}
-
-.pastores-btn:hover {
-    background: transparent;
-    color: #504d35;
-    transform: translateY(-3px);
-}
-
-.pastores-btn i {
-    transition: transform 0.3s ease;
-}
-
-.pastores-btn:hover i {
-    transform: translateX(5px);
-}
-
-/* MOBILE */
-
-@media (max-width: 650px) {
-
-    .pastores-mais {
-        margin-top: 28px;
-    }
-
-    .pastores-btn {
-        width: 100%;
-        max-width: 340px;
-    }
-
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .pastores-btn,
-    .pastores-btn i {
-        transition: none;
-    }
-
-    .pastores-btn:hover,
-    .pastores-btn:hover i {
-        transform: none;
-    }
-}
-
-
-/* 04. PROGRAMAÇÃO */
+/* ==========================================================
+   05. PROGRAMAÇÃO — CULTOS
+========================================================== */
 
 .programacao-section {
     padding: 115px 0;
@@ -924,7 +888,6 @@
 .section-cabecalho {
     max-width: 780px;
     margin: 0 auto 60px;
-    text-align: center;
 }
 
 .section-cabecalho h2 {
@@ -954,7 +917,6 @@
     gap: 20px;
 
     padding: 32px 0;
-
     border-top: 1px solid #deded6;
 }
 
@@ -988,23 +950,21 @@
 }
 
 
-
-/* ==================================================
-   05. LOCALIZAÇÃO / CONVITE
-================================================== */
+/* ==========================================================
+   06. LOCALIZAÇÃO — VENHA NOS CONHECER
+========================================================== */
 
 .visita-section {
     position: relative;
     padding: 120px 0;
+    overflow: hidden;
+
     background: linear-gradient(
         135deg,
         #f8f7f2 0%,
         #eeede4 100%
     );
-    overflow: hidden;
 }
-
-/* GRID PRINCIPAL */
 
 .visita-grid {
     display: grid;
@@ -1012,8 +972,6 @@
     align-items: center;
     gap: 75px;
 }
-
-/* CONTEÚDO */
 
 .visita-conteudo {
     max-width: 520px;
@@ -1052,7 +1010,7 @@
     line-height: 1.9;
 }
 
-/* ENDEREÇO */
+/* Endereço */
 
 .visita-endereco {
     display: flex;
@@ -1087,7 +1045,7 @@
     font-size: 0.85rem;
 }
 
-/* BOTÕES */
+/* Botões */
 
 .visita-acoes {
     display: flex;
@@ -1113,7 +1071,7 @@
     text-decoration: none;
 
     transition:
-        background 0.3s ease,
+        background-color 0.3s ease,
         color 0.3s ease,
         border-color 0.3s ease,
         transform 0.3s ease;
@@ -1143,19 +1101,17 @@
     border-color: #504d35;
 }
 
-/* MAPA */
+/* Mapa */
 
 .visita-mapa {
     width: 100%;
     height: 460px;
-
     overflow: hidden;
-    border-radius: 12px;
 
     border: 1px solid rgba(80, 77, 53, 0.12);
+    border-radius: 12px;
 
-    box-shadow:
-        0 18px 50px rgba(45, 49, 36, 0.10);
+    box-shadow: 0 18px 50px rgba(45, 49, 36, 0.1);
 }
 
 .visita-mapa iframe {
@@ -1165,11 +1121,20 @@
     border: 0;
 }
 
-/* ==================================================
-   TABLET
-================================================== */
+
+/* ==========================================================
+   07. RESPONSIVIDADE
+   Breakpoints do maior para o menor
+========================================================== */
+
+
+/* ----------------------------------------------------------
+   TABLET — ATÉ 1000PX
+---------------------------------------------------------- */
 
 @media (max-width: 1000px) {
+
+    /* Localização */
 
     .visita-grid {
         gap: 40px;
@@ -1181,20 +1146,94 @@
 
 }
 
-/* ==================================================
-   MOBILE
-================================================== */
+
+/* ----------------------------------------------------------
+   TABLET — ATÉ 950PX
+---------------------------------------------------------- */
+
+@media (max-width: 950px) {
+
+    /* Pastores */
+
+    .pastores-section {
+        padding: 100px 0;
+    }
+
+}
+
+
+/* ----------------------------------------------------------
+   TABLET — ATÉ 900PX
+---------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    /* Hero */
+
+    .hero {
+        padding: calc(var(--header-height) + 65px) 0 100px;
+    }
+
+    .hero-container {
+        width: calc(100% - 48px);
+    }
+
+    .hero-conteudo {
+        max-width: 650px;
+    }
+
+    .hero-conteudo h1 {
+        font-size: clamp(2.8rem, 6.5vw, 4.5rem);
+    }
+
+    .hero-background {
+        background-position: 60% center;
+    }
+
+    /* Institucional */
+
+    .institucional-section {
+        padding: 90px 0;
+    }
+
+    .institucional-grid {
+        gap: 45px;
+    }
+
+    /* Programação */
+
+    .programacao-grid {
+        gap: 0 30px;
+    }
+
+    .programacao-item {
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+    }
+
+    .programacao-dia {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+/* ----------------------------------------------------------
+   TABLET / MOBILE — ATÉ 750PX
+---------------------------------------------------------- */
 
 @media (max-width: 750px) {
+
+    /* Localização */
 
     .visita-section {
         padding: 85px 0;
     }
 
     .visita-grid {
-        gap: 40px;
         display: flex;
         flex-direction: column;
+        gap: 40px;
     }
 
     .visita-conteudo {
@@ -1238,118 +1277,68 @@
 
 }
 
-@media (max-width: 400px) {
 
-    .visita-mapa {
-        height: 300px;
-    }
-
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .visita-btn {
-        transition: none;
-    }
-
-    .visita-btn:hover {
-        transform: none;
-    }
-}
-
-
-/* MOBILE */
+/* ----------------------------------------------------------
+   MOBILE — ATÉ 650PX
+---------------------------------------------------------- */
 
 @media (max-width: 650px) {
-    .visita-section {
-        padding: 85px 0;
-    }
 
-    .visita-conteudo {
-        width: calc(100% - 44px);
-    }
+    /* 01. Hero */
 
-    .visita-section h2 {
-        font-size: clamp(2.1rem, 8vw, 2.8rem);
-    }
-
-    .visita-section p {
-        margin-top: 22px;
-        font-size: 0.98rem;
-        line-height: 1.75;
-    }
-
-    .visita-acoes {
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 32px;
-    }
-
-    .visita-acoes .btn {
-        width: 100%;
-    }
-}
-
-
-/* 06. TABLET */
-
-@media (max-width: 900px) {
-    .institucional-grid {
-        gap: 45px;
-    }
-
-    .institucional-section {
-        padding: 90px 0;
-    }
-
-    .programacao-grid {
-        gap: 0 30px;
-    }
-
-    .programacao-item {
-        grid-template-columns: 1fr auto;
-        gap: 12px;
-    }
-
-    .programacao-dia {
-        grid-column: 1 / -1;
-    }
-}
-
-/* 07. MOBILE */
-
-@media (max-width: 650px) {
     .hero {
         min-height: 100svh;
-        padding: calc(var(--header-height) + 65px) 0 90px;
+        padding: calc(var(--header-height) + 55px) 0 85px;
+        align-items: center;
     }
 
     .hero-background {
-        background-image:
-            linear-gradient(
-                180deg,
-                rgba(14,20,16,0.55) 0%,
-                rgba(14,20,16,0.85) 100%
-            ),
-            url("../images/banner.png");
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(15, 15, 15, 0.301) 0%,
+            rgba(0, 0, 0, 0.192) 50%,
+            rgba(0, 0, 0, 0.9) 100%
+        ),
+        url("../images/banner.png");
 
-        background-position: 58% center;
+    background-size: auto 100%;
+    background-position: 66% center;
+}
+
+    .hero-container {
+        width: calc(100% - 40px);
+        margin-inline: auto;
+    }
+
+    .hero-conteudo {
+        width: 100%;
+        max-width: 100%;
     }
 
     .hero-etiqueta {
-        font-size: 0.65rem;
-        letter-spacing: 2px;
+        margin-bottom: 22px;
+        font-size: 0.64rem;
+        letter-spacing: 1.2px;
     }
 
-    .hero h1 {
-        font-size: clamp(2.6rem, 11vw, 4rem);
-        line-height: 1.1;
+    .hero-conteudo h1 {
+        max-width: 100%;
+        font-size: clamp(2.55rem, 10vw, 3.8rem);
+        line-height: 1.12;
+        letter-spacing: -0.045em;
     }
 
+    .hero-subtitulo,
     .hero-destaque {
-        font-size: 1.1rem;
+        margin-top: 24px;
+        font-size: 1.05rem;
+        line-height: 1.5;
     }
 
     .hero-descricao {
+        max-width: 100%;
+        margin-top: 15px;
         font-size: 0.9rem;
         line-height: 1.75;
     }
@@ -1357,16 +1346,21 @@
     .hero-acoes {
         flex-direction: column;
         align-items: stretch;
+        gap: 12px;
         margin-top: 30px;
     }
 
     .hero-acoes .btn {
         width: 100%;
+        min-height: 52px;
     }
 
     .hero-scroll {
-        bottom: 20px;
+        bottom: 18px;
+        font-size: 0.6rem;
     }
+
+    /* 02. Institucional */
 
     .institucional-section {
         padding: 75px 0;
@@ -1385,9 +1379,57 @@
         font-size: 2.1rem;
     }
 
+    /* 03. Jesus */
+
     .mensagem-section {
         padding: 90px 0;
     }
+
+    /* 04. Pastores */
+
+    .pastores-section {
+        padding: 85px 0;
+    }
+
+    .pastores-header {
+        margin-bottom: 40px;
+    }
+
+    .pastores-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .pastores-header p {
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+
+    .pastor-imagem {
+        aspect-ratio: 4 / 5;
+        border-radius: 6px;
+    }
+
+    .pastor-info {
+        padding: 16px 5px 0;
+    }
+
+    .pastor-info h3 {
+        font-size: 1rem;
+    }
+
+    .pastores-navegacao {
+        margin-top: 28px;
+    }
+
+    .pastores-prev,
+    .pastores-next {
+        width: 42px;
+        height: 42px;
+    }
+
+    
+
+    /* 05. Programação */
 
     .programacao-section {
         padding: 80px 0;
@@ -1414,16 +1456,116 @@
         border-bottom: 1px solid #deded6;
     }
 
-    .visita-section {
-        padding: 90px 0;
+    /* 06. Localização */
+
+    .visita-conteudo {
+        width: calc(100% - 44px);
+    }
+
+    .visita-conteudo h2 {
+        font-size: clamp(2.1rem, 8vw, 2.8rem);
+    }
+
+    .visita-descricao {
+        margin-top: 22px;
+        font-size: 0.98rem;
+        line-height: 1.75;
     }
 
     .visita-acoes {
-        flex-direction: column;
         width: 100%;
+        gap: 12px;
+        margin-top: 32px;
     }
 
     .visita-acoes .btn {
         width: 100%;
+    }
+
+}
+
+
+/* ----------------------------------------------------------
+   CELULARES PEQUENOS — ATÉ 400PX
+---------------------------------------------------------- */
+
+@media (max-width: 400px) {
+
+    /* Localização */
+
+    .visita-mapa {
+        height: 300px;
+    }
+
+}
+
+
+/* ----------------------------------------------------------
+   CELULARES MUITO PEQUENOS — ATÉ 380PX
+---------------------------------------------------------- */
+
+@media (max-width: 380px) {
+
+    /* Hero */
+
+    .hero-conteudo h1 {
+        font-size: 2.35rem;
+    }
+
+    .hero-etiqueta {
+        font-size: 0.6rem;
+        letter-spacing: 1.2px;
+    }
+
+    .hero-descricao {
+        font-size: 0.85rem;
+    }
+
+}
+
+
+/* ==========================================================
+   08. ACESSIBILIDADE — REDUÇÃO DE MOVIMENTO
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-scroll i {
+        animation: none;
+    }
+
+    .pop-out {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .pastor-imagem img,
+    .pastores-prev,
+    .pastores-next,
+    .pastores-btn,
+    .pastores-btn i,
+    .visita-btn {
+        transition: none;
+    }
+
+    .pastores-btn:hover,
+    .pastores-btn:hover i,
+    .visita-btn:hover {
+        transform: none;
+    }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-paint::before {
+        animation: none;
+        clip-path: none;
+    }
+
+    .hero-paint::after {
+        animation: none;
+        opacity: 0;
     }
 }

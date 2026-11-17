@@ -3,180 +3,285 @@
    IGREJA BATISTA BETEL
    PASTORES.CSS
 
-   Estilos exclusivos da página Pastores.
+   Estilos exclusivos da página Nossos Pastores
 ========================================================== */
 
 
 /* ==========================================================
-   01. ESTRUTURA GERAL
+   01. ESTRUTURA DA PÁGINA
 ========================================================== */
 
 .pastores-main {
-    background-color: var(--bg-tertiary);
+    background: var(--bg-secondary);
 }
 
-.section_pastor_pagina {
-    min-height: auto;
-    padding: calc(var(--header-height) + 85px) 0 100px;
-}
-
-.section_pastor_pagina .section_box {
-    gap: 30px;
-}
-
-.section_pastor_pagina .section_title {
-    max-width: 850px;
-}
-
-.section_subtitle {
-    max-width: 650px;
-    margin: 20px auto 0;
-
-    font-size: clamp(0.95rem, 1.5vw, 1.08rem);
-    font-weight: 400;
-    line-height: 1.8;
-    text-align: center;
-
-    color: var(--text-secondary);
-
-    text-transform: none;
+.pastores-section {
+    padding:
+        calc(var(--header-height) + 85px)
+        0
+        110px;
 }
 
 
 /* ==========================================================
-   02. CONTAINER DOS PASTORES
+   02. TÍTULO DA PÁGINA
 ========================================================== */
 
-.pastores_cascata_container {
+.pastores-heading {
+    max-width: 850px;
+    margin: 0 auto 75px;
+    text-align: center;
+}
+
+.pastores-heading .section-etiqueta {
+    margin-bottom: 18px;
+}
+
+.pastores-heading h1 {
+    color: var(--text-primary);
+
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+}
+
+.pastores-heading p {
+    max-width: 650px;
+    margin: 22px auto 0;
+
+    color: var(--text-secondary);
+
+    font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+    font-weight: 400;
+    line-height: 1.9;
+}
+
+
+/* ==========================================================
+   03. LISTAGEM DOS PASTORES
+========================================================== */
+
+.pastores-lista {
     display: flex;
     flex-direction: column;
 
     width: 100%;
-    max-width: 1050px;
+    max-width: 1100px;
 
-    gap: 75px;
-    margin: 30px auto 0;
+    gap: 90px;
+    margin: 0 auto;
 }
 
 
 /* ==========================================================
-   03. CARD EM CASCATA
+   04. CARD EM CASCATA
 ========================================================== */
 
-.pastor_cascata_card {
+.pastor-card {
     position: relative;
 
+    display: grid;
+    grid-template-columns: 42% 58%;
+    align-items: center;
+
     width: 100%;
-    min-height: 430px;
+    min-height: 440px;
+
+    isolation: isolate;
+}
+
+/* Alterna a posição dos cards */
+
+.pastor-card:nth-child(even) {
+    grid-template-columns: 58% 42%;
 }
 
 
 /* ==========================================================
-   04. IMAGEM
+   05. FOTOGRAFIA
 ========================================================== */
 
-.cascata_img_wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
+.pastor-imagem {
+    position: relative;
 
-    width: 65%;
-    height: 100%;
+    grid-column: 2;
+    grid-row: 1;
+
+    width: 100%;
+    height: 440px;
 
     overflow: hidden;
 
-    border-radius: var(--radius-lg);
-    background-color: #e8e5d9;
+    border-radius: 5px;
+    background: #e8e5d9;
 
-    box-shadow: var(--shadow-sm);
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.08);
 }
 
-.cascata_img_wrapper img {
+.pastor-imagem::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        transparent 65%,
+        rgba(0, 0, 0, 0.12)
+    );
+
+    pointer-events: none;
+}
+
+.pastor-imagem img {
     width: 100%;
     height: 100%;
 
     object-fit: cover;
     object-position: center top;
 
-    transition: transform 0.5s ease;
+    transition:
+        transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.pastor_cascata_card:hover .cascata_img_wrapper img {
-    transform: scale(1.025);
+.pastor-card:hover .pastor-imagem img {
+    transform: scale(1.04);
+}
+
+/* Fotografia à esquerda nos cards pares */
+
+.pastor-card:nth-child(even) .pastor-imagem {
+    grid-column: 1;
 }
 
 
 /* ==========================================================
-   05. QUADRO SOBREPOSTO
+   06. QUADRO DE INFORMAÇÕES
 ========================================================== */
 
-.cascata_box_info {
-    position: absolute;
-    top: 50%;
-    left: 20px;
-
+.pastor-info {
+    position: relative;
     z-index: 2;
 
-    width: min(46%, 470px);
-    padding: 35px;
+    grid-column: 1;
+    grid-row: 1;
 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 
-    gap: 15px;
+    width: calc(100% + 55px);
+    max-width: 510px;
 
-    transform: translateY(-50%);
+    padding: 40px 36px;
+    gap: 16px;
 
-    background-color: #ffffff;
+    margin-left: 20px;
 
-    border: 1px solid rgba(80, 77, 53, 0.12);
+    background: var(--bg-primary);
+
+    border: 1px solid rgba(80, 77, 53, 0.10);
     border-left: 4px solid var(--color-primary);
-    border-radius: var(--radius-lg);
+    border-radius: 5px;
 
-    box-shadow: var(--shadow-md);
+    box-shadow:
+        0 16px 45px rgba(0, 0, 0, 0.09);
+
+    transition:
+        box-shadow var(--transition);
 }
 
-.cascata_badge {
-    display: inline-block;
+/* Quadro à direita nos cards pares */
 
-    padding: 7px 12px;
+.pastor-card:nth-child(even) .pastor-info {
+    grid-column: 2;
 
-    border-radius: var(--radius-sm);
+    margin-left: -75px;
 
-    background-color: var(--bg-secondary);
-
-    color: var(--color-primary);
-
-    font-size: 0.72rem;
-    font-weight: 700;
-    line-height: 1.4;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
+    border-left: 1px solid rgba(80, 77, 53, 0.10);
+    border-right: 4px solid var(--color-primary);
 }
 
-.cascata_box_info h2 {
-    font-size: clamp(1.4rem, 2.4vw, 1.85rem);
-    font-weight: 700;
-    line-height: 1.3;
-
-    color: var(--text-heading);
+.pastor-card:hover .pastor-info {
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.12);
 }
 
 
 /* ==========================================================
-   06. BOTÃO PARA EXPANDIR BIOGRAFIA
+   07. IDENTIDADE E TEXTOS
 ========================================================== */
 
-.cascata_toggle {
-    display: inline-flex;
+.pastor-categoria {
+    display: inline-block;
+
+    padding: 8px 13px;
+
+    background: var(--bg-secondary);
+    border-radius: 5px;
+
+    color: var(--color-primary);
+
+    font-size: 0.7rem;
+    font-weight: 800;
+    line-height: 1.4;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.pastor-info h2 {
+    color: var(--text-primary);
+
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+}
+
+.pastor-divisor {
+    display: block;
+
+    width: 45px;
+    height: 3px;
+
+    border-radius: 10px;
+    background: var(--color-accent);
+
+    transition:
+        width 0.5s ease;
+}
+
+.pastor-card:hover .pastor-divisor,
+.pastor-card.ativo .pastor-divisor {
+    width: 75px;
+}
+
+.pastor-descricao {
+    color: var(--text-secondary);
+
+    font-size: 0.92rem;
+    font-weight: 400;
+    line-height: 1.85;
+}
+
+
+/* ==========================================================
+   08. BOTÃO DE EXPANSÃO
+========================================================== */
+
+.pastor-toggle {
+    display: flex;
     align-items: center;
     justify-content: space-between;
 
+    width: 100%;
     gap: 15px;
 
-    width: 100%;
-    padding: 12px 0 4px;
+    margin-top: 5px;
+    padding: 16px 0 4px;
 
     border: none;
     border-top: 1px solid rgba(80, 77, 53, 0.12);
@@ -184,223 +289,269 @@
     background: transparent;
     color: var(--color-primary);
 
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-size: 0.86rem;
+    font-weight: 700;
     text-align: left;
 
     cursor: pointer;
+
+    transition:
+        color var(--transition);
 }
 
-.cascata_toggle i {
-    font-size: 0.75rem;
-
-    transition: transform var(--transition-normal);
-}
-
-.pastor_cascata_card.ativo .cascata_toggle i {
-    transform: rotate(180deg);
-}
-
-.cascata_toggle:hover {
+.pastor-toggle:hover {
     color: var(--color-primary-dark);
+}
+
+.pastor-toggle i {
+    font-size: 0.78rem;
+
+    transition:
+        transform 0.35s ease;
+}
+
+.pastor-card.ativo .pastor-toggle i {
+    transform: rotate(180deg);
 }
 
 
 /* ==========================================================
-   07. BIOGRAFIA RECOLHÍVEL
+   09. BIOGRAFIA RECOLHÍVEL
 ========================================================== */
 
-.cascata_biografia {
+.pastor-biografia {
     display: grid;
     grid-template-rows: 0fr;
 
     width: 100%;
+
     opacity: 0;
     visibility: hidden;
 
     transition:
-        grid-template-rows 0.35s ease,
-        opacity 0.25s ease,
-        visibility 0.25s ease;
+        grid-template-rows 0.4s ease,
+        opacity 0.3s ease,
+        visibility 0.3s ease;
 }
 
-.cascata_biografia_interna {
+.pastor-biografia-conteudo {
     min-height: 0;
     overflow: hidden;
 }
 
-.pastor_cascata_card.ativo .cascata_biografia {
+.pastor-biografia p {
+    margin: 12px 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.88rem;
+    line-height: 1.85;
+}
+
+.pastor-biografia p:last-child {
+    margin-bottom: 0;
+}
+
+.pastor-biografia ul {
+    margin: 12px 0;
+    padding-left: 20px;
+
+    list-style: disc;
+}
+
+.pastor-biografia li {
+    margin-bottom: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.85rem;
+    line-height: 1.7;
+
+    list-style: disc;
+}
+
+/* Biografia aberta */
+
+.pastor-card.ativo .pastor-biografia {
     grid-template-rows: 1fr;
+
     opacity: 1;
     visibility: visible;
 }
 
-.cascata_biografia p {
-    margin-bottom: 14px;
 
-    font-size: 0.9rem;
-    font-weight: 400;
-    line-height: 1.75;
+/* ==========================================================
+   10. SCROLL REVEAL — AJUSTES DA PÁGINA
+========================================================== */
 
-    color: var(--text-secondary);
+.pastores-heading.scroll-reveal {
+    --reveal-duration: 1.1s;
+    --reveal-distance: 25px;
 }
 
-.cascata_biografia ul {
-    padding-left: 20px;
-    list-style: disc;
-}
-
-.cascata_biografia li {
-    margin-bottom: 7px;
-
-    font-size: 0.85rem;
-    line-height: 1.6;
-
-    color: var(--text-secondary);
-
-    list-style: disc;
+.pastor-card.scroll-reveal {
+    --reveal-duration: 1.2s;
+    --reveal-distance: 45px;
 }
 
 
 /* ==========================================================
-   08. RESPONSIVIDADE — TABLET E MOBILE
+   11. RESPONSIVIDADE — TABLET
 ========================================================== */
 
 @media (max-width: 900px) {
 
-    .section_pastor_pagina {
+    .pastores-section {
         padding:
             calc(var(--header-height) + 65px)
             0
-            75px;
+            80px;
     }
 
-    .pastores_cascata_container {
+    .pastores-heading {
+        margin-bottom: 55px;
+    }
+
+    .pastores-lista {
         max-width: 650px;
-        gap: 40px;
+        gap: 55px;
     }
 
-    .pastor_cascata_card {
+    .pastor-card,
+    .pastor-card:nth-child(even) {
         display: flex;
         flex-direction: column;
 
         min-height: auto;
     }
 
-    .cascata_img_wrapper {
-        position: relative;
-        top: auto;
-        right: auto;
-
+    .pastor-imagem,
+    .pastor-card:nth-child(even) .pastor-imagem {
         width: 100%;
-        height: 380px;
-
-        border-radius: var(--radius-lg);
+        height: 390px;
+        flex-shrink: 0;
     }
 
-    .cascata_box_info {
-        position: relative;
-        top: auto;
-        left: auto;
+    .pastor-info,
+    .pastor-card:nth-child(even) .pastor-info {
+        width: calc(100% - 40px);
+        max-width: none;
 
-        width: calc(100% - 35px);
         margin: -45px auto 0;
-        padding: 30px;
+        padding: 32px;
 
-        transform: none;
+        border: 1px solid rgba(80, 77, 53, 0.10);
+        border-left: 4px solid var(--color-primary);
     }
 
 }
 
 
 /* ==========================================================
-   09. RESPONSIVIDADE — CELULAR
+   12. RESPONSIVIDADE — MOBILE
 ========================================================== */
 
 @media (max-width: 600px) {
 
-    .section_pastor_pagina {
+    .pastores-section {
         padding:
-            calc(var(--header-height) + 50px)
+            calc(var(--header-height) + 45px)
             0
             65px;
     }
 
-    .section_pastor_pagina .section_box {
-        gap: 25px;
+    .pastores-heading {
+        margin-bottom: 40px;
     }
 
-    .section_subtitle {
-        margin-top: 15px;
-        font-size: 0.95rem;
+    .pastores-heading h1 {
+        font-size: clamp(1.85rem, 7vw, 2.4rem);
+        letter-spacing: -0.8px;
     }
 
-    .pastores_cascata_container {
-        gap: 35px;
-        margin-top: 15px;
+    .pastores-heading p {
+        margin-top: 16px;
+
+        font-size: 0.94rem;
+        line-height: 1.8;
     }
 
-    .cascata_img_wrapper {
-        height: 300px;
+    .pastores-lista {
+        gap: 45px;
     }
 
-    .cascata_box_info {
-        width: calc(100% - 25px);
+    .pastor-imagem,
+    .pastor-card:nth-child(even) .pastor-imagem {
+        height: 310px;
+    }
+
+    .pastor-info,
+    .pastor-card:nth-child(even) .pastor-info {
+        width: calc(100% - 24px);
+
         margin-top: -35px;
-        padding: 25px 22px;
+        padding: 26px 22px;
 
-        gap: 12px;
+        gap: 13px;
     }
 
-    .cascata_box_info h2 {
-        font-size: 1.4rem;
+    .pastor-info h2 {
+        font-size: 1.45rem;
     }
 
-    .cascata_badge {
-        font-size: 0.68rem;
+    .pastor-categoria {
+        font-size: 0.66rem;
     }
 
-    .cascata_biografia p {
-        font-size: 0.87rem;
+    .pastor-descricao {
+        font-size: 0.88rem;
     }
 
-    .cascata_biografia li {
-        font-size: 0.82rem;
+    .pastor-toggle {
+        font-size: 0.84rem;
+    }
+
+    .pastor-biografia p {
+        font-size: 0.85rem;
     }
 
 }
 
 
 /* ==========================================================
-   10. TELAS PEQUENAS
+   13. TELAS PEQUENAS
 ========================================================== */
 
 @media (max-width: 360px) {
 
-    .cascata_img_wrapper {
-        height: 255px;
+    .pastor-imagem,
+    .pastor-card:nth-child(even) .pastor-imagem {
+        height: 260px;
     }
 
-    .cascata_box_info {
+    .pastor-info,
+    .pastor-card:nth-child(even) .pastor-info {
         padding: 22px 18px;
     }
 
-    .cascata_box_info h2 {
-        font-size: 1.25rem;
+    .pastor-info h2 {
+        font-size: 1.3rem;
     }
 
 }
 
 
 /* ==========================================================
-   11. REDUÇÃO DE MOVIMENTO
+   14. ACESSIBILIDADE — MOVIMENTO REDUZIDO
 ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
-    .cascata_img_wrapper img,
-    .cascata_biografia,
-    .cascata_toggle i {
+    .pastor-imagem img,
+    .pastor-info,
+    .pastor-divisor,
+    .pastor-toggle i,
+    .pastor-biografia {
         transition: none;
     }
 

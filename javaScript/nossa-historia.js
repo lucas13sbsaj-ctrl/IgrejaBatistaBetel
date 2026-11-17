@@ -1,186 +1,239 @@
 
-/* ==========================================================
-   IGREJA BATISTA BETEL
-   NOSSA-HISTORIA.JS
-
-   Funcionalidade exclusiva:
-   - Modal dos quatro pilares da Visão da IBB
-========================================================== */
-
 document.addEventListener("DOMContentLoaded", () => {
 
-    "use strict";
-
-
     /* ======================================================
-       01. ELEMENTOS
+       01. CARROSSÉIS
     ====================================================== */
 
-    const modal = document.querySelector("#modalDetalhes");
+    function iniciarCarrossel(seletor, paginacao, breakpoints) {
 
-    const modalTitulo = document.querySelector("#modalTitulo");
+        const elemento = document.querySelector(seletor);
+        const elementoPaginacao = document.querySelector(paginacao);
 
-    const modalTexto = document.querySelector("#modalTexto");
+        if (!elemento || !elementoPaginacao) return;
 
-    const btnFechar = document.querySelector(".modal_fechar");
+        if (typeof Swiper === "undefined") {
+            console.error("Swiper não foi carregado.");
+            return;
+        }
 
-    const pilares = document.querySelectorAll(
-        ".ibb_coluna_card[data-pilar]"
-    );
+        return new Swiper(elemento, {
 
+            slidesPerView: 1,
+            spaceBetween: 16,
+            speed: 550,
 
-    if (
-        !modal ||
-        !modalTitulo ||
-        !modalTexto ||
-        !btnFechar
-    ) {
-        return;
+            grabCursor: true,
+            watchOverflow: true,
+
+            observer: true,
+            observeParents: true,
+
+            pagination: {
+                el: elementoPaginacao,
+                clickable: true,
+                bulletClass: "historia-bullet",
+                bulletActiveClass: "historia-bullet-active"
+            },
+
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true
+            },
+
+            a11y: {
+                enabled: true
+            },
+
+            breakpoints: breakpoints
+
+        });
     }
 
 
+    // Missão, Visão e Valores
+
+    iniciarCarrossel(
+        ".mvv-swiper",
+        ".mvv-pagination",
+        {
+            650: {
+                slidesPerView: 2,
+                spaceBetween: 18
+            },
+
+            1000: {
+                slidesPerView: 3,
+                spaceBetween: 24
+            }
+        }
+    );
+
+
+    // Ganhar, Consolidar, Treinar e Enviar
+
+    iniciarCarrossel(
+        ".pilares-swiper",
+        ".pilares-pagination",
+        {
+            650: {
+                slidesPerView: 2,
+                spaceBetween: 18
+            },
+
+            1100: {
+                slidesPerView: 4,
+                spaceBetween: 18
+            }
+        }
+    );
+
+
+    // Redes
+
+    iniciarCarrossel(
+        ".redes-swiper",
+        ".redes-pagination",
+        {
+            650: {
+                slidesPerView: 2,
+                spaceBetween: 18
+            },
+
+            1100: {
+                slidesPerView: 3,
+                spaceBetween: 20
+            }
+        }
+    );
+
+
+    // Ministérios
+
+    iniciarCarrossel(
+        ".ministerios-swiper",
+        ".ministerios-pagination",
+        {
+            650: {
+                slidesPerView: 2,
+                spaceBetween: 18
+            },
+
+            1100: {
+                slidesPerView: 3,
+                spaceBetween: 20
+            }
+        }
+    );
+
+
+    // Departamentos
+
+    iniciarCarrossel(
+        ".departamentos-swiper",
+        ".departamentos-pagination",
+        {
+            650: {
+                slidesPerView: 2,
+                spaceBetween: 18
+            },
+
+            1100: {
+                slidesPerView: 3,
+                spaceBetween: 20
+            }
+        }
+    );
+
+
     /* ======================================================
-       02. CONTEÚDO DOS PILARES
+       02. MODAL DOS QUATRO PILARES
     ====================================================== */
 
-    const conteudos = {
+    const modal = document.getElementById("modalDetalhes");
+    const modalTitulo = document.getElementById("modalTitulo");
+    const modalTexto = document.getElementById("modalTexto");
+
+    const botaoFechar = modal?.querySelector(".pilar-modal-fechar");
+    const botoesPilares = document.querySelectorAll("[data-pilar]");
+
+    const pilares = {
 
         ganhar: {
             titulo: "Ganhar",
-            texto:
-                "Compartilhar o Evangelho de Jesus Cristo, " +
-                "alcançando pessoas por meio do amor, " +
-                "do testemunho cristão e da proclamação " +
-                "da Palavra de Deus."
+            texto: "Compartilhar as boas-novas de Jesus Cristo, anunciando o Evangelho e convidando pessoas a conhecerem o amor e a salvação encontrados nEle."
         },
 
         consolidar: {
             titulo: "Consolidar",
-            texto:
-                "Acolher e acompanhar aqueles que chegam " +
-                "à igreja, fortalecendo sua caminhada " +
-                "com Cristo por meio da comunhão, " +
-                "do cuidado e do discipulado."
+            texto: "Acolher, acompanhar e fortalecer aqueles que estão iniciando ou aprofundando sua caminhada cristã, incentivando a comunhão e o crescimento espiritual."
         },
 
         treinar: {
             titulo: "Treinar",
-            texto:
-                "Preparar e capacitar os membros da igreja " +
-                "para servir com responsabilidade, " +
-                "maturidade espiritual e conhecimento " +
-                "da Palavra de Deus."
+            texto: "Promover o amadurecimento cristão por meio do ensino da Palavra de Deus, do discipulado e da preparação de pessoas para servir com responsabilidade."
         },
 
         enviar: {
             titulo: "Enviar",
-            texto:
-                "Incentivar e enviar discípulos preparados " +
-                "para compartilhar o Evangelho, " +
-                "servir à comunidade e cumprir " +
-                "a missão confiada por Jesus à Igreja."
+            texto: "Incentivar e preparar discípulos para compartilhar o Evangelho, servir ao próximo e cumprir a missão de Cristo em diferentes ambientes."
         }
 
     };
 
+    if (!modal || !modalTitulo || !modalTexto || !botaoFechar) {
+        return;
+    }
 
-    /* ======================================================
-       03. CONTROLE DO MODAL
-    ====================================================== */
-
-    let focoAnterior = null;
-
-    modal.classList.remove("ativo");
-
-    modal.setAttribute("aria-hidden", "true");
-
-    modal.inert = true;
+    let botaoAnterior = null;
 
 
-    /* ======================================================
-       04. ABRIR MODAL
-    ====================================================== */
+    function abrirModal(pilar, botao) {
 
-    function abrirModal(pilar) {
-
-        const conteudo = conteudos[pilar];
+        const conteudo = pilares[pilar];
 
         if (!conteudo) return;
 
-        focoAnterior = document.activeElement;
+        botaoAnterior = botao;
 
         modalTitulo.textContent = conteudo.titulo;
-
         modalTexto.textContent = conteudo.texto;
 
         modal.inert = false;
-
+        modal.setAttribute("aria-hidden", "false");
         modal.classList.add("ativo");
 
-        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("pilar-modal-aberto");
 
-        document.body.classList.add("modal-open");
-
-        btnFechar.focus();
-
+        botaoFechar.focus();
     }
 
-
-    /* ======================================================
-       05. FECHAR MODAL
-    ====================================================== */
 
     function fecharModal() {
 
-        if (!modal.classList.contains("ativo")) {
-            return;
-        }
+        if (!modal.classList.contains("ativo")) return;
 
-        if (
-            focoAnterior &&
-            typeof focoAnterior.focus === "function"
-        ) {
-            focoAnterior.focus();
-        }
+        botaoAnterior?.focus();
 
         modal.classList.remove("ativo");
-
         modal.setAttribute("aria-hidden", "true");
-
         modal.inert = true;
 
-        document.body.classList.remove("modal-open");
-
+        document.body.classList.remove("pilar-modal-aberto");
     }
 
 
-    /* ======================================================
-       06. CLIQUE NOS PILARES
-    ====================================================== */
+    botoesPilares.forEach(botao => {
 
-    pilares.forEach(pilar => {
-
-        pilar.addEventListener("click", () => {
-
-            const identificador = pilar.dataset.pilar;
-
-            abrirModal(identificador);
-
+        botao.addEventListener("click", () => {
+            abrirModal(botao.dataset.pilar, botao);
         });
 
     });
 
 
-    /* ======================================================
-       07. BOTÃO DE FECHAR
-    ====================================================== */
+    botaoFechar.addEventListener("click", fecharModal);
 
-    btnFechar.addEventListener("click", fecharModal);
-
-
-    /* ======================================================
-       08. FECHAR AO CLICAR FORA
-    ====================================================== */
 
     modal.addEventListener("click", evento => {
 
@@ -191,60 +244,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* ======================================================
-       09. TECLA ESCAPE E FOCO
-    ====================================================== */
-
     document.addEventListener("keydown", evento => {
 
-        if (!modal.classList.contains("ativo")) {
-            return;
-        }
+        if (!modal.classList.contains("ativo")) return;
 
         if (evento.key === "Escape") {
-
-            evento.preventDefault();
-
             fecharModal();
-
             return;
         }
 
-        if (evento.key !== "Tab") {
-            return;
-        }
+        if (evento.key !== "Tab") return;
 
         const elementos = Array.from(
             modal.querySelectorAll(
-                'a[href], button:not([disabled]), ' +
-                'input:not([disabled]), ' +
-                'select:not([disabled]), ' +
-                'textarea:not([disabled]), ' +
-                '[tabindex]:not([tabindex="-1"])'
+                'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
             )
-        ).filter(elemento => {
-            return elemento.getClientRects().length > 0;
-        });
+        );
 
-        if (!elementos.length) {
-            evento.preventDefault();
-            modal.focus();
-            return;
-        }
+        if (!elementos.length) return;
 
         const primeiro = elementos[0];
         const ultimo = elementos[elementos.length - 1];
 
-        if (
-            evento.shiftKey &&
-            document.activeElement === primeiro
-        ) {
+        if (evento.shiftKey && document.activeElement === primeiro) {
             evento.preventDefault();
             ultimo.focus();
-        } else if (
-            !evento.shiftKey &&
-            document.activeElement === ultimo
-        ) {
+        } else if (!evento.shiftKey && document.activeElement === ultimo) {
             evento.preventDefault();
             primeiro.focus();
         }

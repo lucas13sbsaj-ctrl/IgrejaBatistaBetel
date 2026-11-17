@@ -3,93 +3,110 @@
    IGREJA BATISTA BETEL
    PASTORES.JS
 
-   Funcionalidade exclusiva:
-   - Expandir e recolher biografias dos pastores
+   Interações exclusivas da página Pastores
 ========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     "use strict";
 
-    const cards = document.querySelectorAll(
-        ".pastor_cascata_card"
+
+    /* ======================================================
+       01. ELEMENTOS
+    ====================================================== */
+
+    const pastorCards = document.querySelectorAll(
+        ".pastor-card"
     );
 
-    if (!cards.length) return;
+    if (!pastorCards.length) return;
 
 
     /* ======================================================
-       01. ALTERAR ESTADO DO CARD
+       02. FECHAR BIOGRAFIA
     ====================================================== */
 
-    function definirEstado(card, expandido) {
+    function fecharBiografia(card) {
 
-        const botao = card.querySelector(
-            ".cascata_toggle"
-        );
-
-        const biografia = card.querySelector(
-            ".cascata_biografia"
-        );
+        const botao = card.querySelector(".pastor-toggle");
+        const biografia = card.querySelector(".pastor-biografia");
 
         if (!botao || !biografia) return;
 
-        card.classList.toggle("ativo", expandido);
+        card.classList.remove("ativo");
 
-        botao.setAttribute(
-            "aria-expanded",
-            String(expandido)
-        );
+        botao.setAttribute("aria-expanded", "false");
 
-        biografia.setAttribute(
-            "aria-hidden",
-            String(!expandido)
-        );
-
-        biografia.inert = !expandido;
+        biografia.setAttribute("aria-hidden", "true");
+        biografia.inert = true;
 
         const texto = botao.querySelector("span");
 
         if (texto) {
-            texto.textContent = expandido
-                ? "Recolher trajetória"
-                : "Conhecer trajetória";
+            texto.textContent = "Conhecer trajetória";
         }
 
     }
 
 
     /* ======================================================
-       02. CONFIGURAÇÃO DOS CARDS
+       03. ABRIR BIOGRAFIA
     ====================================================== */
 
-    cards.forEach(card => {
+    function abrirBiografia(card) {
 
-        const botao = card.querySelector(
-            ".cascata_toggle"
-        );
+        const botao = card.querySelector(".pastor-toggle");
+        const biografia = card.querySelector(".pastor-biografia");
 
-        if (!botao) return;
+        if (!botao || !biografia) return;
 
-        definirEstado(card, false);
+        // Fecha outras biografias
+        pastorCards.forEach(outroCard => {
+
+            if (outroCard !== card) {
+                fecharBiografia(outroCard);
+            }
+
+        });
+
+        card.classList.add("ativo");
+
+        botao.setAttribute("aria-expanded", "true");
+
+        biografia.setAttribute("aria-hidden", "false");
+        biografia.inert = false;
+
+        const texto = botao.querySelector("span");
+
+        if (texto) {
+            texto.textContent = "Recolher trajetória";
+        }
+
+    }
+
+
+    /* ======================================================
+       04. EVENTOS
+    ====================================================== */
+
+    pastorCards.forEach(card => {
+
+        const botao = card.querySelector(".pastor-toggle");
+        const biografia = card.querySelector(".pastor-biografia");
+
+        if (!botao || !biografia) return;
+
+        fecharBiografia(card);
 
         botao.addEventListener("click", () => {
 
-            const estaAberto = card.classList.contains(
-                "ativo"
-            );
+            const estaAberto = card.classList.contains("ativo");
 
-            // Fecha as outras biografias.
-            cards.forEach(outroCard => {
-
-                if (outroCard !== card) {
-                    definirEstado(outroCard, false);
-                }
-
-            });
-
-            // Alterna o card selecionado.
-            definirEstado(card, !estaAberto);
+            if (estaAberto) {
+                fecharBiografia(card);
+            } else {
+                abrirBiografia(card);
+            }
 
         });
 

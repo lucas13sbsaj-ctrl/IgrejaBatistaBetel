@@ -1,874 +1,776 @@
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nossa História e Identidade | Igreja Batista Betel</title>
+    <title>Nossa História | Igreja Batista Betel</title>
 
-    <meta
-        name="description"
-        content="Conheça a história, missão, visão, valores e estrutura ministerial da Igreja Batista Betel em Santo Antônio de Jesus, Bahia."
-    >
+    <meta name="description" content="Conheça a história, a identidade, a visão e os ministérios da Igreja Batista Betel em Santo Antônio de Jesus, Bahia.">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- CSS GLOBAL -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
     <link rel="stylesheet" href="assets/css/global.css">
-
-    <!-- CSS EXCLUSIVO -->
     <link rel="stylesheet" href="assets/css/nossa-historia.css">
 
-    <!-- JAVASCRIPT GLOBAL -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     <script src="javaScript/global.js" defer></script>
-
-    <!-- JAVASCRIPT EXCLUSIVO -->
     <script src="javaScript/nossa-historia.js" defer></script>
 </head>
 
 <body>
 
-    <!-- ==========================================
-         HEADER GLOBAL
-    ========================================== -->
+    <!-- HEADER -->
+    <header id="header" class="site-header">
+        <div class="container header-container">
 
-    <header id="header">
+            <a href="index.html" class="logo" aria-label="Igreja Batista Betel">
+                <img src="assets/images/logo_betel.svg" alt="Logo da Igreja Batista Betel" class="logo-img">
 
-        <div class="container">
-
-            <a
-                href="index.html"
-                class="logo logo_link"
-                aria-label="Igreja Batista Betel - Página inicial"
-            >
-
-                <div class="logo_img">
-                    <img
-                        src="assets/images/logo_betel.svg"
-                        alt="Logo da Igreja Batista Betel"
-                    >
-                </div>
-
-                <div class="logo_nome">
+                <div class="logo-texto">
                     <span>Igreja</span>
                     <strong>Batista Betel</strong>
                 </div>
-
             </a>
 
-            <div class="menu">
+            <nav id="menu-principal" class="menu-principal" aria-label="Menu principal">
+                <ul class="menu-lista">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="nossa-historia.html" class="active" aria-current="page">Nossa História</a></li>
+                    <li><a href="index.html#jesus">Jesus</a></li>
+                    <li><a href="index.html#pastores">Pastores</a></li>
+                    <li><a href="index.html#cultos">Cultos</a></li>
+                    <li><a href="index.html#localizacao">Localização</a></li>
+                </ul>
 
-                <button
-                    id="menu-toggle"
-                    class="menu-toggle"
-                    type="button"
-                    aria-label="Abrir menu"
-                    aria-expanded="false"
-                    aria-controls="menu-principal"
-                >
-                    <i
-                        class="fa-solid fa-bars"
-                        aria-hidden="true"
-                    ></i>
-                </button>
+                <a href="index.html#localizacao" class="btn btn-header">Visite-nos</a>
+            </nav>
 
-                <nav
-                    id="menu-principal"
-                    class="menu_mobile"
-                    aria-label="Navegação principal"
-                >
-
-                    <ul>
-                        <li>
-                            <a href="index.html">Início</a>
-                        </li>
-
-                        <li>
-                            <a
-                                href="nossa-historia.html"
-                                class="active"
-                                aria-current="page"
-                            >
-                                Quem Somos
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="index.html#pastores">
-                                Pastores
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="index.html#culto">
-                                Cultos
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="index.html#loc">
-                                Localização
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="jesus.html">
-                                Fale conosco
-                            </a>
-                        </li>
-                    </ul>
-
-                </nav>
-
-            </div>
+            <button
+                id="menu-toggle"
+                class="menu-toggle"
+                type="button"
+                aria-label="Abrir menu"
+                aria-controls="menu-principal"
+                aria-expanded="false"
+            >
+                <span class="menu-icon" aria-hidden="true">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                </span>
+            </button>
 
         </div>
-
     </header>
 
 
-    <main class="historia-main">
+    <main class="historia-main" id="conteudo-principal">
 
-        <!-- ==========================================
-             NOSSA HISTÓRIA
-        ========================================== -->
+        <!-- HERO -->
+        <section class="historia-hero" aria-labelledby="historia-titulo">
+            <div class="historia-hero-bg" aria-hidden="true"></div>
 
-        <section
-            class="section section_historia"
-            id="historia"
-        >
+            <div class="container historia-hero-container">
 
-            <div class="section_box">
+                <span class="historia-etiqueta historia-etiqueta-clara">
+                    IGREJA BATISTA BETEL
+                </span>
 
-                <div class="section_title">
+                <h1 id="historia-titulo">
+                    Nossa História <span>e Identidade.</span>
+                </h1>
 
-                    <div class="section_indi_title">
-                        <span>Sobre nós</span>
-                    </div>
+                <p>
+                    Uma igreja fundamentada na Palavra de Deus,
+                    comprometida em viver o Evangelho e
+                    compartilhar o amor de Cristo.
+                </p>
 
-                    <h1>Nossa História e Identidade</h1>
-
-                </div>
-
-                <div class="section_box_indi">
-
-                    <div class="section_description">
-
-                        <p>
-                            A <strong>Igreja Batista Betel</strong>
-                            nasceu com o propósito de proclamar
-                            o Evangelho de Cristo e ser um
-                            refúgio espiritual em Santo Antônio
-                            de Jesus. Mais do que um templo,
-                            somos uma comunidade formada por
-                            vidas alcançadas pela graça e
-                            transformadas pelo amor de Deus.
-                        </p>
-
-                        <p>
-                            Ao longo da nossa trajetória, temos
-                            tido o privilégio de acolher famílias,
-                            oferecendo um ambiente de cura
-                            emocional, comunhão e crescimento
-                            na fé. Nossa missão permanece firme:
-                            ser um farol de esperança, gerando
-                            frutos que abençoam e transformam
-                            gerações na nossa cidade.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- MISSÃO, VISÃO E VALORES -->
-
-                <div class="mvv_grid">
-
-                    <article class="mvv_card">
-
-                        <span class="mvv_numero">01</span>
-
-                        <h3>Missão</h3>
-
-                        <p>
-                            Proclamar o Evangelho de Cristo
-                            com fidelidade, promovendo comunhão
-                            genuína, acolhendo vidas e edificando
-                            famílias fundamentadas na Palavra
-                            de Deus em Santo Antônio de Jesus.
-                        </p>
-
-                    </article>
-
-
-                    <article class="mvv_card">
-
-                        <span class="mvv_numero">02</span>
-
-                        <h3>Visão</h3>
-
-                        <p>
-                            Ser uma igreja relevante e acolhedora,
-                            reconhecida pelo amor fraternal,
-                            integridade bíblica e por ser um
-                            farol de esperança e transformação
-                            na sociedade.
-                        </p>
-
-                    </article>
-
-
-                    <article class="mvv_card">
-
-                        <span class="mvv_numero">03</span>
-
-                        <h3>Valores</h3>
-
-                        <p>
-                            Amor a Deus e ao próximo,
-                            centralidade na Bíblia, comunhão
-                            sincera, transparência,
-                            acolhimento familiar e compromisso
-                            com a expansão do Reino.
-                        </p>
-
-                    </article>
-
-                </div>
+                <a href="#nossa-identidade" class="historia-hero-link">
+                    Conheça nossa essência
+                    <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                </a>
 
             </div>
-
         </section>
 
 
-        <!-- ==========================================
-             VISÃO DA IBB
-        ========================================== -->
+        <!-- NOSSA IDENTIDADE -->
+        <section id="nossa-identidade" class="historia-identidade">
+            <div class="container identidade-grid">
 
-        <section
-            class="section section_visao_ibb"
-            id="visao-ibb"
-        >
+                <div class="identidade-imagem">
+                    <img src="assets/images/centroIGRJ.jpg"
+                        alt="Interior da Igreja Batista Betel"
+                        loading="lazy">
 
-            <div class="section_box">
-
-                <div class="section_title">
-
-                    <div class="section_indi_title">
-                        <span>Nossa Estrutura</span>
+                    <div class="identidade-imagem-legenda">
+                        <span>IGREJA BATISTA BETEL</span>
+                        <strong>Uma família vivendo para Cristo.</strong>
                     </div>
-
-                    <h2>Visão da IBB</h2>
-
                 </div>
 
-
-                <div class="ibb_estrutura_container">
-
-                    <!-- JESUS -->
-
-                    <div class="ibb_telhado">
-
-                        <div class="ibb_telhado_conteudo">
-
-                            <h3>Jesus</h3>
-
-                            <span>
-                                Uma luz em cada casa,
-                                uma arca em cada lar!
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- QUATRO PILARES -->
-
-                    <div class="ibb_colunas_grid">
-
-                        <button
-                            class="ibb_coluna_card"
-                            type="button"
-                            data-pilar="ganhar"
-                            aria-haspopup="dialog"
-                        >
-
-                            <span class="coluna_passo">01</span>
-
-                            <h4>Ganhar</h4>
-
-                            <span class="coluna_detalhes">
-                                Saiba mais
-                            </span>
-
-                        </button>
-
-
-                        <button
-                            class="ibb_coluna_card"
-                            type="button"
-                            data-pilar="consolidar"
-                            aria-haspopup="dialog"
-                        >
-
-                            <span class="coluna_passo">02</span>
-
-                            <h4>Consolidar</h4>
-
-                            <span class="coluna_detalhes">
-                                Saiba mais
-                            </span>
-
-                        </button>
-
-
-                        <button
-                            class="ibb_coluna_card"
-                            type="button"
-                            data-pilar="treinar"
-                            aria-haspopup="dialog"
-                        >
-
-                            <span class="coluna_passo">03</span>
-
-                            <h4>Treinar</h4>
-
-                            <span class="coluna_detalhes">
-                                Saiba mais
-                            </span>
-
-                        </button>
-
-
-                        <button
-                            class="ibb_coluna_card"
-                            type="button"
-                            data-pilar="enviar"
-                            aria-haspopup="dialog"
-                        >
-
-                            <span class="coluna_passo">04</span>
-
-                            <h4>Enviar</h4>
-
-                            <span class="coluna_detalhes">
-                                Saiba mais
-                            </span>
-
-                        </button>
-
-                    </div>
-
-
-                    <!-- FUNDAMENTOS -->
-
-                    <div class="ibb_bases_grid">
-
-                        <div class="ibb_base_item">
-                            <span>Discipulado 1 a 1</span>
-                        </div>
-
-                        <div class="ibb_base_item">
-                            <span>Grupo de Crescimento</span>
-                        </div>
-
-                        <div class="ibb_base_item">
-                            <span>Trabalho Social</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==========================================
-             ORGANIZAÇÃO MINISTERIAL
-        ========================================== -->
-
-        <section
-            class="section section_organizacao"
-            id="organizacao"
-        >
-
-            <div class="section_box">
-
-                <div class="section_title">
-
-                    <div class="section_indi_title">
-                        <span>Corpo Ministerial</span>
-                    </div>
+                <div class="identidade-conteudo">
+                    <span class="historia-etiqueta">QUEM SOMOS</span>
 
                     <h2>
-                        Redes, Ministérios e Departamentos
+                        Uma igreja vivendo
+                        <span>o Evangelho.</span>
                     </h2>
+
+                    <div class="historia-linha"></div>
+
+                    <p>
+                        A Igreja Batista Betel é uma comunidade
+                        cristã comprometida com a proclamação
+                        do Evangelho de Jesus Cristo.
+                    </p>
+
+                    <p>
+                        Somos uma família de fé que valoriza
+                        a comunhão, o ensino das Escrituras,
+                        o discipulado e o cuidado com as pessoas.
+                    </p>
+
+                    <p>
+                        Em Santo Antônio de Jesus, buscamos
+                        compartilhar a esperança encontrada
+                        em Cristo e contribuir para a
+                        edificação de vidas e famílias.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- NOSSA ESSÊNCIA -->
+        <section class="historia-mvv" aria-labelledby="mvv-titulo">
+            <div class="container">
+
+                <div class="historia-cabecalho">
+                    <span class="historia-etiqueta">NOSSA ESSÊNCIA</span>
+                    <h2 id="mvv-titulo">Aquilo que nos move.</h2>
+
+                    <p>
+                        Princípios que orientam nossa caminhada,
+                        nosso relacionamento com Deus e nosso serviço.
+                    </p>
+                </div>
+
+                <div class="historia-carousel">
+
+                    <div class="swiper mvv-swiper">
+                        <div class="swiper-wrapper">
+
+                            <article class="swiper-slide mvv-item">
+                                <span class="mvv-numero">01 / PROPÓSITO</span>
+
+                                <div class="mvv-icone">
+                                    <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                                </div>
+
+                                <h3>Missão</h3>
+
+                                <p>
+                                    Proclamar o Evangelho de Cristo
+                                    com fidelidade, promovendo
+                                    comunhão genuína, acolhendo
+                                    vidas e edificando famílias
+                                    fundamentadas na Palavra de Deus.
+                                </p>
+                            </article>
+
+                            <article class="swiper-slide mvv-item">
+                                <span class="mvv-numero">02 / DIREÇÃO</span>
+
+                                <div class="mvv-icone">
+                                    <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                                </div>
+
+                                <h3>Visão</h3>
+
+                                <p>
+                                    Ser uma igreja relevante e
+                                    acolhedora, reconhecida pelo
+                                    amor fraternal, integridade
+                                    bíblica e compromisso com
+                                    a transformação da sociedade.
+                                </p>
+                            </article>
+
+                            <article class="swiper-slide mvv-item">
+                                <span class="mvv-numero">03 / FUNDAMENTOS</span>
+
+                                <div class="mvv-icone">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </div>
+
+                                <h3>Valores</h3>
+
+                                <p>
+                                    Amor a Deus e ao próximo,
+                                    centralidade na Bíblia,
+                                    comunhão sincera, transparência,
+                                    acolhimento familiar e
+                                    compromisso com o Reino de Deus.
+                                </p>
+                            </article>
+
+                        </div>
+                    </div>
+
+                    <div class="historia-pagination mvv-pagination"></div>
 
                 </div>
 
+            </div>
+        </section>
 
-                <div class="org_container">
 
-                    <!-- REDES -->
+        <!-- JESUS E OS QUATRO PILARES -->
+        <section id="visao-ibb" class="historia-visao" aria-labelledby="visao-titulo">
+            <div class="container">
 
-                    <article class="org_card_categoria">
+                <div class="historia-cabecalho">
+                    <span class="historia-etiqueta">NOSSA VISÃO</span>
 
-                        <div class="org_header_categoria">
-                            <h3>Redes</h3>
+                    <h2 id="visao-titulo">Jesus no centro de tudo.</h2>
+
+                    <p>
+                        Uma luz em cada casa, uma arca em cada lar.
+                        Nossa caminhada é orientada por quatro pilares.
+                    </p>
+                </div>
+
+                <div class="visao-jesus">
+                    <span class="visao-jesus-simbolo" aria-hidden="true">
+                        <i class="fa-solid fa-cross"></i>
+                    </span>
+
+                    <span class="visao-jesus-etiqueta">NOSSO FUNDAMENTO</span>
+
+                    <h3>Jesus Cristo</h3>
+
+                    <p>
+                        O centro da nossa fé, da nossa
+                        comunhão e da nossa missão.
+                    </p>
+                </div>
+
+                <div class="visao-conector" aria-hidden="true"></div>
+
+                <div class="historia-carousel">
+
+                    <div class="swiper pilares-swiper">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide pilar-slide">
+                                <button class="pilar-card" type="button"
+                                    data-pilar="ganhar" aria-haspopup="dialog">
+
+                                    <span class="pilar-numero">01</span>
+
+                                    <i class="fa-solid fa-heart pilar-icone"
+                                        aria-hidden="true"></i>
+
+                                    <h3>Ganhar</h3>
+                                    <p>Compartilhar o Evangelho e alcançar vidas.</p>
+
+                                    <span class="pilar-link">
+                                        Conhecer pilar
+                                        <i class="fa-solid fa-arrow-up-right-from-square"
+                                            aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+
+                            <div class="swiper-slide pilar-slide">
+                                <button class="pilar-card" type="button"
+                                    data-pilar="consolidar" aria-haspopup="dialog">
+
+                                    <span class="pilar-numero">02</span>
+
+                                    <i class="fa-solid fa-handshake pilar-icone"
+                                        aria-hidden="true"></i>
+
+                                    <h3>Consolidar</h3>
+                                    <p>Acolher e fortalecer pessoas na fé.</p>
+
+                                    <span class="pilar-link">
+                                        Conhecer pilar
+                                        <i class="fa-solid fa-arrow-up-right-from-square"
+                                            aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+
+                            <div class="swiper-slide pilar-slide">
+                                <button class="pilar-card" type="button"
+                                    data-pilar="treinar" aria-haspopup="dialog">
+
+                                    <span class="pilar-numero">03</span>
+
+                                    <i class="fa-solid fa-book-open pilar-icone"
+                                        aria-hidden="true"></i>
+
+                                    <h3>Treinar</h3>
+                                    <p>Promover crescimento e amadurecimento cristão.</p>
+
+                                    <span class="pilar-link">
+                                        Conhecer pilar
+                                        <i class="fa-solid fa-arrow-up-right-from-square"
+                                            aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+
+                            <div class="swiper-slide pilar-slide">
+                                <button class="pilar-card" type="button"
+                                    data-pilar="enviar" aria-haspopup="dialog">
+
+                                    <span class="pilar-numero">04</span>
+
+                                    <i class="fa-solid fa-paper-plane pilar-icone"
+                                        aria-hidden="true"></i>
+
+                                    <h3>Enviar</h3>
+                                    <p>Preparar pessoas para servir e cumprir a missão.</p>
+
+                                    <span class="pilar-link">
+                                        Conhecer pilar
+                                        <i class="fa-solid fa-arrow-up-right-from-square"
+                                            aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="historia-pagination pilares-pagination"></div>
+
+                </div>
+
+                <p class="pilares-orientacao">
+                    <i class="fa-regular fa-circle-question" aria-hidden="true"></i>
+                    Selecione um pilar para conhecer seu significado.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- NOSSA CAMINHADA -->
+        <section class="historia-caminhada" aria-labelledby="caminhada-titulo">
+            <div class="container">
+
+                <div class="historia-cabecalho">
+                    <span class="historia-etiqueta">NOSSA CAMINHADA</span>
+
+                    <h2 id="caminhada-titulo">Crescemos em comunhão.</h2>
+
+                    <p>
+                        O discipulado, os relacionamentos e
+                        o serviço fazem parte da nossa vida como igreja.
+                    </p>
+                </div>
+
+                <div class="caminhada-grid">
+
+                    <article class="caminhada-item">
+                        <span class="caminhada-numero">01</span>
+
+                        <div class="caminhada-conteudo">
+                            <h3>Discipulado 1 a 1</h3>
+
+                            <p>
+                                Um relacionamento de acompanhamento,
+                                ensino bíblico e crescimento na fé.
+                            </p>
                         </div>
 
-                        <div class="org_lista_itens">
-
-                            <div class="org_item">
-                                <span class="org_ponto"></span>
-                                <div class="org_info">
-                                    <strong>Rede de Homens</strong>
-                                    <span>Líderes: Edsolney e Alan</span>
-                                </div>
-                            </div>
-
-                            <div class="org_item">
-                                <span class="org_ponto"></span>
-                                <div class="org_info">
-                                    <strong>Rede de Mulheres</strong>
-                                    <span>Líderes: Juci e Equipe</span>
-                                </div>
-                            </div>
-
-                            <div class="org_item">
-                                <span class="org_ponto"></span>
-                                <div class="org_info">
-                                    <strong>Rede de Crianças</strong>
-                                    <span>Líderes: Jane e Equipe</span>
-                                </div>
-                            </div>
-
-                            <div class="org_item">
-                                <span class="org_ponto"></span>
-                                <div class="org_info">
-                                    <strong>Rede de Jovens e Adolescentes</strong>
-                                    <span>Líderes: Daniel, Ane e equipe</span>
-                                </div>
-                            </div>
-
-                        </div>
-
+                        <i class="fa-solid fa-user-group" aria-hidden="true"></i>
                     </article>
 
+                    <article class="caminhada-item">
+                        <span class="caminhada-numero">02</span>
 
-                    <!-- MINISTÉRIOS -->
+                        <div class="caminhada-conteudo">
+                            <h3>Grupo de Crescimento</h3>
 
-                    <article class="org_card_categoria">
-
-                        <div class="org_header_categoria">
-                            <h3>Ministérios</h3>
+                            <p>
+                                Encontros de comunhão, oração
+                                e aprendizado da Palavra de Deus.
+                            </p>
                         </div>
 
-                        <div class="org_lista_itens">
-
-                            <div class="org_item">
-                                <span class="org_ponto"></span>
-                                <div class="org_info">
-                                    <strong>Ministério de Louvor</strong>
-                                    <span>Líderes: Thayngred / Vani / Josué / Rogério</span>
-                                </div>
-                            </div>
-
-                            <div class="org_item">
-                                <span class="org_ponto"></span>
-                                <div class="org_info">
-                                    <strong>Ministério Diaconal</strong>
-                                    <span>Líderes: Pr. Samuel / Fátima e Cláudio</span>
-                                </div>
-                            </div>
-
-                            <div class="org_item">
-                                <span class="org_ponto"></span>
-                                <div class="org_info">
-                                    <strong>Ministério de Intercessão</strong>
-                                    <span>Líderes: Rosa e Vanda</span>
-                                </div>
-                            </div>
-
-                            <div class="org_item">
-                                <span class="org_ponto"></span>
-                                <div class="org_info">
-                                    <strong>Ministério de Discipulado / Acolhimento</strong>
-                                    <span>Líderes: Pr. Iran e Equipe</span>
-                                </div>
-                            </div>
-
-                            <div class="org_item">
-                                <span class="org_ponto"></span>
-                                <div class="org_info">
-                                    <strong>Ministério da Família</strong>
-                                    <span>Líderes: Pr. Neilton, Pra. Penha e equipe</span>
-                                </div>
-                            </div>
-
-                        </div>
-
+                        <i class="fa-solid fa-people-group" aria-hidden="true"></i>
                     </article>
 
+                    <article class="caminhada-item">
+                        <span class="caminhada-numero">03</span>
 
-                    <!-- DEPARTAMENTOS -->
+                        <div class="caminhada-conteudo">
+                            <h3>Trabalho Social</h3>
 
-                    <article class="org_card_categoria">
+                            <p>
+                                Ações de cuidado, solidariedade
+                                e serviço ao próximo.
+                            </p>
+                        </div>
 
-                        <div class="org_header_categoria">
+                        <i class="fa-solid fa-hand-holding-heart"
+                            aria-hidden="true"></i>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CORPO MINISTERIAL -->
+        <section id="organizacao" class="historia-organizacao"
+            aria-labelledby="organizacao-titulo">
+
+            <div class="container">
+
+                <div class="historia-cabecalho">
+                    <span class="historia-etiqueta">CORPO MINISTERIAL</span>
+
+                    <h2 id="organizacao-titulo">Servindo juntos.</h2>
+
+                    <p>
+                        Diferentes pessoas, dons e áreas de atuação,
+                        unidos pelo propósito de servir a Cristo.
+                    </p>
+                </div>
+
+
+                <!-- REDES -->
+                <div class="organizacao-bloco">
+
+                    <div class="organizacao-topo">
+                        <div>
+                            <span>01 / COMUNHÃO</span>
+                            <h3>Nossas Redes</h3>
+                        </div>
+
+                        <i class="fa-solid fa-people-group" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="historia-carousel">
+
+                        <div class="swiper redes-swiper">
+                            <div class="swiper-wrapper">
+
+                                <article class="swiper-slide organizacao-item">
+                                    <h4>Rede de Homens</h4>
+                                    <p>Líderes: Pr. Nei e Pr. Alan</p>
+                                </article>
+
+                                <article class="swiper-slide organizacao-item">
+                                    <h4>Rede de Mulheres</h4>
+                                    <p>Líderes: Juci e Equipe</p>
+                                </article>
+
+                                <article class="swiper-slide organizacao-item">
+                                    <h4>Rede de Crianças</h4>
+                                    <p>Líderes: Jane e Equipe</p>
+                                </article>
+
+                                <article class="swiper-slide organizacao-item">
+                                    <h4>Rede de Jovens e Adolescentes</h4>
+                                    <p>Líderes: Pr.Daniel, Pra.Ane e equipe</p>
+                                </article>
+
+                            </div>
+                        </div>
+
+                        <div class="historia-pagination redes-pagination"></div>
+
+                    </div>
+                </div>
+
+
+                <!-- MINISTÉRIOS -->
+                <div class="organizacao-bloco">
+
+                    <div class="organizacao-topo">
+                        <div>
+                            <span>02 / SERVIÇO</span>
+                            <h3>Nossos Ministérios</h3>
+                        </div>
+
+                        <i class="fa-solid fa-hands-praying" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="historia-carousel">
+
+                        <div class="swiper ministerios-swiper">
+                            <div class="swiper-wrapper">
+
+                                <article class="swiper-slide organizacao-item">
+                                    <h4>Ministério de Louvor</h4>
+                                    <p>Líderes: Thayngred / Vani / Josué / Rogério</p>
+                                </article>
+
+                                <article class="swiper-slide organizacao-item">
+                                    <h4>Ministério Diaconal</h4>
+                                    <p>Líderes: Pr. Samuel / Fátima e Cláudio</p>
+                                </article>
+
+                                <article class="swiper-slide organizacao-item">
+                                    <h4>Ministério de Intercessão</h4>
+                                    <p>Líderes: Rosa e Vanda</p>
+                                </article>
+
+                                <article class="swiper-slide organizacao-item">
+                                    <h4>Discipulado e Acolhimento</h4>
+                                    <p>Líderes: Pr. Iran e Equipe</p>
+                                </article>
+
+                                <article class="swiper-slide organizacao-item">
+                                    <h4>Ministério da Família</h4>
+                                    <p>Líderes: Pr. Neilton, Pra. Penha e equipe</p>
+                                </article>
+
+                            </div>
+                        </div>
+
+                        <div class="historia-pagination ministerios-pagination"></div>
+
+                    </div>
+                </div>
+
+
+                <!-- DEPARTAMENTOS -->
+                <div class="organizacao-bloco">
+
+                    <div class="organizacao-topo">
+                        <div>
+                            <span>03 / APOIO</span>
                             <h3>Departamentos</h3>
                         </div>
 
-                        <div class="org_lista_itens">
+                        <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                    </div>
 
-                            <div class="org_item">
-                                <span class="org_ponto"></span>
-                                <div class="org_info">
-                                    <strong>Departamento de Multimídia</strong>
-                                    <span>Líderes: Gabriel e Beatriz</span>
-                                </div>
+                    <div class="historia-carousel">
+
+                        <div class="swiper departamentos-swiper">
+                            <div class="swiper-wrapper">
+
+                                <article class="swiper-slide organizacao-item">
+                                    <h4>Departamento de Multimídia</h4>
+                                    <p>Líderes: Gabriel e Beatriz</p>
+                                </article>
+
+                                <article class="swiper-slide organizacao-item">
+                                    <h4>Departamento Social</h4>
+                                    <p>Instituto Bom Samaritano — Patrícia e Adriana</p>
+                                </article>
+
+                                <article class="swiper-slide organizacao-item">
+                                    <h4>Departamento de Artes</h4>
+                                    <p>Líderes: Marina e Denise</p>
+                                </article>
+
                             </div>
-
-                            <div class="org_item">
-                                <span class="org_ponto"></span>
-                                <div class="org_info">
-                                    <strong>Departamento Social (Inst. Bom Samaritano)</strong>
-                                    <span>Líderes: Patrícia e Adriana</span>
-                                </div>
-                            </div>
-
-                            <div class="org_item">
-                                <span class="org_ponto"></span>
-                                <div class="org_info">
-                                    <strong>Departamento de Artes</strong>
-                                    <span>Líderes: Marina e Denise</span>
-                                </div>
-                            </div>
-
                         </div>
 
-                    </article>
+                        <div class="historia-pagination departamentos-pagination"></div>
 
+                    </div>
                 </div>
 
             </div>
+        </section>
 
+
+        <!-- CONVITE FINAL -->
+        <section class="historia-convite">
+            <div class="container historia-convite-conteudo">
+
+                <span class="historia-etiqueta historia-etiqueta-clara">
+                    FAÇA PARTE DESSA HISTÓRIA
+                </span>
+
+                <h2>Há um lugar para você aqui.</h2>
+
+                <p>
+                    Será uma alegria receber você e sua família.
+                    Venha conhecer a Igreja Batista Betel.
+                </p>
+
+                <a href="index.html#localizacao" class="historia-btn-claro">
+                    Planeje sua visita
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+
+            </div>
         </section>
 
     </main>
 
 
-    <!-- ==========================================
-         FOOTER GLOBAL
-    ========================================== -->
+    <!-- FOOTER -->
+    <footer id="footer" class="site-footer">
+        <div class="container footer-grid">
 
-    <footer>
+            <div class="footer-coluna">
+                <a href="index.html" class="footer-logo">
+                    <img src="assets/images/logo_betel.svg"
+                        alt="Igreja Batista Betel">
 
-        <div class="container_footer">
+                    <span>
+                        <small>IGREJA</small>
+                        <strong>BATISTA BETEL</strong>
+                    </span>
+                </a>
 
-            <div class="footer_box">
-
-                <div class="widget_footer">
-
-                    <h3>Igreja Batista Betel</h3>
-
-                    <p>
-                        Uma igreja fundamentada na Palavra de Deus,
-                        dedicada a viver e compartilhar o amor
-                        de Cristo com fé e comunhão.
-                    </p>
-
-                </div>
-
-
-                <div class="widget_footer">
-
-                    <h3>Links Rápidos</h3>
-
-                    <ul>
-                        <li><a href="index.html">Início</a></li>
-                        <li><a href="nossa-historia.html">Quem Somos</a></li>
-                        <li><a href="index.html#pastores">Pastores</a></li>
-                        <li><a href="index.html#culto">Cultos</a></li>
-                        <li><a href="index.html#loc">Localização</a></li>
-                    </ul>
-
-                </div>
-
-
-                <div class="widget_footer">
-
-                    <h3>Contato</h3>
-
-                    <address>
-                        <p>
-                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                            <span>Rua Isaías Alves, 128 — Santo Antônio de Jesus, BA</span>
-                        </p>
-
-                        <p>
-                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                            <span>(75) 3631-1234</span>
-                        </p>
-
-                        <p>
-                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                            <span>contato@igrejabatistabetel.org.br</span>
-                        </p>
-                    </address>
-
-                </div>
-
-
-                <div class="widget_footer">
-
-                    <h3>Siga-nos</h3>
-
-                    <p>
-                        Acompanhe nossas redes sociais e fique
-                        por dentro de tudo o que acontece
-                        na nossa igreja.
-                    </p>
-
-                    <div class="social_icons">
-
-                        <a
-                            href="https://www.instagram.com/betelsajba/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram da Igreja Batista Betel"
-                        >
-                            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-                        </a>
-
-                        <a
-                            href="https://www.youtube.com/@igrejabetelsajba7333"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="YouTube da Igreja Batista Betel"
-                        >
-                            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-                        </a>
-
-                    </div>
-
-                </div>
-
+                <p>
+                    Uma igreja vivendo o Evangelho.
+                    Uma família vivendo para Cristo.
+                </p>
             </div>
 
+            <div class="footer-coluna">
+                <h3>Navegação</h3>
 
-            <div class="footer_fim">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="nossa-historia.html">Nossa História</a></li>
+                    <li><a href="index.html#pastores">Pastores</a></li>
+                    <li><a href="index.html#cultos">Cultos</a></li>
+                </ul>
+            </div>
 
-                <span>
-                    © 2026 Igreja Batista Betel.
-                    Todos os direitos reservados.
-                </span>
+            <div class="footer-coluna">
+                <h3>Localização</h3>
 
-                <span>
-                    Feito com amor para a Glória de Deus.
-                </span>
+                <p>Santo Antônio de Jesus — BA</p>
 
+                <a href="index.html#localizacao">Como chegar</a>
+            </div>
+
+            <div class="footer-coluna">
+                <h3>Acompanhe a Betel</h3>
+
+                <div class="footer-redes">
+                    <a href="https://www.instagram.com/betelsajba/"
+                        target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/@igrejabetelsajba7333"
+                        target="_blank" rel="noopener noreferrer"
+                        aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
             </div>
 
         </div>
 
+        <div class="container footer-inferior">
+            <p>© <span id="ano-atual">2026</span> Igreja Batista Betel.<br/>Todos os direitos reservados.</p>
+            <span>
+                    Desenvolvido por <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Lucas Ferreira</a>
+            </span>
+        </div>
     </footer>
 
 
-    <!-- ==========================================
-         MODAL EXCLUSIVO DOS PILARES
-    ========================================== -->
+    <!-- MODAL DOS PILARES -->
+    <div id="modalDetalhes" class="pilar-modal"
+        role="dialog" aria-modal="true"
+        aria-hidden="true" aria-labelledby="modalTitulo"
+        tabindex="-1" inert>
 
-    <div
-        id="modalDetalhes"
-        class="modal_overlay"
-        role="dialog"
-        aria-modal="true"
-        aria-hidden="true"
-        aria-labelledby="modalTitulo"
-        tabindex="-1"
-        inert
-    >
+        <div class="pilar-modal-conteudo">
 
-        <div class="modal_conteudo">
-
-            <button
-                type="button"
-                class="modal_fechar"
-                aria-label="Fechar detalhes"
-            >
-                &times;
+            <button type="button" class="pilar-modal-fechar"
+                aria-label="Fechar detalhes">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
             </button>
 
-            <h3 id="modalTitulo"></h3>
+            <span class="historia-etiqueta">NOSSA VISÃO</span>
 
+            <h2 id="modalTitulo"></h2>
             <p id="modalTexto"></p>
 
         </div>
-
     </div>
 
 
-    <!-- ==========================================
-         BOTÃO FLUTUANTE GLOBAL
-    ========================================== -->
+    <!-- BOTÃO FLUTUANTE GLOBAL -->
+    <button id="btn-avisos" class="btn-flutuante"
+        type="button" aria-label="Abrir avisos"
+        aria-controls="modal-avisos" aria-expanded="false">
 
-    <button
-        id="btn-avisos"
-        class="btn-flutuante"
-        type="button"
-        aria-label="Abrir avisos e informes"
-        aria-controls="modal-avisos"
-        aria-expanded="false"
-    >
-
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            class="svg-icone"
-            width="26"
-            height="26"
-            aria-hidden="true"
-        >
-            <path
-                d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22ZM18 16V11C18 7.93 16.37 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5C11.17 2.5 10.5 3.17 10.5 4V4.68C7.63 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16Z"
-                fill="currentColor"
-            />
-            <circle
-                cx="18"
-                cy="5"
-                r="4.2"
-                fill="#E53935"
-                stroke="#FFFFFF"
-                stroke-width="1.5"
-            />
-            <path
-                d="M18 3.3V5.3M18 6.5V6.8"
-                stroke="#FFFFFF"
-                stroke-width="1.2"
-                stroke-linecap="round"
-            />
-        </svg>
-
+        <i class="fa-regular fa-bell" aria-hidden="true"></i>
+        <span class="aviso-notificacao" aria-hidden="true"></span>
     </button>
 
 
-    <!-- ==========================================
-         MODAL GLOBAL DE AVISOS
-    ========================================== -->
-
-    <div
-        id="modal-avisos"
-        class="modal-overlay"
-        role="dialog"
-        aria-modal="true"
-        aria-hidden="true"
-        aria-labelledby="modal-titulo"
-        tabindex="-1"
-        inert
-    >
+    <!-- MODAL GLOBAL DE AVISOS -->
+    <div id="modal-avisos" class="modal-overlay"
+        role="dialog" aria-modal="true"
+        aria-hidden="true" aria-labelledby="modal-titulo"
+        tabindex="-1" inert>
 
         <div class="modal-container">
 
             <div class="modal-header">
+                <h2 id="modal-titulo">Avisos e Informes</h2>
 
-                <h3 id="modal-titulo" class="modal-title">
-                    Avisos &amp; Informes
-                </h3>
-
-                <button
-                    type="button"
-                    id="btn-fechar-modal"
-                    class="modal-close"
-                    aria-label="Fechar avisos"
-                >
+                <button id="btn-fechar-modal" class="modal-close"
+                    type="button" aria-label="Fechar avisos">
                     &times;
                 </button>
-
             </div>
-
 
             <div class="modal-body">
 
                 <article class="aviso-card">
-
-                    <span class="aviso-tag">
-                        Destaque
-                    </span>
-
-                    <h4 class="aviso-titulo">
-                        Culto Especial de Jovens
-                    </h4>
-
-                    <p class="aviso-texto">
-                        Neste sábado, às 19h30.
-                        Contamos com a sua presença!
+                    <span class="aviso-tag">PROGRAMAÇÃO</span>
+                    <h3>Culto de Celebração</h3>
+                    <p>
+                        Domingo, às 18h. Venha cultuar conosco
+                        e traga sua família.
                     </p>
-
-                    <span class="aviso-data">
-                        Sábado • 19:30
-                    </span>
-
                 </article>
 
-
                 <article class="aviso-card">
-
-                    <span class="aviso-tag tag-secundaria">
-                        Inscrições
-                    </span>
-
-                    <h4 class="aviso-titulo">
-                        Culto de Celebração
-                    </h4>
-
-                    <p class="aviso-texto">
-                        Neste domingo, às 18h.
-                        Venha cultuar conosco e traga a sua família!
+                    <span class="aviso-tag">COMUNHÃO</span>
+                    <h3>Grupo de Crescimento</h3>
+                    <p>
+                        Participe dos nossos encontros de comunhão
+                        e estudo da Palavra.
                     </p>
-
-                    <span class="aviso-data">
-                        Domingo • 18:00
-                    </span>
-
                 </article>
 
             </div>
 
-
             <div class="modal-footer">
-
-                <button
-                    type="button"
-                    id="btn-entendi"
-                    class="btn-secundario"
-                >
-                    Entendido
-                </button>
-
+                <button id="btn-entendi" class="btn btn-modal"
+                    type="button">Entendido</button>
             </div>
 
         </div>
-
     </div>
 
 </body>
