@@ -98,6 +98,49 @@ button {
 
 
 /* ==========================================================
+   BARRA DE PROGRESSO DA PÁGINA
+========================================================== */
+
+.scroll-progress {
+    position: fixed;
+
+    top: var(--header-height);
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    z-index: 999;
+
+    pointer-events: none;
+
+    background: transparent;
+}
+
+.scroll-progress-bar {
+    width: 100%;
+    height: 100%;
+
+    background: var(--color-accent);
+
+    transform: scaleX(0);
+    transform-origin: left center;
+
+    will-change: transform;
+}
+
+/* Quando o header tiver altura diferente no mobile */
+
+@media (max-width: 840px) {
+
+    .scroll-progress {
+        top: var(--header-height);
+    }
+
+}
+
+
+/* ==========================================================
    03. BOTÕES E ELEMENTOS GLOBAIS
 ========================================================== */
 

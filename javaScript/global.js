@@ -35,6 +35,84 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
+/* ======================================================
+   01.5 BARRA DE PROGRESSO DA PÁGINA
+====================================================== */
+
+const scrollProgressBar = document.querySelector(
+    "#scrollProgressBar"
+);
+
+if (scrollProgressBar) {
+
+    let atualizacaoPendente = false;
+
+    function atualizarProgressoPagina() {
+
+        const alturaDocumento =
+            document.documentElement.scrollHeight;
+
+        const alturaJanela =
+            document.documentElement.clientHeight;
+
+        const distanciaRolavel =
+            alturaDocumento - alturaJanela;
+
+        const progresso = distanciaRolavel > 0
+            ? Math.min(
+                1,
+                Math.max(
+                    0,
+                    window.scrollY / distanciaRolavel
+                )
+            )
+            : 0;
+
+        scrollProgressBar.style.transform =
+            `scaleX(${progresso})`;
+
+        atualizacaoPendente = false;
+
+    }
+
+    function solicitarAtualizacaoProgresso() {
+
+        if (atualizacaoPendente) return;
+
+        atualizacaoPendente = true;
+
+        requestAnimationFrame(
+            atualizarProgressoPagina
+        );
+
+    }
+
+    // Atualiza imediatamente ao carregar
+    atualizarProgressoPagina();
+
+    // Atualiza ao rolar a página
+    window.addEventListener(
+        "scroll",
+        solicitarAtualizacaoProgresso,
+        { passive: true }
+    );
+
+    // Atualiza ao redimensionar a janela
+    window.addEventListener(
+        "resize",
+        solicitarAtualizacaoProgresso
+    );
+
+    // Atualiza após carregar imagens e outros recursos
+    window.addEventListener(
+        "load",
+        solicitarAtualizacaoProgresso
+    );
+
+}
+
+
+
     /* ======================================================
        02. MENU MOBILE
     ====================================================== */
